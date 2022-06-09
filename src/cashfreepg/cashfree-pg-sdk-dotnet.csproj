@@ -17,7 +17,6 @@
     <Version>1.0.2</Version>
     <IconUrl>https://www.cashfree.com/images/presskit/icon.png</IconUrl>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Readme>README.md</Readme>
     <Title> Cashfree Payment Gateway Dotnet SDK</Title>
     <!-- <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\cfsdk.xml</DocumentationFile> -->
     <PackageReleaseNotes>First Version Release</PackageReleaseNotes>
@@ -30,7 +29,6 @@
     <PackageReference Include="Polly" Version="7.2.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
-    <None Include="Documentation\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>

@@ -43,6 +43,30 @@ namespace cashfreepg.Interface {
             }
         }
 
+        public CFPaymentEntityResponse preAuthorization(CFConfig cfConfig, string orderId, CFAuthorizationRequest cfAuthorizationRequest, CFHeader? header = null) {
+            Configuration config = new Configuration();
+            config.BasePath = this.getURL(cfConfig.environment);
+            config.Timeout = cfConfig.timeout;
+            if(cfConfig.webProxy != null) {
+                config.Proxy = cfConfig.webProxy;
+            }
+            try
+            {
+                // Create Order
+                var apiInstance = new OrdersApi(config);
+                var result = apiInstance.Preauthorization(cfConfig.clientId, cfConfig.clientSecret, orderId, cfConfig.apiVersion, cfAuthorizationRequest, header?.requestID, null, header?.idempotencyKey);
+                return result;
+            } catch (ApiException e) {
+
+                CFError? cfError = JsonConvert.DeserializeObject<CFError?>(e.Message);
+                if(cfError != null) {
+                    throw new cashfreepg.Client.ApiException(e.ErrorCode, e.StackTrace, cfError, e.Headers);
+                } else {
+                    throw e;
+                }
+            }
+        }
+
         public CFPayResponse orderPay(CFConfig cfConfig, CFOrderPayRequest cFOrderPayRequest, CFHeader? header = null) {
             Configuration config = new Configuration();
             config.BasePath = this.getURL(cfConfig.environment);
@@ -75,7 +99,6 @@ namespace cashfreepg.Interface {
             try {
                 var apiInstance = new OrdersApi(config);
                 CFOrderResponse cfOrderResponse = apiInstance.GetOrder(cfConfig.clientId,cfConfig.clientSecret, orderID, cfConfig.apiVersion, header?.requestID, null, null);
-                Console.WriteLine(cfOrderResponse.cfOrder.OrderStatus);
                 return cfOrderResponse;
             } catch (ApiException e) {
 

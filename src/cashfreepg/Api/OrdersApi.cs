@@ -137,7 +137,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cFAuthorizationRequest"> (optional)</param>
         /// <returns>CFPaymentsEntity</returns>
-        CFPaymentsEntity Preauthorization(string xClientId, string xClientSecret, string orderId, string xApiVersion, CFAuthorizationRequest cFAuthorizationRequest,string? xRequestId = default(string?), bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?));
+        CFPaymentEntityResponse Preauthorization(string xClientId, string xClientSecret, string orderId, string xApiVersion, CFAuthorizationRequest cFAuthorizationRequest,string? xRequestId = default(string?), bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?));
 
         /// <summary>
         /// Preauthorization
@@ -1016,10 +1016,10 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cFAuthorizationRequest"> (optional)</param>
         /// <returns>CFPaymentsEntity</returns>
-        public CFPaymentsEntity Preauthorization(string xClientId, string xClientSecret, string orderId, string xApiVersion, CFAuthorizationRequest cFAuthorizationRequest, string? xRequestId = default(string?), bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?))
+        public CFPaymentEntityResponse Preauthorization(string xClientId, string xClientSecret, string orderId, string xApiVersion, CFAuthorizationRequest cFAuthorizationRequest, string? xRequestId = default(string?), bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?))
         {
             cashfreepg.Client.ApiResponse<CFPaymentsEntity> localVarResponse = PreauthorizationWithHttpInfo(xClientId, xClientSecret, orderId, xApiVersion, cFAuthorizationRequest, xRequestId, xIdempotencyReplayed, xIdempotencyKey);
-            return localVarResponse.Data;
+            return new CFPaymentEntityResponse(localVarResponse.Data, localVarResponse.Headers);
         }
 
         /// <summary>

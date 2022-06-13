@@ -51,7 +51,9 @@ namespace cashfreepg.Model
         /// <param name="orderSplits">orderSplits.</param>
         public CFOrderRequest(string? orderId = default(string?), double? orderAmount = default(double?), string? orderCurrency = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<CFVendorSplit>? orderSplits = default(List<CFVendorSplit>?))
         {
-            this.OrderAmount = orderAmount;
+            if (orderAmount == null) {
+                throw new ArgumentNullException("orderAmount is a required property for CFOrderRequest and cannot be null");
+            }
             // to ensure "orderCurrency" is required (not null)
             if (orderCurrency == null) {
                 throw new ArgumentNullException("orderCurrency is a required property for CFOrderRequest and cannot be null");
@@ -61,6 +63,13 @@ namespace cashfreepg.Model
             if (customerDetails == null) {
                 throw new ArgumentNullException("customerDetails is a required property for CFOrderRequest and cannot be null");
             }
+            if (customerDetails.CustomerId == null) {
+                throw new ArgumentNullException("CustomerId is a required property for CFOrderRequest and cannot be null");
+            }
+            if (customerDetails.CustomerPhone == null) {
+                throw new ArgumentNullException("CustomerPhone is a required property for CFOrderRequest and cannot be null");
+            }
+            this.OrderAmount = orderAmount;
             this.CustomerDetails = customerDetails;
             this.OrderId = orderId;
             this.OrderMeta = orderMeta;

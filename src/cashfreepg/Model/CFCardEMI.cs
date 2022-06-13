@@ -146,11 +146,11 @@ namespace cashfreepg.Model
                 throw new ArgumentNullException("cardCvv is a required property for CFCardEMI and cannot be null");
             }
             this.CardCvv = cardCvv;
-            if (CardBankName == null) {
+            if (cardBankName == null) {
                 throw new ArgumentNullException("CardBankName is a required property for CFCardEMI and cannot be null");
             }
             this.CardBankName = cardBankName;
-            if (EmiTenure == null) {
+            if (emiTenure == null) {
                 throw new ArgumentNullException("EmiTenure is a required property for CFCardEMI and cannot be null");
             }
             this.EmiTenure = emiTenure;

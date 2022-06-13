@@ -50,7 +50,7 @@ namespace cashfreepg.Model
         /// <param name="payments">payments.</param>
         /// <param name="settlements">settlements.</param>
         /// <param name="refunds">refunds.</param>
-        public CFOrder(int? cfOrderId = default(int?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? paymentLink = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?))
+        public CFOrder(int? cfOrderId = default(int?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? paymentLink = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<Dictionary<string, object>>? orderSplits = default(List<Dictionary<string, object>>?))
         {
             this.CfOrderId = cfOrderId;
             this.OrderId = orderId;
@@ -67,6 +67,8 @@ namespace cashfreepg.Model
             this.Payments = payments;
             this.Settlements = settlements;
             this.Refunds = refunds;
+            this.OrderTags = orderTags;
+            this.OrderSplits = orderSplits;
         }
 
         /// <summary>
@@ -160,6 +162,18 @@ namespace cashfreepg.Model
         public CFRefundURLObject? Refunds { get; set; }
 
         /// <summary>
+        /// Gets or Sets order_tags
+        /// </summary>
+        [DataMember(Name = "order_tags", EmitDefaultValue = false)]
+        public Dictionary<string, string>? OrderTags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Refunds
+        /// </summary>
+        [DataMember(Name = "order_splits", EmitDefaultValue = false)]
+        public List<Dictionary<string, object>> OrderSplits { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -182,6 +196,8 @@ namespace cashfreepg.Model
             sb.Append("  Payments: ").Append(Payments).Append("\n");
             sb.Append("  Settlements: ").Append(Settlements).Append("\n");
             sb.Append("  Refunds: ").Append(Refunds).Append("\n");
+            sb.Append("  Order Tags: ").Append(OrderTags).Append("\n");
+            sb.Append("  Order Splits: ").Append(OrderSplits.Count).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

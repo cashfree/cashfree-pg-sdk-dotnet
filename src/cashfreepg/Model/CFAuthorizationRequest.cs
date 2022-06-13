@@ -59,13 +59,13 @@ namespace cashfreepg.Model
         /// </summary>
         /// <value>Type of authorization to run. Can be one of &#39;CAPTURE&#39; , &#39;VOID&#39;</value>
         [DataMember(Name = "action", EmitDefaultValue = false)]
-        public ActionEnum? Action { get; set; }
+        public string? Action { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CFAuthorizationRequest" /> class.
         /// </summary>
         /// <param name="action">Type of authorization to run. Can be one of &#39;CAPTURE&#39; , &#39;VOID&#39;.</param>
         /// <param name="amount">The amount if you are running a &#39;CAPTURE&#39;.</param>
-        public CFAuthorizationRequest(ActionEnum? action = default(ActionEnum?), decimal amount = default(decimal))
+        public CFAuthorizationRequest(string? action = default(string?), decimal amount = default(decimal))
         {
             this.Action = action;
             this.Amount = amount;

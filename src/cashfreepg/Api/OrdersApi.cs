@@ -118,9 +118,36 @@ namespace cashfreepg.Api
         /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xApiVersion"></param>
         /// <param name="xRequestId"> (optional)</param>
+        /// <param name="cFOrderPaySessionsRequest"> (optional)</param>
+        /// <returns>CFOrderPayResponse</returns>
+        CFPayResponse OrderPaySessions(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?));
+
+        /// <summary>
+        /// Order Pay
+        /// </summary>
+        /// <remarks>
+        /// Use this API when you have already created the orders and want Cashfree to process the payment.
+        /// </remarks>
+        /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion"></param>
+        /// <param name="xRequestId"> (optional)</param>
         /// <param name="cFOrderPayRequest"> (optional)</param>
         /// <returns>ApiResponse of CFOrderPayResponse</returns>
         ApiResponse<CFOrderPayResponse> OrderPayWithHttpInfo(string xApiVersion, CFOrderPayRequest cFOrderPayRequest, string? xRequestId = default(string?));
+
+        /// <summary>
+        /// Order Pay
+        /// </summary>
+        /// <remarks>
+        /// Use this API when you have already created the orders and want Cashfree to process the payment.
+        /// </remarks>
+        /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion"></param>
+        /// <param name="xRequestId"> (optional)</param>
+        /// <param name="cFOrderPaySessionsRequest"> (optional)</param>
+        /// <returns>ApiResponse of CFOrderPayResponse</returns>
+        ApiResponse<CFOrderPayResponse> OrderPaySessionWithHttpInfo(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?));
+
         /// <summary>
         /// Preauthorization
         /// </summary>
@@ -861,6 +888,81 @@ namespace cashfreepg.Api
         {
             cashfreepg.Client.ApiResponse<CFOrderPayResponse> localVarResponse = OrderPayWithHttpInfo(xApiVersion, cFOrderPayRequest, xRequestId);
             return new CFPayResponse(localVarResponse.Data, localVarResponse.Headers);
+        }
+
+        /// <summary>
+        /// Order Pay Use this API when you have already created the orders and want Cashfree to process the payment.
+        /// </summary>
+        /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion"></param>
+        /// <param name="xRequestId"> (optional)</param>
+        /// <param name="cFOrderPayRequest"> (optional)</param>
+        /// <returns>CFOrderPayResponse</returns>
+        public CFPayResponse OrderPaySessions(string xApiVersion , CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?))
+        {
+            cashfreepg.Client.ApiResponse<CFOrderPayResponse> localVarResponse = OrderPaySessionsWithHttpInfo(xApiVersion, cFOrderPaySessionsRequest, xRequestId);
+            return new CFPayResponse(localVarResponse.Data, localVarResponse.Headers);
+        }
+
+        /// <summary>
+        /// Order Pay Use this API when you have already created the orders and want Cashfree to process the payment.
+        /// </summary>
+        /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion"></param>
+        /// <param name="xRequestId"> (optional)</param>
+        /// <param name="cFOrderPayRequest"> (optional)</param>
+        /// <returns>ApiResponse of CFOrderPayResponse</returns>
+        public cashfreepg.Client.ApiResponse<CFOrderPayResponse> OrderPaySessionsWithHttpInfo(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?))
+        {
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+            {
+                throw new cashfreepg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling OrdersApi->OrderPay");
+            }
+
+            cashfreepg.Client.RequestOptions localVarRequestOptions = new cashfreepg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfreepg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = cashfreepg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = cFOrderPaySessionsRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CFOrderPayResponse>("/orders/sessions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OrderPaySessions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

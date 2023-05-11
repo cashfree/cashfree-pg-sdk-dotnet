@@ -89,6 +89,28 @@ namespace cashfreepg.Interface {
             }
         }
 
+        public CFPayResponse orderPaySessions(CFConfig cfConfig, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, CFHeader? header = null) {
+            Configuration config = new Configuration();
+            config.BasePath = this.getURL(cfConfig.environment);
+            config.Timeout = cfConfig.timeout;
+            if(cfConfig.webProxy != null) {
+                config.Proxy = cfConfig.webProxy;
+            }
+            try {
+                var apiInstance = new OrdersApi(config);
+                CFPayResponse cfPayResponse = apiInstance.OrderPaySessions(cfConfig.apiVersion, cFOrderPaySessionsRequest, header?.requestID);
+                return cfPayResponse;
+            } catch (ApiException e) {
+
+                CFError? cfError = JsonConvert.DeserializeObject<CFError?>(e.Message);
+                if(cfError != null) {
+                    throw new cashfreepg.Client.ApiException(e.ErrorCode, e.StackTrace, cfError, e.Headers);
+                } else {
+                    throw e;
+                }
+            }
+        }
+
         public CFOrderResponse getOrder(CFConfig cfConfig, string orderID, CFHeader? header = null) {
             Configuration config = new Configuration();
             config.BasePath = this.getURL(cfConfig.environment);

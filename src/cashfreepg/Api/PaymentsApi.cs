@@ -392,6 +392,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -506,7 +507,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
-
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CFPaymentsEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -615,6 +616,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -726,6 +728,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request

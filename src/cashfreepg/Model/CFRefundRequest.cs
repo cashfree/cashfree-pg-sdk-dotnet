@@ -43,8 +43,14 @@ namespace cashfreepg.Model
         /// <param name="refundAmount">Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed) (required).</param>
         /// <param name="refundId">An unique ID to associate the refund with. Provie alphanumeric values (required).</param>
         /// <param name="refundNote">A refund note for your reference..</param>
+<<<<<<< HEAD
         /// <param name="refundSplits">refundSplits.</param>
         public CFRefundRequest(double? refundAmount = default(double?), string? refundId = default(string?), string? refundNote = default(string?), List<CFVendorSplit>? refundSplits = default(List<CFVendorSplit>?))
+=======
+        /// <param name="refundSpeed">refundSpeed.</param>
+        /// <param name="refundSplits">refundSplits.</param>
+        public CFRefundRequest(double? refundAmount = default(double?), string? refundId = default(string?), string? refundNote = default(string?), string? refundSpeed = default(string?), List<CFVendorSplit>? refundSplits = default(List<CFVendorSplit>?))
+>>>>>>> 2.0.2
         {
             this.RefundAmount = refundAmount;
             // to ensure "refundId" is required (not null)
@@ -54,6 +60,10 @@ namespace cashfreepg.Model
             this.RefundId = refundId;
             this.RefundNote = refundNote;
             this.RefundSplits = refundSplits;
+<<<<<<< HEAD
+=======
+            this.RefundSpeed = refundSpeed;
+>>>>>>> 2.0.2
         }
 
         /// <summary>
@@ -64,6 +74,16 @@ namespace cashfreepg.Model
         public double? RefundAmount { get; set; }
 
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// Speed at which the speed has to be processed. By default it is STANDARD
+        /// </summary>
+        /// <value>STANDARD or INSTANT</value>
+        [DataMember(Name = "refund_speed", IsRequired = false, EmitDefaultValue = false)]
+        public string? RefundSpeed { get; set; }
+
+        /// <summary>
+>>>>>>> 2.0.2
         /// An unique ID to associate the refund with. Provie alphanumeric values
         /// </summary>
         /// <value>An unique ID to associate the refund with. Provie alphanumeric values</value>
@@ -95,6 +115,10 @@ namespace cashfreepg.Model
             sb.Append("  RefundId: ").Append(RefundId).Append("\n");
             sb.Append("  RefundNote: ").Append(RefundNote).Append("\n");
             sb.Append("  RefundSplits: ").Append(RefundSplits).Append("\n");
+<<<<<<< HEAD
+=======
+            sb.Append("  RefundSpeed: ").Append(RefundSpeed).Append("\n");
+>>>>>>> 2.0.2
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +194,13 @@ namespace cashfreepg.Model
                 {
                     hashCode = (hashCode * 59) + this.RefundNote.GetHashCode();
                 }
+<<<<<<< HEAD
+=======
+                if (this.RefundSpeed != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefundSpeed.GetHashCode();
+                }
+>>>>>>> 2.0.2
                 if (this.RefundSplits != null)
                 {
                     hashCode = (hashCode * 59) + this.RefundSplits.GetHashCode();

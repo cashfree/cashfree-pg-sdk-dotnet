@@ -451,6 +451,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFRefundRequest;
 
 
@@ -566,6 +567,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFRefundRequest;
 
 
@@ -684,6 +686,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -804,6 +807,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -902,6 +906,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfreepg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -995,6 +1000,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request

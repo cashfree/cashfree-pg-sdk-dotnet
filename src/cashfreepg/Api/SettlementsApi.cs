@@ -316,6 +316,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -427,6 +428,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request

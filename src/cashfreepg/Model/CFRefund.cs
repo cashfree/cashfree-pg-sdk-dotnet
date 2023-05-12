@@ -177,7 +177,12 @@ namespace cashfreepg.Model
         /// <param name="refundMode">Method or speed of processing refund.</param>
         /// <param name="createdAt">Time of refund creation.</param>
         /// <param name="processedAt">Time when refund was processed successfully.</param>
+<<<<<<< HEAD
         public CFRefund(int? cfPaymentId = default(int?), string? cfRefundId = default(string?), string? orderId = default(string?), string? refundId = default(string?), EntityEnum? entity = default(EntityEnum?), decimal? refundAmount = default(decimal?), string? refundCurrency = default(string?), string? refundNote = default(string?), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string? refundArn = default(string?), decimal? refundCharge = default(decimal?), string? statusDescription = default(string?), Object? metadata = default(Object?), List<CFVendorSplit>? refundSplits = default(List<CFVendorSplit>?), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string? createdAt = default(string?), string? processedAt = default(string?))
+=======
+        /// <param name="refundSpeed">Speed at which the refund was processed</param>
+        public CFRefund(int? cfPaymentId = default(int?), string? cfRefundId = default(string?), string? orderId = default(string?), string? refundId = default(string?), EntityEnum? entity = default(EntityEnum?), decimal? refundAmount = default(decimal?), string? refundCurrency = default(string?), string? refundNote = default(string?), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string? refundArn = default(string?), decimal? refundCharge = default(decimal?), string? statusDescription = default(string?), Object? metadata = default(Object?), List<CFVendorSplit>? refundSplits = default(List<CFVendorSplit>?), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string? createdAt = default(string?), string? processedAt = default(string?), CFRefundSpeed? refundSpeed = default(CFRefundSpeed?))
+>>>>>>> 2.0.2
         {
             this.CfPaymentId = cfPaymentId;
             this.CfRefundId = cfRefundId;
@@ -197,6 +202,10 @@ namespace cashfreepg.Model
             this.RefundMode = refundMode;
             this.CreatedAt = createdAt;
             this.ProcessedAt = processedAt;
+<<<<<<< HEAD
+=======
+            this.RefundSpeed = refundSpeed;
+>>>>>>> 2.0.2
         }
 
         /// <summary>
@@ -207,6 +216,16 @@ namespace cashfreepg.Model
         public int? CfPaymentId { get; set; }
 
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// Refund Speed Object
+        /// </summary>
+        /// <value>Refund Speed information</value>
+        [DataMember(Name = "refund_speed", EmitDefaultValue = false)]
+        public CFRefundSpeed? RefundSpeed { get; set; }
+
+        /// <summary>
+>>>>>>> 2.0.2
         /// Cashfree Payments ID for a refund
         /// </summary>
         /// <value>Cashfree Payments ID for a refund</value>
@@ -322,6 +341,10 @@ namespace cashfreepg.Model
             sb.Append("  RefundMode: ").Append(RefundMode).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  ProcessedAt: ").Append(ProcessedAt).Append("\n");
+<<<<<<< HEAD
+=======
+            sb.Append("  RefundSpeed: ").Append(RefundSpeed).Append("\n");
+>>>>>>> 2.0.2
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -503,6 +526,13 @@ namespace cashfreepg.Model
                 {
                     hashCode = (hashCode * 59) + this.ProcessedAt.GetHashCode();
                 }
+<<<<<<< HEAD
+=======
+                if (this.RefundSpeed != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefundSpeed.GetHashCode();
+                }
+>>>>>>> 2.0.2
                 return hashCode;
             }
         }
@@ -518,4 +548,81 @@ namespace cashfreepg.Model
         }
     }
 
+<<<<<<< HEAD
+=======
+
+    public partial class CFRefundSpeed {
+
+        /// <summary>
+        /// Requested Speed of refund
+        /// </summary>
+        /// <value>STANDARD or INSTANT</value>
+        [DataMember(Name = "requested", EmitDefaultValue = false)]
+        public string? Requested { get; set; }
+
+        /// <summary>
+        /// Processed Speed of refund
+        /// </summary>
+        /// <value>STANDARD or INSTANT</value>
+        [DataMember(Name = "processed", EmitDefaultValue = false)]
+        public string? Processed { get; set; }
+
+        /// <summary>
+        /// Accepted Speed of refund
+        /// </summary>
+        /// <value>STANDARD or INSTANT</value>
+        [DataMember(Name = "accepted", EmitDefaultValue = false)]
+        public string? Accepted { get; set; }
+
+        /// <summary>
+        /// Error message if any
+        /// </summary>
+        /// <value>Any error message</value>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
+        public string? Message { get; set; }
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CFRefundSpeed" /> class.
+        /// </summary>
+        /// <param name="requested">Requested Speed of Refund</param>
+        /// <param name="processed">Processed Speed of Refund</param>
+        /// <param name="accepted">Accepted Speed of Refund</param>
+        /// <param name="message">Error messages if any</param>
+        public CFRefundSpeed(string? requested = default(string?), string? processed = default(string?), string? accepted = default(string?), string? message = default(string?))
+        {
+            this.Requested = requested;
+            this.Processed = processed;
+            this.Accepted = accepted;
+            this.Message = message;
+        }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class CFRefundSpeed {\n");
+            sb.Append("  Requested: ").Append(Requested).Append("\n");
+            sb.Append("  Processed: ").Append(Processed).Append("\n");
+            sb.Append("  Accepted: ").Append(Accepted).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+    }
+
+>>>>>>> 2.0.2
 }

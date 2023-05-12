@@ -14,7 +14,7 @@
     <Description>Library for Cashfree Payment Gateway</Description>
     <Copyright>Copyright 2022</Copyright>
     <RootNamespace>cashfree-pg-sdk-dotnet</RootNamespace>
-    <Version>1.0.7</Version>
+    <Version>2.0.2</Version>
     <IconUrl>https://www.cashfree.com/images/presskit/icon.png</IconUrl>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Title> Cashfree Payment Gateway Dotnet SDK</Title>
@@ -27,8 +27,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.13.0" />
     <PackageReference Include="Polly" Version="7.2.2" />
+    <PackageReference Include="Sentry" Version="3.31.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

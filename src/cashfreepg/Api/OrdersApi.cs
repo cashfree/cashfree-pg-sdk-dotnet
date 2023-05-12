@@ -146,7 +146,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cFOrderPaySessionsRequest"> (optional)</param>
         /// <returns>ApiResponse of CFOrderPayResponse</returns>
-        ApiResponse<CFOrderPayResponse> OrderPaySessionWithHttpInfo(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?));
+        ApiResponse<CFOrderPayResponse> OrderPaySessionsWithHttpInfo(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?));
 
         /// <summary>
         /// Preauthorization
@@ -533,6 +533,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFOrderRequest;
 
 
@@ -638,6 +639,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFOrderRequest;
 
 
@@ -748,7 +750,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
-
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
             // make the HTTP request
             string endPoint = "/orders/" + orderId;
@@ -859,7 +861,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
-
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CFOrder>("/orders/{order_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -910,7 +912,7 @@ namespace cashfreepg.Api
         /// <exception cref="cashfreepg.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xApiVersion"></param>
         /// <param name="xRequestId"> (optional)</param>
-        /// <param name="cFOrderPayRequest"> (optional)</param>
+        /// <param name="cFOrderPaySessionsRequest"> (optional)</param>
         /// <returns>ApiResponse of CFOrderPayResponse</returns>
         public cashfreepg.Client.ApiResponse<CFOrderPayResponse> OrderPaySessionsWithHttpInfo(string xApiVersion, CFOrderPaySessionsRequest cFOrderPaySessionsRequest, string? xRequestId = default(string?))
         {
@@ -948,6 +950,7 @@ namespace cashfreepg.Api
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
             localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFOrderPaySessionsRequest;
 
 
@@ -1009,6 +1012,7 @@ namespace cashfreepg.Api
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
             localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFOrderPayRequest;
 
 
@@ -1087,6 +1091,7 @@ namespace cashfreepg.Api
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
             localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFOrderPayRequest;
 
 
@@ -1199,6 +1204,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFAuthorizationRequest;
 
 
@@ -1313,6 +1319,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFAuthorizationRequest;
 
 

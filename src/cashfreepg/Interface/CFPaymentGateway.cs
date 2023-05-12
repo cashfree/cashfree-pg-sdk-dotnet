@@ -9,6 +9,7 @@ using Sentry;
 namespace cashfreepg.Interface {
 
     public class CFPaymentGateway {
+
         private CFPaymentGateway() {}  
         private static CFPaymentGateway? instance;
         private string release_version = "2.0.2";

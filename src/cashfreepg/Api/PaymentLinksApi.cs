@@ -498,6 +498,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfreepg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -591,6 +592,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfreepg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -693,6 +695,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFLinkRequest;
 
 
@@ -799,6 +802,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
             localVarRequestOptions.Data = cFLinkRequest;
 
 
@@ -908,7 +912,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
-
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CFLink>("/links/{link_id}", localVarRequestOptions, this.Configuration);
@@ -1018,7 +1022,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
-
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CFLink>("/links/{link_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
@@ -1126,6 +1130,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request
@@ -1236,6 +1241,7 @@ namespace cashfreepg.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfreepg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
             }
+            localVarRequestOptions.HeaderParameters.Add("x-platform", Constants.x_platform); // header parameter
 
 
             // make the HTTP request

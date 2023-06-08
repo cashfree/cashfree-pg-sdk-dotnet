@@ -108,7 +108,7 @@ namespace cashfreepg.Model
         /// <param name="authId">authId.</param>
         /// <param name="authorization">authorization.</param>
         /// <param name="paymentMethod">paymentMethod.</param>
-        public CFPaymentsEntity(int? cfPaymentId = default(int?), string? orderId = default(string?), string? entity = default(string?), bool? isCaptured = default(bool?), decimal? orderAmount = default(decimal?), string? paymentGroup = default(string?), string? paymentCurrency = default(string?), decimal? paymentAmount = default(decimal?), string? paymentTime = default(string?), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), string? paymentMessage = default(string?), string? bankReference = default(string?), string? authId = default(string?), CFAuthorizationInPaymentsEntity? authorization = default(CFAuthorizationInPaymentsEntity?), CFPaymentsEntityPayment? paymentMethod = default(CFPaymentsEntityPayment?))
+        public CFPaymentsEntity(long? cfPaymentId = default(long?), string? orderId = default(string?), string? entity = default(string?), bool? isCaptured = default(bool?), decimal? orderAmount = default(decimal?), string? paymentGroup = default(string?), string? paymentCurrency = default(string?), decimal? paymentAmount = default(decimal?), string? paymentTime = default(string?), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), string? paymentMessage = default(string?), string? bankReference = default(string?), string? authId = default(string?), CFAuthorizationInPaymentsEntity? authorization = default(CFAuthorizationInPaymentsEntity?), CFPaymentsEntityPayment? paymentMethod = default(CFPaymentsEntityPayment?))
         {
             this.CfPaymentId = cfPaymentId;
             this.OrderId = orderId;
@@ -131,7 +131,7 @@ namespace cashfreepg.Model
         /// Gets or Sets CfPaymentId
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public int? CfPaymentId { get; set; }
+        public long? CfPaymentId { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId

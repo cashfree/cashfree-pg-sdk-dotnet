@@ -49,7 +49,7 @@ namespace cashfreepg.Model
         /// <param name="transferId">transferId.</param>
         /// <param name="transferTime">transferTime.</param>
         /// <param name="transferUtr">transferUtr.</param>
-        public CFSettlementsEntity(string? cfPaymentId = default(string?), string? cfSettlementId = default(string?), string? settlementCurrency = default(string?), string? orderId = default(string?), string? entity = default(string?), decimal? orderAmount = default(decimal?), string? paymentTime = default(string?), decimal? serviceCharge = default(decimal?), decimal? serviceTax = default(decimal?), decimal? settlementAmount = default(decimal?), int? settlementId = default(int?), int? transferId = default(int?), string? transferTime = default(string?), string? transferUtr = default(string?))
+        public CFSettlementsEntity(string? cfPaymentId = default(string?), string? cfSettlementId = default(string?), string? settlementCurrency = default(string?), string? orderId = default(string?), string? entity = default(string?), decimal? orderAmount = default(decimal?), string? paymentTime = default(string?), decimal? serviceCharge = default(decimal?), decimal? serviceTax = default(decimal?), decimal? settlementAmount = default(decimal?), long? settlementId = default(long?), long? transferId = default(long?), string? transferTime = default(string?), string? transferUtr = default(string?))
         {
             this.CfPaymentId = cfPaymentId;
             this.CfSettlementId = cfSettlementId;
@@ -131,13 +131,13 @@ namespace cashfreepg.Model
         /// Gets or Sets SettlementId
         /// </summary>
         [DataMember(Name = "settlement_id", EmitDefaultValue = false)]
-        public int? SettlementId { get; set; }
+        public long? SettlementId { get; set; }
 
         /// <summary>
         /// Gets or Sets TransferId
         /// </summary>
         [DataMember(Name = "transfer_id", EmitDefaultValue = false)]
-        public int? TransferId { get; set; }
+        public long? TransferId { get; set; }
 
         /// <summary>
         /// Gets or Sets TransferTime

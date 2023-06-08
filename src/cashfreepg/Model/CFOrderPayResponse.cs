@@ -160,7 +160,7 @@ namespace cashfreepg.Model
         /// <param name="channel">One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39;.</param>
         /// <param name="action">One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;].</param>
         /// <param name="data">data.</param>
-        public CFOrderPayResponse(int? cfPaymentId = default(int?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), ChannelEnum? channel = default(ChannelEnum?), ActionEnum? action = default(ActionEnum?), CFOrderPayData? data = default(CFOrderPayData?))
+        public CFOrderPayResponse(long? cfPaymentId = default(long?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), ChannelEnum? channel = default(ChannelEnum?), ActionEnum? action = default(ActionEnum?), CFOrderPayData? data = default(CFOrderPayData?))
         {
             this.CfPaymentId = cfPaymentId;
             this.PaymentMethod = paymentMethod;
@@ -174,7 +174,7 @@ namespace cashfreepg.Model
         /// </summary>
         /// <value>Payment identifier created by Cashfree</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public int? CfPaymentId { get; set; }
+        public long? CfPaymentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Data

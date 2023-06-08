@@ -45,20 +45,13 @@ namespace cashfreepg.Model
         /// <param name="orderExpiryTime">orderExpiryTime.</param>
         /// <param name="orderNote">orderNote.</param>
         /// <param name="paymentLink">paymentLink.</param>
-<<<<<<< HEAD
-=======
         /// <param name="paymentSessionId">paymentLink.</param>
->>>>>>> 2.0.2
         /// <param name="customerDetails">customerDetails.</param>
         /// <param name="orderMeta">orderMeta.</param>
         /// <param name="payments">payments.</param>
         /// <param name="settlements">settlements.</param>
         /// <param name="refunds">refunds.</param>
-<<<<<<< HEAD
-        public CFOrder(int? cfOrderId = default(int?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? paymentLink = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<Dictionary<string, object>>? orderSplits = default(List<Dictionary<string, object>>?))
-=======
-        public CFOrder(int? cfOrderId = default(int?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? paymentLink = default(string?), string? paymentSessionId = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<Dictionary<string, object>>? orderSplits = default(List<Dictionary<string, object>>?))
->>>>>>> 2.0.2
+        public CFOrder(long? cfOrderId = default(long?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? paymentLink = default(string?), string? paymentSessionId = default(string?), CFCustomerDetails? customerDetails = default(CFCustomerDetails?), CFOrderMeta? orderMeta = default(CFOrderMeta?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<Dictionary<string, object>>? orderSplits = default(List<Dictionary<string, object>>?))
         {
             this.CfOrderId = cfOrderId;
             this.OrderId = orderId;
@@ -77,11 +70,6 @@ namespace cashfreepg.Model
             this.Refunds = refunds;
             this.OrderTags = orderTags;
             this.OrderSplits = orderSplits;
-<<<<<<< HEAD
-        }
-
-        /// <summary>
-=======
             this.PaymentSessionId = paymentSessionId;
         }
 
@@ -92,11 +80,10 @@ namespace cashfreepg.Model
         public String? PaymentSessionId { get; set; }
 
         /// <summary>
->>>>>>> 2.0.2
         /// Gets or Sets CfOrderId
         /// </summary>
         [DataMember(Name = "cf_order_id", EmitDefaultValue = false)]
-        public int? CfOrderId { get; set; }
+        public long? CfOrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId
@@ -219,10 +206,7 @@ namespace cashfreepg.Model
             sb.Append("  Refunds: ").Append(Refunds).Append("\n");
             sb.Append("  Order Tags: ").Append(OrderTags).Append("\n");
             sb.Append("  Order Splits: ").Append(OrderSplits.Count).Append("\n");
-<<<<<<< HEAD
-=======
             sb.Append("  Payment Session Id: ").Append(PaymentSessionId).Append("\n");
->>>>>>> 2.0.2
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -295,11 +279,7 @@ namespace cashfreepg.Model
                     this.OrderExpiryTime == input.OrderExpiryTime ||
                     (this.OrderExpiryTime != null &&
                     this.OrderExpiryTime.Equals(input.OrderExpiryTime))
-<<<<<<< HEAD
-                ) && 
-=======
                 ) &&
->>>>>>> 2.0.2
                 (
                     this.OrderNote == input.OrderNote ||
                     (this.OrderNote != null &&
@@ -380,13 +360,10 @@ namespace cashfreepg.Model
                 {
                     hashCode = (hashCode * 59) + this.PaymentLink.GetHashCode();
                 }
-<<<<<<< HEAD
-=======
                 if (this.PaymentSessionId != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentSessionId.GetHashCode();
                 }
->>>>>>> 2.0.2
                 if (this.CustomerDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomerDetails.GetHashCode();

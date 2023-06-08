@@ -44,7 +44,7 @@ namespace cashfreepg.Api
         /// <param name="xIdempotencyKey"> (optional)</param>
         /// <param name="xRequestId"> (optional)</param>
         /// <returns>CFPaymentsEntity</returns>
-        CFPaymentEntityResponse GetPaymentbyId(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?));
+        CFPaymentEntityResponse GetPaymentbyId(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?));
 
         /// <summary>
         /// Get Payment by ID
@@ -62,7 +62,7 @@ namespace cashfreepg.Api
         /// <param name="xIdempotencyKey"> (optional)</param>
         /// <param name="xRequestId"> (optional)</param>
         /// <returns>ApiResponse of CFPaymentsEntity</returns>
-        ApiResponse<CFPaymentsEntity> GetPaymentbyIdWithHttpInfo(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?));
+        ApiResponse<CFPaymentsEntity> GetPaymentbyIdWithHttpInfo(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?));
         /// <summary>
         /// Get Payments for an Order
         /// </summary>
@@ -122,7 +122,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CFPaymentsEntity</returns>
-        System.Threading.Tasks.Task<CFPaymentsEntity> GetPaymentbyIdAsync(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CFPaymentsEntity> GetPaymentbyIdAsync(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Payment by ID
@@ -141,7 +141,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CFPaymentsEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CFPaymentsEntity>> GetPaymentbyIdWithHttpInfoAsync(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CFPaymentsEntity>> GetPaymentbyIdWithHttpInfoAsync(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Payments for an Order
         /// </summary>
@@ -310,7 +310,7 @@ namespace cashfreepg.Api
         /// <param name="xIdempotencyKey"> (optional)</param>
         /// <param name="xRequestId"> (optional)</param>
         /// <returns>CFPaymentsEntity</returns>
-        public CFPaymentEntityResponse GetPaymentbyId(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?))
+        public CFPaymentEntityResponse GetPaymentbyId(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?))
         {
             cashfreepg.Client.ApiResponse<CFPaymentsEntity> localVarResponse = GetPaymentbyIdWithHttpInfo(xClientId, xClientSecret, orderId, cfPaymentId, xApiVersion, xIdempotencyReplayed, xIdempotencyKey, xRequestId);
             CFPaymentEntityResponse cFPaymentEntityResponse = new CFPaymentEntityResponse(localVarResponse.Data, localVarResponse.Headers);
@@ -330,7 +330,7 @@ namespace cashfreepg.Api
         /// <param name="xIdempotencyKey"> (optional)</param>
         /// <param name="xRequestId"> (optional)</param>
         /// <returns>ApiResponse of CFPaymentsEntity</returns>
-        public cashfreepg.Client.ApiResponse<CFPaymentsEntity> GetPaymentbyIdWithHttpInfo(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?))
+        public cashfreepg.Client.ApiResponse<CFPaymentsEntity> GetPaymentbyIdWithHttpInfo(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?))
         {
             // verify the required parameter 'xClientId' is set
             if (xClientId == null)
@@ -424,7 +424,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CFPaymentsEntity</returns>
-        public async System.Threading.Tasks.Task<CFPaymentsEntity> GetPaymentbyIdAsync(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CFPaymentsEntity> GetPaymentbyIdAsync(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             cashfreepg.Client.ApiResponse<CFPaymentsEntity> localVarResponse = await GetPaymentbyIdWithHttpInfoAsync(xClientId, xClientSecret, orderId, cfPaymentId, xApiVersion, xIdempotencyReplayed, xIdempotencyKey, xRequestId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -444,7 +444,7 @@ namespace cashfreepg.Api
         /// <param name="xRequestId"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CFPaymentsEntity)</returns>
-        public async System.Threading.Tasks.Task<cashfreepg.Client.ApiResponse<CFPaymentsEntity>> GetPaymentbyIdWithHttpInfoAsync(string xClientId, string xClientSecret, string orderId, int cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<cashfreepg.Client.ApiResponse<CFPaymentsEntity>> GetPaymentbyIdWithHttpInfoAsync(string xClientId, string xClientSecret, string orderId, long cfPaymentId, string xApiVersion, bool? xIdempotencyReplayed = default(bool?), string? xIdempotencyKey = default(string?), string? xRequestId = default(string?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'xClientId' is set
             if (xClientId == null)

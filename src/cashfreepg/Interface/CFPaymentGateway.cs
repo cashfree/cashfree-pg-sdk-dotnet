@@ -12,7 +12,7 @@ namespace cashfreepg.Interface {
 
         private CFPaymentGateway() {}  
         private static CFPaymentGateway? instance;
-        private string release_version = "2.0.2";
+        private string release_version = "2.1.0";
 
         public static CFPaymentGateway getInstance {  
             get {  
@@ -255,7 +255,7 @@ namespace cashfreepg.Interface {
             }
         }
 
-        public CFPaymentEntityResponse getPaymentsByPaymentID(CFConfig cfConfig, string orderID, int cfPaymentID, CFHeader? header = null) {
+        public CFPaymentEntityResponse getPaymentsByPaymentID(CFConfig cfConfig, string orderID, long cfPaymentID, CFHeader? header = null) {
             using (SentrySdk.Init(o =>
             {
                 o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";

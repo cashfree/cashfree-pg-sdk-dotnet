@@ -52,7 +52,7 @@ namespace cashfreepg.Model
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkAutoReminders">linkAutoReminders.</param>
         /// <param name="linkNotify">linkNotify.</param>
-        public CFLink(int? cfLinkId = default(int?), string? linkId = default(string?), string? linkStatus = default(string?), string? linkCurrency = default(string?), decimal? linkAmount = default(decimal?), decimal? linkAmountPaid = default(decimal?), bool? linkPartialPayments = default(bool?), decimal? linkMinimumPartialAmount = default(decimal?), string? linkPurpose = default(string?), string? linkCreatedAt = default(string?), CFLinkCustomerDetailsEntity? customerDetails = default(CFLinkCustomerDetailsEntity?), CFLinkMetaEntity? linkMeta = default(CFLinkMetaEntity?), string? linkUrl = default(string?), string? linkExpiryTime = default(string?), Dictionary<string, string>? linkNotes = default(Dictionary<string, string>?), bool? linkAutoReminders = default(bool?), CFLinkNotifyEntity? linkNotify = default(CFLinkNotifyEntity?))
+        public CFLink(long? cfLinkId = default(long?), string? linkId = default(string?), string? linkStatus = default(string?), string? linkCurrency = default(string?), decimal? linkAmount = default(decimal?), decimal? linkAmountPaid = default(decimal?), bool? linkPartialPayments = default(bool?), decimal? linkMinimumPartialAmount = default(decimal?), string? linkPurpose = default(string?), string? linkCreatedAt = default(string?), CFLinkCustomerDetailsEntity? customerDetails = default(CFLinkCustomerDetailsEntity?), CFLinkMetaEntity? linkMeta = default(CFLinkMetaEntity?), string? linkUrl = default(string?), string? linkExpiryTime = default(string?), Dictionary<string, string>? linkNotes = default(Dictionary<string, string>?), bool? linkAutoReminders = default(bool?), CFLinkNotifyEntity? linkNotify = default(CFLinkNotifyEntity?))
         {
             this.CfLinkId = cfLinkId;
             this.LinkId = linkId;
@@ -77,7 +77,7 @@ namespace cashfreepg.Model
         /// Gets or Sets CfLinkId
         /// </summary>
         [DataMember(Name = "cf_link_id", EmitDefaultValue = false)]
-        public int? CfLinkId { get; set; }
+        public long? CfLinkId { get; set; }
 
         /// <summary>
         /// Gets or Sets LinkId

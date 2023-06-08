@@ -48,7 +48,7 @@ namespace cashfreepg.Model
         /// <param name="payments">payments.</param>
         /// <param name="settlements">settlements.</param>
         /// <param name="refunds">refunds.</param>
-        public CFLinkOrders(int? cfOrderId = default(int?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), CFLinkCustomerDetailsEntity? customerDetails = default(CFLinkCustomerDetailsEntity?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?))
+        public CFLinkOrders(long? cfOrderId = default(long?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? orderToken = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), CFLinkCustomerDetailsEntity? customerDetails = default(CFLinkCustomerDetailsEntity?), CFPaymentURLObject? payments = default(CFPaymentURLObject?), CFSettlementURLObject? settlements = default(CFSettlementURLObject?), CFRefundURLObject? refunds = default(CFRefundURLObject?))
         {
             this.CfOrderId = cfOrderId;
             this.OrderId = orderId;
@@ -69,7 +69,7 @@ namespace cashfreepg.Model
         /// Gets or Sets CfOrderId
         /// </summary>
         [DataMember(Name = "cf_order_id", EmitDefaultValue = false)]
-        public int? CfOrderId { get; set; }
+        public long? CfOrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId

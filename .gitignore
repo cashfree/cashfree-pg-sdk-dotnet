@@ -15,9 +15,6 @@
 
 # Mono auto generated files
 mono_crash.*
-.DS_Store
-*/.DS_STORE
-*/*/.DS_STORE
 
 # Build results
 [Dd]ebug/
@@ -363,3 +360,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+api/
+src/cashfree_pg/Api/
+src/cashfree_pg.Test/

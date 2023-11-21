@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg", "src\cashfree_pg\cashfree_pg.csproj", "{B8480544-3424-4AFD-9AC2-751556A648CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg", "src\cashfree_pg\cashfree_pg.csproj", "{40219099-AC87-4119-B2C1-4336D5A49746}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg.Test", "src\cashfree_pg.Test\cashfree_pg.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B8480544-3424-4AFD-9AC2-751556A648CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8480544-3424-4AFD-9AC2-751556A648CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8480544-3424-4AFD-9AC2-751556A648CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8480544-3424-4AFD-9AC2-751556A648CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40219099-AC87-4119-B2C1-4336D5A49746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40219099-AC87-4119-B2C1-4336D5A49746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40219099-AC87-4119-B2C1-4336D5A49746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40219099-AC87-4119-B2C1-4336D5A49746}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -22,7 +22,9 @@ jobs:
           NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
           
       - name: Build solution and generate NuGet package
-        run: |  
+        run: |
+          cp LICENSE.md src/cashfree_pg/
+          cp README.md src/cashfree_pg/
           cd src/cashfree_pg
           dotnet pack -c Release -o out  
 

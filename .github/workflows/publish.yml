@@ -1,0 +1,31 @@
+name: Generate .nupkg file and upload
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    name: Update NuGet package
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Setup .NET Core @ Latest
+        uses: actions/setup-dotnet@v1
+        with:
+          source-url: https://nuget.pkg.github.com/cashfree/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}        
+          
+      - name: Build solution and generate NuGet package
+        run: |  
+          cd src/cashfree_pg
+          dotnet pack -c Release -o out  
+
+      - name: Push generated package to Nuget registry
+        run: dotnet nuget push ./cashfree_pg/out/*.nupkg --skip-duplicate --no-symbols true
+

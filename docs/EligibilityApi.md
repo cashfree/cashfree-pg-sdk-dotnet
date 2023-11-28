@@ -4,16 +4,16 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**PGEligibilityFetchCardlessEMI**](EligibilityApi.md#pgeligibilityfetchcardlessemi) | **POST** /eligibility/cardlessemi | Get Eligible Cardless EMI Payment Methods for a customer on an order |
-| [**PGEligibilityFetchOffers**](EligibilityApi.md#pgeligibilityfetchoffers) | **POST** /eligibility/offers | Get Eligible Offers for an Order |
-| [**PGEligibilityFetchPaylater**](EligibilityApi.md#pgeligibilityfetchpaylater) | **POST** /eligibility/paylater | Get Eligible Paylater for a customer on an order |
-| [**PGEligibilityFetchPaymentMethods**](EligibilityApi.md#pgeligibilityfetchpaymentmethods) | **POST** /eligibility/payment_methods | Get eligible Payment Methods |
+| [**PGEligibilityFetchCardlessEMI**](EligibilityApi.md#pgeligibilityfetchcardlessemi) | **POST** /eligibility/cardlessemi | Get Eligible Cardless EMI |
+| [**PGEligibilityFetchOffers**](EligibilityApi.md#pgeligibilityfetchoffers) | **POST** /eligibility/offers | Get Eligible Offers |
+| [**PGEligibilityFetchPaylater**](EligibilityApi.md#pgeligibilityfetchpaylater) | **POST** /eligibility/paylater | Get Eligible Paylater |
+| [**PGEligibilityFetchPaymentMethods**](EligibilityApi.md#pgeligibilityfetchpaymentmethods) | **POST** /eligibility/payment_methods | Get Eligible Payment Methods |
 
 <a id="pgeligibilityfetchcardlessemi"></a>
 # **PGEligibilityFetchCardlessEMI**
 > List&lt;EligibilityCardlessEMIEntity&gt; PGEligibilityFetchCardlessEMI (string xApiVersion, EligibilityFetchCardlessEMIRequest eligibilityFetchCardlessEMIRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Get Eligible Cardless EMI Payment Methods for a customer on an order
+Get Eligible Cardless EMI
 
 Use this API to get eligible Cardless EMI Payment Methods available for a customer on an order basis their phone number.
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Get Eligible Cardless EMI Payment Methods for a customer on an order
+                // Get Eligible Cardless EMI
                 List<EligibilityCardlessEMIEntity> result = cashfree.PGEligibilityFetchCardlessEMI(xApiVersion, eligibilityFetchCardlessEMIRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
@@ -103,7 +103,7 @@ namespace Example
 # **PGEligibilityFetchOffers**
 > List&lt;EligibilityOfferEntity&gt; PGEligibilityFetchOffers (string xApiVersion, EligibilityFetchOffersRequest eligibilityFetchOffersRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Get Eligible Offers for an Order
+Get Eligible Offers
 
 Use this API to get eligible offers for an order_id or order amount.
 
@@ -136,7 +136,7 @@ namespace Example
 
             try
             {
-                // Get Eligible Offers for an Order
+                // Get Eligible Offers
                 List<EligibilityOfferEntity> result = cashfree.PGEligibilityFetchOffers(xApiVersion, eligibilityFetchOffersRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
@@ -192,7 +192,7 @@ namespace Example
 # **PGEligibilityFetchPaylater**
 > List&lt;EligibilityPaylaterEntity&gt; PGEligibilityFetchPaylater (string xApiVersion, EligibilityFetchPaylaterRequest eligibilityFetchPaylaterRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Get Eligible Paylater for a customer on an order
+Get Eligible Paylater
 
 Use this API to get eligible Paylater Payment Methods for a customer on an order.
 
@@ -225,7 +225,7 @@ namespace Example
 
             try
             {
-                // Get Eligible Paylater for a customer on an order
+                // Get Eligible Paylater
                 List<EligibilityPaylaterEntity> result = cashfree.PGEligibilityFetchPaylater(xApiVersion, eligibilityFetchPaylaterRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
@@ -282,7 +282,7 @@ namespace Example
 # **PGEligibilityFetchPaymentMethods**
 > List&lt;EligibilityPaymentMethodsEntity&gt; PGEligibilityFetchPaymentMethods (string xApiVersion, EligibilityFetchPaymentMethodsRequest eligibilityFetchPaymentMethodsRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Get eligible Payment Methods
+Get Eligible Payment Methods
 
 Use this API to get eligible Payment Methods
 
@@ -315,7 +315,7 @@ namespace Example
 
             try
             {
-                // Get eligible Payment Methods
+                // Get Eligible Payment Methods
                 List<EligibilityPaymentMethodsEntity> result = cashfree.PGEligibilityFetchPaymentMethods(xApiVersion, eligibilityFetchPaymentMethodsRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }

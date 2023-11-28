@@ -29,17 +29,17 @@ namespace cashfree_pg.Model
     /// <summary>
     /// Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
     /// </summary>
-    [DataContract(Name = "FetchSettlementsRequest_filters")]
-    public class FetchSettlementsRequestFilters : IEquatable<FetchSettlementsRequestFilters>, IValidatableObject
+    [DataContract(Name = "SettlementFetchReconRequest_filters")]
+    public class SettlementFetchReconRequestFilters : IEquatable<SettlementFetchReconRequestFilters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FetchSettlementsRequestFilters" /> class.
+        /// Initializes a new instance of the <see cref="SettlementFetchReconRequestFilters" /> class.
         /// </summary>
         /// <param name="cfSettlementIds">List of settlement IDs for which you want the settlement reconciliation details..</param>
         /// <param name="settlementUtrs">List of settlement UTRs for which you want the settlement reconciliation details..</param>
         /// <param name="startDate">Specify the start date from when you want the settlement reconciliation details..</param>
         /// <param name="endDate">Specify the end date till when you want the settlement reconciliation details..</param>
-        public FetchSettlementsRequestFilters(List<long> cfSettlementIds = default(List<long>), List<string> settlementUtrs = default(List<string>), string startDate = default(string), string endDate = default(string))
+        public SettlementFetchReconRequestFilters(List<int> cfSettlementIds = default(List<int>), List<string> settlementUtrs = default(List<string>), string startDate = default(string), string endDate = default(string))
         {
             this.cf_settlement_ids = cfSettlementIds;
             this.settlement_utrs = settlementUtrs;
@@ -52,7 +52,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>List of settlement IDs for which you want the settlement reconciliation details.</value>
         [DataMember(Name = "cf_settlement_ids", EmitDefaultValue = false)]
-        public List<long> cf_settlement_ids { get; set; }
+        public List<int> cf_settlement_ids { get; set; }
 
         /// <summary>
         /// List of settlement UTRs for which you want the settlement reconciliation details.
@@ -82,7 +82,7 @@ namespace cashfree_pg.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FetchSettlementsRequestFilters {\n");
+            sb.Append("class SettlementFetchReconRequestFilters {\n");
             sb.Append("  cf_settlement_ids: ").Append(cf_settlement_ids).Append("\n");
             sb.Append("  settlement_utrs: ").Append(settlement_utrs).Append("\n");
             sb.Append("  start_date: ").Append(start_date).Append("\n");
@@ -107,15 +107,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FetchSettlementsRequestFilters);
+            return this.Equals(input as SettlementFetchReconRequestFilters);
         }
 
         /// <summary>
-        /// Returns true if FetchSettlementsRequestFilters instances are equal
+        /// Returns true if SettlementFetchReconRequestFilters instances are equal
         /// </summary>
-        /// <param name="input">Instance of FetchSettlementsRequestFilters to be compared</param>
+        /// <param name="input">Instance of SettlementFetchReconRequestFilters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FetchSettlementsRequestFilters input)
+        public bool Equals(SettlementFetchReconRequestFilters input)
         {
             if (input == null)
             {

@@ -52,7 +52,7 @@ namespace cashfree_pg.Model
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkAutoReminders">linkAutoReminders.</param>
         /// <param name="linkNotify">linkNotify.</param>
-        public LinkEntity(int cfLinkId = default(int), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaEntity linkMeta = default(LinkMetaEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity))
+        public LinkEntity(long cfLinkId = default(long), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaEntity linkMeta = default(LinkMetaEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity))
         {
             this.cf_link_id = cfLinkId;
             this.link_id = linkId;
@@ -77,7 +77,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_link_id
         /// </summary>
         [DataMember(Name = "cf_link_id", EmitDefaultValue = false)]
-        public int cf_link_id { get; set; }
+        public long cf_link_id { get; set; }
 
         /// <summary>
         /// Gets or Sets link_id

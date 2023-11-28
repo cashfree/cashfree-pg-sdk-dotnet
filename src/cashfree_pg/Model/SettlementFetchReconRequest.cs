@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="pagination">pagination (required).</param>
         /// <param name="filters">filters (required).</param>
-        public SettlementFetchReconRequest(FetchSettlementsRequestPagination pagination = default(FetchSettlementsRequestPagination), FetchSettlementsRequestFilters filters = default(FetchSettlementsRequestFilters))
+        public SettlementFetchReconRequest(FetchSettlementsRequestPagination pagination = default(FetchSettlementsRequestPagination), SettlementFetchReconRequestFilters filters = default(SettlementFetchReconRequestFilters))
         {
             // to ensure "pagination" is required (not null)
             if (pagination == null)
@@ -68,7 +68,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets filters
         /// </summary>
         [DataMember(Name = "filters", IsRequired = true, EmitDefaultValue = true)]
-        public FetchSettlementsRequestFilters filters { get; set; }
+        public SettlementFetchReconRequestFilters filters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

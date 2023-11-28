@@ -5,7 +5,7 @@ Payment link success creation response object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cf_link_id** | **int** |  | [optional] 
+**cf_link_id** | **long** |  | [optional] 
 **link_id** | **string** |  | [optional] 
 **link_status** | **string** |  | [optional] 
 **link_currency** | **string** |  | [optional] 

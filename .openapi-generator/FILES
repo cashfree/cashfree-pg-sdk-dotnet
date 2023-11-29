@@ -123,6 +123,7 @@ docs/RefundsApi.md
 docs/SavedInstrumentMeta.md
 docs/SettlementEntity.md
 docs/SettlementFetchReconRequest.md
+docs/SettlementFetchReconRequestFilters.md
 docs/SettlementReconEntity.md
 docs/SettlementReconEntityDataInner.md
 docs/SettlementReconciliationApi.md
@@ -264,6 +265,7 @@ src/cashfree_pg.Test/Model/RefundSpeedTests.cs
 src/cashfree_pg.Test/Model/RefundURLObjectTests.cs
 src/cashfree_pg.Test/Model/SavedInstrumentMetaTests.cs
 src/cashfree_pg.Test/Model/SettlementEntityTests.cs
+src/cashfree_pg.Test/Model/SettlementFetchReconRequestFiltersTests.cs
 src/cashfree_pg.Test/Model/SettlementFetchReconRequestTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityTests.cs
@@ -420,6 +422,7 @@ src/cashfree_pg/Model/RefundURLObject.cs
 src/cashfree_pg/Model/SavedInstrumentMeta.cs
 src/cashfree_pg/Model/SettlementEntity.cs
 src/cashfree_pg/Model/SettlementFetchReconRequest.cs
+src/cashfree_pg/Model/SettlementFetchReconRequestFilters.cs
 src/cashfree_pg/Model/SettlementReconEntity.cs
 src/cashfree_pg/Model/SettlementReconEntityDataInner.cs
 src/cashfree_pg/Model/SettlementURLObject.cs

@@ -36,9 +36,11 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodsQueries" /> class.
         /// </summary>
         /// <param name="amount">Amount of the order..</param>
-        public PaymentMethodsQueries(decimal amount = default(decimal))
+        /// <param name="orderId">OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory..</param>
+        public PaymentMethodsQueries(decimal amount = default(decimal), string orderId = default(string))
         {
             this.amount = amount;
+            this.order_id = orderId;
         }
 
         /// <summary>
@@ -50,6 +52,14 @@ namespace cashfree_pg.Model
         public decimal amount { get; set; }
 
         /// <summary>
+        /// OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory.
+        /// </summary>
+        /// <value>OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory.</value>
+        /// <example>order_413462PK1RI1IwYB1X69LgzUQWiSxYDF</example>
+        [DataMember(Name = "order_id", EmitDefaultValue = false)]
+        public string order_id { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -58,6 +68,7 @@ namespace cashfree_pg.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PaymentMethodsQueries {\n");
             sb.Append("  amount: ").Append(amount).Append("\n");
+            sb.Append("  order_id: ").Append(order_id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,6 +107,11 @@ namespace cashfree_pg.Model
                 (
                     this.amount == input.amount ||
                     this.amount.Equals(input.amount)
+                ) && 
+                (
+                    this.order_id == input.order_id ||
+                    (this.order_id != null &&
+                    this.order_id.Equals(input.order_id))
                 );
         }
 
@@ -109,6 +125,10 @@ namespace cashfree_pg.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.amount.GetHashCode();
+                if (this.order_id != null)
+                {
+                    hashCode = (hashCode * 59) + this.order_id.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -124,6 +144,18 @@ namespace cashfree_pg.Model
             if (this.amount < (decimal)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for amount, must be a value greater than or equal to 1.", new [] { "amount" });
+            }
+
+            // order_id (string) maxLength
+            if (this.order_id != null && this.order_id.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for order_id, length must be less than 50.", new [] { "order_id" });
+            }
+
+            // order_id (string) minLength
+            if (this.order_id != null && this.order_id.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for order_id, length must be greater than 3.", new [] { "order_id" });
             }
 
             yield break;

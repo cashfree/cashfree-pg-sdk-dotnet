@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <param name="transferId">transferId.</param>
         /// <param name="transferTime">transferTime.</param>
         /// <param name="transferUtr">transferUtr.</param>
-        public SettlementEntity(int cfPaymentId = default(int), int cfSettlementId = default(int), string settlementCurrency = default(string), string orderId = default(string), string entity = default(string), decimal orderAmount = default(decimal), string paymentTime = default(string), decimal serviceCharge = default(decimal), decimal serviceTax = default(decimal), decimal settlementAmount = default(decimal), int settlementId = default(int), int transferId = default(int), string transferTime = default(string), string transferUtr = default(string))
+        public SettlementEntity(long cfPaymentId = default(long), long cfSettlementId = default(long), string settlementCurrency = default(string), string orderId = default(string), string entity = default(string), decimal orderAmount = default(decimal), string paymentTime = default(string), decimal serviceCharge = default(decimal), decimal serviceTax = default(decimal), decimal settlementAmount = default(decimal), int settlementId = default(int), int transferId = default(int), string transferTime = default(string), string transferUtr = default(string))
         {
             this.cf_payment_id = cfPaymentId;
             this.cf_settlement_id = cfSettlementId;
@@ -71,13 +71,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_payment_id
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public int cf_payment_id { get; set; }
+        public long cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets cf_settlement_id
         /// </summary>
         [DataMember(Name = "cf_settlement_id", EmitDefaultValue = false)]
-        public int cf_settlement_id { get; set; }
+        public long cf_settlement_id { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_currency

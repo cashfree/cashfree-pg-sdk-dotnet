@@ -11,6 +11,8 @@ Cashfree's PG API Documentation - https://docs.cashfree.com/reference/pg-new-api
 
 Learn and understand payment gateway workflows at Cashfree Payments [here](https://docs.cashfree.com/docs/payment-gateway)
 
+Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com/devstudio) !
+
 ## Getting Started
 
 ### Installation
@@ -35,7 +37,7 @@ Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant D
 ### Basic Usage
 Create Order
 ```csharp
-var customerDetails = new CustomerDetails("123", null, "9999999999");
+var customerDetails = new CustomerDetails("walterwNrcMi", null, "9999999999");
 var createOrdersRequest = new CreateOrderRequest(null, 1.0, "INR", customerDetails);
 try {
     // Create Order

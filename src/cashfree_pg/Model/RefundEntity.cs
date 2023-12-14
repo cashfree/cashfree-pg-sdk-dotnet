@@ -174,7 +174,7 @@ namespace cashfree_pg.Model
         /// <param name="createdAt">Time of refund creation.</param>
         /// <param name="processedAt">Time when refund was processed successfully.</param>
         /// <param name="refundSpeed">refundSpeed.</param>
-        public RefundEntity(int cfPaymentId = default(int), string cfRefundId = default(string), string orderId = default(string), string refundId = default(string), EntityEnum? entity = default(EntityEnum?), decimal refundAmount = default(decimal), string refundCurrency = default(string), string refundNote = default(string), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string refundArn = default(string), decimal refundCharge = default(decimal), string statusDescription = default(string), Object metadata = default(Object), List<VendorSplit> refundSplits = default(List<VendorSplit>), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string createdAt = default(string), string processedAt = default(string), RefundSpeed refundSpeed = default(RefundSpeed))
+        public RefundEntity(long cfPaymentId = default(long), string cfRefundId = default(string), string orderId = default(string), string refundId = default(string), EntityEnum? entity = default(EntityEnum?), decimal refundAmount = default(decimal), string refundCurrency = default(string), string refundNote = default(string), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string refundArn = default(string), decimal refundCharge = default(decimal), string statusDescription = default(string), Object metadata = default(Object), List<VendorSplit> refundSplits = default(List<VendorSplit>), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string createdAt = default(string), string processedAt = default(string), RefundSpeed refundSpeed = default(RefundSpeed))
         {
             this.cf_payment_id = cfPaymentId;
             this.cf_refund_id = cfRefundId;
@@ -202,7 +202,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Cashfree Payments ID of the payment for which refund is initiated</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public int cf_payment_id { get; set; }
+        public long cf_payment_id { get; set; }
 
         /// <summary>
         /// Cashfree Payments ID for a refund

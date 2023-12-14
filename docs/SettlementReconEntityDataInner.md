@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **payment_time** | **string** | Date and time when the payment was initiated. | [optional] 
 **payment_service_charge** | **decimal** | Service charge applicable for the payment. | [optional] 
 **payment_service_tax** | **decimal** | Service tax applicable on the payment. | [optional] 
-**cf_payment_id** | **int** | Cashfree Payments unique ID to identify a payment. | [optional] 
+**cf_payment_id** | **long** | Cashfree Payments unique ID to identify a payment. | [optional] 
 **cf_settlement_id** | **int** | Unique ID to identify the settlement. | [optional] 
 **settlement_date** | **string** | Date and time when the settlement was processed. | [optional] 
 **settlement_utr** | **string** | Unique transaction reference number of the settlement. | [optional] 

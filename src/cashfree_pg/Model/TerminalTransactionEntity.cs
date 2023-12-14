@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="paymentUrl">paymentUrl.</param>
         /// <param name="qrcode">qrcode.</param>
         /// <param name="timeout">timeout.</param>
-        public TerminalTransactionEntity(int cfPaymentId = default(int), int paymentAmount = default(int), string paymentMethod = default(string), string paymentUrl = default(string), string qrcode = default(string), string timeout = default(string))
+        public TerminalTransactionEntity(long cfPaymentId = default(long), int paymentAmount = default(int), string paymentMethod = default(string), string paymentUrl = default(string), string qrcode = default(string), string timeout = default(string))
         {
             this.cf_payment_id = cfPaymentId;
             this.payment_amount = paymentAmount;
@@ -55,7 +55,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_payment_id
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public int cf_payment_id { get; set; }
+        public long cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_amount

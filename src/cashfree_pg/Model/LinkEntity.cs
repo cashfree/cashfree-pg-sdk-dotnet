@@ -46,13 +46,13 @@ namespace cashfree_pg.Model
         /// <param name="linkPurpose">linkPurpose.</param>
         /// <param name="linkCreatedAt">linkCreatedAt.</param>
         /// <param name="customerDetails">customerDetails.</param>
-        /// <param name="linkMeta">linkMeta.</param>
+        /// <param name="linkMeta">Payment link meta information object..</param>
         /// <param name="linkUrl">linkUrl.</param>
         /// <param name="linkExpiryTime">linkExpiryTime.</param>
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkAutoReminders">linkAutoReminders.</param>
         /// <param name="linkNotify">linkNotify.</param>
-        public LinkEntity(long cfLinkId = default(long), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaEntity linkMeta = default(LinkMetaEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity))
+        public LinkEntity(long cfLinkId = default(long), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), Dictionary<string, string> linkMeta = default(Dictionary<string, string>), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity))
         {
             this.cf_link_id = cfLinkId;
             this.link_id = linkId;
@@ -140,10 +140,12 @@ namespace cashfree_pg.Model
         public LinkCustomerDetailsEntity customer_details { get; set; }
 
         /// <summary>
-        /// Gets or Sets link_meta
+        /// Payment link meta information object.
         /// </summary>
+        /// <value>Payment link meta information object.</value>
+        /// <example>{&quot;key_1&quot;:&quot;value_1&quot;,&quot;key_2&quot;:&quot;value_2&quot;}</example>
         [DataMember(Name = "link_meta", EmitDefaultValue = false)]
-        public LinkMetaEntity link_meta { get; set; }
+        public Dictionary<string, string> link_meta { get; set; }
 
         /// <summary>
         /// Gets or Sets link_url
@@ -289,8 +291,9 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.link_meta == input.link_meta ||
-                    (this.link_meta != null &&
-                    this.link_meta.Equals(input.link_meta))
+                    this.link_meta != null &&
+                    input.link_meta != null &&
+                    this.link_meta.SequenceEqual(input.link_meta)
                 ) && 
                 (
                     this.link_url == input.link_url ||

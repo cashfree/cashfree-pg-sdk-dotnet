@@ -85,7 +85,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets card_token_details
         /// </summary>
         /// <example>{&quot;par&quot;:&quot;somepar&quot;,&quot;expiry_month&quot;:&quot;12&quot;,&quot;expiry_year&quot;:&quot;23&quot;}</example>
-        [DataMember(Name = "card_token_details", EmitDefaultValue = true)]
+        [DataMember(Name = "card_token_details", EmitDefaultValue = false)]
         public Object card_token_details { get; set; }
 
         /// <summary>

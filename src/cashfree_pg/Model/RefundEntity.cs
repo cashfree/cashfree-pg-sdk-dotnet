@@ -271,7 +271,7 @@ namespace cashfree_pg.Model
         /// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
         /// </summary>
         /// <value>Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Object metadata { get; set; }
 
         /// <summary>

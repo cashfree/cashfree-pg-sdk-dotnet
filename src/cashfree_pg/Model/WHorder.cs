@@ -70,7 +70,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         /// <example>{&quot;product&quot;:&quot;Laptop&quot;,&quot;shipping_address&quot;:&quot;123 Main St&quot;}</example>
-        [DataMember(Name = "order_tags", EmitDefaultValue = true)]
+        [DataMember(Name = "order_tags", EmitDefaultValue = false)]
         public Dictionary<string, string> order_tags { get; set; }
 
         /// <summary>

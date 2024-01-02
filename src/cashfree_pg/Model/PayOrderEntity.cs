@@ -165,7 +165,7 @@ namespace cashfree_pg.Model
         /// One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;]
         /// </summary>
         /// <value>One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;]</value>
-        [DataMember(Name = "action", EmitDefaultValue = true)]
+        [DataMember(Name = "action", EmitDefaultValue = false)]
         public ActionEnum? action { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PayOrderEntity" /> class.

@@ -59,7 +59,7 @@ namespace cashfree_pg.Model
         /// Specifies from where the next set of settlement details should be fetched.
         /// </summary>
         /// <value>Specifies from where the next set of settlement details should be fetched.</value>
-        [DataMember(Name = "cursor", EmitDefaultValue = true)]
+        [DataMember(Name = "cursor", EmitDefaultValue = false)]
         public string cursor { get; set; }
 
         /// <summary>

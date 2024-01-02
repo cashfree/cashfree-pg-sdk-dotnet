@@ -221,7 +221,7 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets authorization
         /// </summary>
-        [DataMember(Name = "authorization", EmitDefaultValue = true)]
+        [DataMember(Name = "authorization", EmitDefaultValue = false)]
         public AuthorizationInPaymentsEntity authorization { get; set; }
 
         /// <summary>

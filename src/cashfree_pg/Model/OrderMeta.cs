@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. The return_url must contain placeholder {order_id}. When redirecting the customer back to the return url from the bank’s OTP page, Cashfree will replace this placeholder with the actual value for that order.</value>
         /// <example>https://example.com/return?order_id&#x3D;{order_id}</example>
-        [DataMember(Name = "return_url", EmitDefaultValue = true)]
+        [DataMember(Name = "return_url", EmitDefaultValue = false)]
         public string return_url { get; set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250.</value>
         /// <example>https://example.com/cf_notify</example>
-        [DataMember(Name = "notify_url", EmitDefaultValue = true)]
+        [DataMember(Name = "notify_url", EmitDefaultValue = false)]
         public string notify_url { get; set; }
 
         /// <summary>

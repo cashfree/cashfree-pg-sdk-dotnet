@@ -32,12 +32,35 @@ using RestSharpMethod = RestSharp.Method;
 using Polly;
 using cashfree_pg.Model;
 
+using Sentry.Extensibility;
+using System.Collections.Generic;
+using Sentry.Integrations;
+using Sentry.Internal;
+using Sentry.Internal.Extensions;
+using Sentry.Protocol;
+using System.Linq;
+
 namespace cashfree_pg.Client
 {
 
     public enum CFEnvironment {
         SANDBOX,
         PRODUCTION
+    }
+
+    class CashfreeEventProcessor : ISentryEventProcessor
+    {
+        public SentryEvent? Process(SentryEvent @event)
+        {
+            // Add anything to the event here
+            // returning `null` will drop the event
+            List<SentryException> exceptionList = @event.SentryExceptions.ToList();
+            if (exceptionList.Count > 0 &&  exceptionList[0].Stacktrace.Frames.Count > 0 && exceptionList[0].Stacktrace.Frames[0].FileName.Contains("cashfree"))
+            {
+            return @event;
+            }
+            return null;
+        }
     }
 
     public class Cashfree {
@@ -66,7 +89,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="eligibilityFetchCardlessEMIRequest">Request Body to get eligible cardless emi options for a customer and order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;EligibilityCardlessEMIEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityCardlessEMIEntity>> PGEligibilityFetchCardlessEMI(string xApiVersion, EligibilityFetchCardlessEMIRequest eligibilityFetchCardlessEMIRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -87,7 +110,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -174,7 +198,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -198,7 +222,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="eligibilityFetchOffersRequest">Request Body to get eligible offers for a customer and order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;EligibilityOfferEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityOfferEntity>> PGEligibilityFetchOffers(string xApiVersion, EligibilityFetchOffersRequest eligibilityFetchOffersRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -219,7 +243,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -306,7 +331,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -330,7 +355,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="eligibilityFetchPaylaterRequest">Request Body to get eligible paylater options for a customer and order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;EligibilityPaylaterEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityPaylaterEntity>> PGEligibilityFetchPaylater(string xApiVersion, EligibilityFetchPaylaterRequest eligibilityFetchPaylaterRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -351,7 +376,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -438,7 +464,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -462,7 +488,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="eligibilityFetchPaymentMethodsRequest">Request Body to get eligible payment methods for an account and order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;EligibilityPaymentMethodsEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityPaymentMethodsEntity>> PGEligibilityFetchPaymentMethods(string xApiVersion, EligibilityFetchPaymentMethodsRequest eligibilityFetchPaymentMethodsRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -483,7 +509,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -570,7 +597,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -594,7 +621,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="createOfferRequest">Request body to create an offer at Cashfree</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of OfferEntity</returns>
         public cashfree_pg.Client.ApiResponse<OfferEntity> PGCreateOffer(string xApiVersion, CreateOfferRequest createOfferRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -615,7 +642,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -702,7 +730,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -726,7 +754,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="offerId">The offer ID for which you want to view the offer details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of OfferEntity</returns>
         public cashfree_pg.Client.ApiResponse<OfferEntity> PGFetchOffer(string xApiVersion, string offerId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -747,7 +775,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -833,7 +862,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -857,7 +886,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="createOrderRequest">Request body to create an order at cashfree</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of OrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderEntity> PGCreateOrder(string xApiVersion, CreateOrderRequest createOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -878,7 +907,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -965,7 +995,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -989,7 +1019,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of OrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderEntity> PGFetchOrder(string xApiVersion, string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1010,7 +1040,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1096,7 +1127,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -1121,7 +1152,7 @@ namespace cashfree_pg.Client
         /// <param name="fetchReconRequest">Request Body for the reconciliation</param>
         /// <param name="contentType">application/json (optional)</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <param name="accept">application/json (optional)</param>
         /// <returns>ApiResponse of ReconEntity</returns>
         public cashfree_pg.Client.ApiResponse<ReconEntity> PGFetchRecon(string xApiVersion, FetchReconRequest fetchReconRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
@@ -1143,7 +1174,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1238,7 +1270,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -1262,7 +1294,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="linkId">The payment link ID for which you want to view the details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGCancelLink(string xApiVersion, string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1283,7 +1315,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1369,7 +1402,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -1393,7 +1426,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="createLinkRequest">Request Body to Create Payment Links</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGCreateLink(string xApiVersion, CreateLinkRequest createLinkRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1414,7 +1447,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1501,7 +1535,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -1525,7 +1559,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="linkId">The payment link ID for which you want to view the details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGFetchLink(string xApiVersion, string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1546,7 +1580,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1632,7 +1667,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -1656,7 +1691,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="linkId">The payment link ID for which you want to view the details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<OrderEntity>> PGLinkFetchOrders(string xApiVersion, string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1677,7 +1712,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1763,7 +1799,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<OrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -1788,7 +1824,7 @@ namespace cashfree_pg.Client
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="authorizeOrderRequest">Request to Capture or Void Transactions</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of PaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<PaymentEntity> PGAuthorizeOrder(string xApiVersion, string orderId, AuthorizeOrderRequest authorizeOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1809,7 +1845,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -1901,7 +1938,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -1926,7 +1963,7 @@ namespace cashfree_pg.Client
         /// <param name="cfPaymentId">The Cashfree payment or transaction ID.</param>
         /// <param name="orderAuthenticatePaymentRequest">Request body to submit/resend headless OTP. To use this API make sure you have headless OTP enabled for your account</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of OrderAuthenticateEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderAuthenticateEntity> PGOrderAuthenticatePayment(string xApiVersion, string cfPaymentId, OrderAuthenticatePaymentRequest orderAuthenticatePaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -1947,7 +1984,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2024,7 +2062,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -2049,7 +2087,7 @@ namespace cashfree_pg.Client
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="cfPaymentId">The Cashfree payment or transaction ID.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of PaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<PaymentEntity> PGOrderFetchPayment(string xApiVersion, string orderId, string cfPaymentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2070,7 +2108,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2161,7 +2200,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -2185,7 +2224,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;PaymentEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<PaymentEntity>> PGOrderFetchPayments(string xApiVersion, string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2206,7 +2245,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2292,7 +2332,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -2316,7 +2356,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="payOrderRequest">Request body to create a transaction at cashfree using &#x60;payment_session_id&#x60;</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of PayOrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<PayOrderEntity> PGPayOrder(string xApiVersion, PayOrderRequest payOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2337,7 +2377,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2409,7 +2450,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -2434,7 +2475,7 @@ namespace cashfree_pg.Client
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="orderCreateRefundRequest">Request Body to Create Refunds</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of RefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<RefundEntity> PGOrderCreateRefund(string xApiVersion, string orderId, OrderCreateRefundRequest orderCreateRefundRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2455,7 +2496,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2547,7 +2589,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -2572,7 +2614,7 @@ namespace cashfree_pg.Client
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="refundId">Refund Id of the refund you want to fetch.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of RefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<RefundEntity> PGOrderFetchRefund(string xApiVersion, string orderId, string refundId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2593,7 +2635,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2684,7 +2727,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -2708,7 +2751,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;RefundEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<RefundEntity>> PGOrderFetchRefunds(string xApiVersion, string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -2729,7 +2772,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2815,7 +2859,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -2840,7 +2884,7 @@ namespace cashfree_pg.Client
         /// <param name="fetchSettlementsRequest">Request Body to get the settlements</param>
         /// <param name="contentType">application/json (optional)</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <param name="accept">application/json (optional)</param>
         /// <returns>ApiResponse of SettlementEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementEntity> PGFetchSettlements(string xApiVersion, FetchSettlementsRequest fetchSettlementsRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
@@ -2862,7 +2906,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -2957,7 +3002,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -2982,7 +3027,7 @@ namespace cashfree_pg.Client
         /// <param name="settlementFetchReconRequest">Request Body for the settlement reconciliation</param>
         /// <param name="contentType">application/json (optional)</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <param name="accept">application/json (optional)</param>
         /// <returns>ApiResponse of SettlementReconEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementReconEntity> PGSettlementFetchRecon(string xApiVersion, SettlementFetchReconRequest settlementFetchReconRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
@@ -3004,7 +3049,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3099,7 +3145,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -3123,7 +3169,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="orderId">The id which uniquely identifies your order</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of SettlementEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementEntity> PGOrderFetchSettlement(string xApiVersion, string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3144,7 +3190,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3230,7 +3277,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -3254,7 +3301,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="createTerminalRequest">Request Body to Create Terminal for SPOS</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of TerminalEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalEntity> SposCreateTerminal(string xApiVersion, CreateTerminalRequest createTerminalRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3275,7 +3322,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3362,7 +3410,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -3386,7 +3434,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="createTerminalTransactionRequest">Request body to create a terminal transaction</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of TerminalTransactionEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalTransactionEntity> SposCreateTerminalTransaction(string xApiVersion, CreateTerminalTransactionRequest createTerminalTransactionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3407,7 +3455,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3494,7 +3543,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -3518,7 +3567,7 @@ namespace cashfree_pg.Client
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
         /// <param name="terminalPhoneNo">The terminal for which you want to view the order details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of TerminalEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalEntity> SposFetchTerminal(string xApiVersion, string terminalPhoneNo, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3539,7 +3588,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3625,7 +3675,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -3650,7 +3700,7 @@ namespace cashfree_pg.Client
         /// <param name="terminalPhoneNo">Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request.</param>
         /// <param name="cfTerminalId">Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;FetchTerminalQRCodesEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<FetchTerminalQRCodesEntity>> SposFetchTerminalQRCodes(string xApiVersion, string terminalPhoneNo, string cfTerminalId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3671,7 +3721,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3762,7 +3813,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -3787,7 +3838,7 @@ namespace cashfree_pg.Client
         /// <param name="customerId">Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60;</param>
         /// <param name="instrumentId">The instrument_id which needs to be deleted</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of InstrumentEntity</returns>
         public cashfree_pg.Client.ApiResponse<InstrumentEntity> PGCustomerDeleteInstrument(string xApiVersion, string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3808,7 +3859,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -3899,7 +3951,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -3924,7 +3976,7 @@ namespace cashfree_pg.Client
         /// <param name="customerId">Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60;</param>
         /// <param name="instrumentId">The instrument_id of the saved instrument which needs to be queried</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of InstrumentEntity</returns>
         public cashfree_pg.Client.ApiResponse<InstrumentEntity> PGCustomerFetchInstrument(string xApiVersion, string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -3945,7 +3997,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -4036,7 +4089,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -4061,7 +4114,7 @@ namespace cashfree_pg.Client
         /// <param name="customerId">Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60;</param>
         /// <param name="instrumentType">Payment mode or type of saved instrument </param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of List&lt;InstrumentEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<InstrumentEntity>> PGCustomerFetchInstruments(string xApiVersion, string customerId, string instrumentType, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -4082,7 +4135,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -4173,7 +4227,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -4198,7 +4252,7 @@ namespace cashfree_pg.Client
         /// <param name="customerId">Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60;</param>
         /// <param name="instrumentId">The instrument_id of the saved card instrument which needs to be queried</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
-        /// <param name="xIdempotencyKey">Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional)</param>
         /// <returns>ApiResponse of CryptogramEntity</returns>
         public cashfree_pg.Client.ApiResponse<CryptogramEntity> PGCustomerInstrumentsFetchCryptogram(string xApiVersion, string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
@@ -4219,7 +4273,8 @@ namespace cashfree_pg.Client
                 o.EnableTracing = true;
                 o.AttachStacktrace = true;
                 o.Environment = env;
-                o.Release = "3.0.8";
+                o.Release = "3.1.0";
+                o.AddEventProcessor(new CashfreeEventProcessor());
             }));
                 var config = new Configuration();
             if(configuration != null) {
@@ -4310,7 +4365,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.0.8");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);

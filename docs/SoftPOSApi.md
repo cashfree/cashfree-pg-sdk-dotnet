@@ -42,7 +42,7 @@ namespace Example
             var xApiVersion = 2022-09-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2022-09-01")
             var createTerminalRequest = new CreateTerminalRequest(); // CreateTerminalRequest | Request Body to Create Terminal for SPOS
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -68,7 +68,7 @@ namespace Example
 | **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;] |
 | **createTerminalRequest** | [**CreateTerminalRequest**](CreateTerminalRequest.md) | Request Body to Create Terminal for SPOS |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -131,7 +131,7 @@ namespace Example
             var xApiVersion = 2022-09-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2022-09-01")
             var createTerminalTransactionRequest = new CreateTerminalTransactionRequest(); // CreateTerminalTransactionRequest | Request body to create a terminal transaction
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -157,7 +157,7 @@ namespace Example
 | **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;] |
 | **createTerminalTransactionRequest** | [**CreateTerminalTransactionRequest**](CreateTerminalTransactionRequest.md) | Request body to create a terminal transaction |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -220,7 +220,7 @@ namespace Example
             var xApiVersion = 2022-09-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2022-09-01")
             var terminalPhoneNo = 6309291183;  // string | The terminal for which you want to view the order details.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -246,7 +246,7 @@ namespace Example
 | **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;] |
 | **terminalPhoneNo** | **string** | The terminal for which you want to view the order details. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -310,7 +310,7 @@ namespace Example
             var terminalPhoneNo = 9876543214;  // string | Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request.
             var cfTerminalId = 123344;  // string | Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -337,7 +337,7 @@ namespace Example
 | **terminalPhoneNo** | **string** | Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request. |  |
 | **cfTerminalId** | **string** | Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 

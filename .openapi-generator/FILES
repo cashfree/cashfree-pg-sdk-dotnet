@@ -27,8 +27,6 @@ docs/CashbackDetails.md
 docs/CreateLinkRequest.md
 docs/CreateOfferRequest.md
 docs/CreateOrderRequest.md
-docs/CreateOrderRequestOrderMeta.md
-docs/CreateOrderRequestTerminal.md
 docs/CreateTerminalRequest.md
 docs/CreateTerminalRequestTerminalMeta.md
 docs/CreateTerminalTransactionRequest.md
@@ -176,8 +174,6 @@ src/cashfree_pg.Test/Model/CardlessEMITests.cs
 src/cashfree_pg.Test/Model/CashbackDetailsTests.cs
 src/cashfree_pg.Test/Model/CreateLinkRequestTests.cs
 src/cashfree_pg.Test/Model/CreateOfferRequestTests.cs
-src/cashfree_pg.Test/Model/CreateOrderRequestOrderMetaTests.cs
-src/cashfree_pg.Test/Model/CreateOrderRequestTerminalTests.cs
 src/cashfree_pg.Test/Model/CreateOrderRequestTests.cs
 src/cashfree_pg.Test/Model/CreateTerminalRequestTerminalMetaTests.cs
 src/cashfree_pg.Test/Model/CreateTerminalRequestTests.cs
@@ -333,8 +329,6 @@ src/cashfree_pg/Model/CashbackDetails.cs
 src/cashfree_pg/Model/CreateLinkRequest.cs
 src/cashfree_pg/Model/CreateOfferRequest.cs
 src/cashfree_pg/Model/CreateOrderRequest.cs
-src/cashfree_pg/Model/CreateOrderRequestOrderMeta.cs
-src/cashfree_pg/Model/CreateOrderRequestTerminal.cs
 src/cashfree_pg/Model/CreateTerminalRequest.cs
 src/cashfree_pg/Model/CreateTerminalRequestTerminalMeta.cs
 src/cashfree_pg/Model/CreateTerminalTransactionRequest.cs

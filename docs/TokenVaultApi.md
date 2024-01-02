@@ -43,7 +43,7 @@ namespace Example
             var customerId = your-customer-id;  // string | Your Customer ID that you had sent during create order API `POST/orders`
             var instrumentId = some-instrument-id;  // string | The instrument_id which needs to be deleted
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -70,7 +70,7 @@ namespace Example
 | **customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; |  |
 | **instrumentId** | **string** | The instrument_id which needs to be deleted |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -135,7 +135,7 @@ namespace Example
             var customerId = your-customer-id;  // string | Your Customer ID that you had sent during create order API `POST/orders`
             var instrumentId = some-instrument-id;  // string | The instrument_id of the saved instrument which needs to be queried
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -162,7 +162,7 @@ namespace Example
 | **customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; |  |
 | **instrumentId** | **string** | The instrument_id of the saved instrument which needs to be queried |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -227,7 +227,7 @@ namespace Example
             var customerId = your-customer-id;  // string | Your Customer ID that you had sent during create order API `POST/orders`
             var instrumentType = card;  // string | Payment mode or type of saved instrument 
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -254,7 +254,7 @@ namespace Example
 | **customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; |  |
 | **instrumentType** | **string** | Payment mode or type of saved instrument  |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 
@@ -318,7 +318,7 @@ namespace Example
             var customerId = your-customer-id;  // string | Your Customer ID that you had sent during create order API `POST/orders`
             var instrumentId = some-instrument-id;  // string | The instrument_id of the saved card instrument which needs to be queried
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
-            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id & x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. (optional) 
 
             try
             {
@@ -345,7 +345,7 @@ namespace Example
 | **customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; |  |
 | **instrumentId** | **string** | The instrument_id of the saved card instrument which needs to be queried |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
-| **xIdempotencyKey** | **Guid?** | Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders   | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional]  |
 
 ### Return type
 

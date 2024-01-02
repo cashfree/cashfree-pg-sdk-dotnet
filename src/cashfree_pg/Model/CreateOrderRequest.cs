@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// <param name="orderNote">Order note for reference..</param>
         /// <param name="orderTags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
         /// <param name="orderSplits">If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount..</param>
-        public CreateOrderRequest(string orderId = default(string), double orderAmount = default(double), string orderCurrency = default(string), CustomerDetails customerDetails = default(CustomerDetails), CreateOrderRequestTerminal terminal = default(CreateOrderRequestTerminal), CreateOrderRequestOrderMeta orderMeta = default(CreateOrderRequestOrderMeta), string orderExpiryTime = default(string), string orderNote = default(string), Dictionary<string, string> orderTags = default(Dictionary<string, string>), List<VendorSplit> orderSplits = default(List<VendorSplit>))
+        public CreateOrderRequest(string orderId = default(string), double orderAmount = default(double), string orderCurrency = default(string), CustomerDetails customerDetails = default(CustomerDetails), TerminalDetails terminal = default(TerminalDetails), OrderMeta orderMeta = default(OrderMeta), string orderExpiryTime = default(string), string orderNote = default(string), Dictionary<string, string> orderTags = default(Dictionary<string, string>), List<VendorSplit> orderSplits = default(List<VendorSplit>))
         {
             this.order_amount = orderAmount;
             // to ensure "orderCurrency" is required (not null)
@@ -79,7 +79,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Order identifier present in your system. Alphanumeric, &#39;_&#39; and &#39;-&#39; only</value>
         /// <example>your-order-id</example>
-        [DataMember(Name = "order_id", EmitDefaultValue = true)]
+        [DataMember(Name = "order_id", EmitDefaultValue = false)]
         public string order_id { get; set; }
 
         /// <summary>
@@ -107,14 +107,14 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets terminal
         /// </summary>
-        [DataMember(Name = "terminal", EmitDefaultValue = true)]
-        public CreateOrderRequestTerminal terminal { get; set; }
+        [DataMember(Name = "terminal", EmitDefaultValue = false)]
+        public TerminalDetails terminal { get; set; }
 
         /// <summary>
         /// Gets or Sets order_meta
         /// </summary>
-        [DataMember(Name = "order_meta", EmitDefaultValue = true)]
-        public CreateOrderRequestOrderMeta order_meta { get; set; }
+        [DataMember(Name = "order_meta", EmitDefaultValue = false)]
+        public OrderMeta order_meta { get; set; }
 
         /// <summary>
         /// Time after which the order expires. Customers will not be able to make the payment beyond the time specified here. We store timestamps in IST, but you can provide them in a valid ISO 8601 time format. Example 2021-07-02T10:20:12+05:30 for IST, 2021-07-02T10:20:12Z for UTC
@@ -129,7 +129,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Order note for reference.</value>
         /// <example>Test order</example>
-        [DataMember(Name = "order_note", EmitDefaultValue = true)]
+        [DataMember(Name = "order_note", EmitDefaultValue = false)]
         public string order_note { get; set; }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         /// <example>{&quot;product&quot;:&quot;Laptop&quot;,&quot;shipping_address&quot;:&quot;123 Main St&quot;}</example>
-        [DataMember(Name = "order_tags", EmitDefaultValue = true)]
+        [DataMember(Name = "order_tags", EmitDefaultValue = false)]
         public Dictionary<string, string> order_tags { get; set; }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.</value>
         /// <example>[{&quot;amount&quot;:10,&quot;vendor&quot;:&quot;john&quot;}]</example>
-        [DataMember(Name = "order_splits", EmitDefaultValue = true)]
+        [DataMember(Name = "order_splits", EmitDefaultValue = false)]
         public List<VendorSplit> order_splits { get; set; }
 
         /// <summary>

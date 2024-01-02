@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         /// <param name="customerBankAccountNumber">Customer bank account. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankIfsc">Customer bank IFSC. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankCode">Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV).</param>
-        public CustomerDetails(string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string), string customerName = default(string), string customerBankAccountNumber = default(string), string customerBankIfsc = default(string), decimal? customerBankCode = default(decimal?))
+        public CustomerDetails(string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string), string customerName = default(string), string customerBankAccountNumber = default(string), string customerBankIfsc = default(string), decimal customerBankCode = default(decimal))
         {
             // to ensure "customerId" is required (not null)
             if (customerId == null)
@@ -79,7 +79,7 @@ namespace cashfree_pg.Model
         /// Customer email address.
         /// </summary>
         /// <value>Customer email address.</value>
-        [DataMember(Name = "customer_email", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_email", EmitDefaultValue = false)]
         public string customer_email { get; set; }
 
         /// <summary>
@@ -93,29 +93,29 @@ namespace cashfree_pg.Model
         /// Name of the customer.
         /// </summary>
         /// <value>Name of the customer.</value>
-        [DataMember(Name = "customer_name", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_name", EmitDefaultValue = false)]
         public string customer_name { get; set; }
 
         /// <summary>
         /// Customer bank account. Required if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank account. Required if you want to do a bank account check (TPV)</value>
-        [DataMember(Name = "customer_bank_account_number", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_bank_account_number", EmitDefaultValue = false)]
         public string customer_bank_account_number { get; set; }
 
         /// <summary>
         /// Customer bank IFSC. Required if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank IFSC. Required if you want to do a bank account check (TPV)</value>
-        [DataMember(Name = "customer_bank_ifsc", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_bank_ifsc", EmitDefaultValue = false)]
         public string customer_bank_ifsc { get; set; }
 
         /// <summary>
         /// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)</value>
-        [DataMember(Name = "customer_bank_code", EmitDefaultValue = true)]
-        public decimal? customer_bank_code { get; set; }
+        [DataMember(Name = "customer_bank_code", EmitDefaultValue = false)]
+        public decimal customer_bank_code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -199,8 +199,7 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.customer_bank_code == input.customer_bank_code ||
-                    (this.customer_bank_code != null &&
-                    this.customer_bank_code.Equals(input.customer_bank_code))
+                    this.customer_bank_code.Equals(input.customer_bank_code)
                 );
         }
 
@@ -237,10 +236,7 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.customer_bank_ifsc.GetHashCode();
                 }
-                if (this.customer_bank_code != null)
-                {
-                    hashCode = (hashCode * 59) + this.customer_bank_code.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.customer_bank_code.GetHashCode();
                 return hashCode;
             }
         }

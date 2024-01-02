@@ -50,25 +50,25 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets url
         /// </summary>
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string url { get; set; }
 
         /// <summary>
         /// Gets or Sets payload
         /// </summary>
-        [DataMember(Name = "payload", EmitDefaultValue = true)]
+        [DataMember(Name = "payload", EmitDefaultValue = false)]
         public Object payload { get; set; }
 
         /// <summary>
         /// Gets or Sets content_type
         /// </summary>
-        [DataMember(Name = "content_type", EmitDefaultValue = true)]
+        [DataMember(Name = "content_type", EmitDefaultValue = false)]
         public string content_type { get; set; }
 
         /// <summary>
         /// Gets or Sets method
         /// </summary>
-        [DataMember(Name = "method", EmitDefaultValue = true)]
+        [DataMember(Name = "method", EmitDefaultValue = false)]
         public string method { get; set; }
 
         /// <summary>

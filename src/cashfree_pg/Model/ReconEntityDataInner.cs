@@ -82,7 +82,7 @@ namespace cashfree_pg.Model
         /// <param name="settlementCharge">Settlement charges applicable on the settlement..</param>
         /// <param name="settlementTax">Settlement tax applicable on the settlement..</param>
         /// <param name="remarks">Remarks on the settlement..</param>
-        public ReconEntityDataInner(string eventId = default(string), string eventType = default(string), decimal eventSettlementAmount = default(decimal), decimal eventAmount = default(decimal), string saleType = default(string), string eventStatus = default(string), string entity = default(string), string eventTime = default(string), string eventCurrency = default(string), string orderId = default(string), decimal? orderAmount = default(decimal?), string customerPhone = default(string), string customerEmail = default(string), string customerName = default(string), decimal? paymentAmount = default(decimal?), string paymentUtr = default(string), string paymentTime = default(string), decimal? paymentServiceCharge = default(decimal?), decimal? paymentServiceTax = default(decimal?), long? cfPaymentId = default(long?), int? cfSettlementId = default(int?), string settlementDate = default(string), string settlementUtr = default(string), decimal? splitServiceCharge = default(decimal?), decimal? splitServiceTax = default(decimal?), decimal? vendorCommission = default(decimal?), string closedInFavorOf = default(string), string disputeResolvedOn = default(string), string disputeCategory = default(string), string disputeNote = default(string), string refundProcessedAt = default(string), string refundArn = default(string), string refundNote = default(string), string refundId = default(string), string adjustmentRemarks = default(string), decimal? adjustment = default(decimal?), decimal? serviceTax = default(decimal?), decimal? serviceCharge = default(decimal?), decimal? amountSettled = default(decimal?), string paymentFrom = default(string), string paymentTill = default(string), string reason = default(string), string settlementInitiatedOn = default(string), string settlementType = default(string), decimal? settlementCharge = default(decimal?), decimal? settlementTax = default(decimal?), string remarks = default(string))
+        public ReconEntityDataInner(string eventId = default(string), string eventType = default(string), decimal eventSettlementAmount = default(decimal), decimal eventAmount = default(decimal), string saleType = default(string), string eventStatus = default(string), string entity = default(string), string eventTime = default(string), string eventCurrency = default(string), string orderId = default(string), decimal orderAmount = default(decimal), string customerPhone = default(string), string customerEmail = default(string), string customerName = default(string), decimal paymentAmount = default(decimal), string paymentUtr = default(string), string paymentTime = default(string), decimal paymentServiceCharge = default(decimal), decimal paymentServiceTax = default(decimal), long cfPaymentId = default(long), int cfSettlementId = default(int), string settlementDate = default(string), string settlementUtr = default(string), decimal splitServiceCharge = default(decimal), decimal splitServiceTax = default(decimal), decimal vendorCommission = default(decimal), string closedInFavorOf = default(string), string disputeResolvedOn = default(string), string disputeCategory = default(string), string disputeNote = default(string), string refundProcessedAt = default(string), string refundArn = default(string), string refundNote = default(string), string refundId = default(string), string adjustmentRemarks = default(string), decimal adjustment = default(decimal), decimal serviceTax = default(decimal), decimal serviceCharge = default(decimal), decimal amountSettled = default(decimal), string paymentFrom = default(string), string paymentTill = default(string), string reason = default(string), string settlementInitiatedOn = default(string), string settlementType = default(string), decimal settlementCharge = default(decimal), decimal settlementTax = default(decimal), string remarks = default(string))
         {
             this.event_id = eventId;
             this.event_type = eventType;
@@ -165,14 +165,14 @@ namespace cashfree_pg.Model
         /// Indicates if it is CREDIT/DEBIT sale.
         /// </summary>
         /// <value>Indicates if it is CREDIT/DEBIT sale.</value>
-        [DataMember(Name = "sale_type", EmitDefaultValue = true)]
+        [DataMember(Name = "sale_type", EmitDefaultValue = false)]
         public string sale_type { get; set; }
 
         /// <summary>
         /// Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.
         /// </summary>
         /// <value>Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.</value>
-        [DataMember(Name = "event_status", EmitDefaultValue = true)]
+        [DataMember(Name = "event_status", EmitDefaultValue = false)]
         public string event_status { get; set; }
 
         /// <summary>
@@ -193,273 +193,273 @@ namespace cashfree_pg.Model
         /// Curreny type - INR.
         /// </summary>
         /// <value>Curreny type - INR.</value>
-        [DataMember(Name = "event_currency", EmitDefaultValue = true)]
+        [DataMember(Name = "event_currency", EmitDefaultValue = false)]
         public string event_currency { get; set; }
 
         /// <summary>
         /// Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed.
         /// </summary>
         /// <value>Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed.</value>
-        [DataMember(Name = "order_id", EmitDefaultValue = true)]
+        [DataMember(Name = "order_id", EmitDefaultValue = false)]
         public string order_id { get; set; }
 
         /// <summary>
         /// The amount which was passed at the order creation time.
         /// </summary>
         /// <value>The amount which was passed at the order creation time.</value>
-        [DataMember(Name = "order_amount", EmitDefaultValue = true)]
-        public decimal? order_amount { get; set; }
+        [DataMember(Name = "order_amount", EmitDefaultValue = false)]
+        public decimal order_amount { get; set; }
 
         /// <summary>
         /// Customer phone number.
         /// </summary>
         /// <value>Customer phone number.</value>
-        [DataMember(Name = "customer_phone", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_phone", EmitDefaultValue = false)]
         public string customer_phone { get; set; }
 
         /// <summary>
         /// Customer email.
         /// </summary>
         /// <value>Customer email.</value>
-        [DataMember(Name = "customer_email", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_email", EmitDefaultValue = false)]
         public string customer_email { get; set; }
 
         /// <summary>
         /// Customer name.
         /// </summary>
         /// <value>Customer name.</value>
-        [DataMember(Name = "customer_name", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_name", EmitDefaultValue = false)]
         public string customer_name { get; set; }
 
         /// <summary>
         /// Payment amount captured.
         /// </summary>
         /// <value>Payment amount captured.</value>
-        [DataMember(Name = "payment_amount", EmitDefaultValue = true)]
-        public decimal? payment_amount { get; set; }
+        [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
+        public decimal payment_amount { get; set; }
 
         /// <summary>
         /// Unique transaction reference number of the payment.
         /// </summary>
         /// <value>Unique transaction reference number of the payment.</value>
-        [DataMember(Name = "payment_utr", EmitDefaultValue = true)]
+        [DataMember(Name = "payment_utr", EmitDefaultValue = false)]
         public string payment_utr { get; set; }
 
         /// <summary>
         /// Date and time when the payment was initiated.
         /// </summary>
         /// <value>Date and time when the payment was initiated.</value>
-        [DataMember(Name = "payment_time", EmitDefaultValue = true)]
+        [DataMember(Name = "payment_time", EmitDefaultValue = false)]
         public string payment_time { get; set; }
 
         /// <summary>
         /// Service charge applicable for the payment.
         /// </summary>
         /// <value>Service charge applicable for the payment.</value>
-        [DataMember(Name = "payment_service_charge", EmitDefaultValue = true)]
-        public decimal? payment_service_charge { get; set; }
+        [DataMember(Name = "payment_service_charge", EmitDefaultValue = false)]
+        public decimal payment_service_charge { get; set; }
 
         /// <summary>
         /// Service tax applicable on the payment.
         /// </summary>
         /// <value>Service tax applicable on the payment.</value>
-        [DataMember(Name = "payment_service_tax", EmitDefaultValue = true)]
-        public decimal? payment_service_tax { get; set; }
+        [DataMember(Name = "payment_service_tax", EmitDefaultValue = false)]
+        public decimal payment_service_tax { get; set; }
 
         /// <summary>
         /// Cashfree Payments unique ID to identify a payment.
         /// </summary>
         /// <value>Cashfree Payments unique ID to identify a payment.</value>
-        [DataMember(Name = "cf_payment_id", EmitDefaultValue = true)]
-        public long? cf_payment_id { get; set; }
+        [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
+        public long cf_payment_id { get; set; }
 
         /// <summary>
         /// Unique ID to identify the settlement.
         /// </summary>
         /// <value>Unique ID to identify the settlement.</value>
-        [DataMember(Name = "cf_settlement_id", EmitDefaultValue = true)]
-        public int? cf_settlement_id { get; set; }
+        [DataMember(Name = "cf_settlement_id", EmitDefaultValue = false)]
+        public int cf_settlement_id { get; set; }
 
         /// <summary>
         /// Date and time when the settlement was processed.
         /// </summary>
         /// <value>Date and time when the settlement was processed.</value>
-        [DataMember(Name = "settlement_date", EmitDefaultValue = true)]
+        [DataMember(Name = "settlement_date", EmitDefaultValue = false)]
         public string settlement_date { get; set; }
 
         /// <summary>
         /// Unique transaction reference number of the settlement.
         /// </summary>
         /// <value>Unique transaction reference number of the settlement.</value>
-        [DataMember(Name = "settlement_utr", EmitDefaultValue = true)]
+        [DataMember(Name = "settlement_utr", EmitDefaultValue = false)]
         public string settlement_utr { get; set; }
 
         /// <summary>
         /// Service charge that is applicable for splitting the payment.
         /// </summary>
         /// <value>Service charge that is applicable for splitting the payment.</value>
-        [DataMember(Name = "split_service_charge", EmitDefaultValue = true)]
-        public decimal? split_service_charge { get; set; }
+        [DataMember(Name = "split_service_charge", EmitDefaultValue = false)]
+        public decimal split_service_charge { get; set; }
 
         /// <summary>
         /// Service tax applicable for splitting the amount to vendors.
         /// </summary>
         /// <value>Service tax applicable for splitting the amount to vendors.</value>
-        [DataMember(Name = "split_service_tax", EmitDefaultValue = true)]
-        public decimal? split_service_tax { get; set; }
+        [DataMember(Name = "split_service_tax", EmitDefaultValue = false)]
+        public decimal split_service_tax { get; set; }
 
         /// <summary>
         /// Vendor commission applicable for this transaction.
         /// </summary>
         /// <value>Vendor commission applicable for this transaction.</value>
-        [DataMember(Name = "vendor_commission", EmitDefaultValue = true)]
-        public decimal? vendor_commission { get; set; }
+        [DataMember(Name = "vendor_commission", EmitDefaultValue = false)]
+        public decimal vendor_commission { get; set; }
 
         /// <summary>
         /// Specifies whether the dispute was closed in favor of the merchant or customer. /n Possible values - Merchant, Customer
         /// </summary>
         /// <value>Specifies whether the dispute was closed in favor of the merchant or customer. /n Possible values - Merchant, Customer</value>
-        [DataMember(Name = "closed_in_favor_of", EmitDefaultValue = true)]
+        [DataMember(Name = "closed_in_favor_of", EmitDefaultValue = false)]
         public string closed_in_favor_of { get; set; }
 
         /// <summary>
         /// Date and time when the dispute was resolved.
         /// </summary>
         /// <value>Date and time when the dispute was resolved.</value>
-        [DataMember(Name = "dispute_resolved_on", EmitDefaultValue = true)]
+        [DataMember(Name = "dispute_resolved_on", EmitDefaultValue = false)]
         public string dispute_resolved_on { get; set; }
 
         /// <summary>
         /// Category of the dispute - Dispute code and the reason for dispute is shown.
         /// </summary>
         /// <value>Category of the dispute - Dispute code and the reason for dispute is shown.</value>
-        [DataMember(Name = "dispute_category", EmitDefaultValue = true)]
+        [DataMember(Name = "dispute_category", EmitDefaultValue = false)]
         public string dispute_category { get; set; }
 
         /// <summary>
         /// Note regarding the dispute.
         /// </summary>
         /// <value>Note regarding the dispute.</value>
-        [DataMember(Name = "dispute_note", EmitDefaultValue = true)]
+        [DataMember(Name = "dispute_note", EmitDefaultValue = false)]
         public string dispute_note { get; set; }
 
         /// <summary>
         /// Date and time when the refund was processed.
         /// </summary>
         /// <value>Date and time when the refund was processed.</value>
-        [DataMember(Name = "refund_processed_at", EmitDefaultValue = true)]
+        [DataMember(Name = "refund_processed_at", EmitDefaultValue = false)]
         public string refund_processed_at { get; set; }
 
         /// <summary>
         /// The bank reference number for the refund.
         /// </summary>
         /// <value>The bank reference number for the refund.</value>
-        [DataMember(Name = "refund_arn", EmitDefaultValue = true)]
+        [DataMember(Name = "refund_arn", EmitDefaultValue = false)]
         public string refund_arn { get; set; }
 
         /// <summary>
         /// A refund note for your reference.
         /// </summary>
         /// <value>A refund note for your reference.</value>
-        [DataMember(Name = "refund_note", EmitDefaultValue = true)]
+        [DataMember(Name = "refund_note", EmitDefaultValue = false)]
         public string refund_note { get; set; }
 
         /// <summary>
         /// An unique ID to associate the refund with.
         /// </summary>
         /// <value>An unique ID to associate the refund with.</value>
-        [DataMember(Name = "refund_id", EmitDefaultValue = true)]
+        [DataMember(Name = "refund_id", EmitDefaultValue = false)]
         public string refund_id { get; set; }
 
         /// <summary>
         /// Other adjustment remarks.
         /// </summary>
         /// <value>Other adjustment remarks.</value>
-        [DataMember(Name = "adjustment_remarks", EmitDefaultValue = true)]
+        [DataMember(Name = "adjustment_remarks", EmitDefaultValue = false)]
         public string adjustment_remarks { get; set; }
 
         /// <summary>
         /// Amount that is adjusted from the settlement amount because of any credit/debit event such as refund, refund_reverse etc.
         /// </summary>
         /// <value>Amount that is adjusted from the settlement amount because of any credit/debit event such as refund, refund_reverse etc.</value>
-        [DataMember(Name = "adjustment", EmitDefaultValue = true)]
-        public decimal? adjustment { get; set; }
+        [DataMember(Name = "adjustment", EmitDefaultValue = false)]
+        public decimal adjustment { get; set; }
 
         /// <summary>
         /// Service tax applicable on the settlement amount.
         /// </summary>
         /// <value>Service tax applicable on the settlement amount.</value>
-        [DataMember(Name = "service_tax", EmitDefaultValue = true)]
-        public decimal? service_tax { get; set; }
+        [DataMember(Name = "service_tax", EmitDefaultValue = false)]
+        public decimal service_tax { get; set; }
 
         /// <summary>
         /// Service charge applicable on the settlement amount.
         /// </summary>
         /// <value>Service charge applicable on the settlement amount.</value>
-        [DataMember(Name = "service_charge", EmitDefaultValue = true)]
-        public decimal? service_charge { get; set; }
+        [DataMember(Name = "service_charge", EmitDefaultValue = false)]
+        public decimal service_charge { get; set; }
 
         /// <summary>
         /// Net amount that is settled after considering the adjustments, settlement charge and tax.
         /// </summary>
         /// <value>Net amount that is settled after considering the adjustments, settlement charge and tax.</value>
-        [DataMember(Name = "amount_settled", EmitDefaultValue = true)]
-        public decimal? amount_settled { get; set; }
+        [DataMember(Name = "amount_settled", EmitDefaultValue = false)]
+        public decimal amount_settled { get; set; }
 
         /// <summary>
         /// The start time of the time range of the payments considered for the settlement.
         /// </summary>
         /// <value>The start time of the time range of the payments considered for the settlement.</value>
-        [DataMember(Name = "payment_from", EmitDefaultValue = true)]
+        [DataMember(Name = "payment_from", EmitDefaultValue = false)]
         public string payment_from { get; set; }
 
         /// <summary>
         /// The end time of time range of the payments considered for the settlement.
         /// </summary>
         /// <value>The end time of time range of the payments considered for the settlement.</value>
-        [DataMember(Name = "payment_till", EmitDefaultValue = true)]
+        [DataMember(Name = "payment_till", EmitDefaultValue = false)]
         public string payment_till { get; set; }
 
         /// <summary>
         /// Reason for settlement failure.
         /// </summary>
         /// <value>Reason for settlement failure.</value>
-        [DataMember(Name = "reason", EmitDefaultValue = true)]
+        [DataMember(Name = "reason", EmitDefaultValue = false)]
         public string reason { get; set; }
 
         /// <summary>
         /// Date and time when the settlement was initiated.
         /// </summary>
         /// <value>Date and time when the settlement was initiated.</value>
-        [DataMember(Name = "settlement_initiated_on", EmitDefaultValue = true)]
+        [DataMember(Name = "settlement_initiated_on", EmitDefaultValue = false)]
         public string settlement_initiated_on { get; set; }
 
         /// <summary>
         /// Type of settlement. Possible values - Standard, Instant, On demand.
         /// </summary>
         /// <value>Type of settlement. Possible values - Standard, Instant, On demand.</value>
-        [DataMember(Name = "settlement_type", EmitDefaultValue = true)]
+        [DataMember(Name = "settlement_type", EmitDefaultValue = false)]
         public string settlement_type { get; set; }
 
         /// <summary>
         /// Settlement charges applicable on the settlement.
         /// </summary>
         /// <value>Settlement charges applicable on the settlement.</value>
-        [DataMember(Name = "settlement_charge", EmitDefaultValue = true)]
-        public decimal? settlement_charge { get; set; }
+        [DataMember(Name = "settlement_charge", EmitDefaultValue = false)]
+        public decimal settlement_charge { get; set; }
 
         /// <summary>
         /// Settlement tax applicable on the settlement.
         /// </summary>
         /// <value>Settlement tax applicable on the settlement.</value>
-        [DataMember(Name = "settlement_tax", EmitDefaultValue = true)]
-        public decimal? settlement_tax { get; set; }
+        [DataMember(Name = "settlement_tax", EmitDefaultValue = false)]
+        public decimal settlement_tax { get; set; }
 
         /// <summary>
         /// Remarks on the settlement.
         /// </summary>
         /// <value>Remarks on the settlement.</value>
-        [DataMember(Name = "remarks", EmitDefaultValue = true)]
+        [DataMember(Name = "remarks", EmitDefaultValue = false)]
         public string remarks { get; set; }
 
         /// <summary>
@@ -602,8 +602,7 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.order_amount == input.order_amount ||
-                    (this.order_amount != null &&
-                    this.order_amount.Equals(input.order_amount))
+                    this.order_amount.Equals(input.order_amount)
                 ) && 
                 (
                     this.customer_phone == input.customer_phone ||
@@ -622,8 +621,7 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.payment_amount == input.payment_amount ||
-                    (this.payment_amount != null &&
-                    this.payment_amount.Equals(input.payment_amount))
+                    this.payment_amount.Equals(input.payment_amount)
                 ) && 
                 (
                     this.payment_utr == input.payment_utr ||
@@ -637,23 +635,19 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.payment_service_charge == input.payment_service_charge ||
-                    (this.payment_service_charge != null &&
-                    this.payment_service_charge.Equals(input.payment_service_charge))
+                    this.payment_service_charge.Equals(input.payment_service_charge)
                 ) && 
                 (
                     this.payment_service_tax == input.payment_service_tax ||
-                    (this.payment_service_tax != null &&
-                    this.payment_service_tax.Equals(input.payment_service_tax))
+                    this.payment_service_tax.Equals(input.payment_service_tax)
                 ) && 
                 (
                     this.cf_payment_id == input.cf_payment_id ||
-                    (this.cf_payment_id != null &&
-                    this.cf_payment_id.Equals(input.cf_payment_id))
+                    this.cf_payment_id.Equals(input.cf_payment_id)
                 ) && 
                 (
                     this.cf_settlement_id == input.cf_settlement_id ||
-                    (this.cf_settlement_id != null &&
-                    this.cf_settlement_id.Equals(input.cf_settlement_id))
+                    this.cf_settlement_id.Equals(input.cf_settlement_id)
                 ) && 
                 (
                     this.settlement_date == input.settlement_date ||
@@ -667,18 +661,15 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.split_service_charge == input.split_service_charge ||
-                    (this.split_service_charge != null &&
-                    this.split_service_charge.Equals(input.split_service_charge))
+                    this.split_service_charge.Equals(input.split_service_charge)
                 ) && 
                 (
                     this.split_service_tax == input.split_service_tax ||
-                    (this.split_service_tax != null &&
-                    this.split_service_tax.Equals(input.split_service_tax))
+                    this.split_service_tax.Equals(input.split_service_tax)
                 ) && 
                 (
                     this.vendor_commission == input.vendor_commission ||
-                    (this.vendor_commission != null &&
-                    this.vendor_commission.Equals(input.vendor_commission))
+                    this.vendor_commission.Equals(input.vendor_commission)
                 ) && 
                 (
                     this.closed_in_favor_of == input.closed_in_favor_of ||
@@ -727,23 +718,19 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.adjustment == input.adjustment ||
-                    (this.adjustment != null &&
-                    this.adjustment.Equals(input.adjustment))
+                    this.adjustment.Equals(input.adjustment)
                 ) && 
                 (
                     this.service_tax == input.service_tax ||
-                    (this.service_tax != null &&
-                    this.service_tax.Equals(input.service_tax))
+                    this.service_tax.Equals(input.service_tax)
                 ) && 
                 (
                     this.service_charge == input.service_charge ||
-                    (this.service_charge != null &&
-                    this.service_charge.Equals(input.service_charge))
+                    this.service_charge.Equals(input.service_charge)
                 ) && 
                 (
                     this.amount_settled == input.amount_settled ||
-                    (this.amount_settled != null &&
-                    this.amount_settled.Equals(input.amount_settled))
+                    this.amount_settled.Equals(input.amount_settled)
                 ) && 
                 (
                     this.payment_from == input.payment_from ||
@@ -772,13 +759,11 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.settlement_charge == input.settlement_charge ||
-                    (this.settlement_charge != null &&
-                    this.settlement_charge.Equals(input.settlement_charge))
+                    this.settlement_charge.Equals(input.settlement_charge)
                 ) && 
                 (
                     this.settlement_tax == input.settlement_tax ||
-                    (this.settlement_tax != null &&
-                    this.settlement_tax.Equals(input.settlement_tax))
+                    this.settlement_tax.Equals(input.settlement_tax)
                 ) && 
                 (
                     this.remarks == input.remarks ||
@@ -830,10 +815,7 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.order_id.GetHashCode();
                 }
-                if (this.order_amount != null)
-                {
-                    hashCode = (hashCode * 59) + this.order_amount.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.order_amount.GetHashCode();
                 if (this.customer_phone != null)
                 {
                     hashCode = (hashCode * 59) + this.customer_phone.GetHashCode();
@@ -846,10 +828,7 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.customer_name.GetHashCode();
                 }
-                if (this.payment_amount != null)
-                {
-                    hashCode = (hashCode * 59) + this.payment_amount.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.payment_amount.GetHashCode();
                 if (this.payment_utr != null)
                 {
                     hashCode = (hashCode * 59) + this.payment_utr.GetHashCode();
@@ -858,22 +837,10 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.payment_time.GetHashCode();
                 }
-                if (this.payment_service_charge != null)
-                {
-                    hashCode = (hashCode * 59) + this.payment_service_charge.GetHashCode();
-                }
-                if (this.payment_service_tax != null)
-                {
-                    hashCode = (hashCode * 59) + this.payment_service_tax.GetHashCode();
-                }
-                if (this.cf_payment_id != null)
-                {
-                    hashCode = (hashCode * 59) + this.cf_payment_id.GetHashCode();
-                }
-                if (this.cf_settlement_id != null)
-                {
-                    hashCode = (hashCode * 59) + this.cf_settlement_id.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.payment_service_charge.GetHashCode();
+                hashCode = (hashCode * 59) + this.payment_service_tax.GetHashCode();
+                hashCode = (hashCode * 59) + this.cf_payment_id.GetHashCode();
+                hashCode = (hashCode * 59) + this.cf_settlement_id.GetHashCode();
                 if (this.settlement_date != null)
                 {
                     hashCode = (hashCode * 59) + this.settlement_date.GetHashCode();
@@ -882,18 +849,9 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.settlement_utr.GetHashCode();
                 }
-                if (this.split_service_charge != null)
-                {
-                    hashCode = (hashCode * 59) + this.split_service_charge.GetHashCode();
-                }
-                if (this.split_service_tax != null)
-                {
-                    hashCode = (hashCode * 59) + this.split_service_tax.GetHashCode();
-                }
-                if (this.vendor_commission != null)
-                {
-                    hashCode = (hashCode * 59) + this.vendor_commission.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.split_service_charge.GetHashCode();
+                hashCode = (hashCode * 59) + this.split_service_tax.GetHashCode();
+                hashCode = (hashCode * 59) + this.vendor_commission.GetHashCode();
                 if (this.closed_in_favor_of != null)
                 {
                     hashCode = (hashCode * 59) + this.closed_in_favor_of.GetHashCode();
@@ -930,22 +888,10 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.adjustment_remarks.GetHashCode();
                 }
-                if (this.adjustment != null)
-                {
-                    hashCode = (hashCode * 59) + this.adjustment.GetHashCode();
-                }
-                if (this.service_tax != null)
-                {
-                    hashCode = (hashCode * 59) + this.service_tax.GetHashCode();
-                }
-                if (this.service_charge != null)
-                {
-                    hashCode = (hashCode * 59) + this.service_charge.GetHashCode();
-                }
-                if (this.amount_settled != null)
-                {
-                    hashCode = (hashCode * 59) + this.amount_settled.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.adjustment.GetHashCode();
+                hashCode = (hashCode * 59) + this.service_tax.GetHashCode();
+                hashCode = (hashCode * 59) + this.service_charge.GetHashCode();
+                hashCode = (hashCode * 59) + this.amount_settled.GetHashCode();
                 if (this.payment_from != null)
                 {
                     hashCode = (hashCode * 59) + this.payment_from.GetHashCode();
@@ -966,14 +912,8 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.settlement_type.GetHashCode();
                 }
-                if (this.settlement_charge != null)
-                {
-                    hashCode = (hashCode * 59) + this.settlement_charge.GetHashCode();
-                }
-                if (this.settlement_tax != null)
-                {
-                    hashCode = (hashCode * 59) + this.settlement_tax.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.settlement_charge.GetHashCode();
+                hashCode = (hashCode * 59) + this.settlement_tax.GetHashCode();
                 if (this.remarks != null)
                 {
                     hashCode = (hashCode * 59) + this.remarks.GetHashCode();

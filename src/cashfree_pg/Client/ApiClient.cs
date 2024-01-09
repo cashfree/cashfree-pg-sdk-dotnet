@@ -23,6 +23,7 @@ using System.Text;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using Sentry;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -48,6 +49,20 @@ namespace cashfree_pg.Client
         PRODUCTION
     }
 
+    class PGWebhookEvent
+    {
+        String type;
+        String rawBody;
+        object obj;
+
+        public PGWebhookEvent(String type, String rawBody, object obj)
+        {
+            this.type = type;
+            this.rawBody = rawBody;
+            this.obj = obj;
+        }
+    }
+
     class CashfreeEventProcessor : ISentryEventProcessor
     {
         public SentryEvent? Process(SentryEvent @event)
@@ -57,7 +72,10 @@ namespace cashfree_pg.Client
             List<SentryException> exceptionList = @event.SentryExceptions.ToList();
             if (exceptionList.Count > 0 &&  exceptionList[0].Stacktrace.Frames.Count > 0 && exceptionList[0].Stacktrace.Frames[0].FileName.Contains("cashfree"))
             {
-            return @event;
+                if(Cashfree.XEnableErrorAnalytics) {
+                    return @event;
+                }
+                return null;
             }
             return null;
         }
@@ -71,9 +89,12 @@ namespace cashfree_pg.Client
         public static string XPartnerMerchantId = "";
         public static string XClientSignature = "";
         public static CFEnvironment XEnvironment = CFEnvironment.SANDBOX;
+        public staic bool XEnableErrorAnalytics = true;
 
         public static CFEnvironment SANDBOX = CFEnvironment.SANDBOX;
         public static CFEnvironment PRODUCTION = CFEnvironment.PRODUCTION;
+
+        public static string XApiVersion = "2022-09-01";
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
@@ -81,6 +102,31 @@ namespace cashfree_pg.Client
         private cashfree_pg.Client.ISynchronousClient Client { get; set; }
 
         private cashfree_pg.Client.ExceptionFactory ExceptionFactory = (name, response) => null;
+
+        /// <summary>
+        /// Signature that is received through webhooks can be verified using this method
+        /// </summary>
+        /// <exception cref="Exception">Thrown when fails to make API call</exception>
+        /// <param name="signature">x-webhook-signature that is present in the header of a webhook received from Cashfree</param>
+        /// <param name="rawBody">The body of the request in string format</param>
+        /// <param name="timestamp">x-webhook-timestamp that is present in the header of a webhook received from Cashfree</param>
+        /// <returns>Response of PGWebhookEvent</returns>
+        public PGWebhookEvent PGVerifyWebhookSignature(string signature, string rawBody, string timestamp)
+        {
+            string secretKey = Cashfree.XClientSecret;
+            string body = timestamp + rawBody;
+            using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
+            {
+                byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(body));
+                string generatedSignature = Convert.ToBase64String(hashBytes);
+                if (generatedSignature == signature)
+                {
+                    object deserializedProduct = JsonConvert.DeserializeObject<object>(output);
+                    return new PGWebhookEvent(output["type"], rawBody, output);
+                }
+                throw new Exception("Generated signature and received signature did not match.");
+            }
+        }
 
         /// <summary>
         /// Get Eligible Cardless EMI Use this API to get eligible Cardless EMI Payment Methods available for a customer on an order basis their phone number.
@@ -97,22 +143,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -198,7 +246,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -207,8 +255,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGEligibilityFetchCardlessEMI", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -230,22 +280,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -331,7 +383,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -340,8 +392,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGEligibilityFetchOffers", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -363,22 +417,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -464,7 +520,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -473,8 +529,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGEligibilityFetchPaylater", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -496,22 +554,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -597,7 +657,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -606,8 +666,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGEligibilityFetchPaymentMethods", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -629,22 +691,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -730,7 +794,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -739,8 +803,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCreateOffer", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -762,22 +828,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -862,7 +930,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -871,8 +939,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGFetchOffer", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -894,22 +964,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -995,7 +1067,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -1004,8 +1076,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCreateOrder", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1027,22 +1101,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1127,7 +1203,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -1136,8 +1212,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGFetchOrder", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1161,22 +1239,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1270,7 +1350,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -1279,8 +1359,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGFetchRecon", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1302,22 +1384,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1402,7 +1486,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -1411,8 +1495,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCancelLink", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1434,22 +1520,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1535,7 +1623,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -1544,8 +1632,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCreateLink", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1567,22 +1657,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1667,7 +1759,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -1676,8 +1768,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGFetchLink", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1699,22 +1793,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1799,7 +1895,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<OrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -1808,8 +1904,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGLinkFetchOrders", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1832,22 +1930,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -1938,7 +2038,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -1947,8 +2047,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGAuthorizeOrder", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -1971,22 +2073,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2062,7 +2166,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -2071,8 +2175,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderAuthenticatePayment", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2095,22 +2201,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2200,7 +2308,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -2209,8 +2317,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchPayment", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2232,22 +2342,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2332,7 +2444,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -2341,8 +2453,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchPayments", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2364,22 +2478,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2450,7 +2566,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -2459,8 +2575,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGPayOrder", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2483,22 +2601,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2589,7 +2709,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -2598,8 +2718,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderCreateRefund", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2622,22 +2744,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2727,7 +2851,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -2736,8 +2860,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchRefund", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2759,22 +2885,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -2859,7 +2987,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -2868,8 +2996,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchRefunds", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -2893,22 +3023,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3002,7 +3134,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -3011,8 +3143,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGFetchSettlements", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3036,22 +3170,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3145,7 +3281,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -3154,8 +3290,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGSettlementFetchRecon", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3177,22 +3315,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3277,7 +3417,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -3286,8 +3426,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchSettlement", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3309,22 +3451,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3410,7 +3554,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -3419,8 +3563,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("SposCreateTerminal", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3442,22 +3588,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3543,7 +3691,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -3552,8 +3700,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("SposCreateTerminalTransaction", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3575,22 +3725,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3675,7 +3827,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -3684,8 +3836,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("SposFetchTerminal", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3708,22 +3862,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3813,7 +3969,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -3822,8 +3978,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("SposFetchTerminalQRCodes", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3846,22 +4004,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -3951,7 +4111,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -3960,8 +4120,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCustomerDeleteInstrument", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -3984,22 +4146,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -4089,7 +4253,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -4098,8 +4262,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCustomerFetchInstrument", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -4122,22 +4288,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -4227,7 +4395,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -4236,8 +4404,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCustomerFetchInstruments", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }
@@ -4260,22 +4430,24 @@ namespace cashfree_pg.Client
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
             }
-            using (SentrySdk.Init(o =>
-            {
-                o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
-                // When configuring for the first time, to see what the SDK is doing:
-                o.Debug = true;
-                // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
-                // We recommend adjusting this value in production.
-                o.TracesSampleRate = 1.0;
-                // Enable Global Mode if running in a client app
-                o.IsGlobalModeEnabled = false;
-                o.EnableTracing = true;
-                o.AttachStacktrace = true;
-                o.Environment = env;
-                o.Release = "3.1.0";
-                o.AddEventProcessor(new CashfreeEventProcessor());
-            }));
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "3.1.1";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
                 var config = new Configuration();
             if(configuration != null) {
                 config = configuration;
@@ -4365,7 +4537,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-3.1.1");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);
@@ -4374,8 +4546,10 @@ namespace cashfree_pg.Client
             {
                 Exception _exception = this.ExceptionFactory("PGCustomerInstrumentsFetchCryptogram", localVarResponse);
                 if (_exception != null) {
-                    var sentryEvent = new SentryEvent(_exception);
-                    SentrySdk.CaptureEvent(sentryEvent);
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
                     throw _exception;
                 }
             }

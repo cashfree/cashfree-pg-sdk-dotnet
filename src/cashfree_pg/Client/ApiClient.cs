@@ -53,9 +53,9 @@ namespace cashfree_pg.Client
     {
         String type;
         String rawBody;
-        object obj;
+        dynamic obj;
 
-        public PGWebhookEvent(String type, String rawBody, object obj)
+        public PGWebhookEvent(String type, String rawBody, dynamic obj)
         {
             this.type = type;
             this.rawBody = rawBody;
@@ -121,7 +121,7 @@ namespace cashfree_pg.Client
                 string generatedSignature = Convert.ToBase64String(hashBytes);
                 if (generatedSignature == signature)
                 {
-                    object deserializedRawBody = JsonConvert.DeserializeObject<object>(rawBody);
+                    dynamic deserializedRawBody = JsonConvert.DeserializeObject<dynamic>(rawBody);
                     return new PGWebhookEvent(deserializedRawBody["type"], rawBody, deserializedRawBody);
                 }
                 throw new Exception("Generated signature and received signature did not match.");

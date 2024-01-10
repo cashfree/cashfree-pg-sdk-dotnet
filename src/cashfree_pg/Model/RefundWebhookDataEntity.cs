@@ -27,43 +27,25 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// refund webhook object
+    /// data entity in webhook
     /// </summary>
-    [DataContract(Name = "RefundWebhook")]
-    public class RefundWebhook : IEquatable<RefundWebhook>, IValidatableObject
+    [DataContract(Name = "RefundWebhookDataEntity")]
+    public class RefundWebhookDataEntity : IEquatable<RefundWebhookDataEntity>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RefundWebhook" /> class.
+        /// Initializes a new instance of the <see cref="RefundWebhookDataEntity" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        /// <param name="eventTime">eventTime.</param>
-        /// <param name="type">type.</param>
-        public RefundWebhook(RefundWebhookDataEntity data = default(RefundWebhookDataEntity), string eventTime = default(string), string type = default(string))
+        /// <param name="refund">refund.</param>
+        public RefundWebhookDataEntity(RefundEntity refund = default(RefundEntity))
         {
-            this.data = data;
-            this.event_time = eventTime;
-            this.type = type;
+            this.refund = refund;
         }
 
         /// <summary>
-        /// Gets or Sets data
+        /// Gets or Sets refund
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public RefundWebhookDataEntity data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets event_time
-        /// </summary>
-        /// <example>2021-10-07T19:42:44+05:30</example>
-        [DataMember(Name = "event_time", EmitDefaultValue = false)]
-        public string event_time { get; set; }
-
-        /// <summary>
-        /// Gets or Sets type
-        /// </summary>
-        /// <example>PAYMENT_SUCCESS_WEBHOOK</example>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string type { get; set; }
+        [DataMember(Name = "refund", EmitDefaultValue = false)]
+        public RefundEntity refund { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,10 +54,8 @@ namespace cashfree_pg.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RefundWebhook {\n");
-            sb.Append("  data: ").Append(data).Append("\n");
-            sb.Append("  event_time: ").Append(event_time).Append("\n");
-            sb.Append("  type: ").Append(type).Append("\n");
+            sb.Append("class RefundWebhookDataEntity {\n");
+            sb.Append("  refund: ").Append(refund).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,15 +76,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RefundWebhook);
+            return this.Equals(input as RefundWebhookDataEntity);
         }
 
         /// <summary>
-        /// Returns true if RefundWebhook instances are equal
+        /// Returns true if RefundWebhookDataEntity instances are equal
         /// </summary>
-        /// <param name="input">Instance of RefundWebhook to be compared</param>
+        /// <param name="input">Instance of RefundWebhookDataEntity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RefundWebhook input)
+        public bool Equals(RefundWebhookDataEntity input)
         {
             if (input == null)
             {
@@ -112,19 +92,9 @@ namespace cashfree_pg.Model
             }
             return 
                 (
-                    this.data == input.data ||
-                    (this.data != null &&
-                    this.data.Equals(input.data))
-                ) && 
-                (
-                    this.event_time == input.event_time ||
-                    (this.event_time != null &&
-                    this.event_time.Equals(input.event_time))
-                ) && 
-                (
-                    this.type == input.type ||
-                    (this.type != null &&
-                    this.type.Equals(input.type))
+                    this.refund == input.refund ||
+                    (this.refund != null &&
+                    this.refund.Equals(input.refund))
                 );
         }
 
@@ -137,17 +107,9 @@ namespace cashfree_pg.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.data != null)
+                if (this.refund != null)
                 {
-                    hashCode = (hashCode * 59) + this.data.GetHashCode();
-                }
-                if (this.event_time != null)
-                {
-                    hashCode = (hashCode * 59) + this.event_time.GetHashCode();
-                }
-                if (this.type != null)
-                {
-                    hashCode = (hashCode * 59) + this.type.GetHashCode();
+                    hashCode = (hashCode * 59) + this.refund.GetHashCode();
                 }
                 return hashCode;
             }

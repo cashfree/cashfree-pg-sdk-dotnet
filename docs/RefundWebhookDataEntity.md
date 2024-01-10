@@ -1,13 +1,11 @@
-# cashfree_pg.Model.RefundWebhook
-refund webhook object
+# cashfree_pg.Model.RefundWebhookDataEntity
+data entity in webhook
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RefundWebhookDataEntity**](RefundWebhookDataEntity.md) |  | [optional] 
-**event_time** | **string** |  | [optional] 
-**type** | **string** |  | [optional] 
+**refund** | [**RefundEntity**](RefundEntity.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

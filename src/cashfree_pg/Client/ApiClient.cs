@@ -121,8 +121,8 @@ namespace cashfree_pg.Client
                 string generatedSignature = Convert.ToBase64String(hashBytes);
                 if (generatedSignature == signature)
                 {
-                    object deserializedProduct = JsonConvert.DeserializeObject<object>(output);
-                    return new PGWebhookEvent(output["type"], rawBody, output);
+                    object deserializedRawBody = JsonConvert.DeserializeObject<object>(rawBody);
+                    return new PGWebhookEvent(deserializedRawBody["type"], rawBody, deserializedRawBody);
                 }
                 throw new Exception("Generated signature and received signature did not match.");
             }

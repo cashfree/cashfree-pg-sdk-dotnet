@@ -34,7 +34,7 @@ namespace cashfree_pg.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.1.2";
+        public const string Version = "3.1.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -113,7 +113,7 @@ namespace cashfree_pg.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.1.2/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.1.1/csharp");
             BasePath = "https://sandbox.cashfree.com/pg";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -542,7 +542,7 @@ namespace cashfree_pg.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2022-09-01\n";
-            report += "    SDK Package Version: 3.1.2\n";
+            report += "    SDK Package Version: 3.1.1\n";
 
             return report;
         }

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **link_notify** | [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **link_auto_reminders** | **bool** | If \&quot;true\&quot;, reminders will be sent to customers for collecting payments. | [optional] 
 **link_notes** | **Dictionary&lt;string, string&gt;** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
-**link_meta** | [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
+**link_meta** | [**LinkMetaEntity**](LinkMetaEntity.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

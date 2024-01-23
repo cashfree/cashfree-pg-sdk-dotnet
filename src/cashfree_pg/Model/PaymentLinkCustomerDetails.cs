@@ -29,38 +29,33 @@ namespace cashfree_pg.Model
     /// <summary>
     /// The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
     /// </summary>
-    [DataContract(Name = "CustomerDetails")]
-    public class CustomerDetails : IEquatable<CustomerDetails>, IValidatableObject
+    [DataContract(Name = "PaymentLinkCustomerDetails")]
+    public class PaymentLinkCustomerDetails : IEquatable<PaymentLinkCustomerDetails>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerDetails" /> class.
+        /// Initializes a new instance of the <see cref="PaymentLinkCustomerDetails" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomerDetails() { }
+        protected PaymentLinkCustomerDetails() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerDetails" /> class.
+        /// Initializes a new instance of the <see cref="PaymentLinkCustomerDetails" /> class.
         /// </summary>
-        /// <param name="customerId">A unique identifier for the customer. Use alphanumeric values only. (required).</param>
+        /// <param name="customerId">A unique identifier for the customer. Use alphanumeric values only..</param>
         /// <param name="customerEmail">Customer email address..</param>
         /// <param name="customerPhone">Customer phone number. (required).</param>
         /// <param name="customerName">Name of the customer..</param>
         /// <param name="customerBankAccountNumber">Customer bank account. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankIfsc">Customer bank IFSC. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankCode">Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV).</param>
-        public CustomerDetails(string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string), string customerName = default(string), string customerBankAccountNumber = default(string), string customerBankIfsc = default(string), decimal customerBankCode = default(decimal))
+        public PaymentLinkCustomerDetails(string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string), string customerName = default(string), string customerBankAccountNumber = default(string), string customerBankIfsc = default(string), decimal customerBankCode = default(decimal))
         {
-            // to ensure "customerId" is required (not null)
-            if (customerId == null)
-            {
-                throw new ArgumentNullException("customerId is a required property for CustomerDetails and cannot be null");
-            }
-            this.customer_id = customerId;
             // to ensure "customerPhone" is required (not null)
             if (customerPhone == null)
             {
-                throw new ArgumentNullException("customerPhone is a required property for CustomerDetails and cannot be null");
+                throw new ArgumentNullException("customerPhone is a required property for PaymentLinkCustomerDetails and cannot be null");
             }
             this.customer_phone = customerPhone;
+            this.customer_id = customerId;
             this.customer_email = customerEmail;
             this.customer_name = customerName;
             this.customer_bank_account_number = customerBankAccountNumber;
@@ -72,7 +67,7 @@ namespace cashfree_pg.Model
         /// A unique identifier for the customer. Use alphanumeric values only.
         /// </summary>
         /// <value>A unique identifier for the customer. Use alphanumeric values only.</value>
-        [DataMember(Name = "customer_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "customer_id", EmitDefaultValue = false)]
         public string customer_id { get; set; }
 
         /// <summary>
@@ -124,7 +119,7 @@ namespace cashfree_pg.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CustomerDetails {\n");
+            sb.Append("class PaymentLinkCustomerDetails {\n");
             sb.Append("  customer_id: ").Append(customer_id).Append("\n");
             sb.Append("  customer_email: ").Append(customer_email).Append("\n");
             sb.Append("  customer_phone: ").Append(customer_phone).Append("\n");
@@ -152,15 +147,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomerDetails);
+            return this.Equals(input as PaymentLinkCustomerDetails);
         }
 
         /// <summary>
-        /// Returns true if CustomerDetails instances are equal
+        /// Returns true if PaymentLinkCustomerDetails instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomerDetails to be compared</param>
+        /// <param name="input">Instance of PaymentLinkCustomerDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomerDetails input)
+        public bool Equals(PaymentLinkCustomerDetails input)
         {
             if (input == null)
             {

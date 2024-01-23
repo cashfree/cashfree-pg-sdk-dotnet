@@ -1,11 +1,11 @@
-# cashfree_pg.Model.CustomerDetails
+# cashfree_pg.Model.PaymentLinkCustomerDetails
 The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **string** | A unique identifier for the customer. Use alphanumeric values only. | 
+**customer_id** | **string** | A unique identifier for the customer. Use alphanumeric values only. | [optional] 
 **customer_email** | **string** | Customer email address. | [optional] 
 **customer_phone** | **string** | Customer phone number. | 
 **customer_name** | **string** | Name of the customer. | [optional] 

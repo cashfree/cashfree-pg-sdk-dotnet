@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentMethodsFilters
-Filter for Payment Methods
+Filter for specific Payment Methods
 
 ## Properties
 

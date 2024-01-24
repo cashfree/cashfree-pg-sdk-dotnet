@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **bank_reference** | **string** |  | [optional] 
 **auth_id** | **string** |  | [optional] 
 **authorization** | [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
-**payment_method** | [**PaymentMethodInPaymentsEntity**](PaymentMethodInPaymentsEntity.md) |  | [optional] 
+**payment_method** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

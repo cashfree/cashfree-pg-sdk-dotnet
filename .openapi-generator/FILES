@@ -110,8 +110,6 @@ docs/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.md
 docs/PaymentMethodCardInPaymentsEntity.md
 docs/PaymentMethodCardInPaymentsEntityCard.md
 docs/PaymentMethodCardlessEMIInPaymentsEntity.md
-docs/PaymentMethodInPaymentsEntity.md
-docs/PaymentMethodInPaymentsEntityPaymentMethod.md
 docs/PaymentMethodNetBankingInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
 docs/PaymentMethodPaylaterInPaymentsEntity.md
@@ -271,8 +269,6 @@ src/cashfree_pg.Test/Model/PaymentMethodCardEMIInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodCardInPaymentsEntityCardTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodCardInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodCardlessEMIInPaymentsEntityTests.cs
-src/cashfree_pg.Test/Model/PaymentMethodInPaymentsEntityPaymentMethodTests.cs
-src/cashfree_pg.Test/Model/PaymentMethodInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodPaylaterInPaymentsEntityTests.cs
@@ -443,8 +439,6 @@ src/cashfree_pg/Model/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.cs
 src/cashfree_pg/Model/PaymentMethodCardInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodCardInPaymentsEntityCard.cs
 src/cashfree_pg/Model/PaymentMethodCardlessEMIInPaymentsEntity.cs
-src/cashfree_pg/Model/PaymentMethodInPaymentsEntity.cs
-src/cashfree_pg/Model/PaymentMethodInPaymentsEntityPaymentMethod.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.cs
 src/cashfree_pg/Model/PaymentMethodPaylaterInPaymentsEntity.cs

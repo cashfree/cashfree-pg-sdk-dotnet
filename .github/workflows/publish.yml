@@ -13,6 +13,10 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v1
+        
+      - name: Get Latest Tag
+        uses: actions-ecosystem/action-get-latest-tag@v1
+        id: get-latest-tag
 
       - name: Setup .NET Core @ Latest
         uses: actions/setup-dotnet@v1
@@ -30,4 +34,21 @@ jobs:
 
       - name: Push generated package to Nuget registry
         run: dotnet nuget push ./src/cashfree_pg/out/*.nupkg --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols
+
+      - name: Release tags
+        run: |
+          curl --location --request POST 'https://api.github.com/repos/cashfree/cashfree-pg-sdk-dotnet/releases' \
+          --header 'Accept: application/vnd.github+json' \
+          --header "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
+          --header 'X-GitHub-Api-Version: 2022-11-28' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "tag_name": "${{ steps.get-latest-tag.outputs.tag }}",
+              "target_commitish": "main",
+              "name": "${{ steps.get-latest-tag.outputs.tag }}",
+              "body": "Release version ${{ steps.get-latest-tag.outputs.tag }}",
+              "draft": false,
+              "prerelease": false,
+              "generate_release_notes": false
+          }'
 

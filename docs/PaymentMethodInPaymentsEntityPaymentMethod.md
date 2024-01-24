@@ -4,18 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | **string** |  | 
-**card_number** | **string** |  | [optional] 
-**card_network** | **string** |  | [optional] 
-**card_type** | **string** |  | [optional] 
-**card_country** | **string** |  | [optional] 
-**card_bank_name** | **string** |  | [optional] 
-**card_network_reference_id** | **string** |  | [optional] 
-**netbanking_bank_code** | **int** |  | 
-**netbanking_bank_name** | **string** |  | 
-**upi_id** | **string** |  | [optional] 
-**provider** | **string** |  | [optional] 
-**phone** | **string** |  | [optional] 
+**card** | [**PaymentMethodCardInPaymentsEntityCard**](PaymentMethodCardInPaymentsEntityCard.md) |  | [optional] 
+**netbanking** | [**PaymentMethodNetBankingInPaymentsEntityNetbanking**](PaymentMethodNetBankingInPaymentsEntityNetbanking.md) |  | [optional] 
+**upi** | [**PaymentMethodUPIInPaymentsEntityUpi**](PaymentMethodUPIInPaymentsEntityUpi.md) |  | [optional] 
+**app** | [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**cardless_emi** | [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**paylater** | [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**emi** | [**PaymentMethodCardEMIInPaymentsEntityEmi**](PaymentMethodCardEMIInPaymentsEntityEmi.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

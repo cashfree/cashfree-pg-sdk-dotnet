@@ -5,9 +5,7 @@ payment method carless object in payment entity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | **string** |  | [optional] 
-**provider** | **string** |  | [optional] 
-**phone** | **string** |  | [optional] 
+**cardless_emi** | [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

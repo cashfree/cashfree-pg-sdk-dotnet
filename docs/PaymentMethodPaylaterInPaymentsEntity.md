@@ -5,9 +5,7 @@ paylater payment method object for pay api
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | **string** |  | [optional] 
-**provider** | **string** |  | [optional] 
-**phone** | **string** |  | [optional] 
+**paylater** | [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@ Payment link success creation response object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cf_link_id** | **string** |  | [optional] 
+**cf_link_id** | **long** |  | [optional] 
 **link_id** | **string** |  | [optional] 
 **link_status** | **string** |  | [optional] 
 **link_currency** | **string** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **link_purpose** | **string** |  | [optional] 
 **link_created_at** | **string** |  | [optional] 
 **customer_details** | [**LinkCustomerDetailsEntity**](LinkCustomerDetailsEntity.md) |  | [optional] 
-**link_meta** | [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
+**link_meta** | **Dictionary&lt;string, string&gt;** | Payment link meta information object. | [optional] 
 **link_url** | **string** |  | [optional] 
 **link_expiry_time** | **string** |  | [optional] 
 **link_notes** | **Dictionary&lt;string, string&gt;** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 

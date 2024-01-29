@@ -127,6 +127,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringpagination) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringpagination);
+            if (deserializedJsonString.ContainsKey("pagination")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

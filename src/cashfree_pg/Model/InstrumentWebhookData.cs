@@ -128,6 +128,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringdata) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringdata);
+            if (deserializedJsonString.ContainsKey("data")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

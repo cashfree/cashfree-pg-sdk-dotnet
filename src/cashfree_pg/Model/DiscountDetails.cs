@@ -70,20 +70,10 @@ namespace cashfree_pg.Model
         /// <param name="discountType">Type of discount (required).</param>
         /// <param name="discountValue">Value of Discount. (required).</param>
         /// <param name="maxDiscountAmount">Maximum Value of Discount allowed. (required).</param>
-        public DiscountDetails(DiscountTypeEnum discountType = default(DiscountTypeEnum), string discountValue = default(string), string maxDiscountAmount = default(string))
+        public DiscountDetails(DiscountTypeEnum discountType = default(DiscountTypeEnum), decimal discountValue = default(decimal), decimal maxDiscountAmount = default(decimal))
         {
             this.discount_type = discountType;
-            // to ensure "discountValue" is required (not null)
-            if (discountValue == null)
-            {
-                throw new ArgumentNullException("discountValue is a required property for DiscountDetails and cannot be null");
-            }
             this.discount_value = discountValue;
-            // to ensure "maxDiscountAmount" is required (not null)
-            if (maxDiscountAmount == null)
-            {
-                throw new ArgumentNullException("maxDiscountAmount is a required property for DiscountDetails and cannot be null");
-            }
             this.max_discount_amount = maxDiscountAmount;
         }
 
@@ -92,14 +82,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Value of Discount.</value>
         [DataMember(Name = "discount_value", IsRequired = true, EmitDefaultValue = true)]
-        public string discount_value { get; set; }
+        public decimal discount_value { get; set; }
 
         /// <summary>
         /// Maximum Value of Discount allowed.
         /// </summary>
         /// <value>Maximum Value of Discount allowed.</value>
         [DataMember(Name = "max_discount_amount", IsRequired = true, EmitDefaultValue = true)]
-        public string max_discount_amount { get; set; }
+        public decimal max_discount_amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,15 +143,14 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.discount_value == input.discount_value ||
-                    (this.discount_value != null &&
-                    this.discount_value.Equals(input.discount_value))
+                    this.discount_value.Equals(input.discount_value)
                 ) && 
                 (
                     this.max_discount_amount == input.max_discount_amount ||
-                    (this.max_discount_amount != null &&
-                    this.max_discount_amount.Equals(input.max_discount_amount))
+                    this.max_discount_amount.Equals(input.max_discount_amount)
                 );
         }
+
 
         /// <summary>
         /// Gets the hash code
@@ -173,14 +162,8 @@ namespace cashfree_pg.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.discount_type.GetHashCode();
-                if (this.discount_value != null)
-                {
-                    hashCode = (hashCode * 59) + this.discount_value.GetHashCode();
-                }
-                if (this.max_discount_amount != null)
-                {
-                    hashCode = (hashCode * 59) + this.max_discount_amount.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.discount_value.GetHashCode();
+                hashCode = (hashCode * 59) + this.max_discount_amount.GetHashCode();
                 return hashCode;
             }
         }
@@ -192,30 +175,6 @@ namespace cashfree_pg.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // discount_value (string) maxLength
-            if (this.discount_value != null && this.discount_value.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for discount_value, length must be less than 100.", new [] { "discount_value" });
-            }
-
-            // discount_value (string) minLength
-            if (this.discount_value != null && this.discount_value.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for discount_value, length must be greater than 1.", new [] { "discount_value" });
-            }
-
-            // max_discount_amount (string) maxLength
-            if (this.max_discount_amount != null && this.max_discount_amount.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for max_discount_amount, length must be less than 100.", new [] { "max_discount_amount" });
-            }
-
-            // max_discount_amount (string) minLength
-            if (this.max_discount_amount != null && this.max_discount_amount.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for max_discount_amount, length must be greater than 1.", new [] { "max_discount_amount" });
-            }
-
             yield break;
         }
     }

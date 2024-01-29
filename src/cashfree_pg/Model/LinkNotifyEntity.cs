@@ -112,6 +112,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringsend_sms) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringsend_sms);
+            if (deserializedJsonString.ContainsKey("send_sms")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

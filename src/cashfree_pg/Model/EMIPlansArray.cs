@@ -169,6 +169,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringtenure) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringtenure);
+            if (deserializedJsonString.ContainsKey("tenure")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

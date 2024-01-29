@@ -274,17 +274,22 @@ namespace cashfree_pg.Model
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(AppPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(AppPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(AppPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("AppPaymentMethod");
                 match++;
@@ -294,17 +299,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AppPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(CardEMIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(CardEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(CardEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("CardEMIPaymentMethod");
                 match++;
@@ -314,17 +324,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CardEMIPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(CardPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(CardPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(CardPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("CardPaymentMethod");
                 match++;
@@ -334,17 +349,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CardPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(CardlessEMIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(CardlessEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(CardlessEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("CardlessEMIPaymentMethod");
                 match++;
@@ -354,17 +374,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CardlessEMIPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(NetBankingPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(NetBankingPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(NetBankingPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("NetBankingPaymentMethod");
                 match++;
@@ -374,17 +399,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NetBankingPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaylaterPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(PaylaterPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaylaterPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaylaterPaymentMethod");
                 match++;
@@ -394,17 +424,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaylaterPaymentMethod: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(UPIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                    if(UPIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(UPIPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPayOrderRequestPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("UPIPaymentMethod");
                 match++;

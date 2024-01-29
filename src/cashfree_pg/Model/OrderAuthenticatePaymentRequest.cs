@@ -143,6 +143,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringotp) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringotp);
+            if (deserializedJsonString.ContainsKey("otp")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

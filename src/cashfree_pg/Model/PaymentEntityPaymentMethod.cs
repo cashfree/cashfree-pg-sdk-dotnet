@@ -274,17 +274,22 @@ namespace cashfree_pg.Model
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodAppInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodAppInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodAppInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodAppInPaymentsEntity");
                 match++;
@@ -294,17 +299,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodAppInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodCardEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodCardEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardEMIInPaymentsEntity");
                 match++;
@@ -314,17 +324,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardEMIInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodCardInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodCardInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardInPaymentsEntity");
                 match++;
@@ -334,17 +349,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardlessEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodCardlessEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodCardlessEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardlessEMIInPaymentsEntity");
                 match++;
@@ -354,17 +374,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardlessEMIInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodNetBankingInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodNetBankingInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodNetBankingInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodNetBankingInPaymentsEntity");
                 match++;
@@ -374,17 +399,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodNetBankingInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodPaylaterInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodPaylaterInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodPaylaterInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodPaylaterInPaymentsEntity");
                 match++;
@@ -394,17 +424,22 @@ namespace cashfree_pg.Model
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodPaylaterInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
-
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodUPIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    if(PaymentMethodUPIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    if(PaymentMethodUPIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodUPIInPaymentsEntity");
                 match++;

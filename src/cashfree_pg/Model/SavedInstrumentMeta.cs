@@ -163,6 +163,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringcard_network) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringcard_network);
+            if (deserializedJsonString.ContainsKey("card_network")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

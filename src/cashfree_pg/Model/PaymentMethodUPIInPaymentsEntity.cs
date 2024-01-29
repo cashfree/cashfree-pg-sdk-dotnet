@@ -98,6 +98,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringupi) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringupi);
+            if (deserializedJsonString.ContainsKey("upi")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

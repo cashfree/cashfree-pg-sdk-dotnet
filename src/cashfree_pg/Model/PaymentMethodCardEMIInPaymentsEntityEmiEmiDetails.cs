@@ -123,6 +123,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringemi_amount) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringemi_amount);
+            if (deserializedJsonString.ContainsKey("emi_amount")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

@@ -129,6 +129,14 @@ namespace cashfree_pg.Model
                 );
         }
 
+        public static Boolean checkPresenceOfKey(string jsonStringapprove_by) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringapprove_by);
+            if (deserializedJsonString.ContainsKey("approve_by")) {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Gets the hash code
         /// </summary>

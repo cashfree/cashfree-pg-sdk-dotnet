@@ -70,20 +70,10 @@ namespace cashfree_pg.Model
         /// <param name="cashbackType">Type of discount (required).</param>
         /// <param name="cashbackValue">Value of Discount. (required).</param>
         /// <param name="maxCashbackAmount">Maximum Value of Cashback allowed. (required).</param>
-        public CashbackDetails(CashbackTypeEnum cashbackType = default(CashbackTypeEnum), string cashbackValue = default(string), string maxCashbackAmount = default(string))
+        public CashbackDetails(CashbackTypeEnum cashbackType = default(CashbackTypeEnum), decimal cashbackValue = default(decimal), decimal maxCashbackAmount = default(decimal))
         {
             this.cashback_type = cashbackType;
-            // to ensure "cashbackValue" is required (not null)
-            if (cashbackValue == null)
-            {
-                throw new ArgumentNullException("cashbackValue is a required property for CashbackDetails and cannot be null");
-            }
             this.cashback_value = cashbackValue;
-            // to ensure "maxCashbackAmount" is required (not null)
-            if (maxCashbackAmount == null)
-            {
-                throw new ArgumentNullException("maxCashbackAmount is a required property for CashbackDetails and cannot be null");
-            }
             this.max_cashback_amount = maxCashbackAmount;
         }
 
@@ -92,14 +82,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Value of Discount.</value>
         [DataMember(Name = "cashback_value", IsRequired = true, EmitDefaultValue = true)]
-        public string cashback_value { get; set; }
+        public decimal cashback_value { get; set; }
 
         /// <summary>
         /// Maximum Value of Cashback allowed.
         /// </summary>
         /// <value>Maximum Value of Cashback allowed.</value>
         [DataMember(Name = "max_cashback_amount", IsRequired = true, EmitDefaultValue = true)]
-        public string max_cashback_amount { get; set; }
+        public decimal max_cashback_amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,13 +143,11 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.cashback_value == input.cashback_value ||
-                    (this.cashback_value != null &&
-                    this.cashback_value.Equals(input.cashback_value))
+                    this.cashback_value.Equals(input.cashback_value)
                 ) && 
                 (
                     this.max_cashback_amount == input.max_cashback_amount ||
-                    (this.max_cashback_amount != null &&
-                    this.max_cashback_amount.Equals(input.max_cashback_amount))
+                    this.max_cashback_amount.Equals(input.max_cashback_amount)
                 );
         }
 
@@ -173,14 +161,8 @@ namespace cashfree_pg.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.cashback_type.GetHashCode();
-                if (this.cashback_value != null)
-                {
-                    hashCode = (hashCode * 59) + this.cashback_value.GetHashCode();
-                }
-                if (this.max_cashback_amount != null)
-                {
-                    hashCode = (hashCode * 59) + this.max_cashback_amount.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.cashback_value.GetHashCode();
+                hashCode = (hashCode * 59) + this.max_cashback_amount.GetHashCode();
                 return hashCode;
             }
         }
@@ -192,30 +174,6 @@ namespace cashfree_pg.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // cashback_value (string) maxLength
-            if (this.cashback_value != null && this.cashback_value.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for cashback_value, length must be less than 100.", new [] { "cashback_value" });
-            }
-
-            // cashback_value (string) minLength
-            if (this.cashback_value != null && this.cashback_value.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for cashback_value, length must be greater than 1.", new [] { "cashback_value" });
-            }
-
-            // max_cashback_amount (string) maxLength
-            if (this.max_cashback_amount != null && this.max_cashback_amount.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for max_cashback_amount, length must be less than 100.", new [] { "max_cashback_amount" });
-            }
-
-            // max_cashback_amount (string) minLength
-            if (this.max_cashback_amount != null && this.max_cashback_amount.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for max_cashback_amount, length must be greater than 1.", new [] { "max_cashback_amount" });
-            }
-
             yield break;
         }
     }

@@ -275,16 +275,26 @@ namespace cashfree_pg.Model
             int match = 0;
             List<string> matchedTypes = new List<string>();
 
+            PaymentMethodAppInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodAppInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodAppInPaymentsEntity");
                 match++;
@@ -295,16 +305,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodAppInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodCardEMIInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardEMIInPaymentsEntity");
                 match++;
@@ -315,16 +335,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardEMIInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodCardInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardInPaymentsEntity");
                 match++;
@@ -335,16 +365,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodCardlessEMIInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodCardlessEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodCardlessEMIInPaymentsEntity");
                 match++;
@@ -355,16 +395,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodCardlessEMIInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodNetBankingInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodNetBankingInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodNetBankingInPaymentsEntity");
                 match++;
@@ -375,16 +425,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodNetBankingInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodPaylaterInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodPaylaterInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodPaylaterInPaymentsEntity");
                 match++;
@@ -395,16 +455,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodPaylaterInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
 
+            PaymentMethodUPIInPaymentsEntity
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodUPIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.SerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("card, netbanking, upi, app, cardless_emi, paylater, emi")) {
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newPaymentEntityPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("PaymentMethodUPIInPaymentsEntity");
                 match++;

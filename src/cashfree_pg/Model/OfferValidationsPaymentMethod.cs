@@ -275,16 +275,26 @@ namespace cashfree_pg.Model
             int match = 0;
             List<string> matchedTypes = new List<string>();
 
+            OfferAll
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferAll).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferAll");
                 match++;
@@ -295,16 +305,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferAll: {1}", jsonString, exception.ToString()));
             }
 
+            OfferCard
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferCard).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferCard");
                 match++;
@@ -315,16 +335,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferCard: {1}", jsonString, exception.ToString()));
             }
 
+            OfferEMI
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferEMI).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferEMI");
                 match++;
@@ -335,16 +365,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferEMI: {1}", jsonString, exception.ToString()));
             }
 
+            OfferNB
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferNB).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferNB");
                 match++;
@@ -355,16 +395,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferNB: {1}", jsonString, exception.ToString()));
             }
 
+            OfferPaylater
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferPaylater).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferPaylater");
                 match++;
@@ -375,16 +425,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferPaylater: {1}", jsonString, exception.ToString()));
             }
 
+            OfferUPI
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferUPI).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferUPI");
                 match++;
@@ -395,16 +455,26 @@ namespace cashfree_pg.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OfferUPI: {1}", jsonString, exception.ToString()));
             }
 
+            OfferWallet
+
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(OfferWallet).GetProperty("AdditionalProperties") == null)
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 else
                 {
-                    newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                    dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonString);
+                    if (deserializedJsonString.ContainsKey("all, card, netbanking, app, upi, paylater, emi")) {
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        return newOfferValidationsPaymentMethod;
+                    }
                 }
                 matchedTypes.Add("OfferWallet");
                 match++;

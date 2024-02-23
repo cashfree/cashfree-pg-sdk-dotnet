@@ -280,14 +280,16 @@ namespace cashfree_pg.Model
                 if (typeof(AppPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(AppPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(AppPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<AppPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -305,14 +307,16 @@ namespace cashfree_pg.Model
                 if (typeof(CardEMIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(CardEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(CardEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -330,14 +334,16 @@ namespace cashfree_pg.Model
                 if (typeof(CardPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(CardPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(CardPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -355,14 +361,16 @@ namespace cashfree_pg.Model
                 if (typeof(CardlessEMIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(CardlessEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(CardlessEMIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<CardlessEMIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -380,14 +388,16 @@ namespace cashfree_pg.Model
                 if (typeof(NetBankingPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(NetBankingPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(NetBankingPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<NetBankingPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -405,14 +415,16 @@ namespace cashfree_pg.Model
                 if (typeof(PaylaterPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaylaterPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaylaterPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<PaylaterPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
@@ -430,14 +442,16 @@ namespace cashfree_pg.Model
                 if (typeof(UPIPaymentMethod).GetProperty("AdditionalProperties") == null)
                 {
                     if(UPIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }
                 else
                 {
                     if(UPIPaymentMethod.checkPresenceOfKey(jsonString)) {
-                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<UPIPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
                         return newPayOrderRequestPaymentMethod;
                     }
                 }

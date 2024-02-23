@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg", "src\cashfree_pg\cashfree_pg.csproj", "{09E13BD8-525B-4CCD-893C-67A33C341167}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg", "src\cashfree_pg\cashfree_pg.csproj", "{B24356FF-156F-46FA-AEDE-197438B25AA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashfree_pg.Test", "src\cashfree_pg.Test\cashfree_pg.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09E13BD8-525B-4CCD-893C-67A33C341167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09E13BD8-525B-4CCD-893C-67A33C341167}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09E13BD8-525B-4CCD-893C-67A33C341167}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09E13BD8-525B-4CCD-893C-67A33C341167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24356FF-156F-46FA-AEDE-197438B25AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24356FF-156F-46FA-AEDE-197438B25AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24356FF-156F-46FA-AEDE-197438B25AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24356FF-156F-46FA-AEDE-197438B25AA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

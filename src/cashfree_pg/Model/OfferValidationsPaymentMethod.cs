@@ -280,14 +280,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferAll).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferAll.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferAll.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferAll>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -305,14 +307,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferCard).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferCard.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferCard.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferCard>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -330,14 +334,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferEMI).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferEMI.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferEMI.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferEMI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -355,14 +361,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferNB).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferNB.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferNB.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferNB>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -380,14 +388,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferPaylater).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferPaylater.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferPaylater.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferPaylater>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -405,14 +415,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferUPI).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferUPI.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferUPI.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferUPI>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
@@ -430,14 +442,16 @@ namespace cashfree_pg.Model
                 if (typeof(OfferWallet).GetProperty("AdditionalProperties") == null)
                 {
                     if(OfferWallet.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.SerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }
                 else
                 {
                     if(OfferWallet.checkPresenceOfKey(jsonString)) {
-                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings));
+                        dynamic data = JsonConvert.DeserializeObject<OfferWallet>(jsonString, OfferValidationsPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newOfferValidationsPaymentMethod = new OfferValidationsPaymentMethod(data);
                         return newOfferValidationsPaymentMethod;
                     }
                 }

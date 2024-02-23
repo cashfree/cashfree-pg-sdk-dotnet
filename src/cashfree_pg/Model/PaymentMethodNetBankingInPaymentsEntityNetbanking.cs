@@ -38,11 +38,15 @@ namespace cashfree_pg.Model
         /// <param name="channel">channel.</param>
         /// <param name="netbankingBankCode">netbankingBankCode.</param>
         /// <param name="netbankingBankName">netbankingBankName.</param>
-        public PaymentMethodNetBankingInPaymentsEntityNetbanking(string channel = default(string), int netbankingBankCode = default(int), string netbankingBankName = default(string))
+        /// <param name="netbankingIfsc">netbankingIfsc.</param>
+        /// <param name="netbankingAccountNumber">netbankingAccountNumber.</param>
+        public PaymentMethodNetBankingInPaymentsEntityNetbanking(string channel = default(string), int netbankingBankCode = default(int), string netbankingBankName = default(string), string netbankingIfsc = default(string), string netbankingAccountNumber = default(string))
         {
             this.channel = channel;
             this.netbanking_bank_code = netbankingBankCode;
             this.netbanking_bank_name = netbankingBankName;
+            this.netbanking_ifsc = netbankingIfsc;
+            this.netbanking_account_number = netbankingAccountNumber;
         }
 
         /// <summary>
@@ -64,6 +68,18 @@ namespace cashfree_pg.Model
         public string netbanking_bank_name { get; set; }
 
         /// <summary>
+        /// Gets or Sets netbanking_ifsc
+        /// </summary>
+        [DataMember(Name = "netbanking_ifsc", EmitDefaultValue = false)]
+        public string netbanking_ifsc { get; set; }
+
+        /// <summary>
+        /// Gets or Sets netbanking_account_number
+        /// </summary>
+        [DataMember(Name = "netbanking_account_number", EmitDefaultValue = false)]
+        public string netbanking_account_number { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +90,8 @@ namespace cashfree_pg.Model
             sb.Append("  channel: ").Append(channel).Append("\n");
             sb.Append("  netbanking_bank_code: ").Append(netbanking_bank_code).Append("\n");
             sb.Append("  netbanking_bank_name: ").Append(netbanking_bank_name).Append("\n");
+            sb.Append("  netbanking_ifsc: ").Append(netbanking_ifsc).Append("\n");
+            sb.Append("  netbanking_account_number: ").Append(netbanking_account_number).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +140,16 @@ namespace cashfree_pg.Model
                     this.netbanking_bank_name == input.netbanking_bank_name ||
                     (this.netbanking_bank_name != null &&
                     this.netbanking_bank_name.Equals(input.netbanking_bank_name))
+                ) && 
+                (
+                    this.netbanking_ifsc == input.netbanking_ifsc ||
+                    (this.netbanking_ifsc != null &&
+                    this.netbanking_ifsc.Equals(input.netbanking_ifsc))
+                ) && 
+                (
+                    this.netbanking_account_number == input.netbanking_account_number ||
+                    (this.netbanking_account_number != null &&
+                    this.netbanking_account_number.Equals(input.netbanking_account_number))
                 );
         }
 
@@ -150,6 +178,14 @@ namespace cashfree_pg.Model
                 if (this.netbanking_bank_name != null)
                 {
                     hashCode = (hashCode * 59) + this.netbanking_bank_name.GetHashCode();
+                }
+                if (this.netbanking_ifsc != null)
+                {
+                    hashCode = (hashCode * 59) + this.netbanking_ifsc.GetHashCode();
+                }
+                if (this.netbanking_account_number != null)
+                {
+                    hashCode = (hashCode * 59) + this.netbanking_account_number.GetHashCode();
                 }
                 return hashCode;
             }

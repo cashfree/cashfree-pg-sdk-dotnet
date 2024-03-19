@@ -157,7 +157,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -246,7 +246,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CustomerEntity>("/customers", localVarRequestOptions, config);
@@ -254,6 +254,1523 @@ namespace cashfree_pg.Client
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PGCreateCustomer", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create On Demand Transfer The Create On Demand Transfer API will create a new on-demand request either from to the merchant or from to the vendor.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <param name="adjustVendorBalanceRequest">Adjust Vendor Balance Request Body. (optional)</param>
+        /// <returns>ApiResponse of AdjustVendorBalanceResponse</returns>
+        public cashfree_pg.Client.ApiResponse<AdjustVendorBalanceResponse> PGESCreateOnDemandTransfer(string xApiVersion, string vendorId, AdjustVendorBalanceRequest? adjustVendorBalanceRequest = default(AdjustVendorBalanceRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESCreateOnDemandTransfer");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESCreateOnDemandTransfer");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = adjustVendorBalanceRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AdjustVendorBalanceResponse>("/easy-split/vendors/{vendor_id}/transfer", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESCreateOnDemandTransfer", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create vendor Use this API to create a new vendor to your EasySplit account along with the KYC details. Provide KYC details such as account_type, business_type, gst, cin, pan, passport number and so on.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="createVendorRequest">Create Vendor Request Body. (optional)</param>
+        /// <returns>ApiResponse of CreateVendorResponse</returns>
+        public cashfree_pg.Client.ApiResponse<CreateVendorResponse> PGESCreateVendors(string xApiVersion, CreateVendorRequest? createVendorRequest = default(CreateVendorRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESCreateVendors");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = createVendorRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CreateVendorResponse>("/easy-split/vendors", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESCreateVendors", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Download Vendor Documents Use this API to download the uploaded KYC documents of that particular vendor. Provide the document type. Click the link from the sample request to download the KYC document.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="docType">Mention the document type that has to be downloaded. Only an uploaded document can be downloaded.</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <returns>ApiResponse of VendorDocumentDownloadResponse</returns>
+        public cashfree_pg.Client.ApiResponse<VendorDocumentDownloadResponse> PGESDownloadVendorsDocs(string docType, string vendorId, Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'docType' is set
+            if (docType == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'docType' when calling EasySplitApi->PGESDownloadVendorsDocs");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESDownloadVendorsDocs");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("doc_type", cashfree_pg.Client.ClientUtils.ParameterToString(docType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VendorDocumentDownloadResponse>("/easy-split/vendor-docs/{vendor_id}/download/{doc_type}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESDownloadVendorsDocs", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Vendor All Details Use this API to get the details of a specific vendor associated with your Easy Split account.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <returns>ApiResponse of VendorEntity</returns>
+        public cashfree_pg.Client.ApiResponse<VendorEntity> PGESFetchVendors(string xApiVersion, string vendorId, Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESFetchVendors");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESFetchVendors");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VendorEntity>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESFetchVendors", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get On Demand Balance This API fetches the available amount with the merchant, vendor, and the unsettled amount for the merchant as well as the vendor.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <returns>ApiResponse of VendorBalance</returns>
+        public cashfree_pg.Client.ApiResponse<VendorBalance> PGESGetVendorBalance(string xApiVersion, string vendorId, Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESGetVendorBalance");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESGetVendorBalance");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VendorBalance>("/easy-split/vendors/{vendor_id}/balances", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESGetVendorBalance", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Vendor Balance Transfer Charges This API returns the applicable service charge and service tax for a vendor balance transfer, based on the provided amount and rate type.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="amount">Specify the amount for which you want to view the service charges and service taxes in the response.</param>
+        /// <param name="rateType">Mention the type of rate for which you want to check the charges. Possible value: VENDOR_ON_DEMAND</param>
+        /// <returns>ApiResponse of VendorBalanceTransferCharges</returns>
+        public cashfree_pg.Client.ApiResponse<VendorBalanceTransferCharges> PGESGetVendorBalanceTransferCharges(string xApiVersion, decimal amount, string rateType, Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESGetVendorBalanceTransferCharges");
+
+            // verify the required parameter 'rateType' is set
+            if (rateType == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'rateType' when calling EasySplitApi->PGESGetVendorBalanceTransferCharges");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("amount", cashfree_pg.Client.ClientUtils.ParameterToString(amount)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(cashfree_pg.Client.ClientUtils.ParameterToMultiMap("", "rate_type", rateType));
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VendorBalanceTransferCharges>("/easy-split/amount/{amount}/charges", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESGetVendorBalanceTransferCharges", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Vendor All Documents Status Use this API to fetch the details of all the KYC details of a particular vendor.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <returns>ApiResponse of VendorDocumentsResponse</returns>
+        public cashfree_pg.Client.ApiResponse<VendorDocumentsResponse> PGESGetVendorsDocs(string xApiVersion, string vendorId, Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESGetVendorsDocs");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESGetVendorsDocs");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESGetVendorsDocs", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Split and Settlement Details by OrderID v2.0 Use this API to get all the split details, settled and unsettled transactions details of each vendor who were part of a particular order by providing order Id or start date and end date.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="eSOrderReconRequest">Get Split and Settlement Details by OrderID v2.0 (optional)</param>
+        /// <returns>ApiResponse of ESOrderReconResponse</returns>
+        public cashfree_pg.Client.ApiResponse<ESOrderReconResponse> PGESOrderRecon(string xApiVersion, ESOrderReconRequest? eSOrderReconRequest = default(ESOrderReconRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESOrderRecon");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = eSOrderReconRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ESOrderReconResponse>("/split/order/vendor/recon", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESOrderRecon", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Update vendor Details Use this API to edit the existing vendor details added to your EasySplit account. You can edit vendor details such as name, email, phone number, upi details, and any of the KYC details.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <param name="updateVendorRequest">Create Vendor Request Body. (optional)</param>
+        /// <returns>ApiResponse of UpdateVendorResponse</returns>
+        public cashfree_pg.Client.ApiResponse<UpdateVendorResponse> PGESUpdateVendors(string xApiVersion, string vendorId, UpdateVendorRequest? updateVendorRequest = default(UpdateVendorRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESUpdateVendors");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESUpdateVendors");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = updateVendorRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<UpdateVendorResponse>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESUpdateVendors", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Upload Vendor Docs Use this API to upload KYC documents of a specific vendor.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="vendorId">The id which uniquely identifies your vendor.</param>
+        /// <param name="uploadVendorDocsRequest">Upload Vendor Docs Request Body. (optional)</param>
+        /// <returns>ApiResponse of UploadVendorDocumentsResponse</returns>
+        public cashfree_pg.Client.ApiResponse<UploadVendorDocumentsResponse> PGESUploadVendorsDocs(string xApiVersion, string vendorId, UploadVendorDocsRequest? uploadVendorDocsRequest = default(UploadVendorDocsRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGESUploadVendorsDocs");
+
+            // verify the required parameter 'vendorId' is set
+            if (vendorId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'vendorId' when calling EasySplitApi->PGESUploadVendorsDocs");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("vendor_id", cashfree_pg.Client.ClientUtils.ParameterToString(vendorId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = uploadVendorDocsRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UploadVendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGESUploadVendorsDocs", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Split After Payment Split After Payment API splits the payments to vendors after successful payment from the customers.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="orderId">The id which uniquely identifies your order</param>
+        /// <param name="splitAfterPaymentRequest">Request Body to Create Split for an order. (optional)</param>
+        /// <returns>ApiResponse of SplitAfterPaymentResponse</returns>
+        public cashfree_pg.Client.ApiResponse<SplitAfterPaymentResponse> PGOrderSplitAfterPayment(string xApiVersion, string orderId, SplitAfterPaymentRequest? splitAfterPaymentRequest = default(SplitAfterPaymentRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGOrderSplitAfterPayment");
+
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'orderId' when calling EasySplitApi->PGOrderSplitAfterPayment");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", cashfree_pg.Client.ClientUtils.ParameterToString(orderId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = splitAfterPaymentRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SplitAfterPaymentResponse>("/easy-split/orders/{order_id}/split", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGOrderSplitAfterPayment", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create Static Split Configuration This API will create a static split scheme wherein you can define the split type and the vendor-wise split percentage.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="staticSplitRequest">Static Split (optional)</param>
+        /// <returns>ApiResponse of StaticSplitResponse</returns>
+        public cashfree_pg.Client.ApiResponse<StaticSplitResponse> PGOrderStaticSplit(string xApiVersion, StaticSplitRequest? staticSplitRequest = default(StaticSplitRequest?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling EasySplitApi->PGOrderStaticSplit");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            localVarRequestOptions.Data = staticSplitRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StaticSplitResponse>("/easy-split/static-split", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGOrderStaticSplit", localVarResponse);
                 if (_exception != null) {
                     if(Cashfree.XEnableErrorAnalytics) {
                         var sentryEvent = new SentryEvent(_exception);
@@ -294,7 +1811,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -383,7 +1900,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -431,7 +1948,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -520,7 +2037,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -568,7 +2085,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -657,7 +2174,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -705,7 +2222,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -794,7 +2311,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -842,7 +2359,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -931,7 +2448,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -979,7 +2496,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1067,7 +2584,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -1115,7 +2632,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1204,7 +2721,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -1252,7 +2769,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1340,7 +2857,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -1389,7 +2906,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1483,7 +3000,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -1533,7 +3050,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1630,7 +3147,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -1678,7 +3195,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1766,7 +3283,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -1814,7 +3331,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1903,7 +3420,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -1951,7 +3468,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2039,7 +3556,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -2087,7 +3604,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2175,7 +3692,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentLinkOrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -2224,7 +3741,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2318,7 +3835,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -2367,7 +3884,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2446,7 +3963,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -2495,7 +4012,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2588,7 +4105,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -2636,7 +4153,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2724,7 +4241,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -2772,7 +4289,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2846,7 +4363,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -2895,7 +4412,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2989,7 +4506,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -3038,7 +4555,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3131,7 +4648,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -3179,7 +4696,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3267,7 +4784,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -3317,7 +4834,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3414,7 +4931,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -3464,7 +4981,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3561,7 +5078,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -3609,7 +5126,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3697,7 +5214,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -3745,7 +5262,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3834,7 +5351,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -3882,7 +5399,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3971,7 +5488,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -4019,7 +5536,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4107,7 +5624,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -4156,7 +5673,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4249,7 +5766,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -4257,6 +5774,148 @@ namespace cashfree_pg.Client
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SposFetchTerminalQRCodes", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Terminal Transaction Use this API to get  terminal transaction.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="utr">Utr of the transaction.</param>
+        /// <param name="cfTerminalId">Provide the Cashfree terminal ID for which the details have to be updated.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of TerminalPaymentEntity</returns>
+        public cashfree_pg.Client.ApiResponse<TerminalPaymentEntity> SposFetchTerminalTransaction(string xApiVersion, string utr, string cfTerminalId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.0.8";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SoftPOSApi->SposFetchTerminalTransaction");
+
+            // verify the required parameter 'utr' is set
+            if (utr == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'utr' when calling SoftPOSApi->SposFetchTerminalTransaction");
+
+            // verify the required parameter 'cfTerminalId' is set
+            if (cfTerminalId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'cfTerminalId' when calling SoftPOSApi->SposFetchTerminalTransaction");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("cf_terminal_id", cashfree_pg.Client.ClientUtils.ParameterToString(cfTerminalId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(cashfree_pg.Client.ClientUtils.ParameterToMultiMap("", "utr", utr));
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TerminalPaymentEntity>("/terminal/{cf_terminal_id}/payments", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SposFetchTerminalTransaction", localVarResponse);
                 if (_exception != null) {
                     if(Cashfree.XEnableErrorAnalytics) {
                         var sentryEvent = new SentryEvent(_exception);
@@ -4298,7 +5957,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4392,7 +6051,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}", localVarRequestOptions, config);
@@ -4412,7 +6071,7 @@ namespace cashfree_pg.Client
             return localVarResponse;
         }
         /// <summary>
-        /// Update Terminal Sttus Use this API to update the terminal status.
+        /// Update Terminal Status Use this API to update the terminal status.
         /// </summary>
         /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
@@ -4441,7 +6100,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4535,7 +6194,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}/status", localVarRequestOptions, config);
@@ -4584,7 +6243,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4678,7 +6337,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<UploadTerminalDocsEntity>>("/terminal/{cf_terminal_id}/docs", localVarRequestOptions, config);
@@ -4727,7 +6386,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4820,7 +6479,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -4869,7 +6528,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4962,7 +6621,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -5011,7 +6670,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5104,7 +6763,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -5153,7 +6812,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.0.7";
+                    o.Release = "4.0.8";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5246,7 +6905,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.7");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.0.8");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);

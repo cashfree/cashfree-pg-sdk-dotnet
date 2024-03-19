@@ -118,6 +118,18 @@ namespace cashfree_pg.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PayOrderRequestPaymentMethod" /> class
+        /// with the <see cref="BanktransferPaymentMethod" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of BanktransferPaymentMethod.</param>
+        public PayOrderRequestPaymentMethod(BanktransferPaymentMethod actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -133,6 +145,10 @@ namespace cashfree_pg.Model
             set
             {
                 if (value.GetType() == typeof(AppPaymentMethod))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(BanktransferPaymentMethod))
                 {
                     this._actualInstance = value;
                 }
@@ -162,7 +178,7 @@ namespace cashfree_pg.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AppPaymentMethod, CardEMIPaymentMethod, CardPaymentMethod, CardlessEMIPaymentMethod, NetBankingPaymentMethod, PaylaterPaymentMethod, UPIPaymentMethod");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AppPaymentMethod, BanktransferPaymentMethod, CardEMIPaymentMethod, CardPaymentMethod, CardlessEMIPaymentMethod, NetBankingPaymentMethod, PaylaterPaymentMethod, UPIPaymentMethod");
                 }
             }
         }
@@ -238,6 +254,16 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `BanktransferPaymentMethod`. If the actual instance is not `BanktransferPaymentMethod`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of BanktransferPaymentMethod</returns>
+        public BanktransferPaymentMethod GetBanktransferPaymentMethod()
+        {
+            return (BanktransferPaymentMethod)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -300,6 +326,33 @@ namespace cashfree_pg.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AppPaymentMethod: {1}", jsonString, exception.ToString()));
+            }
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(BanktransferPaymentMethod).GetProperty("AdditionalProperties") == null)
+                {
+                    if(BanktransferPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<BanktransferPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
+                        return newPayOrderRequestPaymentMethod;
+                    }
+                }
+                else
+                {
+                    if(BanktransferPaymentMethod.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<BanktransferPaymentMethod>(jsonString, PayOrderRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPayOrderRequestPaymentMethod = new PayOrderRequestPaymentMethod(data);
+                        return newPayOrderRequestPaymentMethod;
+                    }
+                }
+                matchedTypes.Add("BanktransferPaymentMethod");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into BanktransferPaymentMethod: {1}", jsonString, exception.ToString()));
             }
             try
             {

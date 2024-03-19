@@ -52,7 +52,8 @@ namespace cashfree_pg.Model
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkAutoReminders">linkAutoReminders.</param>
         /// <param name="linkNotify">linkNotify.</param>
-        public LinkEntity(string cfLinkId = default(string), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity))
+        /// <param name="linkQrcode">Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment..</param>
+        public LinkEntity(string cfLinkId = default(string), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), string linkQrcode = default(string))
         {
             this.cf_link_id = cfLinkId;
             this.link_id = linkId;
@@ -71,6 +72,7 @@ namespace cashfree_pg.Model
             this.link_notes = linkNotes;
             this.link_auto_reminders = linkAutoReminders;
             this.link_notify = linkNotify;
+            this.link_qrcode = linkQrcode;
         }
 
         /// <summary>
@@ -178,6 +180,13 @@ namespace cashfree_pg.Model
         public LinkNotifyEntity link_notify { get; set; }
 
         /// <summary>
+        /// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
+        /// </summary>
+        /// <value>Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.</value>
+        [DataMember(Name = "link_qrcode", EmitDefaultValue = false)]
+        public string link_qrcode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -202,6 +211,7 @@ namespace cashfree_pg.Model
             sb.Append("  link_notes: ").Append(link_notes).Append("\n");
             sb.Append("  link_auto_reminders: ").Append(link_auto_reminders).Append("\n");
             sb.Append("  link_notify: ").Append(link_notify).Append("\n");
+            sb.Append("  link_qrcode: ").Append(link_qrcode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -317,6 +327,11 @@ namespace cashfree_pg.Model
                     this.link_notify == input.link_notify ||
                     (this.link_notify != null &&
                     this.link_notify.Equals(input.link_notify))
+                ) && 
+                (
+                    this.link_qrcode == input.link_qrcode ||
+                    (this.link_qrcode != null &&
+                    this.link_qrcode.Equals(input.link_qrcode))
                 );
         }
 
@@ -389,6 +404,10 @@ namespace cashfree_pg.Model
                 if (this.link_notify != null)
                 {
                     hashCode = (hashCode * 59) + this.link_notify.GetHashCode();
+                }
+                if (this.link_qrcode != null)
+                {
+                    hashCode = (hashCode * 59) + this.link_qrcode.GetHashCode();
                 }
                 return hashCode;
             }

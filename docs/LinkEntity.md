@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **link_notes** | **Dictionary&lt;string, string&gt;** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
 **link_auto_reminders** | **bool** |  | [optional] 
 **link_notify** | [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
+**link_qrcode** | **string** | Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

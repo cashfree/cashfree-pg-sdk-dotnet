@@ -38,8 +38,8 @@ namespace cashfree_pg.Model
         /// <param name="vendorId">Specify the merchant vendor ID to split the payment..</param>
         /// <param name="amount">Specify the amount to be split to the vendor..</param>
         /// <param name="percentage">Specify the percentage of amount to be split..</param>
-        /// <param name="tags">Provide additional data fields using tags. Sample data fields are mentioned below..</param>
-        public SplitAfterPaymentRequestSplitInner(string vendorId = default(string), decimal amount = default(decimal), decimal percentage = default(decimal), List<SplitAfterPaymentRequestSplitInnerTagsInner> tags = default(List<SplitAfterPaymentRequestSplitInnerTagsInner>))
+        /// <param name="tags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
+        public SplitAfterPaymentRequestSplitInner(string vendorId = default(string), decimal amount = default(decimal), decimal percentage = default(decimal), Dictionary<string, string> tags = default(Dictionary<string, string>))
         {
             this.vendor_id = vendorId;
             this.amount = amount;
@@ -69,11 +69,11 @@ namespace cashfree_pg.Model
         public decimal percentage { get; set; }
 
         /// <summary>
-        /// Provide additional data fields using tags. Sample data fields are mentioned below.
+        /// Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added
         /// </summary>
-        /// <value>Provide additional data fields using tags. Sample data fields are mentioned below.</value>
+        /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public List<SplitAfterPaymentRequestSplitInnerTagsInner> tags { get; set; }
+        public Dictionary<string, string> tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

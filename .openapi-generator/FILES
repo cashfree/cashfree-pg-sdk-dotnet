@@ -170,7 +170,6 @@ docs/SettlementsApi.md
 docs/SoftPOSApi.md
 docs/SplitAfterPaymentRequest.md
 docs/SplitAfterPaymentRequestSplitInner.md
-docs/SplitAfterPaymentRequestSplitInnerTagsInner.md
 docs/SplitAfterPaymentResponse.md
 docs/StaticSplitRequest.md
 docs/StaticSplitRequestSchemeInner.md
@@ -372,7 +371,6 @@ src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityTests.cs
 src/cashfree_pg.Test/Model/SettlementWebhookDataEntityTests.cs
 src/cashfree_pg.Test/Model/SettlementWebhookTests.cs
-src/cashfree_pg.Test/Model/SplitAfterPaymentRequestSplitInnerTagsInnerTests.cs
 src/cashfree_pg.Test/Model/SplitAfterPaymentRequestSplitInnerTests.cs
 src/cashfree_pg.Test/Model/SplitAfterPaymentRequestTests.cs
 src/cashfree_pg.Test/Model/SplitAfterPaymentResponseTests.cs
@@ -594,7 +592,6 @@ src/cashfree_pg/Model/SettlementWebhook.cs
 src/cashfree_pg/Model/SettlementWebhookDataEntity.cs
 src/cashfree_pg/Model/SplitAfterPaymentRequest.cs
 src/cashfree_pg/Model/SplitAfterPaymentRequestSplitInner.cs
-src/cashfree_pg/Model/SplitAfterPaymentRequestSplitInnerTagsInner.cs
 src/cashfree_pg/Model/SplitAfterPaymentResponse.cs
 src/cashfree_pg/Model/StaticSplitRequest.cs
 src/cashfree_pg/Model/StaticSplitRequestSchemeInner.cs

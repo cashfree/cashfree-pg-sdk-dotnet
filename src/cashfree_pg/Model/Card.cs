@@ -152,12 +152,13 @@ namespace cashfree_pg.Model
         /// <param name="instrumentId">instrument id of saved card. Required only to make payment using saved instrument..</param>
         /// <param name="cryptogram">cryptogram received from card network. Required only for tokenized card transactions..</param>
         /// <param name="tokenRequestorId">TRID issued by card networks. Required only for tokenized card transactions..</param>
+        /// <param name="tokenReferenceId">Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. .</param>
         /// <param name="tokenType">tokenType.</param>
         /// <param name="cardDisplay">last 4 digits of original card number. Required only for tokenized card transactions..</param>
         /// <param name="cardAlias">Card alias as returned by Cashfree Vault API..</param>
         /// <param name="cardBankName">One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI.</param>
         /// <param name="emiTenure">EMI tenure selected by the user.</param>
-        public Card(ChannelEnum channel = default(ChannelEnum), string cardNumber = default(string), string cardHolderName = default(string), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cardCvv = default(string), string instrumentId = default(string), string cryptogram = default(string), string tokenRequestorId = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?), string cardDisplay = default(string), string cardAlias = default(string), CardBankNameEnum? cardBankName = default(CardBankNameEnum?), int emiTenure = default(int))
+        public Card(ChannelEnum channel = default(ChannelEnum), string cardNumber = default(string), string cardHolderName = default(string), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cardCvv = default(string), string instrumentId = default(string), string cryptogram = default(string), string tokenRequestorId = default(string), string tokenReferenceId = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?), string cardDisplay = default(string), string cardAlias = default(string), CardBankNameEnum? cardBankName = default(CardBankNameEnum?), int emiTenure = default(int))
         {
             this.channel = channel;
             this.card_number = cardNumber;
@@ -168,6 +169,7 @@ namespace cashfree_pg.Model
             this.instrument_id = instrumentId;
             this.cryptogram = cryptogram;
             this.token_requestor_id = tokenRequestorId;
+            this.token_reference_id = tokenReferenceId;
             this.token_type = tokenType;
             this.card_display = cardDisplay;
             this.card_alias = cardAlias;
@@ -232,6 +234,13 @@ namespace cashfree_pg.Model
         public string token_requestor_id { get; set; }
 
         /// <summary>
+        /// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. 
+        /// </summary>
+        /// <value>Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. </value>
+        [DataMember(Name = "token_reference_id", EmitDefaultValue = false)]
+        public string token_reference_id { get; set; }
+
+        /// <summary>
         /// last 4 digits of original card number. Required only for tokenized card transactions.
         /// </summary>
         /// <value>last 4 digits of original card number. Required only for tokenized card transactions.</value>
@@ -269,6 +278,7 @@ namespace cashfree_pg.Model
             sb.Append("  instrument_id: ").Append(instrument_id).Append("\n");
             sb.Append("  cryptogram: ").Append(cryptogram).Append("\n");
             sb.Append("  token_requestor_id: ").Append(token_requestor_id).Append("\n");
+            sb.Append("  token_reference_id: ").Append(token_reference_id).Append("\n");
             sb.Append("  token_type: ").Append(token_type).Append("\n");
             sb.Append("  card_display: ").Append(card_display).Append("\n");
             sb.Append("  card_alias: ").Append(card_alias).Append("\n");
@@ -354,6 +364,11 @@ namespace cashfree_pg.Model
                     this.token_requestor_id.Equals(input.token_requestor_id))
                 ) && 
                 (
+                    this.token_reference_id == input.token_reference_id ||
+                    (this.token_reference_id != null &&
+                    this.token_reference_id.Equals(input.token_reference_id))
+                ) && 
+                (
                     this.token_type == input.token_type ||
                     this.token_type.Equals(input.token_type)
                 ) && 
@@ -419,6 +434,10 @@ namespace cashfree_pg.Model
                 if (this.token_requestor_id != null)
                 {
                     hashCode = (hashCode * 59) + this.token_requestor_id.GetHashCode();
+                }
+                if (this.token_reference_id != null)
+                {
+                    hashCode = (hashCode * 59) + this.token_reference_id.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.token_type.GetHashCode();
                 if (this.card_display != null)

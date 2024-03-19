@@ -118,6 +118,18 @@ namespace cashfree_pg.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// with the <see cref="PaymentMethodBankTransferInPaymentsEntity" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of PaymentMethodBankTransferInPaymentsEntity.</param>
+        public PaymentEntityPaymentMethod(PaymentMethodBankTransferInPaymentsEntity actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -133,6 +145,10 @@ namespace cashfree_pg.Model
             set
             {
                 if (value.GetType() == typeof(PaymentMethodAppInPaymentsEntity))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(PaymentMethodBankTransferInPaymentsEntity))
                 {
                     this._actualInstance = value;
                 }
@@ -162,7 +178,7 @@ namespace cashfree_pg.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: PaymentMethodAppInPaymentsEntity, PaymentMethodCardEMIInPaymentsEntity, PaymentMethodCardInPaymentsEntity, PaymentMethodCardlessEMIInPaymentsEntity, PaymentMethodNetBankingInPaymentsEntity, PaymentMethodPaylaterInPaymentsEntity, PaymentMethodUPIInPaymentsEntity");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: PaymentMethodAppInPaymentsEntity, PaymentMethodBankTransferInPaymentsEntity, PaymentMethodCardEMIInPaymentsEntity, PaymentMethodCardInPaymentsEntity, PaymentMethodCardlessEMIInPaymentsEntity, PaymentMethodNetBankingInPaymentsEntity, PaymentMethodPaylaterInPaymentsEntity, PaymentMethodUPIInPaymentsEntity");
                 }
             }
         }
@@ -238,6 +254,16 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `PaymentMethodBankTransferInPaymentsEntity`. If the actual instance is not `PaymentMethodBankTransferInPaymentsEntity`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of PaymentMethodBankTransferInPaymentsEntity</returns>
+        public PaymentMethodBankTransferInPaymentsEntity GetPaymentMethodBankTransferInPaymentsEntity()
+        {
+            return (PaymentMethodBankTransferInPaymentsEntity)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -300,6 +326,33 @@ namespace cashfree_pg.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodAppInPaymentsEntity: {1}", jsonString, exception.ToString()));
+            }
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(PaymentMethodBankTransferInPaymentsEntity).GetProperty("AdditionalProperties") == null)
+                {
+                    if(PaymentMethodBankTransferInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
+                        return newPaymentEntityPaymentMethod;
+                    }
+                }
+                else
+                {
+                    if(PaymentMethodBankTransferInPaymentsEntity.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
+                        return newPaymentEntityPaymentMethod;
+                    }
+                }
+                matchedTypes.Add("PaymentMethodBankTransferInPaymentsEntity");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodBankTransferInPaymentsEntity: {1}", jsonString, exception.ToString()));
             }
             try
             {

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **instrument_id** | **string** | instrument id of saved card. Required only to make payment using saved instrument. | [optional] 
 **cryptogram** | **string** | cryptogram received from card network. Required only for tokenized card transactions. | [optional] 
 **token_requestor_id** | **string** | TRID issued by card networks. Required only for tokenized card transactions. | [optional] 
+**token_reference_id** | **string** | Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.  | [optional] 
 **token_type** | **string** |  | [optional] 
 **card_display** | **string** | last 4 digits of original card number. Required only for tokenized card transactions. | [optional] 
 **card_alias** | **string** | Card alias as returned by Cashfree Vault API. | [optional] 

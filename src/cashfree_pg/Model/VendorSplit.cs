@@ -38,11 +38,13 @@ namespace cashfree_pg.Model
         /// <param name="vendorId">Vendor id created in Cashfree system.</param>
         /// <param name="amount">Amount which will be associated with this vendor.</param>
         /// <param name="percentage">Percentage of order amount which shall get added to vendor account.</param>
-        public VendorSplit(string vendorId = default(string), decimal amount = default(decimal), decimal percentage = default(decimal))
+        /// <param name="tags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
+        public VendorSplit(string vendorId = default(string), decimal? amount = default(decimal?), decimal? percentage = default(decimal?), Dictionary<string, Object> tags = default(Dictionary<string, Object>))
         {
             this.vendor_id = vendorId;
             this.amount = amount;
             this.percentage = percentage;
+            this.tags = tags;
         }
 
         /// <summary>
@@ -56,15 +58,22 @@ namespace cashfree_pg.Model
         /// Amount which will be associated with this vendor
         /// </summary>
         /// <value>Amount which will be associated with this vendor</value>
-        [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// Percentage of order amount which shall get added to vendor account
         /// </summary>
         /// <value>Percentage of order amount which shall get added to vendor account</value>
-        [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public decimal percentage { get; set; }
+        [DataMember(Name = "percentage", EmitDefaultValue = true)]
+        public decimal? percentage { get; set; }
+
+        /// <summary>
+        /// Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added
+        /// </summary>
+        /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        public Dictionary<string, Object> tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,6 +86,7 @@ namespace cashfree_pg.Model
             sb.Append("  vendor_id: ").Append(vendor_id).Append("\n");
             sb.Append("  amount: ").Append(amount).Append("\n");
             sb.Append("  percentage: ").Append(percentage).Append("\n");
+            sb.Append("  tags: ").Append(tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,11 +129,19 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.amount == input.amount ||
-                    this.amount.Equals(input.amount)
+                    (this.amount != null &&
+                    this.amount.Equals(input.amount))
                 ) && 
                 (
                     this.percentage == input.percentage ||
-                    this.percentage.Equals(input.percentage)
+                    (this.percentage != null &&
+                    this.percentage.Equals(input.percentage))
+                ) && 
+                (
+                    this.tags == input.tags ||
+                    this.tags != null &&
+                    input.tags != null &&
+                    this.tags.SequenceEqual(input.tags)
                 );
         }
 
@@ -148,8 +166,18 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.vendor_id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.amount.GetHashCode();
-                hashCode = (hashCode * 59) + this.percentage.GetHashCode();
+                if (this.amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.amount.GetHashCode();
+                }
+                if (this.percentage != null)
+                {
+                    hashCode = (hashCode * 59) + this.percentage.GetHashCode();
+                }
+                if (this.tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.tags.GetHashCode();
+                }
                 return hashCode;
             }
         }

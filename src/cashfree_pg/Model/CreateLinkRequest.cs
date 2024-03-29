@@ -52,7 +52,8 @@ namespace cashfree_pg.Model
         /// <param name="linkAutoReminders">If \&quot;true\&quot;, reminders will be sent to customers for collecting payments..</param>
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkMeta">linkMeta.</param>
-        public CreateLinkRequest(string linkId = default(string), double linkAmount = default(double), string linkCurrency = default(string), string linkPurpose = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), bool linkPartialPayments = default(bool), double linkMinimumPartialAmount = default(double), string linkExpiryTime = default(string), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), bool linkAutoReminders = default(bool), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity))
+        /// <param name="orderSplits">Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature..</param>
+        public CreateLinkRequest(string linkId = default(string), double linkAmount = default(double), string linkCurrency = default(string), string linkPurpose = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), bool linkPartialPayments = default(bool), double linkMinimumPartialAmount = default(double), string linkExpiryTime = default(string), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), bool linkAutoReminders = default(bool), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), List<VendorSplit> orderSplits = default(List<VendorSplit>))
         {
             // to ensure "linkId" is required (not null)
             if (linkId == null)
@@ -86,6 +87,7 @@ namespace cashfree_pg.Model
             this.link_auto_reminders = linkAutoReminders;
             this.link_notes = linkNotes;
             this.link_meta = linkMeta;
+            this.order_splits = orderSplits;
         }
 
         /// <summary>
@@ -171,6 +173,14 @@ namespace cashfree_pg.Model
         public LinkMetaResponseEntity link_meta { get; set; }
 
         /// <summary>
+        /// Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.
+        /// </summary>
+        /// <value>Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.</value>
+        /// <example>[{&quot;amount&quot;:10,&quot;vendor&quot;:&quot;john&quot;}]</example>
+        [DataMember(Name = "order_splits", EmitDefaultValue = false)]
+        public List<VendorSplit> order_splits { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -190,6 +200,7 @@ namespace cashfree_pg.Model
             sb.Append("  link_auto_reminders: ").Append(link_auto_reminders).Append("\n");
             sb.Append("  link_notes: ").Append(link_notes).Append("\n");
             sb.Append("  link_meta: ").Append(link_meta).Append("\n");
+            sb.Append("  order_splits: ").Append(order_splits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -281,6 +292,12 @@ namespace cashfree_pg.Model
                     this.link_meta == input.link_meta ||
                     (this.link_meta != null &&
                     this.link_meta.Equals(input.link_meta))
+                ) && 
+                (
+                    this.order_splits == input.order_splits ||
+                    this.order_splits != null &&
+                    input.order_splits != null &&
+                    this.order_splits.SequenceEqual(input.order_splits)
                 );
         }
 
@@ -336,6 +353,10 @@ namespace cashfree_pg.Model
                 if (this.link_meta != null)
                 {
                     hashCode = (hashCode * 59) + this.link_meta.GetHashCode();
+                }
+                if (this.order_splits != null)
+                {
+                    hashCode = (hashCode * 59) + this.order_splits.GetHashCode();
                 }
                 return hashCode;
             }

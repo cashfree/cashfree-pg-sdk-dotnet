@@ -53,7 +53,8 @@ namespace cashfree_pg.Model
         /// <param name="linkAutoReminders">linkAutoReminders.</param>
         /// <param name="linkNotify">linkNotify.</param>
         /// <param name="linkQrcode">Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment..</param>
-        public LinkEntity(string cfLinkId = default(string), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), string linkQrcode = default(string))
+        /// <param name="orderSplits">orderSplits.</param>
+        public LinkEntity(string cfLinkId = default(string), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), string linkQrcode = default(string), List<VendorSplit> orderSplits = default(List<VendorSplit>))
         {
             this.cf_link_id = cfLinkId;
             this.link_id = linkId;
@@ -73,6 +74,7 @@ namespace cashfree_pg.Model
             this.link_auto_reminders = linkAutoReminders;
             this.link_notify = linkNotify;
             this.link_qrcode = linkQrcode;
+            this.order_splits = orderSplits;
         }
 
         /// <summary>
@@ -187,6 +189,12 @@ namespace cashfree_pg.Model
         public string link_qrcode { get; set; }
 
         /// <summary>
+        /// Gets or Sets order_splits
+        /// </summary>
+        [DataMember(Name = "order_splits", EmitDefaultValue = false)]
+        public List<VendorSplit> order_splits { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -212,6 +220,7 @@ namespace cashfree_pg.Model
             sb.Append("  link_auto_reminders: ").Append(link_auto_reminders).Append("\n");
             sb.Append("  link_notify: ").Append(link_notify).Append("\n");
             sb.Append("  link_qrcode: ").Append(link_qrcode).Append("\n");
+            sb.Append("  order_splits: ").Append(order_splits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -332,6 +341,12 @@ namespace cashfree_pg.Model
                     this.link_qrcode == input.link_qrcode ||
                     (this.link_qrcode != null &&
                     this.link_qrcode.Equals(input.link_qrcode))
+                ) && 
+                (
+                    this.order_splits == input.order_splits ||
+                    this.order_splits != null &&
+                    input.order_splits != null &&
+                    this.order_splits.SequenceEqual(input.order_splits)
                 );
         }
 
@@ -408,6 +423,10 @@ namespace cashfree_pg.Model
                 if (this.link_qrcode != null)
                 {
                     hashCode = (hashCode * 59) + this.link_qrcode.GetHashCode();
+                }
+                if (this.order_splits != null)
+                {
+                    hashCode = (hashCode * 59) + this.order_splits.GetHashCode();
                 }
                 return hashCode;
             }

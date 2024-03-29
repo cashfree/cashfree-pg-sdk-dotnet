@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **link_auto_reminders** | **bool** |  | [optional] 
 **link_notify** | [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **link_qrcode** | **string** | Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment. | [optional] 
+**order_splits** | [**List&lt;VendorSplit&gt;**](VendorSplit.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

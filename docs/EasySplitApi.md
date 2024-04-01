@@ -13,6 +13,7 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 | [**PGESGetVendorsDocs**](EasySplitApi.md#pgesgetvendorsdocs) | **GET** /easy-split/vendor-docs/{vendor_id} | Get Vendor All Documents Status |
 | [**PGESOrderRecon**](EasySplitApi.md#pgesorderrecon) | **POST** /split/order/vendor/recon | Get Split and Settlement Details by OrderID v2.0 |
 | [**PGESUpdateVendors**](EasySplitApi.md#pgesupdatevendors) | **PATCH** /easy-split/vendors/{vendor_id} | Update vendor Details |
+| [**PGESUploadVendorsDocs**](EasySplitApi.md#pgesuploadvendorsdocs) | **POST** /easy-split/vendor-docs/{vendor_id} | Upload Vendor Docs |
 | [**PGOrderSplitAfterPayment**](EasySplitApi.md#pgordersplitafterpayment) | **POST** /easy-split/orders/{order_id}/split | Split After Payment |
 | [**PGOrderStaticSplit**](EasySplitApi.md#pgorderstaticsplit) | **POST** /easy-split/static-split | Create Static Split Configuration |
 
@@ -769,6 +770,91 @@ namespace Example
 |-------------|-------------|------------------|
 | **200** | Update Vendor Success Response. |  -  |
 | **400** | Update Vendor Failure Response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="pgesuploadvendorsdocs"></a>
+# **PGESUploadVendorsDocs**
+> UploadVendorDocumentsResponse PGESUploadVendorsDocs (string xApiVersion, string vendorId, string? docType = null, string? docValue = null, System.IO.Stream? file = null)
+
+Upload Vendor Docs
+
+Use this API to upload KYC documents of a specific vendor.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class PGESUploadVendorsDocsExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var vendorId = your-vendor-id;  // string | The id which uniquely identifies your vendor.
+            var docType = "docType_example";  // string? | Mention the type of the document you are uploading. Possible values: UIDAI_FRONT, UIDAI_BACK, UIDAI_NUMBER, DL, DL_NUMBER, PASSPORT_FRONT, PASSPORT_BACK, PASSPORT_NUMBER, VOTER_ID, VOTER_ID_NUMBER, PAN, PAN_NUMBER, GST, GSTIN_NUMBER, CIN, CIN_NUMBER, NBFC_CERTIFICATE. If the doc type ends with a number you should add the doc value else upload the doc file. (optional) 
+            var docValue = "docValue_example";  // string? | Enter the display name of the uploaded file. (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream? | Select the document that should be uploaded or provide the path of that file. You cannot upload a file that is more than 2MB in size. (optional) 
+
+            try
+            {
+                // Upload Vendor Docs
+                UploadVendorDocumentsResponse result = cashfree.PGESUploadVendorsDocs(xApiVersion, vendorId, docType, docValue, file);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EasySplitApi.PGESUploadVendorsDocs: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **vendorId** | **string** | The id which uniquely identifies your vendor. |  |
+| **docType** | **string?** | Mention the type of the document you are uploading. Possible values: UIDAI_FRONT, UIDAI_BACK, UIDAI_NUMBER, DL, DL_NUMBER, PASSPORT_FRONT, PASSPORT_BACK, PASSPORT_NUMBER, VOTER_ID, VOTER_ID_NUMBER, PAN, PAN_NUMBER, GST, GSTIN_NUMBER, CIN, CIN_NUMBER, NBFC_CERTIFICATE. If the doc type ends with a number you should add the doc value else upload the doc file. | [optional]  |
+| **docValue** | **string?** | Enter the display name of the uploaded file. | [optional]  |
+| **file** | **System.IO.Stream?****System.IO.Stream?** | Select the document that should be uploaded or provide the path of that file. You cannot upload a file that is more than 2MB in size. | [optional]  |
+
+### Return type
+
+[**UploadVendorDocumentsResponse**](UploadVendorDocumentsResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Upload Vendor Docs Success Response. |  -  |
+| **400** | Upload Vendor Docs Failure Response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

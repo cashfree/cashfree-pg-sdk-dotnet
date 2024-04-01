@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="payload">payload.</param>
         /// <param name="contentType">contentType.</param>
         /// <param name="method">method.</param>
-        public OrderPayData(string url = default(string), Object payload = default(Object), string contentType = default(string), string method = default(string))
+        public OrderPayData(string? url = default(string?), Object? payload = default(Object?), string? contentType = default(string?), string? method = default(string?))
         {
             this.url = url;
             this.payload = payload;
@@ -51,25 +51,25 @@ namespace cashfree_pg.Model
         /// Gets or Sets url
         /// </summary>
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string url { get; set; }
+        public string? url { get; set; }
 
         /// <summary>
         /// Gets or Sets payload
         /// </summary>
         [DataMember(Name = "payload", EmitDefaultValue = false)]
-        public Object payload { get; set; }
+        public Object? payload { get; set; }
 
         /// <summary>
         /// Gets or Sets content_type
         /// </summary>
         [DataMember(Name = "content_type", EmitDefaultValue = false)]
-        public string content_type { get; set; }
+        public string? content_type { get; set; }
 
         /// <summary>
         /// Gets or Sets method
         /// </summary>
         [DataMember(Name = "method", EmitDefaultValue = false)]
-        public string method { get; set; }
+        public string? method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

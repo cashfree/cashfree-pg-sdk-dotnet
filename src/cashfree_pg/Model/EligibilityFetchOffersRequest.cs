@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="queries">queries (required).</param>
         /// <param name="filters">filters.</param>
-        public EligibilityFetchOffersRequest(OfferQueries queries = default(OfferQueries), OfferFilters filters = default(OfferFilters))
+        public EligibilityFetchOffersRequest(OfferQueries queries = default(OfferQueries), OfferFilters? filters = default(OfferFilters?))
         {
             // to ensure "queries" is required (not null)
             if (queries == null)
@@ -63,7 +63,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets filters
         /// </summary>
         [DataMember(Name = "filters", EmitDefaultValue = false)]
-        public OfferFilters filters { get; set; }
+        public OfferFilters? filters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

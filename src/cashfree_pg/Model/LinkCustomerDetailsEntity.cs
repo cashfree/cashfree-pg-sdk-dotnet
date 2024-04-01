@@ -43,7 +43,7 @@ namespace cashfree_pg.Model
         /// <param name="customerPhone">Customer phone number (required).</param>
         /// <param name="customerEmail">Customer email address.</param>
         /// <param name="customerName">Customer name.</param>
-        public LinkCustomerDetailsEntity(string customerPhone = default(string), string customerEmail = default(string), string customerName = default(string))
+        public LinkCustomerDetailsEntity(string customerPhone = default(string), string? customerEmail = default(string?), string? customerName = default(string?))
         {
             // to ensure "customerPhone" is required (not null)
             if (customerPhone == null)
@@ -67,14 +67,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Customer email address</value>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Customer name
         /// </summary>
         /// <value>Customer name</value>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

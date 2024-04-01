@@ -96,7 +96,7 @@ namespace cashfree_pg.Model
         /// <param name="provider">One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;].</param>
         /// <param name="phone">Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;.</param>
         /// <param name="emiTenure">EMI tenure for the selected provider. This is mandatory when provider is one of [&#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;].</param>
-        public CardlessEMI(string channel = default(string), ProviderEnum? provider = default(ProviderEnum?), string phone = default(string), int emiTenure = default(int))
+        public CardlessEMI(string? channel = default(string?), ProviderEnum? provider = default(ProviderEnum?), string? phone = default(string?), int? emiTenure = default(int?))
         {
             this.channel = channel;
             this.provider = provider;
@@ -109,21 +109,21 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The channel for cardless EMI is always &#x60;link&#x60;</value>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;
         /// </summary>
         /// <value>Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;</value>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public string phone { get; set; }
+        public string? phone { get; set; }
 
         /// <summary>
         /// EMI tenure for the selected provider. This is mandatory when provider is one of [&#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]
         /// </summary>
         /// <value>EMI tenure for the selected provider. This is mandatory when provider is one of [&#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]</value>
         [DataMember(Name = "emi_tenure", EmitDefaultValue = false)]
-        public int emi_tenure { get; set; }
+        public int? emi_tenure { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

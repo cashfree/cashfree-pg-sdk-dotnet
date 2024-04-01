@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="cursor">Specifies from where the next set of settlement details should be fetched..</param>
         /// <param name="limit">Number of settlements you want to fetch in the next iteration..</param>
         /// <param name="data">data.</param>
-        public ReconEntity(string cursor = default(string), int limit = default(int), List<ReconEntityDataInner> data = default(List<ReconEntityDataInner>))
+        public ReconEntity(string? cursor = default(string?), int? limit = default(int?), List<ReconEntityDataInner>? data = default(List<ReconEntityDataInner>?))
         {
             this.cursor = cursor;
             this.limit = limit;
@@ -50,20 +50,20 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specifies from where the next set of settlement details should be fetched.</value>
         [DataMember(Name = "cursor", EmitDefaultValue = false)]
-        public string cursor { get; set; }
+        public string? cursor { get; set; }
 
         /// <summary>
         /// Number of settlements you want to fetch in the next iteration.
         /// </summary>
         /// <value>Number of settlements you want to fetch in the next iteration.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int limit { get; set; }
+        public int? limit { get; set; }
 
         /// <summary>
         /// Gets or Sets data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ReconEntityDataInner> data { get; set; }
+        public List<ReconEntityDataInner>? data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

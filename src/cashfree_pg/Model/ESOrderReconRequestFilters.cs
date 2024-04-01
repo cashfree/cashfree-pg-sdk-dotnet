@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="startDate">Specify the start data from which you want to get the recon data..</param>
         /// <param name="endDate">Specify the end data till which you want to get the recon data..</param>
         /// <param name="orderIds">Please provide list of order ids for which you want to get the recon data..</param>
-        public ESOrderReconRequestFilters(string startDate = default(string), string endDate = default(string), List<string> orderIds = default(List<string>))
+        public ESOrderReconRequestFilters(string? startDate = default(string?), string? endDate = default(string?), List<string>? orderIds = default(List<string>?))
         {
             this.start_date = startDate;
             this.end_date = endDate;
@@ -50,21 +50,21 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify the start data from which you want to get the recon data.</value>
         [DataMember(Name = "start_date", EmitDefaultValue = false)]
-        public string start_date { get; set; }
+        public string? start_date { get; set; }
 
         /// <summary>
         /// Specify the end data till which you want to get the recon data.
         /// </summary>
         /// <value>Specify the end data till which you want to get the recon data.</value>
         [DataMember(Name = "end_date", EmitDefaultValue = false)]
-        public string end_date { get; set; }
+        public string? end_date { get; set; }
 
         /// <summary>
         /// Please provide list of order ids for which you want to get the recon data.
         /// </summary>
         /// <value>Please provide list of order ids for which you want to get the recon data.</value>
         [DataMember(Name = "order_ids", EmitDefaultValue = false)]
-        public List<string> order_ids { get; set; }
+        public List<string>? order_ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

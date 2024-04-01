@@ -44,7 +44,7 @@ namespace cashfree_pg.Model
         /// <param name="passportNumber">passportNumber.</param>
         /// <param name="drivingLicense">drivingLicense.</param>
         /// <param name="voterId">voterId.</param>
-        public KycDetails(string accountType = default(string), string businessType = default(string), decimal uidai = default(decimal), string gst = default(string), string cin = default(string), string pan = default(string), string passportNumber = default(string), string drivingLicense = default(string), string voterId = default(string))
+        public KycDetails(string? accountType = default(string?), string? businessType = default(string?), decimal? uidai = default(decimal?), string? gst = default(string?), string? cin = default(string?), string? pan = default(string?), string? passportNumber = default(string?), string? drivingLicense = default(string?), string? voterId = default(string?))
         {
             this.account_type = accountType;
             this.business_type = businessType;
@@ -61,55 +61,55 @@ namespace cashfree_pg.Model
         /// Gets or Sets account_type
         /// </summary>
         [DataMember(Name = "account_type", EmitDefaultValue = false)]
-        public string account_type { get; set; }
+        public string? account_type { get; set; }
 
         /// <summary>
         /// Gets or Sets business_type
         /// </summary>
         [DataMember(Name = "business_type", EmitDefaultValue = false)]
-        public string business_type { get; set; }
+        public string? business_type { get; set; }
 
         /// <summary>
         /// Gets or Sets uidai
         /// </summary>
         [DataMember(Name = "uidai", EmitDefaultValue = false)]
-        public decimal uidai { get; set; }
+        public decimal? uidai { get; set; }
 
         /// <summary>
         /// Gets or Sets gst
         /// </summary>
         [DataMember(Name = "gst", EmitDefaultValue = false)]
-        public string gst { get; set; }
+        public string? gst { get; set; }
 
         /// <summary>
         /// Gets or Sets cin
         /// </summary>
         [DataMember(Name = "cin", EmitDefaultValue = false)]
-        public string cin { get; set; }
+        public string? cin { get; set; }
 
         /// <summary>
         /// Gets or Sets pan
         /// </summary>
         [DataMember(Name = "pan", EmitDefaultValue = false)]
-        public string pan { get; set; }
+        public string? pan { get; set; }
 
         /// <summary>
         /// Gets or Sets passport_number
         /// </summary>
         [DataMember(Name = "passport_number", EmitDefaultValue = false)]
-        public string passport_number { get; set; }
+        public string? passport_number { get; set; }
 
         /// <summary>
         /// Gets or Sets driving_license
         /// </summary>
         [DataMember(Name = "driving_license", EmitDefaultValue = false)]
-        public string driving_license { get; set; }
+        public string? driving_license { get; set; }
 
         /// <summary>
         /// Gets or Sets voter_id
         /// </summary>
         [DataMember(Name = "voter_id", EmitDefaultValue = false)]
-        public string voter_id { get; set; }
+        public string? voter_id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

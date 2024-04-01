@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="RefundWebhookDataEntity" /> class.
         /// </summary>
         /// <param name="refund">refund.</param>
-        public RefundWebhookDataEntity(RefundEntity refund = default(RefundEntity))
+        public RefundWebhookDataEntity(RefundEntity? refund = default(RefundEntity?))
         {
             this.refund = refund;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets refund
         /// </summary>
         [DataMember(Name = "refund", EmitDefaultValue = false)]
-        public RefundEntity refund { get; set; }
+        public RefundEntity? refund { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

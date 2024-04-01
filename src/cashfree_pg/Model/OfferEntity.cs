@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="offerTnc">offerTnc.</param>
         /// <param name="offerDetails">offerDetails.</param>
         /// <param name="offerValidations">offerValidations.</param>
-        public OfferEntity(string offerId = default(string), string offerStatus = default(string), OfferMeta offerMeta = default(OfferMeta), OfferTnc offerTnc = default(OfferTnc), OfferDetails offerDetails = default(OfferDetails), OfferValidations offerValidations = default(OfferValidations))
+        public OfferEntity(string? offerId = default(string?), string? offerStatus = default(string?), OfferMeta? offerMeta = default(OfferMeta?), OfferTnc? offerTnc = default(OfferTnc?), OfferDetails? offerDetails = default(OfferDetails?), OfferValidations? offerValidations = default(OfferValidations?))
         {
             this.offer_id = offerId;
             this.offer_status = offerStatus;
@@ -56,38 +56,38 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>d2b430fb-1afe-455a-af31-66d00377b29a</example>
         [DataMember(Name = "offer_id", EmitDefaultValue = false)]
-        public string offer_id { get; set; }
+        public string? offer_id { get; set; }
 
         /// <summary>
         /// Gets or Sets offer_status
         /// </summary>
         /// <example>active</example>
         [DataMember(Name = "offer_status", EmitDefaultValue = false)]
-        public string offer_status { get; set; }
+        public string? offer_status { get; set; }
 
         /// <summary>
         /// Gets or Sets offer_meta
         /// </summary>
         [DataMember(Name = "offer_meta", EmitDefaultValue = false)]
-        public OfferMeta offer_meta { get; set; }
+        public OfferMeta? offer_meta { get; set; }
 
         /// <summary>
         /// Gets or Sets offer_tnc
         /// </summary>
         [DataMember(Name = "offer_tnc", EmitDefaultValue = false)]
-        public OfferTnc offer_tnc { get; set; }
+        public OfferTnc? offer_tnc { get; set; }
 
         /// <summary>
         /// Gets or Sets offer_details
         /// </summary>
         [DataMember(Name = "offer_details", EmitDefaultValue = false)]
-        public OfferDetails offer_details { get; set; }
+        public OfferDetails? offer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets offer_validations
         /// </summary>
         [DataMember(Name = "offer_validations", EmitDefaultValue = false)]
-        public OfferValidations offer_validations { get; set; }
+        public OfferValidations? offer_validations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

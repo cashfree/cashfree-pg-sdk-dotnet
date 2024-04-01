@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="upiIntent">If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere.</param>
         /// <param name="returnUrl">The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250..</param>
         /// <param name="paymentMethods">Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods.</param>
-        public LinkMetaResponseEntity(string notifyUrl = default(string), bool upiIntent = default(bool), string returnUrl = default(string), string paymentMethods = default(string))
+        public LinkMetaResponseEntity(string? notifyUrl = default(string?), bool? upiIntent = default(bool?), string? returnUrl = default(string?), string? paymentMethods = default(string?))
         {
             this.notify_url = notifyUrl;
             this.upi_intent = upiIntent;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Notification URL for server-server communication. It should be an https URL.</value>
         [DataMember(Name = "notify_url", EmitDefaultValue = false)]
-        public string notify_url { get; set; }
+        public string? notify_url { get; set; }
 
         /// <summary>
         /// If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
         /// </summary>
         /// <value>If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere</value>
         [DataMember(Name = "upi_intent", EmitDefaultValue = true)]
-        public bool upi_intent { get; set; }
+        public bool? upi_intent { get; set; }
 
         /// <summary>
         /// The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250.
         /// </summary>
         /// <value>The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250.</value>
         [DataMember(Name = "return_url", EmitDefaultValue = false)]
-        public string return_url { get; set; }
+        public string? return_url { get; set; }
 
         /// <summary>
         /// Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods
         /// </summary>
         /// <value>Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods</value>
         [DataMember(Name = "payment_methods", EmitDefaultValue = false)]
-        public string payment_methods { get; set; }
+        public string? payment_methods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

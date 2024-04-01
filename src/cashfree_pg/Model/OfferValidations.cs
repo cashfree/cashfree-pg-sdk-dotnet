@@ -43,7 +43,7 @@ namespace cashfree_pg.Model
         /// <param name="minAmount">Minimum Amount for Offer to be Applicable.</param>
         /// <param name="maxAllowed">Maximum Amount for Offer to be Applicable (required).</param>
         /// <param name="paymentMethod">paymentMethod (required).</param>
-        public OfferValidations(decimal minAmount = default(decimal), decimal maxAllowed = default(decimal), OfferValidationsPaymentMethod paymentMethod = default(OfferValidationsPaymentMethod))
+        public OfferValidations(decimal? minAmount = default(decimal?), decimal maxAllowed = default(decimal), OfferValidationsPaymentMethod paymentMethod = default(OfferValidationsPaymentMethod))
         {
             this.max_allowed = maxAllowed;
             // to ensure "paymentMethod" is required (not null)
@@ -61,7 +61,7 @@ namespace cashfree_pg.Model
         /// <value>Minimum Amount for Offer to be Applicable</value>
         /// <example>1</example>
         [DataMember(Name = "min_amount", EmitDefaultValue = false)]
-        public decimal min_amount { get; set; }
+        public decimal? min_amount { get; set; }
 
         /// <summary>
         /// Maximum Amount for Offer to be Applicable

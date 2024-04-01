@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="approveBy">Time by which this authorization should be approved by the customer..</param>
         /// <param name="startTime">This is the time when the UPI one time mandate will start.</param>
         /// <param name="endTime">This is the time when the UPI mandate will be over. If the mandate has not been executed by this time, the funds will be returned back to the customer after this time..</param>
-        public UPIAuthorizeDetails(string approveBy = default(string), string startTime = default(string), string endTime = default(string))
+        public UPIAuthorizeDetails(string? approveBy = default(string?), string? startTime = default(string?), string? endTime = default(string?))
         {
             this.approve_by = approveBy;
             this.start_time = startTime;
@@ -50,21 +50,21 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Time by which this authorization should be approved by the customer.</value>
         [DataMember(Name = "approve_by", EmitDefaultValue = false)]
-        public string approve_by { get; set; }
+        public string? approve_by { get; set; }
 
         /// <summary>
         /// This is the time when the UPI one time mandate will start
         /// </summary>
         /// <value>This is the time when the UPI one time mandate will start</value>
         [DataMember(Name = "start_time", EmitDefaultValue = false)]
-        public string start_time { get; set; }
+        public string? start_time { get; set; }
 
         /// <summary>
         /// This is the time when the UPI mandate will be over. If the mandate has not been executed by this time, the funds will be returned back to the customer after this time.
         /// </summary>
         /// <value>This is the time when the UPI mandate will be over. If the mandate has not been executed by this time, the funds will be returned back to the customer after this time.</value>
         [DataMember(Name = "end_time", EmitDefaultValue = false)]
-        public string end_time { get; set; }
+        public string? end_time { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

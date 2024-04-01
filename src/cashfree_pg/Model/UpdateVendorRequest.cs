@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// <param name="bank">Specify the vendor bank account details to be updated..</param>
         /// <param name="upi">Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign..</param>
         /// <param name="kycDetails">Specify the kyc details that should be updated. (required).</param>
-        public UpdateVendorRequest(string status = default(string), string name = default(string), string email = default(string), string phone = default(string), bool verifyAccount = default(bool), bool dashboardAccess = default(bool), decimal scheduleOption = default(decimal), List<BankDetails> bank = default(List<BankDetails>), List<UpiDetails> upi = default(List<UpiDetails>), List<KycDetails> kycDetails = default(List<KycDetails>))
+        public UpdateVendorRequest(string status = default(string), string name = default(string), string email = default(string), string phone = default(string), bool? verifyAccount = default(bool?), bool? dashboardAccess = default(bool?), decimal scheduleOption = default(decimal), List<BankDetails>? bank = default(List<BankDetails>?), List<UpiDetails>? upi = default(List<UpiDetails>?), List<KycDetails> kycDetails = default(List<KycDetails>))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -122,14 +122,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify if the vendor bank account details should be verified. Possible values: true or false</value>
         [DataMember(Name = "verify_account", EmitDefaultValue = true)]
-        public bool verify_account { get; set; }
+        public bool? verify_account { get; set; }
 
         /// <summary>
         /// Update if the vendor will have dashboard access or not. Possible values are: true or false
         /// </summary>
         /// <value>Update if the vendor will have dashboard access or not. Possible values are: true or false</value>
         [DataMember(Name = "dashboard_access", EmitDefaultValue = true)]
-        public bool dashboard_access { get; set; }
+        public bool? dashboard_access { get; set; }
 
         /// <summary>
         /// Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements.
@@ -143,14 +143,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify the vendor bank account details to be updated.</value>
         [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public List<BankDetails> bank { get; set; }
+        public List<BankDetails>? bank { get; set; }
 
         /// <summary>
         /// Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign.
         /// </summary>
         /// <value>Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign.</value>
         [DataMember(Name = "upi", EmitDefaultValue = false)]
-        public List<UpiDetails> upi { get; set; }
+        public List<UpiDetails>? upi { get; set; }
 
         /// <summary>
         /// Specify the kyc details that should be updated.

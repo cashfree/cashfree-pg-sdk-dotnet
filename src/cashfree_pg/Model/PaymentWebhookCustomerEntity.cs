@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="customerId">customerId.</param>
         /// <param name="customerEmail">customerEmail.</param>
         /// <param name="customerPhone">customerPhone.</param>
-        public PaymentWebhookCustomerEntity(string customerName = default(string), string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string))
+        public PaymentWebhookCustomerEntity(string? customerName = default(string?), string? customerId = default(string?), string? customerEmail = default(string?), string? customerPhone = default(string?))
         {
             this.customer_name = customerName;
             this.customer_id = customerId;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>Yogesh</example>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_id
         /// </summary>
         /// <example>12121212</example>
         [DataMember(Name = "customer_id", EmitDefaultValue = false)]
-        public string customer_id { get; set; }
+        public string? customer_id { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_email
         /// </summary>
         /// <example>yogesh.miglani@gmail.com</example>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_phone
         /// </summary>
         /// <example>9666699999</example>
         [DataMember(Name = "customer_phone", EmitDefaultValue = false)]
-        public string customer_phone { get; set; }
+        public string? customer_phone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalReferenceId">You can share additional information using the reference ID..</param>
         /// <param name="productType">Specify the product for which the split should be created. If you want split to be created for Payment Gateway pass value as \&quot;PG\&quot;. If you want split to be created for Subscription, pass value as \&quot;SBC\&quot;. Accepted values - \&quot;STATIC_QR\&quot;, \&quot;SBC\&quot;, \&quot;PG\&quot;, \&quot;EPOS\&quot;. (required).</param>
         /// <param name="scheme">Provide the split scheme details. (required).</param>
-        public StaticSplitRequest(bool active = default(bool), string terminalId = default(string), decimal terminalReferenceId = default(decimal), string productType = default(string), List<StaticSplitRequestSchemeInner> scheme = default(List<StaticSplitRequestSchemeInner>))
+        public StaticSplitRequest(bool active = default(bool), string? terminalId = default(string?), decimal? terminalReferenceId = default(decimal?), string productType = default(string), List<StaticSplitRequestSchemeInner> scheme = default(List<StaticSplitRequestSchemeInner>))
         {
             this.active = active;
             // to ensure "productType" is required (not null)
@@ -76,14 +76,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>For Subscription payments, the subscription reference ID is to be shared as the terminal ID. Incase for Payment Gateway terminal ID is non-mandatory. Mention as 0 if not applicable.</value>
         [DataMember(Name = "terminal_id", EmitDefaultValue = false)]
-        public string terminal_id { get; set; }
+        public string? terminal_id { get; set; }
 
         /// <summary>
         /// You can share additional information using the reference ID.
         /// </summary>
         /// <value>You can share additional information using the reference ID.</value>
         [DataMember(Name = "terminal_reference_id", EmitDefaultValue = false)]
-        public decimal terminal_reference_id { get; set; }
+        public decimal? terminal_reference_id { get; set; }
 
         /// <summary>
         /// Specify the product for which the split should be created. If you want split to be created for Payment Gateway pass value as \&quot;PG\&quot;. If you want split to be created for Subscription, pass value as \&quot;SBC\&quot;. Accepted values - \&quot;STATIC_QR\&quot;, \&quot;SBC\&quot;, \&quot;PG\&quot;, \&quot;EPOS\&quot;.

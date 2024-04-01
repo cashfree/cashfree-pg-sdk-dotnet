@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodUPIInPaymentsEntity" /> class.
         /// </summary>
         /// <param name="upi">upi.</param>
-        public PaymentMethodUPIInPaymentsEntity(PaymentMethodUPIInPaymentsEntityUpi upi = default(PaymentMethodUPIInPaymentsEntityUpi))
+        public PaymentMethodUPIInPaymentsEntity(PaymentMethodUPIInPaymentsEntityUpi? upi = default(PaymentMethodUPIInPaymentsEntityUpi?))
         {
             this.upi = upi;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets upi
         /// </summary>
         [DataMember(Name = "upi", EmitDefaultValue = false)]
-        public PaymentMethodUPIInPaymentsEntityUpi upi { get; set; }
+        public PaymentMethodUPIInPaymentsEntityUpi? upi { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

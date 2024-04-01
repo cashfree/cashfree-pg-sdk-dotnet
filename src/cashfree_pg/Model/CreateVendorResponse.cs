@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// <param name="kycDetails">kycDetails.</param>
         /// <param name="dashboardAccess">dashboardAccess.</param>
         /// <param name="bankDetails">bankDetails.</param>
-        public CreateVendorResponse(string email = default(string), string status = default(string), List<BankDetails> bank = default(List<BankDetails>), string upi = default(string), decimal phone = default(decimal), string name = default(string), string vendorId = default(string), List<ScheduleOption> scheduleOption = default(List<ScheduleOption>), List<KycDetails> kycDetails = default(List<KycDetails>), bool dashboardAccess = default(bool), string bankDetails = default(string))
+        public CreateVendorResponse(string? email = default(string?), string? status = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), decimal? phone = default(decimal?), string? name = default(string?), string? vendorId = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), List<KycDetails>? kycDetails = default(List<KycDetails>?), bool? dashboardAccess = default(bool?), string? bankDetails = default(string?))
         {
             this.email = email;
             this.status = status;
@@ -65,67 +65,67 @@ namespace cashfree_pg.Model
         /// Gets or Sets email
         /// </summary>
         [DataMember(Name = "email", EmitDefaultValue = false)]
-        public string email { get; set; }
+        public string? email { get; set; }
 
         /// <summary>
         /// Gets or Sets status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Gets or Sets bank
         /// </summary>
         [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public List<BankDetails> bank { get; set; }
+        public List<BankDetails>? bank { get; set; }
 
         /// <summary>
         /// Gets or Sets upi
         /// </summary>
         [DataMember(Name = "upi", EmitDefaultValue = false)]
-        public string upi { get; set; }
+        public string? upi { get; set; }
 
         /// <summary>
         /// Gets or Sets phone
         /// </summary>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public decimal phone { get; set; }
+        public decimal? phone { get; set; }
 
         /// <summary>
         /// Gets or Sets name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string name { get; set; }
+        public string? name { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_id
         /// </summary>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets schedule_option
         /// </summary>
         [DataMember(Name = "schedule_option", EmitDefaultValue = false)]
-        public List<ScheduleOption> schedule_option { get; set; }
+        public List<ScheduleOption>? schedule_option { get; set; }
 
         /// <summary>
         /// Gets or Sets kyc_details
         /// </summary>
         [DataMember(Name = "kyc_details", EmitDefaultValue = false)]
-        public List<KycDetails> kyc_details { get; set; }
+        public List<KycDetails>? kyc_details { get; set; }
 
         /// <summary>
         /// Gets or Sets dashboard_access
         /// </summary>
         [DataMember(Name = "dashboard_access", EmitDefaultValue = true)]
-        public bool dashboard_access { get; set; }
+        public bool? dashboard_access { get; set; }
 
         /// <summary>
         /// Gets or Sets bank_details
         /// </summary>
         [DataMember(Name = "bank_details", EmitDefaultValue = false)]
-        public string bank_details { get; set; }
+        public string? bank_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

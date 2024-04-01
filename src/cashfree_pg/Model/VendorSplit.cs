@@ -35,12 +35,22 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VendorSplit" /> class.
         /// </summary>
-        /// <param name="vendorId">Vendor id created in Cashfree system.</param>
+        [JsonConstructorAttribute]
+        protected VendorSplit() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VendorSplit" /> class.
+        /// </summary>
+        /// <param name="vendorId">Vendor id created in Cashfree system (required).</param>
         /// <param name="amount">Amount which will be associated with this vendor.</param>
         /// <param name="percentage">Percentage of order amount which shall get added to vendor account.</param>
         /// <param name="tags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
-        public VendorSplit(string vendorId = default(string), decimal? amount = default(decimal?), decimal? percentage = default(decimal?), Dictionary<string, Object> tags = default(Dictionary<string, Object>))
+        public VendorSplit(string vendorId = default(string), decimal? amount = default(decimal?), decimal? percentage = default(decimal?), Dictionary<string, Object>? tags = default(Dictionary<string, Object>?))
         {
+            // to ensure "vendorId" is required (not null)
+            if (vendorId == null)
+            {
+                throw new ArgumentNullException("vendorId is a required property for VendorSplit and cannot be null");
+            }
             this.vendor_id = vendorId;
             this.amount = amount;
             this.percentage = percentage;
@@ -51,21 +61,21 @@ namespace cashfree_pg.Model
         /// Vendor id created in Cashfree system
         /// </summary>
         /// <value>Vendor id created in Cashfree system</value>
-        [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
+        [DataMember(Name = "vendor_id", IsRequired = true, EmitDefaultValue = true)]
         public string vendor_id { get; set; }
 
         /// <summary>
         /// Amount which will be associated with this vendor
         /// </summary>
         /// <value>Amount which will be associated with this vendor</value>
-        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
         public decimal? amount { get; set; }
 
         /// <summary>
         /// Percentage of order amount which shall get added to vendor account
         /// </summary>
         /// <value>Percentage of order amount which shall get added to vendor account</value>
-        [DataMember(Name = "percentage", EmitDefaultValue = true)]
+        [DataMember(Name = "percentage", EmitDefaultValue = false)]
         public decimal? percentage { get; set; }
 
         /// <summary>
@@ -73,7 +83,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public Dictionary<string, Object> tags { get; set; }
+        public Dictionary<string, Object>? tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,13 +139,11 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.amount == input.amount ||
-                    (this.amount != null &&
-                    this.amount.Equals(input.amount))
+                    this.amount.Equals(input.amount)
                 ) && 
                 (
                     this.percentage == input.percentage ||
-                    (this.percentage != null &&
-                    this.percentage.Equals(input.percentage))
+                    this.percentage.Equals(input.percentage)
                 ) && 
                 (
                     this.tags == input.tags ||
@@ -166,14 +174,8 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.vendor_id.GetHashCode();
                 }
-                if (this.amount != null)
-                {
-                    hashCode = (hashCode * 59) + this.amount.GetHashCode();
-                }
-                if (this.percentage != null)
-                {
-                    hashCode = (hashCode * 59) + this.percentage.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.amount.GetHashCode();
+                hashCode = (hashCode * 59) + this.percentage.GetHashCode();
                 if (this.tags != null)
                 {
                     hashCode = (hashCode * 59) + this.tags.GetHashCode();

@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaylaterOffer" /> class.
         /// </summary>
         /// <param name="provider">provider.</param>
-        public PaylaterOffer(string provider = default(string))
+        public PaylaterOffer(string? provider = default(string?))
         {
             this.provider = provider;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>simpl</example>
         [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public string provider { get; set; }
+        public string? provider { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

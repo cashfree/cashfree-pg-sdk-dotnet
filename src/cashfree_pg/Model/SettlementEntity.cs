@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <param name="transferId">transferId.</param>
         /// <param name="transferTime">transferTime.</param>
         /// <param name="transferUtr">transferUtr.</param>
-        public SettlementEntity(string cfPaymentId = default(string), string cfSettlementId = default(string), string settlementCurrency = default(string), string orderId = default(string), string entity = default(string), decimal orderAmount = default(decimal), string paymentTime = default(string), decimal serviceCharge = default(decimal), decimal serviceTax = default(decimal), decimal settlementAmount = default(decimal), int settlementId = default(int), int transferId = default(int), string transferTime = default(string), string transferUtr = default(string))
+        public SettlementEntity(string? cfPaymentId = default(string?), string? cfSettlementId = default(string?), string? settlementCurrency = default(string?), string? orderId = default(string?), string? entity = default(string?), decimal? orderAmount = default(decimal?), string? paymentTime = default(string?), decimal? serviceCharge = default(decimal?), decimal? serviceTax = default(decimal?), decimal? settlementAmount = default(decimal?), int? settlementId = default(int?), int? transferId = default(int?), string? transferTime = default(string?), string? transferUtr = default(string?))
         {
             this.cf_payment_id = cfPaymentId;
             this.cf_settlement_id = cfSettlementId;
@@ -71,85 +71,85 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_payment_id
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets cf_settlement_id
         /// </summary>
         [DataMember(Name = "cf_settlement_id", EmitDefaultValue = false)]
-        public string cf_settlement_id { get; set; }
+        public string? cf_settlement_id { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_currency
         /// </summary>
         [DataMember(Name = "settlement_currency", EmitDefaultValue = false)]
-        public string settlement_currency { get; set; }
+        public string? settlement_currency { get; set; }
 
         /// <summary>
         /// Gets or Sets order_id
         /// </summary>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// Gets or Sets entity
         /// </summary>
         [DataMember(Name = "entity", EmitDefaultValue = false)]
-        public string entity { get; set; }
+        public string? entity { get; set; }
 
         /// <summary>
         /// Gets or Sets order_amount
         /// </summary>
         [DataMember(Name = "order_amount", EmitDefaultValue = false)]
-        public decimal order_amount { get; set; }
+        public decimal? order_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_time
         /// </summary>
         [DataMember(Name = "payment_time", EmitDefaultValue = false)]
-        public string payment_time { get; set; }
+        public string? payment_time { get; set; }
 
         /// <summary>
         /// Gets or Sets service_charge
         /// </summary>
         [DataMember(Name = "service_charge", EmitDefaultValue = false)]
-        public decimal service_charge { get; set; }
+        public decimal? service_charge { get; set; }
 
         /// <summary>
         /// Gets or Sets service_tax
         /// </summary>
         [DataMember(Name = "service_tax", EmitDefaultValue = false)]
-        public decimal service_tax { get; set; }
+        public decimal? service_tax { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_amount
         /// </summary>
         [DataMember(Name = "settlement_amount", EmitDefaultValue = false)]
-        public decimal settlement_amount { get; set; }
+        public decimal? settlement_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_id
         /// </summary>
         [DataMember(Name = "settlement_id", EmitDefaultValue = false)]
-        public int settlement_id { get; set; }
+        public int? settlement_id { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_id
         /// </summary>
         [DataMember(Name = "transfer_id", EmitDefaultValue = false)]
-        public int transfer_id { get; set; }
+        public int? transfer_id { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_time
         /// </summary>
         [DataMember(Name = "transfer_time", EmitDefaultValue = false)]
-        public string transfer_time { get; set; }
+        public string? transfer_time { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_utr
         /// </summary>
         [DataMember(Name = "transfer_utr", EmitDefaultValue = false)]
-        public string transfer_utr { get; set; }
+        public string? transfer_utr { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

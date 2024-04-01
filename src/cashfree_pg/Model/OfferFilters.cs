@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="OfferFilters" /> class.
         /// </summary>
         /// <param name="offerType">Array of offer_type to be filtered..</param>
-        public OfferFilters(List<OfferType> offerType = default(List<OfferType>))
+        public OfferFilters(List<OfferType>? offerType = default(List<OfferType>?))
         {
             this.offer_type = offerType;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Array of offer_type to be filtered.</value>
         [DataMember(Name = "offer_type", EmitDefaultValue = false)]
-        public List<OfferType> offer_type { get; set; }
+        public List<OfferType>? offer_type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

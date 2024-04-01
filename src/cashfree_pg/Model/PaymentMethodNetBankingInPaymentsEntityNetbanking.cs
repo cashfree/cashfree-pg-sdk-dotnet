@@ -40,7 +40,7 @@ namespace cashfree_pg.Model
         /// <param name="netbankingBankName">netbankingBankName.</param>
         /// <param name="netbankingIfsc">netbankingIfsc.</param>
         /// <param name="netbankingAccountNumber">netbankingAccountNumber.</param>
-        public PaymentMethodNetBankingInPaymentsEntityNetbanking(string channel = default(string), int netbankingBankCode = default(int), string netbankingBankName = default(string), string netbankingIfsc = default(string), string netbankingAccountNumber = default(string))
+        public PaymentMethodNetBankingInPaymentsEntityNetbanking(string? channel = default(string?), int? netbankingBankCode = default(int?), string? netbankingBankName = default(string?), string? netbankingIfsc = default(string?), string? netbankingAccountNumber = default(string?))
         {
             this.channel = channel;
             this.netbanking_bank_code = netbankingBankCode;
@@ -53,31 +53,31 @@ namespace cashfree_pg.Model
         /// Gets or Sets channel
         /// </summary>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Gets or Sets netbanking_bank_code
         /// </summary>
         [DataMember(Name = "netbanking_bank_code", EmitDefaultValue = false)]
-        public int netbanking_bank_code { get; set; }
+        public int? netbanking_bank_code { get; set; }
 
         /// <summary>
         /// Gets or Sets netbanking_bank_name
         /// </summary>
         [DataMember(Name = "netbanking_bank_name", EmitDefaultValue = false)]
-        public string netbanking_bank_name { get; set; }
+        public string? netbanking_bank_name { get; set; }
 
         /// <summary>
         /// Gets or Sets netbanking_ifsc
         /// </summary>
         [DataMember(Name = "netbanking_ifsc", EmitDefaultValue = false)]
-        public string netbanking_ifsc { get; set; }
+        public string? netbanking_ifsc { get; set; }
 
         /// <summary>
         /// Gets or Sets netbanking_account_number
         /// </summary>
         [DataMember(Name = "netbanking_account_number", EmitDefaultValue = false)]
-        public string netbanking_account_number { get; set; }
+        public string? netbanking_account_number { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

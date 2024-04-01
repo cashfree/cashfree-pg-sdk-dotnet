@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="accepted">Accepted speed of refund..</param>
         /// <param name="processed">Processed speed of refund..</param>
         /// <param name="message">Error message, if any for refund_speed request.</param>
-        public RefundSpeed(string requested = default(string), string accepted = default(string), string processed = default(string), string message = default(string))
+        public RefundSpeed(string? requested = default(string?), string? accepted = default(string?), string? processed = default(string?), string? message = default(string?))
         {
             this.requested = requested;
             this.accepted = accepted;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Requested speed of refund.</value>
         [DataMember(Name = "requested", EmitDefaultValue = false)]
-        public string requested { get; set; }
+        public string? requested { get; set; }
 
         /// <summary>
         /// Accepted speed of refund.
         /// </summary>
         /// <value>Accepted speed of refund.</value>
         [DataMember(Name = "accepted", EmitDefaultValue = false)]
-        public string accepted { get; set; }
+        public string? accepted { get; set; }
 
         /// <summary>
         /// Processed speed of refund.
         /// </summary>
         /// <value>Processed speed of refund.</value>
         [DataMember(Name = "processed", EmitDefaultValue = false)]
-        public string processed { get; set; }
+        public string? processed { get; set; }
 
         /// <summary>
         /// Error message, if any for refund_speed request
         /// </summary>
         /// <value>Error message, if any for refund_speed request</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string message { get; set; }
+        public string? message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

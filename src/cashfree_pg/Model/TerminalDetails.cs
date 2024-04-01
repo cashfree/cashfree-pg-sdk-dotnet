@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalPhoneNo">mobile num of the terminal/agent/storefront (required).</param>
         /// <param name="terminalStatus">status of terminal active/inactive.</param>
         /// <param name="terminalType">To identify the type of terminal product in use, in this case it is SPOS. (required).</param>
-        public TerminalDetails(string addedOn = default(string), string cfTerminalId = default(string), string lastUpdatedOn = default(string), string terminalAddress = default(string), string terminalId = default(string), string terminalName = default(string), string terminalNote = default(string), string terminalPhoneNo = default(string), string terminalStatus = default(string), string terminalType = default(string))
+        public TerminalDetails(string? addedOn = default(string?), string? cfTerminalId = default(string?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string terminalId = default(string), string? terminalName = default(string?), string? terminalNote = default(string?), string terminalPhoneNo = default(string), string? terminalStatus = default(string?), string terminalType = default(string))
         {
             // to ensure "terminalId" is required (not null)
             if (terminalId == null)
@@ -84,28 +84,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>date time at which terminal is added</value>
         [DataMember(Name = "added_on", EmitDefaultValue = false)]
-        public string added_on { get; set; }
+        public string? added_on { get; set; }
 
         /// <summary>
         /// cashfree terminal id
         /// </summary>
         /// <value>cashfree terminal id</value>
         [DataMember(Name = "cf_terminal_id", EmitDefaultValue = false)]
-        public string cf_terminal_id { get; set; }
+        public string? cf_terminal_id { get; set; }
 
         /// <summary>
         /// last instant when this terminal was updated
         /// </summary>
         /// <value>last instant when this terminal was updated</value>
         [DataMember(Name = "last_updated_on", EmitDefaultValue = false)]
-        public string last_updated_on { get; set; }
+        public string? last_updated_on { get; set; }
 
         /// <summary>
         /// location of terminal
         /// </summary>
         /// <value>location of terminal</value>
         [DataMember(Name = "terminal_address", EmitDefaultValue = false)]
-        public string terminal_address { get; set; }
+        public string? terminal_address { get; set; }
 
         /// <summary>
         /// terminal id for merchant reference
@@ -119,14 +119,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>name of terminal/agent/storefront</value>
         [DataMember(Name = "terminal_name", EmitDefaultValue = false)]
-        public string terminal_name { get; set; }
+        public string? terminal_name { get; set; }
 
         /// <summary>
         /// note given by merchant while creating the terminal
         /// </summary>
         /// <value>note given by merchant while creating the terminal</value>
         [DataMember(Name = "terminal_note", EmitDefaultValue = false)]
-        public string terminal_note { get; set; }
+        public string? terminal_note { get; set; }
 
         /// <summary>
         /// mobile num of the terminal/agent/storefront
@@ -140,7 +140,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>status of terminal active/inactive</value>
         [DataMember(Name = "terminal_status", EmitDefaultValue = false)]
-        public string terminal_status { get; set; }
+        public string? terminal_status { get; set; }
 
         /// <summary>
         /// To identify the type of terminal product in use, in this case it is SPOS.

@@ -79,7 +79,7 @@ namespace cashfree_pg.Model
         /// <param name="upiExpiryMinutes">The UPI request will be valid for this expiry minutes. This parameter is only applicable for a UPI collect payment. The default value is 5 minutes. You should keep the minimum as 5 minutes, and maximum as 15 minutes.</param>
         /// <param name="authorizeOnly">For one time mandate on UPI. Set this as authorize_only &#x3D; true. Please note that you can only use the \&quot;collect\&quot; channel if you are sending a one time mandate request.</param>
         /// <param name="authorization">authorization.</param>
-        public Upi(ChannelEnum channel = default(ChannelEnum), string upiId = default(string), bool upiRedirectUrl = default(bool), decimal upiExpiryMinutes = default(decimal), bool authorizeOnly = default(bool), UPIAuthorizeDetails authorization = default(UPIAuthorizeDetails))
+        public Upi(ChannelEnum channel = default(ChannelEnum), string? upiId = default(string?), bool? upiRedirectUrl = default(bool?), decimal? upiExpiryMinutes = default(decimal?), bool? authorizeOnly = default(bool?), UPIAuthorizeDetails? authorization = default(UPIAuthorizeDetails?))
         {
             this.channel = channel;
             this.upi_id = upiId;
@@ -94,34 +94,34 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Customer UPI VPA to process payment.  ### Important This is a required parameter for channel &#x3D; &#x60;collect&#x60; </value>
         [DataMember(Name = "upi_id", EmitDefaultValue = false)]
-        public string upi_id { get; set; }
+        public string? upi_id { get; set; }
 
         /// <summary>
         /// use this if you want cashfree to show a loader. Sample response below. It is only supported for collect &#x60;action:collect&#x60; will be returned with &#x60;data.url&#x60; having the link for redirection 
         /// </summary>
         /// <value>use this if you want cashfree to show a loader. Sample response below. It is only supported for collect &#x60;action:collect&#x60; will be returned with &#x60;data.url&#x60; having the link for redirection </value>
         [DataMember(Name = "upi_redirect_url", EmitDefaultValue = true)]
-        public bool upi_redirect_url { get; set; }
+        public bool? upi_redirect_url { get; set; }
 
         /// <summary>
         /// The UPI request will be valid for this expiry minutes. This parameter is only applicable for a UPI collect payment. The default value is 5 minutes. You should keep the minimum as 5 minutes, and maximum as 15 minutes
         /// </summary>
         /// <value>The UPI request will be valid for this expiry minutes. This parameter is only applicable for a UPI collect payment. The default value is 5 minutes. You should keep the minimum as 5 minutes, and maximum as 15 minutes</value>
         [DataMember(Name = "upi_expiry_minutes", EmitDefaultValue = false)]
-        public decimal upi_expiry_minutes { get; set; }
+        public decimal? upi_expiry_minutes { get; set; }
 
         /// <summary>
         /// For one time mandate on UPI. Set this as authorize_only &#x3D; true. Please note that you can only use the \&quot;collect\&quot; channel if you are sending a one time mandate request
         /// </summary>
         /// <value>For one time mandate on UPI. Set this as authorize_only &#x3D; true. Please note that you can only use the \&quot;collect\&quot; channel if you are sending a one time mandate request</value>
         [DataMember(Name = "authorize_only", EmitDefaultValue = true)]
-        public bool authorize_only { get; set; }
+        public bool? authorize_only { get; set; }
 
         /// <summary>
         /// Gets or Sets authorization
         /// </summary>
         [DataMember(Name = "authorization", EmitDefaultValue = false)]
-        public UPIAuthorizeDetails authorization { get; set; }
+        public UPIAuthorizeDetails? authorization { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

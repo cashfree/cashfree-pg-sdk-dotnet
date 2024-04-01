@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="SettlementWebhookDataEntity" /> class.
         /// </summary>
         /// <param name="settlement">settlement.</param>
-        public SettlementWebhookDataEntity(SettlementEntity settlement = default(SettlementEntity))
+        public SettlementWebhookDataEntity(SettlementEntity? settlement = default(SettlementEntity?))
         {
             this.settlement = settlement;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets settlement
         /// </summary>
         [DataMember(Name = "settlement", EmitDefaultValue = false)]
-        public SettlementEntity settlement { get; set; }
+        public SettlementEntity? settlement { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

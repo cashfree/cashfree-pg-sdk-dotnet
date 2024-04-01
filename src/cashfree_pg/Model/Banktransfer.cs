@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="Banktransfer" /> class.
         /// </summary>
         /// <param name="channel">The channel for cardless EMI is always &#x60;link&#x60;.</param>
-        public Banktransfer(string channel = default(string))
+        public Banktransfer(string? channel = default(string?))
         {
             this.channel = channel;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The channel for cardless EMI is always &#x60;link&#x60;</value>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

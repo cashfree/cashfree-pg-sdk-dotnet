@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodBankTransferInPaymentsEntity" /> class.
         /// </summary>
         /// <param name="banktransfer">banktransfer.</param>
-        public PaymentMethodBankTransferInPaymentsEntity(PaymentMethodBankTransferInPaymentsEntityBanktransfer banktransfer = default(PaymentMethodBankTransferInPaymentsEntityBanktransfer))
+        public PaymentMethodBankTransferInPaymentsEntity(PaymentMethodBankTransferInPaymentsEntityBanktransfer? banktransfer = default(PaymentMethodBankTransferInPaymentsEntityBanktransfer?))
         {
             this.banktransfer = banktransfer;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets banktransfer
         /// </summary>
         [DataMember(Name = "banktransfer", EmitDefaultValue = false)]
-        public PaymentMethodBankTransferInPaymentsEntityBanktransfer banktransfer { get; set; }
+        public PaymentMethodBankTransferInPaymentsEntityBanktransfer? banktransfer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

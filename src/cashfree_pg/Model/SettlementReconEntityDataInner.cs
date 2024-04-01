@@ -70,7 +70,7 @@ namespace cashfree_pg.Model
         /// <param name="refundNote">A refund note for your reference..</param>
         /// <param name="refundId">An unique ID associated with the refund..</param>
         /// <param name="adjustmentRemarks">Other adjustment remarks..</param>
-        public SettlementReconEntityDataInner(string eventId = default(string), string eventType = default(string), decimal eventSettlementAmount = default(decimal), decimal eventAmount = default(decimal), string saleType = default(string), string eventStatus = default(string), string entity = default(string), string eventTime = default(string), string eventCurrency = default(string), string orderId = default(string), decimal orderAmount = default(decimal), string customerPhone = default(string), string customerEmail = default(string), string customerName = default(string), decimal paymentAmount = default(decimal), string paymentUtr = default(string), string paymentTime = default(string), decimal paymentServiceCharge = default(decimal), decimal paymentServiceTax = default(decimal), string cfPaymentId = default(string), string cfSettlementId = default(string), string settlementDate = default(string), string settlementUtr = default(string), decimal splitServiceCharge = default(decimal), decimal splitServiceTax = default(decimal), decimal vendorCommission = default(decimal), string closedInFavorOf = default(string), string disputeResolvedOn = default(string), string disputeCategory = default(string), string disputeNote = default(string), string refundProcessedAt = default(string), string refundArn = default(string), string refundNote = default(string), string refundId = default(string), string adjustmentRemarks = default(string))
+        public SettlementReconEntityDataInner(string? eventId = default(string?), string? eventType = default(string?), decimal? eventSettlementAmount = default(decimal?), decimal? eventAmount = default(decimal?), string? saleType = default(string?), string? eventStatus = default(string?), string? entity = default(string?), string? eventTime = default(string?), string? eventCurrency = default(string?), string? orderId = default(string?), decimal? orderAmount = default(decimal?), string? customerPhone = default(string?), string? customerEmail = default(string?), string? customerName = default(string?), decimal? paymentAmount = default(decimal?), string? paymentUtr = default(string?), string? paymentTime = default(string?), decimal? paymentServiceCharge = default(decimal?), decimal? paymentServiceTax = default(decimal?), string? cfPaymentId = default(string?), string? cfSettlementId = default(string?), string? settlementDate = default(string?), string? settlementUtr = default(string?), decimal? splitServiceCharge = default(decimal?), decimal? splitServiceTax = default(decimal?), decimal? vendorCommission = default(decimal?), string? closedInFavorOf = default(string?), string? disputeResolvedOn = default(string?), string? disputeCategory = default(string?), string? disputeNote = default(string?), string? refundProcessedAt = default(string?), string? refundArn = default(string?), string? refundNote = default(string?), string? refundId = default(string?), string? adjustmentRemarks = default(string?))
         {
             this.event_id = eventId;
             this.event_type = eventType;
@@ -114,245 +114,245 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Unique ID associated with the event.</value>
         [DataMember(Name = "event_id", EmitDefaultValue = false)]
-        public string event_id { get; set; }
+        public string? event_id { get; set; }
 
         /// <summary>
         /// The event type can be PAYMENT, REFUND, REFUND_REVERSAL, DISPUTE, DISPUTE_REVERSAL, CHARGEBACK, CHARGEBACK_REVERSAL, OTHER_ADJUSTMENT.
         /// </summary>
         /// <value>The event type can be PAYMENT, REFUND, REFUND_REVERSAL, DISPUTE, DISPUTE_REVERSAL, CHARGEBACK, CHARGEBACK_REVERSAL, OTHER_ADJUSTMENT.</value>
         [DataMember(Name = "event_type", EmitDefaultValue = false)]
-        public string event_type { get; set; }
+        public string? event_type { get; set; }
 
         /// <summary>
         /// Amount that is part of the settlement corresponding to the event.
         /// </summary>
         /// <value>Amount that is part of the settlement corresponding to the event.</value>
         [DataMember(Name = "event_settlement_amount", EmitDefaultValue = false)]
-        public decimal event_settlement_amount { get; set; }
+        public decimal? event_settlement_amount { get; set; }
 
         /// <summary>
         /// Amount corresponding to the event. Example, refund amount, dispute amount, payment amount, etc.
         /// </summary>
         /// <value>Amount corresponding to the event. Example, refund amount, dispute amount, payment amount, etc.</value>
         [DataMember(Name = "event_amount", EmitDefaultValue = false)]
-        public decimal event_amount { get; set; }
+        public decimal? event_amount { get; set; }
 
         /// <summary>
         /// Indicates if it is CREDIT/DEBIT sale.
         /// </summary>
         /// <value>Indicates if it is CREDIT/DEBIT sale.</value>
         [DataMember(Name = "sale_type", EmitDefaultValue = false)]
-        public string sale_type { get; set; }
+        public string? sale_type { get; set; }
 
         /// <summary>
         /// Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.
         /// </summary>
         /// <value>Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.</value>
         [DataMember(Name = "event_status", EmitDefaultValue = false)]
-        public string event_status { get; set; }
+        public string? event_status { get; set; }
 
         /// <summary>
         /// Recon
         /// </summary>
         /// <value>Recon</value>
         [DataMember(Name = "entity", EmitDefaultValue = false)]
-        public string entity { get; set; }
+        public string? entity { get; set; }
 
         /// <summary>
         /// Time associated with the event. Example, transaction time, dispute initiation time
         /// </summary>
         /// <value>Time associated with the event. Example, transaction time, dispute initiation time</value>
         [DataMember(Name = "event_time", EmitDefaultValue = false)]
-        public string event_time { get; set; }
+        public string? event_time { get; set; }
 
         /// <summary>
         /// Curreny type - INR.
         /// </summary>
         /// <value>Curreny type - INR.</value>
         [DataMember(Name = "event_currency", EmitDefaultValue = false)]
-        public string event_currency { get; set; }
+        public string? event_currency { get; set; }
 
         /// <summary>
         /// Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed.
         /// </summary>
         /// <value>Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed.</value>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// The amount which was passed at the order creation time.
         /// </summary>
         /// <value>The amount which was passed at the order creation time.</value>
         [DataMember(Name = "order_amount", EmitDefaultValue = false)]
-        public decimal order_amount { get; set; }
+        public decimal? order_amount { get; set; }
 
         /// <summary>
         /// Customer phone number.
         /// </summary>
         /// <value>Customer phone number.</value>
         [DataMember(Name = "customer_phone", EmitDefaultValue = false)]
-        public string customer_phone { get; set; }
+        public string? customer_phone { get; set; }
 
         /// <summary>
         /// Customer email.
         /// </summary>
         /// <value>Customer email.</value>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Customer name.
         /// </summary>
         /// <value>Customer name.</value>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Payment amount captured.
         /// </summary>
         /// <value>Payment amount captured.</value>
         [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
-        public decimal payment_amount { get; set; }
+        public decimal? payment_amount { get; set; }
 
         /// <summary>
         /// Unique transaction reference number of the payment.
         /// </summary>
         /// <value>Unique transaction reference number of the payment.</value>
         [DataMember(Name = "payment_utr", EmitDefaultValue = false)]
-        public string payment_utr { get; set; }
+        public string? payment_utr { get; set; }
 
         /// <summary>
         /// Date and time when the payment was initiated.
         /// </summary>
         /// <value>Date and time when the payment was initiated.</value>
         [DataMember(Name = "payment_time", EmitDefaultValue = false)]
-        public string payment_time { get; set; }
+        public string? payment_time { get; set; }
 
         /// <summary>
         /// Service charge applicable for the payment.
         /// </summary>
         /// <value>Service charge applicable for the payment.</value>
         [DataMember(Name = "payment_service_charge", EmitDefaultValue = false)]
-        public decimal payment_service_charge { get; set; }
+        public decimal? payment_service_charge { get; set; }
 
         /// <summary>
         /// Service tax applicable on the payment.
         /// </summary>
         /// <value>Service tax applicable on the payment.</value>
         [DataMember(Name = "payment_service_tax", EmitDefaultValue = false)]
-        public decimal payment_service_tax { get; set; }
+        public decimal? payment_service_tax { get; set; }
 
         /// <summary>
         /// Cashfree Payments unique ID to identify a payment.
         /// </summary>
         /// <value>Cashfree Payments unique ID to identify a payment.</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Unique ID to identify the settlement.
         /// </summary>
         /// <value>Unique ID to identify the settlement.</value>
         [DataMember(Name = "cf_settlement_id", EmitDefaultValue = false)]
-        public string cf_settlement_id { get; set; }
+        public string? cf_settlement_id { get; set; }
 
         /// <summary>
         /// Date and time when the settlement was processed.
         /// </summary>
         /// <value>Date and time when the settlement was processed.</value>
         [DataMember(Name = "settlement_date", EmitDefaultValue = false)]
-        public string settlement_date { get; set; }
+        public string? settlement_date { get; set; }
 
         /// <summary>
         /// Unique transaction reference number of the settlement.
         /// </summary>
         /// <value>Unique transaction reference number of the settlement.</value>
         [DataMember(Name = "settlement_utr", EmitDefaultValue = false)]
-        public string settlement_utr { get; set; }
+        public string? settlement_utr { get; set; }
 
         /// <summary>
         /// Service charge that is applicable for splitting the payment.
         /// </summary>
         /// <value>Service charge that is applicable for splitting the payment.</value>
         [DataMember(Name = "split_service_charge", EmitDefaultValue = false)]
-        public decimal split_service_charge { get; set; }
+        public decimal? split_service_charge { get; set; }
 
         /// <summary>
         /// Service tax applicable for splitting the amount to vendors.
         /// </summary>
         /// <value>Service tax applicable for splitting the amount to vendors.</value>
         [DataMember(Name = "split_service_tax", EmitDefaultValue = false)]
-        public decimal split_service_tax { get; set; }
+        public decimal? split_service_tax { get; set; }
 
         /// <summary>
         /// Vendor commission applicable for this transaction.
         /// </summary>
         /// <value>Vendor commission applicable for this transaction.</value>
         [DataMember(Name = "vendor_commission", EmitDefaultValue = false)]
-        public decimal vendor_commission { get; set; }
+        public decimal? vendor_commission { get; set; }
 
         /// <summary>
         /// Specifies whether the dispute was closed in favor of the merchant or customer. Possible values - Merchant, Customer.
         /// </summary>
         /// <value>Specifies whether the dispute was closed in favor of the merchant or customer. Possible values - Merchant, Customer.</value>
         [DataMember(Name = "closed_in_favor_of", EmitDefaultValue = false)]
-        public string closed_in_favor_of { get; set; }
+        public string? closed_in_favor_of { get; set; }
 
         /// <summary>
         /// Date and time when the dispute was resolved.
         /// </summary>
         /// <value>Date and time when the dispute was resolved.</value>
         [DataMember(Name = "dispute_resolved_on", EmitDefaultValue = false)]
-        public string dispute_resolved_on { get; set; }
+        public string? dispute_resolved_on { get; set; }
 
         /// <summary>
         /// Category of the dispute - Dispute code and the reason for dispute is shown.
         /// </summary>
         /// <value>Category of the dispute - Dispute code and the reason for dispute is shown.</value>
         [DataMember(Name = "dispute_category", EmitDefaultValue = false)]
-        public string dispute_category { get; set; }
+        public string? dispute_category { get; set; }
 
         /// <summary>
         /// Note regarding the dispute.
         /// </summary>
         /// <value>Note regarding the dispute.</value>
         [DataMember(Name = "dispute_note", EmitDefaultValue = false)]
-        public string dispute_note { get; set; }
+        public string? dispute_note { get; set; }
 
         /// <summary>
         /// Date and time when the refund was processed.
         /// </summary>
         /// <value>Date and time when the refund was processed.</value>
         [DataMember(Name = "refund_processed_at", EmitDefaultValue = false)]
-        public string refund_processed_at { get; set; }
+        public string? refund_processed_at { get; set; }
 
         /// <summary>
         /// The bank reference number for refund.
         /// </summary>
         /// <value>The bank reference number for refund.</value>
         [DataMember(Name = "refund_arn", EmitDefaultValue = false)]
-        public string refund_arn { get; set; }
+        public string? refund_arn { get; set; }
 
         /// <summary>
         /// A refund note for your reference.
         /// </summary>
         /// <value>A refund note for your reference.</value>
         [DataMember(Name = "refund_note", EmitDefaultValue = false)]
-        public string refund_note { get; set; }
+        public string? refund_note { get; set; }
 
         /// <summary>
         /// An unique ID associated with the refund.
         /// </summary>
         /// <value>An unique ID associated with the refund.</value>
         [DataMember(Name = "refund_id", EmitDefaultValue = false)]
-        public string refund_id { get; set; }
+        public string? refund_id { get; set; }
 
         /// <summary>
         /// Other adjustment remarks.
         /// </summary>
         /// <value>Other adjustment remarks.</value>
         [DataMember(Name = "adjustment_remarks", EmitDefaultValue = false)]
-        public string adjustment_remarks { get; set; }
+        public string? adjustment_remarks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="orderAmount">orderAmount.</param>
         /// <param name="orderCurrency">orderCurrency.</param>
         /// <param name="orderTags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
-        public PaymentWebhookOrderEntity(string orderId = default(string), double orderAmount = default(double), string orderCurrency = default(string), Dictionary<string, string> orderTags = default(Dictionary<string, string>))
+        public PaymentWebhookOrderEntity(string? orderId = default(string?), double? orderAmount = default(double?), string? orderCurrency = default(string?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?))
         {
             this.order_id = orderId;
             this.order_amount = orderAmount;
@@ -51,26 +51,26 @@ namespace cashfree_pg.Model
         /// Gets or Sets order_id
         /// </summary>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// Gets or Sets order_amount
         /// </summary>
         [DataMember(Name = "order_amount", EmitDefaultValue = false)]
-        public double order_amount { get; set; }
+        public double? order_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets order_currency
         /// </summary>
         [DataMember(Name = "order_currency", EmitDefaultValue = false)]
-        public string order_currency { get; set; }
+        public string? order_currency { get; set; }
 
         /// <summary>
         /// Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added
         /// </summary>
         /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         [DataMember(Name = "order_tags", EmitDefaultValue = false)]
-        public Dictionary<string, string> order_tags { get; set; }
+        public Dictionary<string, string>? order_tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="limit">Number of settlements you want to fetch in the next iteration. Maximum limit is 1000, default value is 10. (required).</param>
         /// <param name="cursor">Specifies from where the next set of settlement details should be fetched..</param>
-        public FetchReconRequestPagination(int limit = default(int), string cursor = default(string))
+        public FetchReconRequestPagination(int limit = default(int), string? cursor = default(string?))
         {
             this.limit = limit;
             this.cursor = cursor;
@@ -60,7 +60,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specifies from where the next set of settlement details should be fetched.</value>
         [DataMember(Name = "cursor", EmitDefaultValue = false)]
-        public string cursor { get; set; }
+        public string? cursor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

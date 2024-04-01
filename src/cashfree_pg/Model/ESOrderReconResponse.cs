@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="cursor">cursor.</param>
         /// <param name="data">data.</param>
         /// <param name="limit">limit.</param>
-        public ESOrderReconResponse(string cursor = default(string), List<ESOrderReconResponseDataInner> data = default(List<ESOrderReconResponseDataInner>), int limit = default(int))
+        public ESOrderReconResponse(string? cursor = default(string?), List<ESOrderReconResponseDataInner>? data = default(List<ESOrderReconResponseDataInner>?), int? limit = default(int?))
         {
             this.cursor = cursor;
             this.data = data;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets cursor
         /// </summary>
         [DataMember(Name = "cursor", EmitDefaultValue = false)]
-        public string cursor { get; set; }
+        public string? cursor { get; set; }
 
         /// <summary>
         /// Gets or Sets data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ESOrderReconResponseDataInner> data { get; set; }
+        public List<ESOrderReconResponseDataInner>? data { get; set; }
 
         /// <summary>
         /// Gets or Sets limit
         /// </summary>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int limit { get; set; }
+        public int? limit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

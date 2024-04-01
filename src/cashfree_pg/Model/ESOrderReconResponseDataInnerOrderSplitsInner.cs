@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="split">split.</param>
         /// <param name="createdAt">createdAt.</param>
-        public ESOrderReconResponseDataInnerOrderSplitsInner(List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner> split = default(List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner>), string createdAt = default(string))
+        public ESOrderReconResponseDataInnerOrderSplitsInner(List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner>? split = default(List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner>?), string? createdAt = default(string?))
         {
             this.split = split;
             this.created_at = createdAt;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets split
         /// </summary>
         [DataMember(Name = "split", EmitDefaultValue = false)]
-        public List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner> split { get; set; }
+        public List<ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner>? split { get; set; }
 
         /// <summary>
         /// Gets or Sets created_at
         /// </summary>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public string created_at { get; set; }
+        public string? created_at { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

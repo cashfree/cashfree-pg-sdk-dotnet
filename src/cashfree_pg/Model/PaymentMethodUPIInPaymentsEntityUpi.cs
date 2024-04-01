@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="channel">channel.</param>
         /// <param name="upiId">upiId.</param>
-        public PaymentMethodUPIInPaymentsEntityUpi(string channel = default(string), string upiId = default(string))
+        public PaymentMethodUPIInPaymentsEntityUpi(string? channel = default(string?), string? upiId = default(string?))
         {
             this.channel = channel;
             this.upi_id = upiId;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets channel
         /// </summary>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Gets or Sets upi_id
         /// </summary>
         [DataMember(Name = "upi_id", EmitDefaultValue = false)]
-        public string upi_id { get; set; }
+        public string? upi_id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

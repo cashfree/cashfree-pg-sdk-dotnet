@@ -40,7 +40,7 @@ namespace cashfree_pg.Model
         /// <param name="gatewayPaymentId">gatewayPaymentId.</param>
         /// <param name="gatewayStatusCode">gatewayStatusCode.</param>
         /// <param name="gatewaySettlement">gatewaySettlement.</param>
-        public PaymentWebhookGatewayDetailsEntity(string gatewayName = default(string), string gatewayOrderId = default(string), string gatewayPaymentId = default(string), string gatewayStatusCode = default(string), string gatewaySettlement = default(string))
+        public PaymentWebhookGatewayDetailsEntity(string? gatewayName = default(string?), string? gatewayOrderId = default(string?), string? gatewayPaymentId = default(string?), string? gatewayStatusCode = default(string?), string? gatewaySettlement = default(string?))
         {
             this.gateway_name = gatewayName;
             this.gateway_order_id = gatewayOrderId;
@@ -53,31 +53,31 @@ namespace cashfree_pg.Model
         /// Gets or Sets gateway_name
         /// </summary>
         [DataMember(Name = "gateway_name", EmitDefaultValue = false)]
-        public string gateway_name { get; set; }
+        public string? gateway_name { get; set; }
 
         /// <summary>
         /// Gets or Sets gateway_order_id
         /// </summary>
         [DataMember(Name = "gateway_order_id", EmitDefaultValue = false)]
-        public string gateway_order_id { get; set; }
+        public string? gateway_order_id { get; set; }
 
         /// <summary>
         /// Gets or Sets gateway_payment_id
         /// </summary>
         [DataMember(Name = "gateway_payment_id", EmitDefaultValue = false)]
-        public string gateway_payment_id { get; set; }
+        public string? gateway_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets gateway_status_code
         /// </summary>
         [DataMember(Name = "gateway_status_code", EmitDefaultValue = false)]
-        public string gateway_status_code { get; set; }
+        public string? gateway_status_code { get; set; }
 
         /// <summary>
         /// Gets or Sets gateway_settlement
         /// </summary>
         [DataMember(Name = "gateway_settlement", EmitDefaultValue = false)]
-        public string gateway_settlement { get; set; }
+        public string? gateway_settlement { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

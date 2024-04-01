@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="data">data.</param>
         /// <param name="eventTime">eventTime.</param>
         /// <param name="type">type.</param>
-        public InstrumentWebhookData(InstrumentWebhookDataEntity data = default(InstrumentWebhookDataEntity), string eventTime = default(string), string type = default(string))
+        public InstrumentWebhookData(InstrumentWebhookDataEntity? data = default(InstrumentWebhookDataEntity?), string? eventTime = default(string?), string? type = default(string?))
         {
             this.data = data;
             this.event_time = eventTime;
@@ -49,21 +49,21 @@ namespace cashfree_pg.Model
         /// Gets or Sets data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public InstrumentWebhookDataEntity data { get; set; }
+        public InstrumentWebhookDataEntity? data { get; set; }
 
         /// <summary>
         /// Gets or Sets event_time
         /// </summary>
         /// <example>2021-10-07T19:42:44+05:30</example>
         [DataMember(Name = "event_time", EmitDefaultValue = false)]
-        public string event_time { get; set; }
+        public string? event_time { get; set; }
 
         /// <summary>
         /// Gets or Sets type
         /// </summary>
         /// <example>INSTRUMENT_ACTIVE_WEBHOOK</example>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string type { get; set; }
+        public string? type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

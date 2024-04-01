@@ -109,7 +109,7 @@ namespace cashfree_pg.Model
         /// <param name="authId">authId.</param>
         /// <param name="authorization">authorization.</param>
         /// <param name="paymentMethod">paymentMethod.</param>
-        public PaymentEntity(string cfPaymentId = default(string), string orderId = default(string), string entity = default(string), ErrorDetailsInPaymentsEntity errorDetails = default(ErrorDetailsInPaymentsEntity), bool isCaptured = default(bool), decimal orderAmount = default(decimal), string paymentGroup = default(string), string paymentCurrency = default(string), decimal paymentAmount = default(decimal), string paymentTime = default(string), string paymentCompletionTime = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), string paymentMessage = default(string), string bankReference = default(string), string authId = default(string), AuthorizationInPaymentsEntity authorization = default(AuthorizationInPaymentsEntity), PaymentEntityPaymentMethod paymentMethod = default(PaymentEntityPaymentMethod))
+        public PaymentEntity(string? cfPaymentId = default(string?), string? orderId = default(string?), string? entity = default(string?), ErrorDetailsInPaymentsEntity? errorDetails = default(ErrorDetailsInPaymentsEntity?), bool? isCaptured = default(bool?), decimal? orderAmount = default(decimal?), string? paymentGroup = default(string?), string? paymentCurrency = default(string?), decimal? paymentAmount = default(decimal?), string? paymentTime = default(string?), string? paymentCompletionTime = default(string?), PaymentStatusEnum?? paymentStatus = default(PaymentStatusEnum??), string? paymentMessage = default(string?), string? bankReference = default(string?), string? authId = default(string?), AuthorizationInPaymentsEntity? authorization = default(AuthorizationInPaymentsEntity?), PaymentEntityPaymentMethod? paymentMethod = default(PaymentEntityPaymentMethod?))
         {
             this.cf_payment_id = cfPaymentId;
             this.order_id = orderId;
@@ -134,101 +134,101 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_payment_id
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets order_id
         /// </summary>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// Gets or Sets entity
         /// </summary>
         [DataMember(Name = "entity", EmitDefaultValue = false)]
-        public string entity { get; set; }
+        public string? entity { get; set; }
 
         /// <summary>
         /// Gets or Sets error_details
         /// </summary>
         [DataMember(Name = "error_details", EmitDefaultValue = false)]
-        public ErrorDetailsInPaymentsEntity error_details { get; set; }
+        public ErrorDetailsInPaymentsEntity? error_details { get; set; }
 
         /// <summary>
         /// Gets or Sets is_captured
         /// </summary>
         [DataMember(Name = "is_captured", EmitDefaultValue = true)]
-        public bool is_captured { get; set; }
+        public bool? is_captured { get; set; }
 
         /// <summary>
         /// Order amount can be different from payment amount if you collect service fee from the customer
         /// </summary>
         /// <value>Order amount can be different from payment amount if you collect service fee from the customer</value>
         [DataMember(Name = "order_amount", EmitDefaultValue = false)]
-        public decimal order_amount { get; set; }
+        public decimal? order_amount { get; set; }
 
         /// <summary>
         /// Type of payment group. One of [&#39;prepaid_card&#39;, &#39;upi_ppi_offline&#39;, &#39;cash&#39;, &#39;upi_credit_card&#39;, &#39;paypal&#39;, &#39;net_banking&#39;, &#39;cardless_emi&#39;, &#39;credit_card&#39;, &#39;bank_transfer&#39;, &#39;pay_later&#39;, &#39;debit_card_emi&#39;, &#39;debit_card&#39;, &#39;wallet&#39;, &#39;upi_ppi&#39;, &#39;upi&#39;, &#39;credit_card_emi&#39;]
         /// </summary>
         /// <value>Type of payment group. One of [&#39;prepaid_card&#39;, &#39;upi_ppi_offline&#39;, &#39;cash&#39;, &#39;upi_credit_card&#39;, &#39;paypal&#39;, &#39;net_banking&#39;, &#39;cardless_emi&#39;, &#39;credit_card&#39;, &#39;bank_transfer&#39;, &#39;pay_later&#39;, &#39;debit_card_emi&#39;, &#39;debit_card&#39;, &#39;wallet&#39;, &#39;upi_ppi&#39;, &#39;upi&#39;, &#39;credit_card_emi&#39;]</value>
         [DataMember(Name = "payment_group", EmitDefaultValue = false)]
-        public string payment_group { get; set; }
+        public string? payment_group { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_currency
         /// </summary>
         [DataMember(Name = "payment_currency", EmitDefaultValue = false)]
-        public string payment_currency { get; set; }
+        public string? payment_currency { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_amount
         /// </summary>
         [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
-        public decimal payment_amount { get; set; }
+        public decimal? payment_amount { get; set; }
 
         /// <summary>
         /// This is the time when the payment was initiated
         /// </summary>
         /// <value>This is the time when the payment was initiated</value>
         [DataMember(Name = "payment_time", EmitDefaultValue = false)]
-        public string payment_time { get; set; }
+        public string? payment_time { get; set; }
 
         /// <summary>
         /// This is the time when the payment reaches its terminal state
         /// </summary>
         /// <value>This is the time when the payment reaches its terminal state</value>
         [DataMember(Name = "payment_completion_time", EmitDefaultValue = false)]
-        public string payment_completion_time { get; set; }
+        public string? payment_completion_time { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_message
         /// </summary>
         [DataMember(Name = "payment_message", EmitDefaultValue = false)]
-        public string payment_message { get; set; }
+        public string? payment_message { get; set; }
 
         /// <summary>
         /// Gets or Sets bank_reference
         /// </summary>
         [DataMember(Name = "bank_reference", EmitDefaultValue = false)]
-        public string bank_reference { get; set; }
+        public string? bank_reference { get; set; }
 
         /// <summary>
         /// Gets or Sets auth_id
         /// </summary>
         [DataMember(Name = "auth_id", EmitDefaultValue = false)]
-        public string auth_id { get; set; }
+        public string? auth_id { get; set; }
 
         /// <summary>
         /// Gets or Sets authorization
         /// </summary>
         [DataMember(Name = "authorization", EmitDefaultValue = false)]
-        public AuthorizationInPaymentsEntity authorization { get; set; }
+        public AuthorizationInPaymentsEntity? authorization { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_method
         /// </summary>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public PaymentEntityPaymentMethod payment_method { get; set; }
+        public PaymentEntityPaymentMethod? payment_method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

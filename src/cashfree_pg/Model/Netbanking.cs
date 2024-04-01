@@ -43,7 +43,7 @@ namespace cashfree_pg.Model
         /// <param name="channel">The channel for netbanking will always be &#x60;link&#x60; (required).</param>
         /// <param name="netbankingBankCode">Bank code.</param>
         /// <param name="netbankingBankName">String code for bank.</param>
-        public Netbanking(string channel = default(string), int netbankingBankCode = default(int), string netbankingBankName = default(string))
+        public Netbanking(string channel = default(string), int? netbankingBankCode = default(int?), string? netbankingBankName = default(string?))
         {
             // to ensure "channel" is required (not null)
             if (channel == null)
@@ -67,14 +67,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Bank code</value>
         [DataMember(Name = "netbanking_bank_code", EmitDefaultValue = false)]
-        public int netbanking_bank_code { get; set; }
+        public int? netbanking_bank_code { get; set; }
 
         /// <summary>
         /// String code for bank
         /// </summary>
         /// <value>String code for bank</value>
         [DataMember(Name = "netbanking_bank_name", EmitDefaultValue = false)]
-        public string netbanking_bank_name { get; set; }
+        public string? netbanking_bank_name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

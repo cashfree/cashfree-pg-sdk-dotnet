@@ -174,7 +174,7 @@ namespace cashfree_pg.Model
         /// <param name="createdAt">Time of refund creation.</param>
         /// <param name="processedAt">Time when refund was processed successfully.</param>
         /// <param name="refundSpeed">refundSpeed.</param>
-        public RefundEntity(string cfPaymentId = default(string), string cfRefundId = default(string), string orderId = default(string), string refundId = default(string), EntityEnum? entity = default(EntityEnum?), decimal refundAmount = default(decimal), string refundCurrency = default(string), string refundNote = default(string), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string refundArn = default(string), decimal refundCharge = default(decimal), string statusDescription = default(string), Object metadata = default(Object), List<VendorSplit> refundSplits = default(List<VendorSplit>), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string createdAt = default(string), string processedAt = default(string), RefundSpeed refundSpeed = default(RefundSpeed))
+        public RefundEntity(string? cfPaymentId = default(string?), string? cfRefundId = default(string?), string? orderId = default(string?), string? refundId = default(string?), EntityEnum?? entity = default(EntityEnum??), decimal? refundAmount = default(decimal?), string? refundCurrency = default(string?), string? refundNote = default(string?), RefundStatusEnum?? refundStatus = default(RefundStatusEnum??), string? refundArn = default(string?), decimal? refundCharge = default(decimal?), string? statusDescription = default(string?), Object? metadata = default(Object?), List<VendorSplit>? refundSplits = default(List<VendorSplit>?), RefundTypeEnum?? refundType = default(RefundTypeEnum??), RefundModeEnum?? refundMode = default(RefundModeEnum??), string? createdAt = default(string?), string? processedAt = default(string?), RefundSpeed? refundSpeed = default(RefundSpeed?))
         {
             this.cf_payment_id = cfPaymentId;
             this.cf_refund_id = cfRefundId;
@@ -202,103 +202,103 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Cashfree Payments ID of the payment for which refund is initiated</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Cashfree Payments ID for a refund
         /// </summary>
         /// <value>Cashfree Payments ID for a refund</value>
         [DataMember(Name = "cf_refund_id", EmitDefaultValue = false)]
-        public string cf_refund_id { get; set; }
+        public string? cf_refund_id { get; set; }
 
         /// <summary>
         /// Merchant’s order Id of the order for which refund is initiated
         /// </summary>
         /// <value>Merchant’s order Id of the order for which refund is initiated</value>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// Merchant’s refund ID of the refund
         /// </summary>
         /// <value>Merchant’s refund ID of the refund</value>
         [DataMember(Name = "refund_id", EmitDefaultValue = false)]
-        public string refund_id { get; set; }
+        public string? refund_id { get; set; }
 
         /// <summary>
         /// Amount that is refunded
         /// </summary>
         /// <value>Amount that is refunded</value>
         [DataMember(Name = "refund_amount", EmitDefaultValue = false)]
-        public decimal refund_amount { get; set; }
+        public decimal? refund_amount { get; set; }
 
         /// <summary>
         /// Currency of the refund amount
         /// </summary>
         /// <value>Currency of the refund amount</value>
         [DataMember(Name = "refund_currency", EmitDefaultValue = false)]
-        public string refund_currency { get; set; }
+        public string? refund_currency { get; set; }
 
         /// <summary>
         /// Note added by merchant for the refund
         /// </summary>
         /// <value>Note added by merchant for the refund</value>
         [DataMember(Name = "refund_note", EmitDefaultValue = false)]
-        public string refund_note { get; set; }
+        public string? refund_note { get; set; }
 
         /// <summary>
         /// The bank reference number for refund
         /// </summary>
         /// <value>The bank reference number for refund</value>
         [DataMember(Name = "refund_arn", EmitDefaultValue = false)]
-        public string refund_arn { get; set; }
+        public string? refund_arn { get; set; }
 
         /// <summary>
         /// Charges in INR for processing refund
         /// </summary>
         /// <value>Charges in INR for processing refund</value>
         [DataMember(Name = "refund_charge", EmitDefaultValue = false)]
-        public decimal refund_charge { get; set; }
+        public decimal? refund_charge { get; set; }
 
         /// <summary>
         /// Description of refund status
         /// </summary>
         /// <value>Description of refund status</value>
         [DataMember(Name = "status_description", EmitDefaultValue = false)]
-        public string status_description { get; set; }
+        public string? status_description { get; set; }
 
         /// <summary>
         /// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
         /// </summary>
         /// <value>Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs</value>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Object metadata { get; set; }
+        public Object? metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets refund_splits
         /// </summary>
         [DataMember(Name = "refund_splits", EmitDefaultValue = false)]
-        public List<VendorSplit> refund_splits { get; set; }
+        public List<VendorSplit>? refund_splits { get; set; }
 
         /// <summary>
         /// Time of refund creation
         /// </summary>
         /// <value>Time of refund creation</value>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public string created_at { get; set; }
+        public string? created_at { get; set; }
 
         /// <summary>
         /// Time when refund was processed successfully
         /// </summary>
         /// <value>Time when refund was processed successfully</value>
         [DataMember(Name = "processed_at", EmitDefaultValue = false)]
-        public string processed_at { get; set; }
+        public string? processed_at { get; set; }
 
         /// <summary>
         /// Gets or Sets refund_speed
         /// </summary>
         [DataMember(Name = "refund_speed", EmitDefaultValue = false)]
-        public RefundSpeed refund_speed { get; set; }
+        public RefundSpeed? refund_speed { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

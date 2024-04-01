@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalPhoneNo">terminalPhoneNo.</param>
         /// <param name="terminalStatus">terminalStatus.</param>
         /// <param name="terminalMeta">terminalMeta.</param>
-        public TerminalEntity(string addedOn = default(string), int cfTerminalId = default(int), string lastUpdatedOn = default(string), string terminalAddress = default(string), string terminalEmail = default(string), string terminalType = default(string), string teminalId = default(string), string terminalName = default(string), string terminalNote = default(string), string terminalPhoneNo = default(string), string terminalStatus = default(string), string terminalMeta = default(string))
+        public TerminalEntity(string? addedOn = default(string?), int? cfTerminalId = default(int?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string? terminalEmail = default(string?), string? terminalType = default(string?), string? teminalId = default(string?), string? terminalName = default(string?), string? terminalNote = default(string?), string? terminalPhoneNo = default(string?), string? terminalStatus = default(string?), string? terminalMeta = default(string?))
         {
             this.added_on = addedOn;
             this.cf_terminal_id = cfTerminalId;
@@ -67,73 +67,73 @@ namespace cashfree_pg.Model
         /// Gets or Sets added_on
         /// </summary>
         [DataMember(Name = "added_on", EmitDefaultValue = false)]
-        public string added_on { get; set; }
+        public string? added_on { get; set; }
 
         /// <summary>
         /// Gets or Sets cf_terminal_id
         /// </summary>
         [DataMember(Name = "cf_terminal_id", EmitDefaultValue = false)]
-        public int cf_terminal_id { get; set; }
+        public int? cf_terminal_id { get; set; }
 
         /// <summary>
         /// Gets or Sets last_updated_on
         /// </summary>
         [DataMember(Name = "last_updated_on", EmitDefaultValue = false)]
-        public string last_updated_on { get; set; }
+        public string? last_updated_on { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_address
         /// </summary>
         [DataMember(Name = "terminal_address", EmitDefaultValue = false)]
-        public string terminal_address { get; set; }
+        public string? terminal_address { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_email
         /// </summary>
         [DataMember(Name = "terminal_email", EmitDefaultValue = false)]
-        public string terminal_email { get; set; }
+        public string? terminal_email { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_type
         /// </summary>
         [DataMember(Name = "terminal_type", EmitDefaultValue = false)]
-        public string terminal_type { get; set; }
+        public string? terminal_type { get; set; }
 
         /// <summary>
         /// Gets or Sets teminal_id
         /// </summary>
         [DataMember(Name = "teminal_id", EmitDefaultValue = false)]
-        public string teminal_id { get; set; }
+        public string? teminal_id { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_name
         /// </summary>
         [DataMember(Name = "terminal_name", EmitDefaultValue = false)]
-        public string terminal_name { get; set; }
+        public string? terminal_name { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_note
         /// </summary>
         [DataMember(Name = "terminal_note", EmitDefaultValue = false)]
-        public string terminal_note { get; set; }
+        public string? terminal_note { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_phone_no
         /// </summary>
         [DataMember(Name = "terminal_phone_no", EmitDefaultValue = false)]
-        public string terminal_phone_no { get; set; }
+        public string? terminal_phone_no { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_status
         /// </summary>
         [DataMember(Name = "terminal_status", EmitDefaultValue = false)]
-        public string terminal_status { get; set; }
+        public string? terminal_status { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_meta
         /// </summary>
         [DataMember(Name = "terminal_meta", EmitDefaultValue = false)]
-        public string terminal_meta { get; set; }
+        public string? terminal_meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

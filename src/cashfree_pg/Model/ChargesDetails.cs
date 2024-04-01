@@ -40,7 +40,7 @@ namespace cashfree_pg.Model
         /// <param name="amount">amount.</param>
         /// <param name="billedTo">billedTo.</param>
         /// <param name="isPostpaid">isPostpaid.</param>
-        public ChargesDetails(decimal serviceCharges = default(decimal), decimal serviceTax = default(decimal), decimal amount = default(decimal), string billedTo = default(string), bool isPostpaid = default(bool))
+        public ChargesDetails(decimal? serviceCharges = default(decimal?), decimal? serviceTax = default(decimal?), decimal? amount = default(decimal?), string? billedTo = default(string?), bool? isPostpaid = default(bool?))
         {
             this.service_charges = serviceCharges;
             this.service_tax = serviceTax;
@@ -53,31 +53,31 @@ namespace cashfree_pg.Model
         /// Gets or Sets service_charges
         /// </summary>
         [DataMember(Name = "service_charges", EmitDefaultValue = false)]
-        public decimal service_charges { get; set; }
+        public decimal? service_charges { get; set; }
 
         /// <summary>
         /// Gets or Sets service_tax
         /// </summary>
         [DataMember(Name = "service_tax", EmitDefaultValue = false)]
-        public decimal service_tax { get; set; }
+        public decimal? service_tax { get; set; }
 
         /// <summary>
         /// Gets or Sets amount
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// Gets or Sets billed_to
         /// </summary>
         [DataMember(Name = "billed_to", EmitDefaultValue = false)]
-        public string billed_to { get; set; }
+        public string? billed_to { get; set; }
 
         /// <summary>
         /// Gets or Sets is_postpaid
         /// </summary>
         [DataMember(Name = "is_postpaid", EmitDefaultValue = true)]
-        public bool is_postpaid { get; set; }
+        public bool? is_postpaid { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

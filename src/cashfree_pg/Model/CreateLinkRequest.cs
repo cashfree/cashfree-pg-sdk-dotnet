@@ -52,8 +52,8 @@ namespace cashfree_pg.Model
         /// <param name="linkAutoReminders">If \&quot;true\&quot;, reminders will be sent to customers for collecting payments..</param>
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkMeta">linkMeta.</param>
-        /// <param name="orderSplits">Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature..</param>
-        public CreateLinkRequest(string linkId = default(string), double linkAmount = default(double), string linkCurrency = default(string), string linkPurpose = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), bool linkPartialPayments = default(bool), double linkMinimumPartialAmount = default(double), string linkExpiryTime = default(string), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), bool linkAutoReminders = default(bool), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), List<VendorSplit> orderSplits = default(List<VendorSplit>))
+        /// <param name="orderSplits">If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount..</param>
+        public CreateLinkRequest(string linkId = default(string), double linkAmount = default(double), string linkCurrency = default(string), string linkPurpose = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), bool? linkPartialPayments = default(bool?), double? linkMinimumPartialAmount = default(double?), string? linkExpiryTime = default(string?), LinkNotifyEntity? linkNotify = default(LinkNotifyEntity?), bool? linkAutoReminders = default(bool?), Dictionary<string, string>? linkNotes = default(Dictionary<string, string>?), LinkMetaResponseEntity? linkMeta = default(LinkMetaResponseEntity?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?))
         {
             // to ensure "linkId" is required (not null)
             if (linkId == null)
@@ -129,34 +129,34 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>If \&quot;true\&quot;, customer can make partial payments for the link.</value>
         [DataMember(Name = "link_partial_payments", EmitDefaultValue = true)]
-        public bool link_partial_payments { get; set; }
+        public bool? link_partial_payments { get; set; }
 
         /// <summary>
         /// Minimum amount in first installment that needs to be paid by the customer if partial payments are enabled. This should be less than the link_amount.
         /// </summary>
         /// <value>Minimum amount in first installment that needs to be paid by the customer if partial payments are enabled. This should be less than the link_amount.</value>
         [DataMember(Name = "link_minimum_partial_amount", EmitDefaultValue = false)]
-        public double link_minimum_partial_amount { get; set; }
+        public double? link_minimum_partial_amount { get; set; }
 
         /// <summary>
         /// Time after which the link expires. Customers will not be able to make the payment beyond the time specified here. You can provide them in a valid ISO 8601 time format. Default is 30 days.
         /// </summary>
         /// <value>Time after which the link expires. Customers will not be able to make the payment beyond the time specified here. You can provide them in a valid ISO 8601 time format. Default is 30 days.</value>
         [DataMember(Name = "link_expiry_time", EmitDefaultValue = false)]
-        public string link_expiry_time { get; set; }
+        public string? link_expiry_time { get; set; }
 
         /// <summary>
         /// Gets or Sets link_notify
         /// </summary>
         [DataMember(Name = "link_notify", EmitDefaultValue = false)]
-        public LinkNotifyEntity link_notify { get; set; }
+        public LinkNotifyEntity? link_notify { get; set; }
 
         /// <summary>
         /// If \&quot;true\&quot;, reminders will be sent to customers for collecting payments.
         /// </summary>
         /// <value>If \&quot;true\&quot;, reminders will be sent to customers for collecting payments.</value>
         [DataMember(Name = "link_auto_reminders", EmitDefaultValue = true)]
-        public bool link_auto_reminders { get; set; }
+        public bool? link_auto_reminders { get; set; }
 
         /// <summary>
         /// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
@@ -164,21 +164,21 @@ namespace cashfree_pg.Model
         /// <value>Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs</value>
         /// <example>{&quot;key_1&quot;:&quot;value_1&quot;,&quot;key_2&quot;:&quot;value_2&quot;}</example>
         [DataMember(Name = "link_notes", EmitDefaultValue = false)]
-        public Dictionary<string, string> link_notes { get; set; }
+        public Dictionary<string, string>? link_notes { get; set; }
 
         /// <summary>
         /// Gets or Sets link_meta
         /// </summary>
         [DataMember(Name = "link_meta", EmitDefaultValue = false)]
-        public LinkMetaResponseEntity link_meta { get; set; }
+        public LinkMetaResponseEntity? link_meta { get; set; }
 
         /// <summary>
-        /// Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.
+        /// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
         /// </summary>
-        /// <value>Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.</value>
+        /// <value>If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.</value>
         /// <example>[{&quot;amount&quot;:10,&quot;vendor&quot;:&quot;john&quot;}]</example>
         [DataMember(Name = "order_splits", EmitDefaultValue = false)]
-        public List<VendorSplit> order_splits { get; set; }
+        public List<VendorSplit>? order_splits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

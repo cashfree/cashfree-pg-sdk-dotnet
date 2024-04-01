@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="sendSms">If \&quot;true\&quot;, Cashfree will send sms on customer_phone.</param>
         /// <param name="sendEmail">If \&quot;true\&quot;, Cashfree will send email on customer_email.</param>
-        public LinkNotifyEntity(bool sendSms = default(bool), bool sendEmail = default(bool))
+        public LinkNotifyEntity(bool? sendSms = default(bool?), bool? sendEmail = default(bool?))
         {
             this.send_sms = sendSms;
             this.send_email = sendEmail;
@@ -48,14 +48,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>If \&quot;true\&quot;, Cashfree will send sms on customer_phone</value>
         [DataMember(Name = "send_sms", EmitDefaultValue = true)]
-        public bool send_sms { get; set; }
+        public bool? send_sms { get; set; }
 
         /// <summary>
         /// If \&quot;true\&quot;, Cashfree will send email on customer_email
         /// </summary>
         /// <value>If \&quot;true\&quot;, Cashfree will send email on customer_email</value>
         [DataMember(Name = "send_email", EmitDefaultValue = true)]
-        public bool send_email { get; set; }
+        public bool? send_email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

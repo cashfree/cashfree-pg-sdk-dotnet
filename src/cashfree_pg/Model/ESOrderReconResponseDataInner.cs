@@ -61,7 +61,7 @@ namespace cashfree_pg.Model
         /// <param name="settlementTime">settlementTime.</param>
         /// <param name="orderSplits">orderSplits.</param>
         /// <param name="eligibleSplitBalance">eligibleSplitBalance.</param>
-        public ESOrderReconResponseDataInner(decimal amount = default(decimal), string settlementEligibilityTime = default(string), string merchantOrderId = default(string), string txTime = default(string), string settled = default(string), string entityId = default(string), string merchantSettlementUtr = default(string), string currency = default(string), string saleType = default(string), string customerName = default(string), string customerEmail = default(string), string customerPhone = default(string), string merchantVendorCommission = default(string), string splitServiceCharge = default(string), string splitServiceTax = default(string), string pgServiceTax = default(string), string pgServiceCharge = default(string), string pgChargePostpaid = default(string), string merchantSettlementId = default(string), string addedOn = default(string), string tags = default(string), string entityType = default(string), string settlementInitiatedOn = default(string), string settlementTime = default(string), List<ESOrderReconResponseDataInnerOrderSplitsInner> orderSplits = default(List<ESOrderReconResponseDataInnerOrderSplitsInner>), string eligibleSplitBalance = default(string))
+        public ESOrderReconResponseDataInner(decimal? amount = default(decimal?), string? settlementEligibilityTime = default(string?), string? merchantOrderId = default(string?), string? txTime = default(string?), string? settled = default(string?), string? entityId = default(string?), string? merchantSettlementUtr = default(string?), string? currency = default(string?), string? saleType = default(string?), string? customerName = default(string?), string? customerEmail = default(string?), string? customerPhone = default(string?), string? merchantVendorCommission = default(string?), string? splitServiceCharge = default(string?), string? splitServiceTax = default(string?), string? pgServiceTax = default(string?), string? pgServiceCharge = default(string?), string? pgChargePostpaid = default(string?), string? merchantSettlementId = default(string?), string? addedOn = default(string?), string? tags = default(string?), string? entityType = default(string?), string? settlementInitiatedOn = default(string?), string? settlementTime = default(string?), List<ESOrderReconResponseDataInnerOrderSplitsInner>? orderSplits = default(List<ESOrderReconResponseDataInnerOrderSplitsInner>?), string? eligibleSplitBalance = default(string?))
         {
             this.amount = amount;
             this.settlement_eligibility_time = settlementEligibilityTime;
@@ -95,157 +95,157 @@ namespace cashfree_pg.Model
         /// Gets or Sets amount
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_eligibility_time
         /// </summary>
         [DataMember(Name = "settlement_eligibility_time", EmitDefaultValue = false)]
-        public string settlement_eligibility_time { get; set; }
+        public string? settlement_eligibility_time { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_order_id
         /// </summary>
         [DataMember(Name = "merchant_order_id", EmitDefaultValue = false)]
-        public string merchant_order_id { get; set; }
+        public string? merchant_order_id { get; set; }
 
         /// <summary>
         /// Gets or Sets tx_time
         /// </summary>
         [DataMember(Name = "tx_time", EmitDefaultValue = false)]
-        public string tx_time { get; set; }
+        public string? tx_time { get; set; }
 
         /// <summary>
         /// Gets or Sets settled
         /// </summary>
         [DataMember(Name = "settled", EmitDefaultValue = false)]
-        public string settled { get; set; }
+        public string? settled { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_id
         /// </summary>
         [DataMember(Name = "entity_id", EmitDefaultValue = false)]
-        public string entity_id { get; set; }
+        public string? entity_id { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_settlement_utr
         /// </summary>
         [DataMember(Name = "merchant_settlement_utr", EmitDefaultValue = false)]
-        public string merchant_settlement_utr { get; set; }
+        public string? merchant_settlement_utr { get; set; }
 
         /// <summary>
         /// Gets or Sets currency
         /// </summary>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public string currency { get; set; }
+        public string? currency { get; set; }
 
         /// <summary>
         /// Gets or Sets sale_type
         /// </summary>
         [DataMember(Name = "sale_type", EmitDefaultValue = false)]
-        public string sale_type { get; set; }
+        public string? sale_type { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_name
         /// </summary>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_email
         /// </summary>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_phone
         /// </summary>
         [DataMember(Name = "customer_phone", EmitDefaultValue = false)]
-        public string customer_phone { get; set; }
+        public string? customer_phone { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_vendor_commission
         /// </summary>
         [DataMember(Name = "merchant_vendor_commission", EmitDefaultValue = false)]
-        public string merchant_vendor_commission { get; set; }
+        public string? merchant_vendor_commission { get; set; }
 
         /// <summary>
         /// Gets or Sets split_service_charge
         /// </summary>
         [DataMember(Name = "split_service_charge", EmitDefaultValue = false)]
-        public string split_service_charge { get; set; }
+        public string? split_service_charge { get; set; }
 
         /// <summary>
         /// Gets or Sets split_service_tax
         /// </summary>
         [DataMember(Name = "split_service_tax", EmitDefaultValue = false)]
-        public string split_service_tax { get; set; }
+        public string? split_service_tax { get; set; }
 
         /// <summary>
         /// Gets or Sets pg_service_tax
         /// </summary>
         [DataMember(Name = "pg_service_tax", EmitDefaultValue = false)]
-        public string pg_service_tax { get; set; }
+        public string? pg_service_tax { get; set; }
 
         /// <summary>
         /// Gets or Sets pg_service_charge
         /// </summary>
         [DataMember(Name = "pg_service_charge", EmitDefaultValue = false)]
-        public string pg_service_charge { get; set; }
+        public string? pg_service_charge { get; set; }
 
         /// <summary>
         /// Gets or Sets pg_charge_postpaid
         /// </summary>
         [DataMember(Name = "pg_charge_postpaid", EmitDefaultValue = false)]
-        public string pg_charge_postpaid { get; set; }
+        public string? pg_charge_postpaid { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_settlement_id
         /// </summary>
         [DataMember(Name = "merchant_settlement_id", EmitDefaultValue = false)]
-        public string merchant_settlement_id { get; set; }
+        public string? merchant_settlement_id { get; set; }
 
         /// <summary>
         /// Gets or Sets added_on
         /// </summary>
         [DataMember(Name = "added_on", EmitDefaultValue = false)]
-        public string added_on { get; set; }
+        public string? added_on { get; set; }
 
         /// <summary>
         /// Gets or Sets tags
         /// </summary>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public string tags { get; set; }
+        public string? tags { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_type
         /// </summary>
         [DataMember(Name = "entity_type", EmitDefaultValue = false)]
-        public string entity_type { get; set; }
+        public string? entity_type { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_initiated_on
         /// </summary>
         [DataMember(Name = "settlement_initiated_on", EmitDefaultValue = false)]
-        public string settlement_initiated_on { get; set; }
+        public string? settlement_initiated_on { get; set; }
 
         /// <summary>
         /// Gets or Sets settlement_time
         /// </summary>
         [DataMember(Name = "settlement_time", EmitDefaultValue = false)]
-        public string settlement_time { get; set; }
+        public string? settlement_time { get; set; }
 
         /// <summary>
         /// Gets or Sets order_splits
         /// </summary>
         [DataMember(Name = "order_splits", EmitDefaultValue = false)]
-        public List<ESOrderReconResponseDataInnerOrderSplitsInner> order_splits { get; set; }
+        public List<ESOrderReconResponseDataInnerOrderSplitsInner>? order_splits { get; set; }
 
         /// <summary>
         /// Gets or Sets eligible_split_balance
         /// </summary>
         [DataMember(Name = "eligible_split_balance", EmitDefaultValue = false)]
-        public string eligible_split_balance { get; set; }
+        public string? eligible_split_balance { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

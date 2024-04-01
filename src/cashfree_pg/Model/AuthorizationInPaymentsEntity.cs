@@ -97,7 +97,7 @@ namespace cashfree_pg.Model
         /// <param name="approveBy">Approve by time as passed in the authorization request (only for UPI).</param>
         /// <param name="actionReference">CAPTURE or VOID reference number based on action .</param>
         /// <param name="actionTime">Time of action (CAPTURE or VOID).</param>
-        public AuthorizationInPaymentsEntity(ActionEnum? action = default(ActionEnum?), StatusEnum? status = default(StatusEnum?), decimal capturedAmount = default(decimal), string startTime = default(string), string endTime = default(string), string approveBy = default(string), string actionReference = default(string), string actionTime = default(string))
+        public AuthorizationInPaymentsEntity(ActionEnum?? action = default(ActionEnum??), StatusEnum?? status = default(StatusEnum??), decimal? capturedAmount = default(decimal?), string? startTime = default(string?), string? endTime = default(string?), string? approveBy = default(string?), string? actionReference = default(string?), string? actionTime = default(string?))
         {
             this.action = action;
             this.status = status;
@@ -114,42 +114,42 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The captured amount for this authorization request</value>
         [DataMember(Name = "captured_amount", EmitDefaultValue = false)]
-        public decimal captured_amount { get; set; }
+        public decimal? captured_amount { get; set; }
 
         /// <summary>
         /// Start time of this authorization hold (only for UPI)
         /// </summary>
         /// <value>Start time of this authorization hold (only for UPI)</value>
         [DataMember(Name = "start_time", EmitDefaultValue = false)]
-        public string start_time { get; set; }
+        public string? start_time { get; set; }
 
         /// <summary>
         /// End time of this authorization hold (only for UPI)
         /// </summary>
         /// <value>End time of this authorization hold (only for UPI)</value>
         [DataMember(Name = "end_time", EmitDefaultValue = false)]
-        public string end_time { get; set; }
+        public string? end_time { get; set; }
 
         /// <summary>
         /// Approve by time as passed in the authorization request (only for UPI)
         /// </summary>
         /// <value>Approve by time as passed in the authorization request (only for UPI)</value>
         [DataMember(Name = "approve_by", EmitDefaultValue = false)]
-        public string approve_by { get; set; }
+        public string? approve_by { get; set; }
 
         /// <summary>
         /// CAPTURE or VOID reference number based on action 
         /// </summary>
         /// <value>CAPTURE or VOID reference number based on action </value>
         [DataMember(Name = "action_reference", EmitDefaultValue = false)]
-        public string action_reference { get; set; }
+        public string? action_reference { get; set; }
 
         /// <summary>
         /// Time of action (CAPTURE or VOID)
         /// </summary>
         /// <value>Time of action (CAPTURE or VOID)</value>
         [DataMember(Name = "action_time", EmitDefaultValue = false)]
-        public string action_time { get; set; }
+        public string? action_time { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

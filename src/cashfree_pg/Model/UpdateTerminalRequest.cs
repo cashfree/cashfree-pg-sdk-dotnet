@@ -44,7 +44,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalPhoneNo">Terminal phone number to be updated..</param>
         /// <param name="terminalMeta">terminalMeta.</param>
         /// <param name="terminalType">Mention the terminal type to be updated. Possible values - AGENT, STOREFRONT. (required).</param>
-        public UpdateTerminalRequest(string terminalEmail = default(string), string terminalPhoneNo = default(string), UpdateTerminalRequestTerminalMeta terminalMeta = default(UpdateTerminalRequestTerminalMeta), string terminalType = default(string))
+        public UpdateTerminalRequest(string? terminalEmail = default(string?), string? terminalPhoneNo = default(string?), UpdateTerminalRequestTerminalMeta? terminalMeta = default(UpdateTerminalRequestTerminalMeta?), string terminalType = default(string))
         {
             // to ensure "terminalType" is required (not null)
             if (terminalType == null)
@@ -62,20 +62,20 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Mention the updated email ID of the terminal.</value>
         [DataMember(Name = "terminal_email", EmitDefaultValue = false)]
-        public string terminal_email { get; set; }
+        public string? terminal_email { get; set; }
 
         /// <summary>
         /// Terminal phone number to be updated.
         /// </summary>
         /// <value>Terminal phone number to be updated.</value>
         [DataMember(Name = "terminal_phone_no", EmitDefaultValue = false)]
-        public string terminal_phone_no { get; set; }
+        public string? terminal_phone_no { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_meta
         /// </summary>
         [DataMember(Name = "terminal_meta", EmitDefaultValue = false)]
-        public UpdateTerminalRequestTerminalMeta terminal_meta { get; set; }
+        public UpdateTerminalRequestTerminalMeta? terminal_meta { get; set; }
 
         /// <summary>
         /// Mention the terminal type to be updated. Possible values - AGENT, STOREFRONT.

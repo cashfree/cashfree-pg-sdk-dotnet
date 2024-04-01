@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="VendorDocumentDownloadResponse" /> class.
         /// </summary>
         /// <param name="downloadUrl">downloadUrl.</param>
-        public VendorDocumentDownloadResponse(string downloadUrl = default(string))
+        public VendorDocumentDownloadResponse(string? downloadUrl = default(string?))
         {
             this.download_url = downloadUrl;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets download_url
         /// </summary>
         [DataMember(Name = "download_url", EmitDefaultValue = false)]
-        public string download_url { get; set; }
+        public string? download_url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

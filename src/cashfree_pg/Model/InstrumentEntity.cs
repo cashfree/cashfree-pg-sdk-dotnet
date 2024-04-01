@@ -92,7 +92,7 @@ namespace cashfree_pg.Model
         /// <param name="instrumentStatus">Status of the saved instrument..</param>
         /// <param name="createdAt">Timestamp at which instrument was saved..</param>
         /// <param name="instrumentMeta">instrumentMeta.</param>
-        public InstrumentEntity(string customerId = default(string), string afaReference = default(string), string instrumentId = default(string), InstrumentTypeEnum? instrumentType = default(InstrumentTypeEnum?), string instrumentUid = default(string), string instrumentDisplay = default(string), InstrumentStatusEnum? instrumentStatus = default(InstrumentStatusEnum?), string createdAt = default(string), SavedInstrumentMeta instrumentMeta = default(SavedInstrumentMeta))
+        public InstrumentEntity(string? customerId = default(string?), string? afaReference = default(string?), string? instrumentId = default(string?), InstrumentTypeEnum?? instrumentType = default(InstrumentTypeEnum??), string? instrumentUid = default(string?), string? instrumentDisplay = default(string?), InstrumentStatusEnum?? instrumentStatus = default(InstrumentStatusEnum??), string? createdAt = default(string?), SavedInstrumentMeta? instrumentMeta = default(SavedInstrumentMeta?))
         {
             this.customer_id = customerId;
             this.afa_reference = afaReference;
@@ -110,48 +110,48 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>customer_id for which the instrument was saved</value>
         [DataMember(Name = "customer_id", EmitDefaultValue = false)]
-        public string customer_id { get; set; }
+        public string? customer_id { get; set; }
 
         /// <summary>
         /// cf_payment_id of the successful transaction done while saving instrument
         /// </summary>
         /// <value>cf_payment_id of the successful transaction done while saving instrument</value>
         [DataMember(Name = "afa_reference", EmitDefaultValue = false)]
-        public string afa_reference { get; set; }
+        public string? afa_reference { get; set; }
 
         /// <summary>
         /// saved instrument id
         /// </summary>
         /// <value>saved instrument id</value>
         [DataMember(Name = "instrument_id", EmitDefaultValue = false)]
-        public string instrument_id { get; set; }
+        public string? instrument_id { get; set; }
 
         /// <summary>
         /// Unique id for the saved instrument
         /// </summary>
         /// <value>Unique id for the saved instrument</value>
         [DataMember(Name = "instrument_uid", EmitDefaultValue = false)]
-        public string instrument_uid { get; set; }
+        public string? instrument_uid { get; set; }
 
         /// <summary>
         /// masked card number displayed to the customer
         /// </summary>
         /// <value>masked card number displayed to the customer</value>
         [DataMember(Name = "instrument_display", EmitDefaultValue = false)]
-        public string instrument_display { get; set; }
+        public string? instrument_display { get; set; }
 
         /// <summary>
         /// Timestamp at which instrument was saved.
         /// </summary>
         /// <value>Timestamp at which instrument was saved.</value>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public string created_at { get; set; }
+        public string? created_at { get; set; }
 
         /// <summary>
         /// Gets or Sets instrument_meta
         /// </summary>
         [DataMember(Name = "instrument_meta", EmitDefaultValue = false)]
-        public SavedInstrumentMeta instrument_meta { get; set; }
+        public SavedInstrumentMeta? instrument_meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

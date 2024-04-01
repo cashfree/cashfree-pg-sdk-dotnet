@@ -44,7 +44,7 @@ namespace cashfree_pg.Model
         /// <param name="cfTerminalId">cashfree terminal id. this is a required parameter when you do not provide the terminal phone number..</param>
         /// <param name="paymentMethod">mention the payment method used for the transaction. possible values - QR_CODE, LINK. (required).</param>
         /// <param name="terminalPhoneNo">agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id..</param>
-        public CreateTerminalTransactionRequest(string cfOrderId = default(string), string cfTerminalId = default(string), string paymentMethod = default(string), string terminalPhoneNo = default(string))
+        public CreateTerminalTransactionRequest(string cfOrderId = default(string), string? cfTerminalId = default(string?), string paymentMethod = default(string), string? terminalPhoneNo = default(string?))
         {
             // to ensure "cfOrderId" is required (not null)
             if (cfOrderId == null)
@@ -74,7 +74,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>cashfree terminal id. this is a required parameter when you do not provide the terminal phone number.</value>
         [DataMember(Name = "cf_terminal_id", EmitDefaultValue = false)]
-        public string cf_terminal_id { get; set; }
+        public string? cf_terminal_id { get; set; }
 
         /// <summary>
         /// mention the payment method used for the transaction. possible values - QR_CODE, LINK.
@@ -88,7 +88,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id.</value>
         [DataMember(Name = "terminal_phone_no", EmitDefaultValue = false)]
-        public string terminal_phone_no { get; set; }
+        public string? terminal_phone_no { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

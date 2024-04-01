@@ -195,7 +195,6 @@ docs/Upi.md
 docs/UpiDetails.md
 docs/UploadTerminalDocs.md
 docs/UploadTerminalDocsEntity.md
-docs/UploadVendorDocsRequest.md
 docs/UploadVendorDocumentsResponse.md
 docs/VendorBalance.md
 docs/VendorBalanceTransferCharges.md
@@ -397,7 +396,6 @@ src/cashfree_pg.Test/Model/UpiDetailsTests.cs
 src/cashfree_pg.Test/Model/UpiTests.cs
 src/cashfree_pg.Test/Model/UploadTerminalDocsEntityTests.cs
 src/cashfree_pg.Test/Model/UploadTerminalDocsTests.cs
-src/cashfree_pg.Test/Model/UploadVendorDocsRequestTests.cs
 src/cashfree_pg.Test/Model/UploadVendorDocumentsResponseTests.cs
 src/cashfree_pg.Test/Model/VendorBalanceTests.cs
 src/cashfree_pg.Test/Model/VendorBalanceTransferChargesTests.cs
@@ -616,7 +614,6 @@ src/cashfree_pg/Model/Upi.cs
 src/cashfree_pg/Model/UpiDetails.cs
 src/cashfree_pg/Model/UploadTerminalDocs.cs
 src/cashfree_pg/Model/UploadTerminalDocsEntity.cs
-src/cashfree_pg/Model/UploadVendorDocsRequest.cs
 src/cashfree_pg/Model/UploadVendorDocumentsResponse.cs
 src/cashfree_pg/Model/VendorBalance.cs
 src/cashfree_pg/Model/VendorBalanceTransferCharges.cs

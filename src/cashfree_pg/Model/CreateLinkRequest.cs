@@ -52,7 +52,7 @@ namespace cashfree_pg.Model
         /// <param name="linkAutoReminders">If \&quot;true\&quot;, reminders will be sent to customers for collecting payments..</param>
         /// <param name="linkNotes">Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.</param>
         /// <param name="linkMeta">linkMeta.</param>
-        /// <param name="orderSplits">Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature..</param>
+        /// <param name="orderSplits">If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount..</param>
         public CreateLinkRequest(string linkId = default(string), double linkAmount = default(double), string linkCurrency = default(string), string linkPurpose = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), bool linkPartialPayments = default(bool), double linkMinimumPartialAmount = default(double), string linkExpiryTime = default(string), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), bool linkAutoReminders = default(bool), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), List<VendorSplit> orderSplits = default(List<VendorSplit>))
         {
             // to ensure "linkId" is required (not null)
@@ -173,9 +173,9 @@ namespace cashfree_pg.Model
         public LinkMetaResponseEntity link_meta { get; set; }
 
         /// <summary>
-        /// Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.
+        /// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
         /// </summary>
-        /// <value>Use this option to split order amount and settle to Multiple Vendors.  Contact care@cashfree.com to enable this feature.</value>
+        /// <value>If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.</value>
         /// <example>[{&quot;amount&quot;:10,&quot;vendor&quot;:&quot;john&quot;}]</example>
         [DataMember(Name = "order_splits", EmitDefaultValue = false)]
         public List<VendorSplit> order_splits { get; set; }

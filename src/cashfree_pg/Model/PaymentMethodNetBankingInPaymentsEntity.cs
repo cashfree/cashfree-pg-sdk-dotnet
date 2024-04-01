@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodNetBankingInPaymentsEntity" /> class.
         /// </summary>
         /// <param name="netbanking">netbanking.</param>
-        public PaymentMethodNetBankingInPaymentsEntity(PaymentMethodNetBankingInPaymentsEntityNetbanking netbanking = default(PaymentMethodNetBankingInPaymentsEntityNetbanking))
+        public PaymentMethodNetBankingInPaymentsEntity(PaymentMethodNetBankingInPaymentsEntityNetbanking? netbanking = default(PaymentMethodNetBankingInPaymentsEntityNetbanking?))
         {
             this.netbanking = netbanking;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets netbanking
         /// </summary>
         [DataMember(Name = "netbanking", EmitDefaultValue = false)]
-        public PaymentMethodNetBankingInPaymentsEntityNetbanking netbanking { get; set; }
+        public PaymentMethodNetBankingInPaymentsEntityNetbanking? netbanking { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

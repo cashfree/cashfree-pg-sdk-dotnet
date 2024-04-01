@@ -43,7 +43,7 @@ namespace cashfree_pg.Model
         /// <param name="customerPhone">Customer Phone Number (required).</param>
         /// <param name="customerEmail">Customer Email.</param>
         /// <param name="customerName">Customer Name.</param>
-        public CreateCustomerRequest(string customerPhone = default(string), string customerEmail = default(string), string customerName = default(string))
+        public CreateCustomerRequest(string customerPhone = default(string), string? customerEmail = default(string?), string? customerName = default(string?))
         {
             // to ensure "customerPhone" is required (not null)
             if (customerPhone == null)
@@ -69,7 +69,7 @@ namespace cashfree_pg.Model
         /// <value>Customer Email</value>
         /// <example>example@test.com</example>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Customer Name
@@ -77,7 +77,7 @@ namespace cashfree_pg.Model
         /// <value>Customer Name</value>
         /// <example>YourCustomer</example>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

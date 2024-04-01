@@ -44,7 +44,7 @@ namespace cashfree_pg.Model
         /// <param name="paymentMethod">paymentMethod (required).</param>
         /// <param name="saveInstrument">saveInstrument.</param>
         /// <param name="offerId">This is required if any offers needs to be applied to the order..</param>
-        public PayOrderRequest(string paymentSessionId = default(string), PayOrderRequestPaymentMethod paymentMethod = default(PayOrderRequestPaymentMethod), bool saveInstrument = default(bool), string offerId = default(string))
+        public PayOrderRequest(string paymentSessionId = default(string), PayOrderRequestPaymentMethod paymentMethod = default(PayOrderRequestPaymentMethod), bool? saveInstrument = default(bool?), string? offerId = default(string?))
         {
             // to ensure "paymentSessionId" is required (not null)
             if (paymentSessionId == null)
@@ -79,7 +79,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets save_instrument
         /// </summary>
         [DataMember(Name = "save_instrument", EmitDefaultValue = true)]
-        public bool save_instrument { get; set; }
+        public bool? save_instrument { get; set; }
 
         /// <summary>
         /// This is required if any offers needs to be applied to the order.
@@ -87,7 +87,7 @@ namespace cashfree_pg.Model
         /// <value>This is required if any offers needs to be applied to the order.</value>
         /// <example>faa6cc05-d1e2-401c-b0cf-0c9db3ff0f0b</example>
         [DataMember(Name = "offer_id", EmitDefaultValue = false)]
-        public string offer_id { get; set; }
+        public string? offer_id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="emi">emi.</param>
         /// <param name="totalInterest">totalInterest.</param>
         /// <param name="totalAmount">totalAmount.</param>
-        public EMIPlansArray(int tenure = default(int), decimal interestRate = default(decimal), string currency = default(string), int emi = default(int), int totalInterest = default(int), int totalAmount = default(int))
+        public EMIPlansArray(int? tenure = default(int?), decimal? interestRate = default(decimal?), string? currency = default(string?), int? emi = default(int?), int? totalInterest = default(int?), int? totalAmount = default(int?))
         {
             this.tenure = tenure;
             this.interest_rate = interestRate;
@@ -56,42 +56,42 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>3</example>
         [DataMember(Name = "tenure", EmitDefaultValue = false)]
-        public int tenure { get; set; }
+        public int? tenure { get; set; }
 
         /// <summary>
         /// Gets or Sets interest_rate
         /// </summary>
         /// <example>24</example>
         [DataMember(Name = "interest_rate", EmitDefaultValue = false)]
-        public decimal interest_rate { get; set; }
+        public decimal? interest_rate { get; set; }
 
         /// <summary>
         /// Gets or Sets currency
         /// </summary>
         /// <example>INR</example>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public string currency { get; set; }
+        public string? currency { get; set; }
 
         /// <summary>
         /// Gets or Sets emi
         /// </summary>
         /// <example>3468</example>
         [DataMember(Name = "emi", EmitDefaultValue = false)]
-        public int emi { get; set; }
+        public int? emi { get; set; }
 
         /// <summary>
         /// Gets or Sets total_interest
         /// </summary>
         /// <example>404</example>
         [DataMember(Name = "total_interest", EmitDefaultValue = false)]
-        public int total_interest { get; set; }
+        public int? total_interest { get; set; }
 
         /// <summary>
         /// Gets or Sets total_amount
         /// </summary>
         /// <example>10404</example>
         [DataMember(Name = "total_amount", EmitDefaultValue = false)]
-        public int total_amount { get; set; }
+        public int? total_amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

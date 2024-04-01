@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="status">status.</param>
         /// <param name="message">message.</param>
-        public SplitAfterPaymentResponse(string status = default(string), string message = default(string))
+        public SplitAfterPaymentResponse(string? status = default(string?), string? message = default(string?))
         {
             this.status = status;
             this.message = message;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Gets or Sets message
         /// </summary>
         [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string message { get; set; }
+        public string? message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -158,7 +158,7 @@ namespace cashfree_pg.Model
         /// <param name="cardAlias">Card alias as returned by Cashfree Vault API..</param>
         /// <param name="cardBankName">One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI.</param>
         /// <param name="emiTenure">EMI tenure selected by the user.</param>
-        public Card(ChannelEnum channel = default(ChannelEnum), string cardNumber = default(string), string cardHolderName = default(string), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cardCvv = default(string), string instrumentId = default(string), string cryptogram = default(string), string tokenRequestorId = default(string), string tokenReferenceId = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?), string cardDisplay = default(string), string cardAlias = default(string), CardBankNameEnum? cardBankName = default(CardBankNameEnum?), int emiTenure = default(int))
+        public Card(ChannelEnum channel = default(ChannelEnum), string? cardNumber = default(string?), string? cardHolderName = default(string?), string? cardExpiryMm = default(string?), string? cardExpiryYy = default(string?), string? cardCvv = default(string?), string? instrumentId = default(string?), string? cryptogram = default(string?), string? tokenRequestorId = default(string?), string? tokenReferenceId = default(string?), TokenTypeEnum? tokenType = default(TokenTypeEnum??), string? cardDisplay = default(string?), string? cardAlias = default(string?), CardBankNameEnum? cardBankName = default(CardBankNameEnum??), int? emiTenure = default(int?))
         {
             this.channel = channel;
             this.card_number = cardNumber;
@@ -182,84 +182,84 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Customer card number for plain card transactions. Token pan number for tokenized card transactions.</value>
         [DataMember(Name = "card_number", EmitDefaultValue = false)]
-        public string card_number { get; set; }
+        public string? card_number { get; set; }
 
         /// <summary>
         /// Customer name mentioned on the card.
         /// </summary>
         /// <value>Customer name mentioned on the card.</value>
         [DataMember(Name = "card_holder_name", EmitDefaultValue = false)]
-        public string card_holder_name { get; set; }
+        public string? card_holder_name { get; set; }
 
         /// <summary>
         /// Card expiry month for plain card transactions. Token expiry month for tokenized card transactions.
         /// </summary>
         /// <value>Card expiry month for plain card transactions. Token expiry month for tokenized card transactions.</value>
         [DataMember(Name = "card_expiry_mm", EmitDefaultValue = false)]
-        public string card_expiry_mm { get; set; }
+        public string? card_expiry_mm { get; set; }
 
         /// <summary>
         /// Card expiry year for plain card transactions. Token expiry year for tokenized card transactions.
         /// </summary>
         /// <value>Card expiry year for plain card transactions. Token expiry year for tokenized card transactions.</value>
         [DataMember(Name = "card_expiry_yy", EmitDefaultValue = false)]
-        public string card_expiry_yy { get; set; }
+        public string? card_expiry_yy { get; set; }
 
         /// <summary>
         /// CVV mentioned on the card.
         /// </summary>
         /// <value>CVV mentioned on the card.</value>
         [DataMember(Name = "card_cvv", EmitDefaultValue = false)]
-        public string card_cvv { get; set; }
+        public string? card_cvv { get; set; }
 
         /// <summary>
         /// instrument id of saved card. Required only to make payment using saved instrument.
         /// </summary>
         /// <value>instrument id of saved card. Required only to make payment using saved instrument.</value>
         [DataMember(Name = "instrument_id", EmitDefaultValue = false)]
-        public string instrument_id { get; set; }
+        public string? instrument_id { get; set; }
 
         /// <summary>
         /// cryptogram received from card network. Required only for tokenized card transactions.
         /// </summary>
         /// <value>cryptogram received from card network. Required only for tokenized card transactions.</value>
         [DataMember(Name = "cryptogram", EmitDefaultValue = false)]
-        public string cryptogram { get; set; }
+        public string? cryptogram { get; set; }
 
         /// <summary>
         /// TRID issued by card networks. Required only for tokenized card transactions.
         /// </summary>
         /// <value>TRID issued by card networks. Required only for tokenized card transactions.</value>
         [DataMember(Name = "token_requestor_id", EmitDefaultValue = false)]
-        public string token_requestor_id { get; set; }
+        public string? token_requestor_id { get; set; }
 
         /// <summary>
         /// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. 
         /// </summary>
         /// <value>Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. </value>
         [DataMember(Name = "token_reference_id", EmitDefaultValue = false)]
-        public string token_reference_id { get; set; }
+        public string? token_reference_id { get; set; }
 
         /// <summary>
         /// last 4 digits of original card number. Required only for tokenized card transactions.
         /// </summary>
         /// <value>last 4 digits of original card number. Required only for tokenized card transactions.</value>
         [DataMember(Name = "card_display", EmitDefaultValue = false)]
-        public string card_display { get; set; }
+        public string? card_display { get; set; }
 
         /// <summary>
         /// Card alias as returned by Cashfree Vault API.
         /// </summary>
         /// <value>Card alias as returned by Cashfree Vault API.</value>
         [DataMember(Name = "card_alias", EmitDefaultValue = false)]
-        public string card_alias { get; set; }
+        public string? card_alias { get; set; }
 
         /// <summary>
         /// EMI tenure selected by the user
         /// </summary>
         /// <value>EMI tenure selected by the user</value>
         [DataMember(Name = "emi_tenure", EmitDefaultValue = false)]
-        public int emi_tenure { get; set; }
+        public int? emi_tenure { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

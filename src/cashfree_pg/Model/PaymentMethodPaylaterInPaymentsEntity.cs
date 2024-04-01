@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodPaylaterInPaymentsEntity" /> class.
         /// </summary>
         /// <param name="paylater">paylater.</param>
-        public PaymentMethodPaylaterInPaymentsEntity(PaymentMethodAppInPaymentsEntityApp paylater = default(PaymentMethodAppInPaymentsEntityApp))
+        public PaymentMethodPaylaterInPaymentsEntity(PaymentMethodAppInPaymentsEntityApp? paylater = default(PaymentMethodAppInPaymentsEntityApp?))
         {
             this.paylater = paylater;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets paylater
         /// </summary>
         [DataMember(Name = "paylater", EmitDefaultValue = false)]
-        public PaymentMethodAppInPaymentsEntityApp paylater { get; set; }
+        public PaymentMethodAppInPaymentsEntityApp? paylater { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

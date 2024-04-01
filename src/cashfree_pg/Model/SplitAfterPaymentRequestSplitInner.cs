@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="amount">Specify the amount to be split to the vendor..</param>
         /// <param name="percentage">Specify the percentage of amount to be split..</param>
         /// <param name="tags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
-        public SplitAfterPaymentRequestSplitInner(string vendorId = default(string), decimal amount = default(decimal), decimal percentage = default(decimal), Dictionary<string, string> tags = default(Dictionary<string, string>))
+        public SplitAfterPaymentRequestSplitInner(string? vendorId = default(string?), decimal? amount = default(decimal?), decimal? percentage = default(decimal?), Dictionary<string, string>? tags = default(Dictionary<string, string>?))
         {
             this.vendor_id = vendorId;
             this.amount = amount;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify the merchant vendor ID to split the payment.</value>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Specify the amount to be split to the vendor.
         /// </summary>
         /// <value>Specify the amount to be split to the vendor.</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// Specify the percentage of amount to be split.
         /// </summary>
         /// <value>Specify the percentage of amount to be split.</value>
         [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public decimal percentage { get; set; }
+        public decimal? percentage { get; set; }
 
         /// <summary>
         /// Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added
         /// </summary>
         /// <value>Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public Dictionary<string, string> tags { get; set; }
+        public Dictionary<string, string>? tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

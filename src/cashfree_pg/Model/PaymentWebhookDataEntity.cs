@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="errorDetails">errorDetails.</param>
         /// <param name="paymentGatewayDetails">paymentGatewayDetails.</param>
         /// <param name="paymentOffers">paymentOffers.</param>
-        public PaymentWebhookDataEntity(PaymentWebhookOrderEntity order = default(PaymentWebhookOrderEntity), PaymentEntity payment = default(PaymentEntity), PaymentWebhookCustomerEntity customerDetails = default(PaymentWebhookCustomerEntity), PaymentWebhookErrorEntity errorDetails = default(PaymentWebhookErrorEntity), PaymentWebhookGatewayDetailsEntity paymentGatewayDetails = default(PaymentWebhookGatewayDetailsEntity), List<OfferEntity> paymentOffers = default(List<OfferEntity>))
+        public PaymentWebhookDataEntity(PaymentWebhookOrderEntity? order = default(PaymentWebhookOrderEntity?), PaymentEntity? payment = default(PaymentEntity?), PaymentWebhookCustomerEntity? customerDetails = default(PaymentWebhookCustomerEntity?), PaymentWebhookErrorEntity? errorDetails = default(PaymentWebhookErrorEntity?), PaymentWebhookGatewayDetailsEntity? paymentGatewayDetails = default(PaymentWebhookGatewayDetailsEntity?), List<OfferEntity>? paymentOffers = default(List<OfferEntity>?))
         {
             this.order = order;
             this.payment = payment;
@@ -55,37 +55,37 @@ namespace cashfree_pg.Model
         /// Gets or Sets order
         /// </summary>
         [DataMember(Name = "order", EmitDefaultValue = false)]
-        public PaymentWebhookOrderEntity order { get; set; }
+        public PaymentWebhookOrderEntity? order { get; set; }
 
         /// <summary>
         /// Gets or Sets payment
         /// </summary>
         [DataMember(Name = "payment", EmitDefaultValue = false)]
-        public PaymentEntity payment { get; set; }
+        public PaymentEntity? payment { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_details
         /// </summary>
         [DataMember(Name = "customer_details", EmitDefaultValue = false)]
-        public PaymentWebhookCustomerEntity customer_details { get; set; }
+        public PaymentWebhookCustomerEntity? customer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets error_details
         /// </summary>
         [DataMember(Name = "error_details", EmitDefaultValue = false)]
-        public PaymentWebhookErrorEntity error_details { get; set; }
+        public PaymentWebhookErrorEntity? error_details { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_gateway_details
         /// </summary>
         [DataMember(Name = "payment_gateway_details", EmitDefaultValue = false)]
-        public PaymentWebhookGatewayDetailsEntity payment_gateway_details { get; set; }
+        public PaymentWebhookGatewayDetailsEntity? payment_gateway_details { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_offers
         /// </summary>
         [DataMember(Name = "payment_offers", EmitDefaultValue = false)]
-        public List<OfferEntity> payment_offers { get; set; }
+        public List<OfferEntity>? payment_offers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

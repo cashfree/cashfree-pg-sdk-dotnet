@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="entityType">entityType.</param>
         /// <param name="entityValue">entityValue.</param>
         /// <param name="entityDetails">entityDetails.</param>
-        public EligibilityCardlessEMIEntity(bool eligibility = default(bool), string entityType = default(string), string entityValue = default(string), CardlessEMIEntity entityDetails = default(CardlessEMIEntity))
+        public EligibilityCardlessEMIEntity(bool? eligibility = default(bool?), string? entityType = default(string?), string? entityValue = default(string?), CardlessEMIEntity? entityDetails = default(CardlessEMIEntity?))
         {
             this.eligibility = eligibility;
             this.entity_type = entityType;
@@ -52,27 +52,27 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "eligibility", EmitDefaultValue = true)]
-        public bool eligibility { get; set; }
+        public bool? eligibility { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_type
         /// </summary>
         /// <example>cardlessemi</example>
         [DataMember(Name = "entity_type", EmitDefaultValue = false)]
-        public string entity_type { get; set; }
+        public string? entity_type { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_value
         /// </summary>
         /// <example>idfc</example>
         [DataMember(Name = "entity_value", EmitDefaultValue = false)]
-        public string entity_value { get; set; }
+        public string? entity_value { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_details
         /// </summary>
         [DataMember(Name = "entity_details", EmitDefaultValue = false)]
-        public CardlessEMIEntity entity_details { get; set; }
+        public CardlessEMIEntity? entity_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

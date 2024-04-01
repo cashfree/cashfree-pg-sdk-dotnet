@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="emiAmount">emiAmount.</param>
         /// <param name="emiTenure">emiTenure.</param>
         /// <param name="emiInterest">emiInterest.</param>
-        public PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails(decimal emiAmount = default(decimal), decimal emiTenure = default(decimal), decimal emiInterest = default(decimal))
+        public PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails(decimal? emiAmount = default(decimal?), decimal? emiTenure = default(decimal?), decimal? emiInterest = default(decimal?))
         {
             this.emi_amount = emiAmount;
             this.emi_tenure = emiTenure;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets emi_amount
         /// </summary>
         [DataMember(Name = "emi_amount", EmitDefaultValue = false)]
-        public decimal emi_amount { get; set; }
+        public decimal? emi_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets emi_tenure
         /// </summary>
         [DataMember(Name = "emi_tenure", EmitDefaultValue = false)]
-        public decimal emi_tenure { get; set; }
+        public decimal? emi_tenure { get; set; }
 
         /// <summary>
         /// Gets or Sets emi_interest
         /// </summary>
         [DataMember(Name = "emi_interest", EmitDefaultValue = false)]
-        public decimal emi_interest { get; set; }
+        public decimal? emi_interest { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

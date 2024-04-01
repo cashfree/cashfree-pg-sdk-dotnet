@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="OfferNBNetbanking" /> class.
         /// </summary>
         /// <param name="bankName">bankName.</param>
-        public OfferNBNetbanking(string bankName = default(string))
+        public OfferNBNetbanking(string? bankName = default(string?))
         {
             this.bank_name = bankName;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>all</example>
         [DataMember(Name = "bank_name", EmitDefaultValue = false)]
-        public string bank_name { get; set; }
+        public string? bank_name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

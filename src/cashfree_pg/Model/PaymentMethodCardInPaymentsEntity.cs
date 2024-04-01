@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaymentMethodCardInPaymentsEntity" /> class.
         /// </summary>
         /// <param name="card">card.</param>
-        public PaymentMethodCardInPaymentsEntity(PaymentMethodCardInPaymentsEntityCard card = default(PaymentMethodCardInPaymentsEntityCard))
+        public PaymentMethodCardInPaymentsEntity(PaymentMethodCardInPaymentsEntityCard? card = default(PaymentMethodCardInPaymentsEntityCard?))
         {
             this.card = card;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets card
         /// </summary>
         [DataMember(Name = "card", EmitDefaultValue = false)]
-        public PaymentMethodCardInPaymentsEntityCard card { get; set; }
+        public PaymentMethodCardInPaymentsEntityCard? card { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

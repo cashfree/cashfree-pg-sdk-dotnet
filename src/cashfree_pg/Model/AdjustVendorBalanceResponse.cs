@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="transferDetails">transferDetails.</param>
         /// <param name="balances">balances.</param>
         /// <param name="charges">charges.</param>
-        public AdjustVendorBalanceResponse(decimal settlementId = default(decimal), TransferDetails transferDetails = default(TransferDetails), BalanceDetails balances = default(BalanceDetails), ChargesDetails charges = default(ChargesDetails))
+        public AdjustVendorBalanceResponse(decimal? settlementId = default(decimal?), TransferDetails? transferDetails = default(TransferDetails?), BalanceDetails? balances = default(BalanceDetails?), ChargesDetails? charges = default(ChargesDetails?))
         {
             this.settlement_id = settlementId;
             this.transfer_details = transferDetails;
@@ -51,25 +51,25 @@ namespace cashfree_pg.Model
         /// Gets or Sets settlement_id
         /// </summary>
         [DataMember(Name = "settlement_id", EmitDefaultValue = false)]
-        public decimal settlement_id { get; set; }
+        public decimal? settlement_id { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_details
         /// </summary>
         [DataMember(Name = "transfer_details", EmitDefaultValue = false)]
-        public TransferDetails transfer_details { get; set; }
+        public TransferDetails? transfer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets balances
         /// </summary>
         [DataMember(Name = "balances", EmitDefaultValue = false)]
-        public BalanceDetails balances { get; set; }
+        public BalanceDetails? balances { get; set; }
 
         /// <summary>
         /// Gets or Sets charges
         /// </summary>
         [DataMember(Name = "charges", EmitDefaultValue = false)]
-        public ChargesDetails charges { get; set; }
+        public ChargesDetails? charges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

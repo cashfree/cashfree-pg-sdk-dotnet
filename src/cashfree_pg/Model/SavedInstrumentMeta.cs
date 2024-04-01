@@ -40,7 +40,7 @@ namespace cashfree_pg.Model
         /// <param name="cardCountry">Issuing country of saved card.</param>
         /// <param name="cardType">Type of saved card.</param>
         /// <param name="cardTokenDetails">cardTokenDetails.</param>
-        public SavedInstrumentMeta(string cardNetwork = default(string), string cardBankName = default(string), string cardCountry = default(string), string cardType = default(string), Object cardTokenDetails = default(Object))
+        public SavedInstrumentMeta(string? cardNetwork = default(string?), string? cardBankName = default(string?), string? cardCountry = default(string?), string? cardType = default(string?), Object? cardTokenDetails = default(Object?))
         {
             this.card_network = cardNetwork;
             this.card_bank_name = cardBankName;
@@ -55,7 +55,7 @@ namespace cashfree_pg.Model
         /// <value>card scheme/network of the saved card. Example visa, mastercard</value>
         /// <example>VISA</example>
         [DataMember(Name = "card_network", EmitDefaultValue = false)]
-        public string card_network { get; set; }
+        public string? card_network { get; set; }
 
         /// <summary>
         /// Issuing bank name of saved card
@@ -63,7 +63,7 @@ namespace cashfree_pg.Model
         /// <value>Issuing bank name of saved card</value>
         /// <example>HDFC Bank</example>
         [DataMember(Name = "card_bank_name", EmitDefaultValue = false)]
-        public string card_bank_name { get; set; }
+        public string? card_bank_name { get; set; }
 
         /// <summary>
         /// Issuing country of saved card
@@ -71,7 +71,7 @@ namespace cashfree_pg.Model
         /// <value>Issuing country of saved card</value>
         /// <example>IN</example>
         [DataMember(Name = "card_country", EmitDefaultValue = false)]
-        public string card_country { get; set; }
+        public string? card_country { get; set; }
 
         /// <summary>
         /// Type of saved card
@@ -79,14 +79,14 @@ namespace cashfree_pg.Model
         /// <value>Type of saved card</value>
         /// <example>DEBIT_CARD</example>
         [DataMember(Name = "card_type", EmitDefaultValue = false)]
-        public string card_type { get; set; }
+        public string? card_type { get; set; }
 
         /// <summary>
         /// Gets or Sets card_token_details
         /// </summary>
         /// <example>{&quot;par&quot;:&quot;somepar&quot;,&quot;expiry_month&quot;:&quot;12&quot;,&quot;expiry_year&quot;:&quot;23&quot;}</example>
         [DataMember(Name = "card_token_details", EmitDefaultValue = false)]
-        public Object card_token_details { get; set; }
+        public Object? card_token_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         /// <param name="customerBankAccountNumber">Customer bank account. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankIfsc">Customer bank IFSC. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankCode">Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV).</param>
-        public PaymentLinkCustomerDetails(string customerId = default(string), string customerEmail = default(string), string customerPhone = default(string), string customerName = default(string), string customerBankAccountNumber = default(string), string customerBankIfsc = default(string), decimal customerBankCode = default(decimal))
+        public PaymentLinkCustomerDetails(string? customerId = default(string?), string? customerEmail = default(string?), string customerPhone = default(string), string? customerName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), decimal? customerBankCode = default(decimal?))
         {
             // to ensure "customerPhone" is required (not null)
             if (customerPhone == null)
@@ -68,14 +68,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>A unique identifier for the customer. Use alphanumeric values only.</value>
         [DataMember(Name = "customer_id", EmitDefaultValue = false)]
-        public string customer_id { get; set; }
+        public string? customer_id { get; set; }
 
         /// <summary>
         /// Customer email address.
         /// </summary>
         /// <value>Customer email address.</value>
         [DataMember(Name = "customer_email", EmitDefaultValue = false)]
-        public string customer_email { get; set; }
+        public string? customer_email { get; set; }
 
         /// <summary>
         /// Customer phone number.
@@ -89,28 +89,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Name of the customer.</value>
         [DataMember(Name = "customer_name", EmitDefaultValue = false)]
-        public string customer_name { get; set; }
+        public string? customer_name { get; set; }
 
         /// <summary>
         /// Customer bank account. Required if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank account. Required if you want to do a bank account check (TPV)</value>
         [DataMember(Name = "customer_bank_account_number", EmitDefaultValue = false)]
-        public string customer_bank_account_number { get; set; }
+        public string? customer_bank_account_number { get; set; }
 
         /// <summary>
         /// Customer bank IFSC. Required if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank IFSC. Required if you want to do a bank account check (TPV)</value>
         [DataMember(Name = "customer_bank_ifsc", EmitDefaultValue = false)]
-        public string customer_bank_ifsc { get; set; }
+        public string? customer_bank_ifsc { get; set; }
 
         /// <summary>
         /// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
         /// </summary>
         /// <value>Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)</value>
         [DataMember(Name = "customer_bank_code", EmitDefaultValue = false)]
-        public decimal customer_bank_code { get; set; }
+        public decimal? customer_bank_code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

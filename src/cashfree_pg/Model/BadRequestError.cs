@@ -57,7 +57,7 @@ namespace cashfree_pg.Model
         /// <param name="message">message.</param>
         /// <param name="code">code.</param>
         /// <param name="type">type.</param>
-        public BadRequestError(string message = default(string), string code = default(string), TypeEnum? type = default(TypeEnum?))
+        public BadRequestError(string? message = default(string?), string? code = default(string?), TypeEnum? type = default(TypeEnum??))
         {
             this.message = message;
             this.code = code;
@@ -68,13 +68,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets message
         /// </summary>
         [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string message { get; set; }
+        public string? message { get; set; }
 
         /// <summary>
         /// Gets or Sets code
         /// </summary>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public string code { get; set; }
+        public string? code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

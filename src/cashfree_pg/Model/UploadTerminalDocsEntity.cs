@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="docType">docType.</param>
         /// <param name="docValue">docValue.</param>
         /// <param name="status">status.</param>
-        public UploadTerminalDocsEntity(int cfTerminalId = default(int), string docType = default(string), string docValue = default(string), string status = default(string))
+        public UploadTerminalDocsEntity(int? cfTerminalId = default(int?), string? docType = default(string?), string? docValue = default(string?), string? status = default(string?))
         {
             this.cf_terminal_id = cfTerminalId;
             this.doc_type = docType;
@@ -51,25 +51,25 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_terminal_id
         /// </summary>
         [DataMember(Name = "cf_terminal_id", EmitDefaultValue = false)]
-        public int cf_terminal_id { get; set; }
+        public int? cf_terminal_id { get; set; }
 
         /// <summary>
         /// Gets or Sets doc_type
         /// </summary>
         [DataMember(Name = "doc_type", EmitDefaultValue = false)]
-        public string doc_type { get; set; }
+        public string? doc_type { get; set; }
 
         /// <summary>
         /// Gets or Sets doc_value
         /// </summary>
         [DataMember(Name = "doc_value", EmitDefaultValue = false)]
-        public string doc_value { get; set; }
+        public string? doc_value { get; set; }
 
         /// <summary>
         /// Gets or Sets status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

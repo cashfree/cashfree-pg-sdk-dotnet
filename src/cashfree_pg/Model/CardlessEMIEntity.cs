@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="paymentMethod">paymentMethod.</param>
         /// <param name="emiPlans">emiPlans.</param>
-        public CardlessEMIEntity(string paymentMethod = default(string), List<EMIPlansArray> emiPlans = default(List<EMIPlansArray>))
+        public CardlessEMIEntity(string? paymentMethod = default(string?), List<EMIPlansArray>? emiPlans = default(List<EMIPlansArray>?))
         {
             this.payment_method = paymentMethod;
             this.emi_plans = emiPlans;
@@ -48,13 +48,13 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>idfc</example>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public string payment_method { get; set; }
+        public string? payment_method { get; set; }
 
         /// <summary>
         /// Gets or Sets emi_plans
         /// </summary>
         [DataMember(Name = "emi_plans", EmitDefaultValue = false)]
-        public List<EMIPlansArray> emi_plans { get; set; }
+        public List<EMIPlansArray>? emi_plans { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

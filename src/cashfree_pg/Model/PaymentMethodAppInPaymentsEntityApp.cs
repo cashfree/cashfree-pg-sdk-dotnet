@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="channel">channel.</param>
         /// <param name="provider">provider.</param>
         /// <param name="phone">phone.</param>
-        public PaymentMethodAppInPaymentsEntityApp(string channel = default(string), string provider = default(string), string phone = default(string))
+        public PaymentMethodAppInPaymentsEntityApp(string? channel = default(string?), string? provider = default(string?), string? phone = default(string?))
         {
             this.channel = channel;
             this.provider = provider;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets channel
         /// </summary>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Gets or Sets provider
         /// </summary>
         [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public string provider { get; set; }
+        public string? provider { get; set; }
 
         /// <summary>
         /// Gets or Sets phone
         /// </summary>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public string phone { get; set; }
+        public string? phone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

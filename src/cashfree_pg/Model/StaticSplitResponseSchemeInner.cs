@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="merchantVendorId">merchantVendorId.</param>
         /// <param name="percentage">percentage.</param>
-        public StaticSplitResponseSchemeInner(string merchantVendorId = default(string), string percentage = default(string))
+        public StaticSplitResponseSchemeInner(string? merchantVendorId = default(string?), string? percentage = default(string?))
         {
             this.merchantVendorId = merchantVendorId;
             this.percentage = percentage;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets merchantVendorId
         /// </summary>
         [DataMember(Name = "merchantVendorId", EmitDefaultValue = false)]
-        public string merchantVendorId { get; set; }
+        public string? merchantVendorId { get; set; }
 
         /// <summary>
         /// Gets or Sets percentage
         /// </summary>
         [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public string percentage { get; set; }
+        public string? percentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

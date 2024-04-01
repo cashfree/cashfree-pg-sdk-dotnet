@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// <param name="cardCountry">cardCountry.</param>
         /// <param name="cardBankName">cardBankName.</param>
         /// <param name="cardNetworkReferenceId">cardNetworkReferenceId.</param>
-        public PaymentMethodCardInPaymentsEntityCard(string channel = default(string), string cardNumber = default(string), string cardNetwork = default(string), string cardType = default(string), string cardCountry = default(string), string cardBankName = default(string), string cardNetworkReferenceId = default(string))
+        public PaymentMethodCardInPaymentsEntityCard(string? channel = default(string?), string? cardNumber = default(string?), string? cardNetwork = default(string?), string? cardType = default(string?), string? cardCountry = default(string?), string? cardBankName = default(string?), string? cardNetworkReferenceId = default(string?))
         {
             this.channel = channel;
             this.card_number = cardNumber;
@@ -57,43 +57,43 @@ namespace cashfree_pg.Model
         /// Gets or Sets channel
         /// </summary>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Gets or Sets card_number
         /// </summary>
         [DataMember(Name = "card_number", EmitDefaultValue = false)]
-        public string card_number { get; set; }
+        public string? card_number { get; set; }
 
         /// <summary>
         /// Gets or Sets card_network
         /// </summary>
         [DataMember(Name = "card_network", EmitDefaultValue = false)]
-        public string card_network { get; set; }
+        public string? card_network { get; set; }
 
         /// <summary>
         /// Gets or Sets card_type
         /// </summary>
         [DataMember(Name = "card_type", EmitDefaultValue = false)]
-        public string card_type { get; set; }
+        public string? card_type { get; set; }
 
         /// <summary>
         /// Gets or Sets card_country
         /// </summary>
         [DataMember(Name = "card_country", EmitDefaultValue = false)]
-        public string card_country { get; set; }
+        public string? card_country { get; set; }
 
         /// <summary>
         /// Gets or Sets card_bank_name
         /// </summary>
         [DataMember(Name = "card_bank_name", EmitDefaultValue = false)]
-        public string card_bank_name { get; set; }
+        public string? card_bank_name { get; set; }
 
         /// <summary>
         /// Gets or Sets card_network_reference_id
         /// </summary>
         [DataMember(Name = "card_network_reference_id", EmitDefaultValue = false)]
-        public string card_network_reference_id { get; set; }
+        public string? card_network_reference_id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

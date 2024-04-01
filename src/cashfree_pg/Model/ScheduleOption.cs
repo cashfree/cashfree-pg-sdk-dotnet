@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="settlementScheduleMessage">settlementScheduleMessage.</param>
         /// <param name="scheduleId">scheduleId.</param>
         /// <param name="merchantDefault">merchantDefault.</param>
-        public ScheduleOption(string settlementScheduleMessage = default(string), decimal scheduleId = default(decimal), bool merchantDefault = default(bool))
+        public ScheduleOption(string? settlementScheduleMessage = default(string?), decimal? scheduleId = default(decimal?), bool? merchantDefault = default(bool?))
         {
             this.settlement_schedule_message = settlementScheduleMessage;
             this.schedule_id = scheduleId;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets settlement_schedule_message
         /// </summary>
         [DataMember(Name = "settlement_schedule_message", EmitDefaultValue = false)]
-        public string settlement_schedule_message { get; set; }
+        public string? settlement_schedule_message { get; set; }
 
         /// <summary>
         /// Gets or Sets schedule_id
         /// </summary>
         [DataMember(Name = "schedule_id", EmitDefaultValue = false)]
-        public decimal schedule_id { get; set; }
+        public decimal? schedule_id { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_default
         /// </summary>
         [DataMember(Name = "merchant_default", EmitDefaultValue = true)]
-        public bool merchant_default { get; set; }
+        public bool? merchant_default { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

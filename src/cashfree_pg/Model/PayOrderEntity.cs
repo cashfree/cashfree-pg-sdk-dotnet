@@ -176,7 +176,7 @@ namespace cashfree_pg.Model
         /// <param name="channel">One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39;.</param>
         /// <param name="action">One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;].</param>
         /// <param name="data">data.</param>
-        public PayOrderEntity(decimal paymentAmount = default(decimal), string cfPaymentId = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), ChannelEnum? channel = default(ChannelEnum?), ActionEnum? action = default(ActionEnum?), OrderPayData data = default(OrderPayData))
+        public PayOrderEntity(decimal? paymentAmount = default(decimal?), string? cfPaymentId = default(string?), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum??), ChannelEnum? channel = default(ChannelEnum??), ActionEnum? action = default(ActionEnum??), OrderPayData? data = default(OrderPayData?))
         {
             this.payment_amount = paymentAmount;
             this.cf_payment_id = cfPaymentId;
@@ -191,20 +191,20 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>total amount payable</value>
         [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
-        public decimal payment_amount { get; set; }
+        public decimal? payment_amount { get; set; }
 
         /// <summary>
         /// Payment identifier created by Cashfree
         /// </summary>
         /// <value>Payment identifier created by Cashfree</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public OrderPayData data { get; set; }
+        public OrderPayData? data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

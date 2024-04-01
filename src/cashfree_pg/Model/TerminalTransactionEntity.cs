@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="paymentUrl">paymentUrl.</param>
         /// <param name="qrcode">qrcode.</param>
         /// <param name="timeout">timeout.</param>
-        public TerminalTransactionEntity(string cfPaymentId = default(string), int paymentAmount = default(int), string paymentMethod = default(string), string paymentUrl = default(string), string qrcode = default(string), string timeout = default(string))
+        public TerminalTransactionEntity(string? cfPaymentId = default(string?), int? paymentAmount = default(int?), string? paymentMethod = default(string?), string? paymentUrl = default(string?), string? qrcode = default(string?), string? timeout = default(string?))
         {
             this.cf_payment_id = cfPaymentId;
             this.payment_amount = paymentAmount;
@@ -55,37 +55,37 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_payment_id
         /// </summary>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_amount
         /// </summary>
         [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
-        public int payment_amount { get; set; }
+        public int? payment_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_method
         /// </summary>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public string payment_method { get; set; }
+        public string? payment_method { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_url
         /// </summary>
         [DataMember(Name = "payment_url", EmitDefaultValue = false)]
-        public string payment_url { get; set; }
+        public string? payment_url { get; set; }
 
         /// <summary>
         /// Gets or Sets qrcode
         /// </summary>
         [DataMember(Name = "qrcode", EmitDefaultValue = false)]
-        public string qrcode { get; set; }
+        public string? qrcode { get; set; }
 
         /// <summary>
         /// Gets or Sets timeout
         /// </summary>
         [DataMember(Name = "timeout", EmitDefaultValue = false)]
-        public string timeout { get; set; }
+        public string? timeout { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

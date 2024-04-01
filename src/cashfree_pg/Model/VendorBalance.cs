@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="vendorId">vendorId.</param>
         /// <param name="merchantUnsettled">merchantUnsettled.</param>
         /// <param name="vendorUnsettled">vendorUnsettled.</param>
-        public VendorBalance(decimal merchantId = default(decimal), string vendorId = default(string), decimal merchantUnsettled = default(decimal), decimal vendorUnsettled = default(decimal))
+        public VendorBalance(decimal? merchantId = default(decimal?), string? vendorId = default(string?), decimal? merchantUnsettled = default(decimal?), decimal? vendorUnsettled = default(decimal?))
         {
             this.merchant_id = merchantId;
             this.vendor_id = vendorId;
@@ -51,25 +51,25 @@ namespace cashfree_pg.Model
         /// Gets or Sets merchant_id
         /// </summary>
         [DataMember(Name = "merchant_id", EmitDefaultValue = false)]
-        public decimal merchant_id { get; set; }
+        public decimal? merchant_id { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_id
         /// </summary>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets merchant_unsettled
         /// </summary>
         [DataMember(Name = "merchant_unsettled", EmitDefaultValue = false)]
-        public decimal merchant_unsettled { get; set; }
+        public decimal? merchant_unsettled { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_unsettled
         /// </summary>
         [DataMember(Name = "vendor_unsettled", EmitDefaultValue = false)]
-        public decimal vendor_unsettled { get; set; }
+        public decimal? vendor_unsettled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

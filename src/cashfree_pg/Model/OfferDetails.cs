@@ -83,7 +83,7 @@ namespace cashfree_pg.Model
         /// <param name="offerType">Offer Type for the Offer. (required).</param>
         /// <param name="discountDetails">discountDetails.</param>
         /// <param name="cashbackDetails">cashbackDetails.</param>
-        public OfferDetails(OfferTypeEnum offerType = default(OfferTypeEnum), DiscountDetails discountDetails = default(DiscountDetails), CashbackDetails cashbackDetails = default(CashbackDetails))
+        public OfferDetails(OfferTypeEnum offerType = default(OfferTypeEnum), DiscountDetails? discountDetails = default(DiscountDetails?), CashbackDetails? cashbackDetails = default(CashbackDetails?))
         {
             this.offer_type = offerType;
             this.discount_details = discountDetails;
@@ -94,13 +94,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets discount_details
         /// </summary>
         [DataMember(Name = "discount_details", EmitDefaultValue = false)]
-        public DiscountDetails discount_details { get; set; }
+        public DiscountDetails? discount_details { get; set; }
 
         /// <summary>
         /// Gets or Sets cashback_details
         /// </summary>
         [DataMember(Name = "cashback_details", EmitDefaultValue = false)]
-        public CashbackDetails cashback_details { get; set; }
+        public CashbackDetails? cashback_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

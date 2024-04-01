@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="merchantVendorId">Specify the merchant vendor ID to create the split scheme for the payment..</param>
         /// <param name="percentage">Specify the percentage of amount to be split..</param>
-        public StaticSplitRequestSchemeInner(string merchantVendorId = default(string), string percentage = default(string))
+        public StaticSplitRequestSchemeInner(string? merchantVendorId = default(string?), string? percentage = default(string?))
         {
             this.merchantVendorId = merchantVendorId;
             this.percentage = percentage;
@@ -48,14 +48,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify the merchant vendor ID to create the split scheme for the payment.</value>
         [DataMember(Name = "merchantVendorId", EmitDefaultValue = false)]
-        public string merchantVendorId { get; set; }
+        public string? merchantVendorId { get; set; }
 
         /// <summary>
         /// Specify the percentage of amount to be split.
         /// </summary>
         /// <value>Specify the percentage of amount to be split.</value>
         [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public string percentage { get; set; }
+        public string? percentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

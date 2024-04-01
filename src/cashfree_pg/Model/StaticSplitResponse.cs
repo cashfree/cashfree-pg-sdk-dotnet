@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="productType">productType.</param>
         /// <param name="scheme">scheme.</param>
         /// <param name="addedOn">addedOn.</param>
-        public StaticSplitResponse(bool active = default(bool), string terminalId = default(string), decimal terminalReferenceId = default(decimal), string productType = default(string), List<StaticSplitResponseSchemeInner> scheme = default(List<StaticSplitResponseSchemeInner>), string addedOn = default(string))
+        public StaticSplitResponse(bool? active = default(bool?), string? terminalId = default(string?), decimal? terminalReferenceId = default(decimal?), string? productType = default(string?), List<StaticSplitResponseSchemeInner>? scheme = default(List<StaticSplitResponseSchemeInner>?), string? addedOn = default(string?))
         {
             this.active = active;
             this.terminal_id = terminalId;
@@ -55,37 +55,37 @@ namespace cashfree_pg.Model
         /// Gets or Sets active
         /// </summary>
         [DataMember(Name = "active", EmitDefaultValue = true)]
-        public bool active { get; set; }
+        public bool? active { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_id
         /// </summary>
         [DataMember(Name = "terminal_id", EmitDefaultValue = false)]
-        public string terminal_id { get; set; }
+        public string? terminal_id { get; set; }
 
         /// <summary>
         /// Gets or Sets terminal_reference_id
         /// </summary>
         [DataMember(Name = "terminal_reference_id", EmitDefaultValue = false)]
-        public decimal terminal_reference_id { get; set; }
+        public decimal? terminal_reference_id { get; set; }
 
         /// <summary>
         /// Gets or Sets product_type
         /// </summary>
         [DataMember(Name = "product_type", EmitDefaultValue = false)]
-        public string product_type { get; set; }
+        public string? product_type { get; set; }
 
         /// <summary>
         /// Gets or Sets scheme
         /// </summary>
         [DataMember(Name = "scheme", EmitDefaultValue = false)]
-        public List<StaticSplitResponseSchemeInner> scheme { get; set; }
+        public List<StaticSplitResponseSchemeInner>? scheme { get; set; }
 
         /// <summary>
         /// Gets or Sets added_on
         /// </summary>
         [DataMember(Name = "added_on", EmitDefaultValue = false)]
-        public string added_on { get; set; }
+        public string? added_on { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

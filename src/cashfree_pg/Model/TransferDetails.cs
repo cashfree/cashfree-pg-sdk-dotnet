@@ -41,7 +41,7 @@ namespace cashfree_pg.Model
         /// <param name="transferAmount">transferAmount.</param>
         /// <param name="remark">remark.</param>
         /// <param name="tags">tags.</param>
-        public TransferDetails(string vendorId = default(string), string transferFrom = default(string), string transferType = default(string), decimal transferAmount = default(decimal), string remark = default(string), List<TransferDetailsTagsInner> tags = default(List<TransferDetailsTagsInner>))
+        public TransferDetails(string? vendorId = default(string?), string? transferFrom = default(string?), string? transferType = default(string?), decimal? transferAmount = default(decimal?), string? remark = default(string?), List<TransferDetailsTagsInner>? tags = default(List<TransferDetailsTagsInner>?))
         {
             this.vendor_id = vendorId;
             this.transfer_from = transferFrom;
@@ -55,37 +55,37 @@ namespace cashfree_pg.Model
         /// Gets or Sets vendor_id
         /// </summary>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_from
         /// </summary>
         [DataMember(Name = "transfer_from", EmitDefaultValue = false)]
-        public string transfer_from { get; set; }
+        public string? transfer_from { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_type
         /// </summary>
         [DataMember(Name = "transfer_type", EmitDefaultValue = false)]
-        public string transfer_type { get; set; }
+        public string? transfer_type { get; set; }
 
         /// <summary>
         /// Gets or Sets transfer_amount
         /// </summary>
         [DataMember(Name = "transfer_amount", EmitDefaultValue = false)]
-        public decimal transfer_amount { get; set; }
+        public decimal? transfer_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets remark
         /// </summary>
         [DataMember(Name = "remark", EmitDefaultValue = false)]
-        public string remark { get; set; }
+        public string? remark { get; set; }
 
         /// <summary>
         /// Gets or Sets tags
         /// </summary>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public List<TransferDetailsTagsInner> tags { get; set; }
+        public List<TransferDetailsTagsInner>? tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

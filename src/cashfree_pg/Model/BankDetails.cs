@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="accountNumber">accountNumber.</param>
         /// <param name="accountHolder">accountHolder.</param>
         /// <param name="ifsc">ifsc.</param>
-        public BankDetails(string accountNumber = default(string), string accountHolder = default(string), string ifsc = default(string))
+        public BankDetails(string? accountNumber = default(string?), string? accountHolder = default(string?), string? ifsc = default(string?))
         {
             this.account_number = accountNumber;
             this.account_holder = accountHolder;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets account_number
         /// </summary>
         [DataMember(Name = "account_number", EmitDefaultValue = false)]
-        public string account_number { get; set; }
+        public string? account_number { get; set; }
 
         /// <summary>
         /// Gets or Sets account_holder
         /// </summary>
         [DataMember(Name = "account_holder", EmitDefaultValue = false)]
-        public string account_holder { get; set; }
+        public string? account_holder { get; set; }
 
         /// <summary>
         /// Gets or Sets ifsc
         /// </summary>
         [DataMember(Name = "ifsc", EmitDefaultValue = false)]
-        public string ifsc { get; set; }
+        public string? ifsc { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

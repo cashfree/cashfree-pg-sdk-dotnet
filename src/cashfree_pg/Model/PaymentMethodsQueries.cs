@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="amount">Amount of the order..</param>
         /// <param name="orderId">OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory..</param>
-        public PaymentMethodsQueries(decimal amount = default(decimal), string orderId = default(string))
+        public PaymentMethodsQueries(decimal? amount = default(decimal?), string? orderId = default(string?))
         {
             this.amount = amount;
             this.order_id = orderId;
@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <value>Amount of the order.</value>
         /// <example>100</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory.
@@ -57,7 +57,7 @@ namespace cashfree_pg.Model
         /// <value>OrderId of the order. Either of &#x60;order_id&#x60; or &#x60;order_amount&#x60; is mandatory.</value>
         /// <example>order_413462PK1RI1IwYB1X69LgzUQWiSxYDF</example>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
-        public string order_id { get; set; }
+        public string? order_id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

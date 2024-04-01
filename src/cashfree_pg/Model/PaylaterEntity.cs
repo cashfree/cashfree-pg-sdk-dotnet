@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="PaylaterEntity" /> class.
         /// </summary>
         /// <param name="paymentMethod">paymentMethod.</param>
-        public PaylaterEntity(string paymentMethod = default(string))
+        public PaylaterEntity(string? paymentMethod = default(string?))
         {
             this.payment_method = paymentMethod;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>olapostpaid</example>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public string payment_method { get; set; }
+        public string? payment_method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

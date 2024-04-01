@@ -64,7 +64,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="action">Type of authorization to run. Can be one of &#39;CAPTURE&#39; , &#39;VOID&#39;.</param>
         /// <param name="amount">The amount if you are running a &#39;CAPTURE&#39;.</param>
-        public AuthorizeOrderRequest(ActionEnum? action = default(ActionEnum?), decimal amount = default(decimal))
+        public AuthorizeOrderRequest(ActionEnum? action = default(ActionEnum?), decimal? amount = default(decimal?))
         {
             this.action = action;
             this.amount = amount;
@@ -75,7 +75,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The amount if you are running a &#39;CAPTURE&#39;</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public decimal amount { get; set; }
+        public decimal? amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

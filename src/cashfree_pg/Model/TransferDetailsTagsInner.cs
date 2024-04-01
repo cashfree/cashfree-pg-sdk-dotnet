@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="product">product.</param>
         /// <param name="size">size.</param>
-        public TransferDetailsTagsInner(string product = default(string), decimal size = default(decimal))
+        public TransferDetailsTagsInner(string? product = default(string?), decimal? size = default(decimal?))
         {
             this.product = product;
             this.size = size;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets product
         /// </summary>
         [DataMember(Name = "product", EmitDefaultValue = false)]
-        public string product { get; set; }
+        public string? product { get; set; }
 
         /// <summary>
         /// Gets or Sets size
         /// </summary>
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public decimal size { get; set; }
+        public decimal? size { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

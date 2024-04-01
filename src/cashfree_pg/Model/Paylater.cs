@@ -95,7 +95,7 @@ namespace cashfree_pg.Model
         /// <param name="channel">The channel for cardless EMI is always &#x60;link&#x60;.</param>
         /// <param name="provider">One of [\&quot;kotak\&quot;, \&quot;flexipay\&quot;, \&quot;zestmoney\&quot;, \&quot;lazypay\&quot;, \&quot;olapostpaid\&quot;,\&quot;simpl\&quot;, \&quot;freechargepaylater\&quot;]. Please note that Flexipay is offered by HDFC bank.</param>
         /// <param name="phone">Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;.</param>
-        public Paylater(string channel = default(string), ProviderEnum? provider = default(ProviderEnum?), string phone = default(string))
+        public Paylater(string? channel = default(string?), ProviderEnum? provider = default(ProviderEnum?), string? phone = default(string?))
         {
             this.channel = channel;
             this.provider = provider;
@@ -107,14 +107,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The channel for cardless EMI is always &#x60;link&#x60;</value>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;
         /// </summary>
         /// <value>Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;</value>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public string phone { get; set; }
+        public string? phone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

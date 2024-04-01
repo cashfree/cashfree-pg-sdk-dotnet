@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="banktransferBankName">banktransferBankName.</param>
         /// <param name="banktransferIfsc">banktransferIfsc.</param>
         /// <param name="banktransferAccountNumber">banktransferAccountNumber.</param>
-        public PaymentMethodBankTransferInPaymentsEntityBanktransfer(string channel = default(string), string banktransferBankName = default(string), string banktransferIfsc = default(string), string banktransferAccountNumber = default(string))
+        public PaymentMethodBankTransferInPaymentsEntityBanktransfer(string? channel = default(string?), string? banktransferBankName = default(string?), string? banktransferIfsc = default(string?), string? banktransferAccountNumber = default(string?))
         {
             this.channel = channel;
             this.banktransfer_bank_name = banktransferBankName;
@@ -51,25 +51,25 @@ namespace cashfree_pg.Model
         /// Gets or Sets channel
         /// </summary>
         [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public string channel { get; set; }
+        public string? channel { get; set; }
 
         /// <summary>
         /// Gets or Sets banktransfer_bank_name
         /// </summary>
         [DataMember(Name = "banktransfer_bank_name", EmitDefaultValue = false)]
-        public string banktransfer_bank_name { get; set; }
+        public string? banktransfer_bank_name { get; set; }
 
         /// <summary>
         /// Gets or Sets banktransfer_ifsc
         /// </summary>
         [DataMember(Name = "banktransfer_ifsc", EmitDefaultValue = false)]
-        public string banktransfer_ifsc { get; set; }
+        public string? banktransfer_ifsc { get; set; }
 
         /// <summary>
         /// Gets or Sets banktransfer_account_number
         /// </summary>
         [DataMember(Name = "banktransfer_account_number", EmitDefaultValue = false)]
-        public string banktransfer_account_number { get; set; }
+        public string? banktransfer_account_number { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

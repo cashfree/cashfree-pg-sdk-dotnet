@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="display">display.</param>
         /// <param name="eligibility">eligibility.</param>
         /// <param name="code">code.</param>
-        public PaymentModeDetails(string nick = default(string), string display = default(string), bool eligibility = default(bool), decimal code = default(decimal))
+        public PaymentModeDetails(string? nick = default(string?), string? display = default(string?), bool? eligibility = default(bool?), decimal? code = default(decimal?))
         {
             this.nick = nick;
             this.display = display;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <example>motak_kahindra_bank</example>
         [DataMember(Name = "nick", EmitDefaultValue = false)]
-        public string nick { get; set; }
+        public string? nick { get; set; }
 
         /// <summary>
         /// Gets or Sets display
         /// </summary>
         /// <example>Motak Mahindra Bank</example>
         [DataMember(Name = "display", EmitDefaultValue = false)]
-        public string display { get; set; }
+        public string? display { get; set; }
 
         /// <summary>
         /// Gets or Sets eligibility
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "eligibility", EmitDefaultValue = true)]
-        public bool eligibility { get; set; }
+        public bool? eligibility { get; set; }
 
         /// <summary>
         /// Gets or Sets code
         /// </summary>
         /// <example>3001</example>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public decimal code { get; set; }
+        public decimal? code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

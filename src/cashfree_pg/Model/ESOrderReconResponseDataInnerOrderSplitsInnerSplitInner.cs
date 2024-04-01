@@ -38,7 +38,7 @@ namespace cashfree_pg.Model
         /// <param name="merchantVendorId">merchantVendorId.</param>
         /// <param name="percentage">percentage.</param>
         /// <param name="tags">tags.</param>
-        public ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner(string merchantVendorId = default(string), decimal percentage = default(decimal), Object tags = default(Object))
+        public ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner(string? merchantVendorId = default(string?), decimal? percentage = default(decimal?), Object? tags = default(Object?))
         {
             this.merchant_vendor_id = merchantVendorId;
             this.percentage = percentage;
@@ -49,19 +49,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets merchant_vendor_id
         /// </summary>
         [DataMember(Name = "merchant_vendor_id", EmitDefaultValue = false)]
-        public string merchant_vendor_id { get; set; }
+        public string? merchant_vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets percentage
         /// </summary>
         [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public decimal percentage { get; set; }
+        public decimal? percentage { get; set; }
 
         /// <summary>
         /// Gets or Sets tags
         /// </summary>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public Object tags { get; set; }
+        public Object? tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

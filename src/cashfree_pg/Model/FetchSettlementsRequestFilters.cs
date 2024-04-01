@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="settlementUtrs">List of settlement UTRs for which you want the settlement reconciliation details..</param>
         /// <param name="startDate">Specify the start date from when you want the settlement reconciliation details..</param>
         /// <param name="endDate">Specify the end date till when you want the settlement reconciliation details..</param>
-        public FetchSettlementsRequestFilters(List<string> cfSettlementIds = default(List<string>), List<string> settlementUtrs = default(List<string>), string startDate = default(string), string endDate = default(string))
+        public FetchSettlementsRequestFilters(List<string>? cfSettlementIds = default(List<string>?), List<string>? settlementUtrs = default(List<string>?), string? startDate = default(string?), string? endDate = default(string?))
         {
             this.cf_settlement_ids = cfSettlementIds;
             this.settlement_utrs = settlementUtrs;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>List of settlement IDs for which you want the settlement reconciliation details.</value>
         [DataMember(Name = "cf_settlement_ids", EmitDefaultValue = false)]
-        public List<string> cf_settlement_ids { get; set; }
+        public List<string>? cf_settlement_ids { get; set; }
 
         /// <summary>
         /// List of settlement UTRs for which you want the settlement reconciliation details.
         /// </summary>
         /// <value>List of settlement UTRs for which you want the settlement reconciliation details.</value>
         [DataMember(Name = "settlement_utrs", EmitDefaultValue = false)]
-        public List<string> settlement_utrs { get; set; }
+        public List<string>? settlement_utrs { get; set; }
 
         /// <summary>
         /// Specify the start date from when you want the settlement reconciliation details.
         /// </summary>
         /// <value>Specify the start date from when you want the settlement reconciliation details.</value>
         [DataMember(Name = "start_date", EmitDefaultValue = false)]
-        public string start_date { get; set; }
+        public string? start_date { get; set; }
 
         /// <summary>
         /// Specify the end date till when you want the settlement reconciliation details.
         /// </summary>
         /// <value>Specify the end date till when you want the settlement reconciliation details.</value>
         [DataMember(Name = "end_date", EmitDefaultValue = false)]
-        public string end_date { get; set; }
+        public string? end_date { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

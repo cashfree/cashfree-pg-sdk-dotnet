@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="cursor">cursor.</param>
         /// <param name="limit">Set the minimum/maximum limit for number of filtered data. Min value - 10, Max value - 100..</param>
-        public ESOrderReconRequestPagination(string cursor = default(string), int limit = default(int))
+        public ESOrderReconRequestPagination(string? cursor = default(string?), int? limit = default(int?))
         {
             this.cursor = cursor;
             this.limit = limit;
@@ -47,14 +47,14 @@ namespace cashfree_pg.Model
         /// Gets or Sets cursor
         /// </summary>
         [DataMember(Name = "cursor", EmitDefaultValue = false)]
-        public string cursor { get; set; }
+        public string? cursor { get; set; }
 
         /// <summary>
         /// Set the minimum/maximum limit for number of filtered data. Min value - 10, Max value - 100.
         /// </summary>
         /// <value>Set the minimum/maximum limit for number of filtered data. Min value - 10, Max value - 100.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public int limit { get; set; }
+        public int? limit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -93,7 +93,7 @@ namespace cashfree_pg.Model
         /// <param name="action">The action that was invoked for this request..</param>
         /// <param name="authenticateStatus">Status of the is action. Will be either failed or successful. If the action is successful, you should still call the authorization status to verify the final payment status..</param>
         /// <param name="paymentMessage">Human readable message which describes the status in more detail.</param>
-        public OrderAuthenticateEntity(string cfPaymentId = default(string), ActionEnum? action = default(ActionEnum?), AuthenticateStatusEnum? authenticateStatus = default(AuthenticateStatusEnum?), string paymentMessage = default(string))
+        public OrderAuthenticateEntity(string? cfPaymentId = default(string?), ActionEnum? action = default(ActionEnum?), AuthenticateStatusEnum? authenticateStatus = default(AuthenticateStatusEnum?), string? paymentMessage = default(string?))
         {
             this.cf_payment_id = cfPaymentId;
             this.action = action;
@@ -106,14 +106,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>The payment id for which this request was sent</value>
         [DataMember(Name = "cf_payment_id", EmitDefaultValue = false)]
-        public string cf_payment_id { get; set; }
+        public string? cf_payment_id { get; set; }
 
         /// <summary>
         /// Human readable message which describes the status in more detail
         /// </summary>
         /// <value>Human readable message which describes the status in more detail</value>
         [DataMember(Name = "payment_message", EmitDefaultValue = false)]
-        public string payment_message { get; set; }
+        public string? payment_message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

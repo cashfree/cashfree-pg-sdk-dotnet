@@ -48,7 +48,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalNote">additional note for terminal.</param>
         /// <param name="terminalType">mention the terminal type. possible values - AGENT, STOREFRONT. (required).</param>
         /// <param name="terminalMeta">terminalMeta.</param>
-        public CreateTerminalRequest(string terminalId = default(string), string terminalPhoneNo = default(string), string terminalName = default(string), string terminalAddress = default(string), string terminalEmail = default(string), string terminalNote = default(string), string terminalType = default(string), CreateTerminalRequestTerminalMeta terminalMeta = default(CreateTerminalRequestTerminalMeta))
+        public CreateTerminalRequest(string terminalId = default(string), string terminalPhoneNo = default(string), string terminalName = default(string), string? terminalAddress = default(string?), string terminalEmail = default(string), string? terminalNote = default(string?), string terminalType = default(string), CreateTerminalRequestTerminalMeta? terminalMeta = default(CreateTerminalRequestTerminalMeta?))
         {
             // to ensure "terminalId" is required (not null)
             if (terminalId == null)
@@ -111,7 +111,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>address of the terminal. required for STOREFRONT</value>
         [DataMember(Name = "terminal_address", EmitDefaultValue = false)]
-        public string terminal_address { get; set; }
+        public string? terminal_address { get; set; }
 
         /// <summary>
         /// terminal email ID of the AGENT/STOREFRONT assigned by merchants.
@@ -125,7 +125,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>additional note for terminal</value>
         [DataMember(Name = "terminal_note", EmitDefaultValue = false)]
-        public string terminal_note { get; set; }
+        public string? terminal_note { get; set; }
 
         /// <summary>
         /// mention the terminal type. possible values - AGENT, STOREFRONT.
@@ -138,7 +138,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets terminal_meta
         /// </summary>
         [DataMember(Name = "terminal_meta", EmitDefaultValue = false)]
-        public CreateTerminalRequestTerminalMeta terminal_meta { get; set; }
+        public CreateTerminalRequestTerminalMeta? terminal_meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -37,7 +37,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="vpa">vpa.</param>
         /// <param name="accountHolder">accountHolder.</param>
-        public UpiDetails(string vpa = default(string), string accountHolder = default(string))
+        public UpiDetails(string? vpa = default(string?), string? accountHolder = default(string?))
         {
             this.vpa = vpa;
             this.account_holder = accountHolder;
@@ -47,13 +47,13 @@ namespace cashfree_pg.Model
         /// Gets or Sets vpa
         /// </summary>
         [DataMember(Name = "vpa", EmitDefaultValue = false)]
-        public string vpa { get; set; }
+        public string? vpa { get; set; }
 
         /// <summary>
         /// Gets or Sets account_holder
         /// </summary>
         [DataMember(Name = "account_holder", EmitDefaultValue = false)]
-        public string account_holder { get; set; }
+        public string? account_holder { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="InstrumentWebhookDataEntity" /> class.
         /// </summary>
         /// <param name="instrument">instrument.</param>
-        public InstrumentWebhookDataEntity(InstrumentEntity instrument = default(InstrumentEntity))
+        public InstrumentWebhookDataEntity(InstrumentEntity? instrument = default(InstrumentEntity?))
         {
             this.instrument = instrument;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets instrument
         /// </summary>
         [DataMember(Name = "instrument", EmitDefaultValue = false)]
-        public InstrumentEntity instrument { get; set; }
+        public InstrumentEntity? instrument { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

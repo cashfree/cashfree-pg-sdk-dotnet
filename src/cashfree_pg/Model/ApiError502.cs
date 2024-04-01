@@ -59,7 +59,7 @@ namespace cashfree_pg.Model
         /// <param name="message">message.</param>
         /// <param name="code">&#x60;bank_processing_failure&#x60; will be returned here to denote failure at bank. .</param>
         /// <param name="type">api_error.</param>
-        public ApiError502(string message = default(string), string code = default(string), TypeEnum? type = default(TypeEnum?))
+        public ApiError502(string? message = default(string?), string? code = default(string?), TypeEnum? type = default(TypeEnum?))
         {
             this.message = message;
             this.code = code;
@@ -70,14 +70,14 @@ namespace cashfree_pg.Model
         /// Gets or Sets message
         /// </summary>
         [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string message { get; set; }
+        public string? message { get; set; }
 
         /// <summary>
         /// &#x60;bank_processing_failure&#x60; will be returned here to denote failure at bank. 
         /// </summary>
         /// <value>&#x60;bank_processing_failure&#x60; will be returned here to denote failure at bank. </value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
-        public string code { get; set; }
+        public string? code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

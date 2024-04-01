@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="queries">queries (required).</param>
         /// <param name="filters">filters.</param>
-        public EligibilityFetchPaymentMethodsRequest(PaymentMethodsQueries queries = default(PaymentMethodsQueries), PaymentMethodsFilters filters = default(PaymentMethodsFilters))
+        public EligibilityFetchPaymentMethodsRequest(PaymentMethodsQueries queries = default(PaymentMethodsQueries), PaymentMethodsFilters? filters = default(PaymentMethodsFilters?))
         {
             // to ensure "queries" is required (not null)
             if (queries == null)
@@ -63,7 +63,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets filters
         /// </summary>
         [DataMember(Name = "filters", EmitDefaultValue = false)]
-        public PaymentMethodsFilters filters { get; set; }
+        public PaymentMethodsFilters? filters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

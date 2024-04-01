@@ -72,7 +72,7 @@ namespace cashfree_pg.Model
         /// <param name="refundNote">A refund note for your reference..</param>
         /// <param name="refundSpeed">Speed at which the refund is processed. It&#39;s an optional field with default being STANDARD.</param>
         /// <param name="refundSplits">refundSplits.</param>
-        public OrderCreateRefundRequest(double refundAmount = default(double), string refundId = default(string), string refundNote = default(string), RefundSpeedEnum? refundSpeed = default(RefundSpeedEnum?), List<VendorSplit> refundSplits = default(List<VendorSplit>))
+        public OrderCreateRefundRequest(double refundAmount = default(double), string refundId = default(string), string? refundNote = default(string?), RefundSpeedEnum? refundSpeed = default(RefundSpeedEnum?), List<VendorSplit>? refundSplits = default(List<VendorSplit>?))
         {
             this.refund_amount = refundAmount;
             // to ensure "refundId" is required (not null)
@@ -105,13 +105,13 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>A refund note for your reference.</value>
         [DataMember(Name = "refund_note", EmitDefaultValue = false)]
-        public string refund_note { get; set; }
+        public string? refund_note { get; set; }
 
         /// <summary>
         /// Gets or Sets refund_splits
         /// </summary>
         [DataMember(Name = "refund_splits", EmitDefaultValue = false)]
-        public List<VendorSplit> refund_splits { get; set; }
+        public List<VendorSplit>? refund_splits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

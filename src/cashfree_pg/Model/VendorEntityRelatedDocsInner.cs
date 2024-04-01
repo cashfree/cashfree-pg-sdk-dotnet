@@ -40,7 +40,7 @@ namespace cashfree_pg.Model
         /// <param name="docValue">docValue.</param>
         /// <param name="status">status.</param>
         /// <param name="remarks">remarks.</param>
-        public VendorEntityRelatedDocsInner(string vendorId = default(string), string docType = default(string), string docValue = default(string), string status = default(string), string remarks = default(string))
+        public VendorEntityRelatedDocsInner(string? vendorId = default(string?), string? docType = default(string?), string? docValue = default(string?), string? status = default(string?), string? remarks = default(string?))
         {
             this.vendor_id = vendorId;
             this.doc_type = docType;
@@ -53,31 +53,31 @@ namespace cashfree_pg.Model
         /// Gets or Sets vendor_id
         /// </summary>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets doc_type
         /// </summary>
         [DataMember(Name = "doc_type", EmitDefaultValue = false)]
-        public string doc_type { get; set; }
+        public string? doc_type { get; set; }
 
         /// <summary>
         /// Gets or Sets doc_value
         /// </summary>
         [DataMember(Name = "doc_value", EmitDefaultValue = false)]
-        public string doc_value { get; set; }
+        public string? doc_value { get; set; }
 
         /// <summary>
         /// Gets or Sets status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Gets or Sets remarks
         /// </summary>
         [DataMember(Name = "remarks", EmitDefaultValue = false)]
-        public string remarks { get; set; }
+        public string? remarks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

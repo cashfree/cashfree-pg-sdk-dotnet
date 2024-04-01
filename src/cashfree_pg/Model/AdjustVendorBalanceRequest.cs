@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// <param name="transferAmount">Mention the on demand transfer amount. (required).</param>
         /// <param name="remark">Mention remarks if any for the on demand transfer..</param>
         /// <param name="tags">Provide additional data fields using tags..</param>
-        public AdjustVendorBalanceRequest(string transferFrom = default(string), string transferType = default(string), decimal transferAmount = default(decimal), string remark = default(string), Object tags = default(Object))
+        public AdjustVendorBalanceRequest(string transferFrom = default(string), string transferType = default(string), decimal transferAmount = default(decimal), string? remark = default(string?), Object? tags = default(Object?))
         {
             // to ensure "transferFrom" is required (not null)
             if (transferFrom == null)
@@ -90,14 +90,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Mention remarks if any for the on demand transfer.</value>
         [DataMember(Name = "remark", EmitDefaultValue = false)]
-        public string remark { get; set; }
+        public string? remark { get; set; }
 
         /// <summary>
         /// Provide additional data fields using tags.
         /// </summary>
         /// <value>Provide additional data fields using tags.</value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public Object tags { get; set; }
+        public Object? tags { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

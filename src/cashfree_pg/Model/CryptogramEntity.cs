@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// <param name="cardExpiryYy">token pan expiry year.</param>
         /// <param name="cryptogram">cryptogram.</param>
         /// <param name="cardDisplay">last 4 digits of original card number.</param>
-        public CryptogramEntity(string instrumentId = default(string), string tokenRequestorId = default(string), string cardNumber = default(string), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cryptogram = default(string), string cardDisplay = default(string))
+        public CryptogramEntity(string? instrumentId = default(string?), string? tokenRequestorId = default(string?), string? cardNumber = default(string?), string? cardExpiryMm = default(string?), string? cardExpiryYy = default(string?), string? cryptogram = default(string?), string? cardDisplay = default(string?))
         {
             this.instrument_id = instrumentId;
             this.token_requestor_id = tokenRequestorId;
@@ -58,49 +58,49 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>instrument_id of saved instrument</value>
         [DataMember(Name = "instrument_id", EmitDefaultValue = false)]
-        public string instrument_id { get; set; }
+        public string? instrument_id { get; set; }
 
         /// <summary>
         /// TRID issued by card networks
         /// </summary>
         /// <value>TRID issued by card networks</value>
         [DataMember(Name = "token_requestor_id", EmitDefaultValue = false)]
-        public string token_requestor_id { get; set; }
+        public string? token_requestor_id { get; set; }
 
         /// <summary>
         /// token pan number
         /// </summary>
         /// <value>token pan number</value>
         [DataMember(Name = "card_number", EmitDefaultValue = false)]
-        public string card_number { get; set; }
+        public string? card_number { get; set; }
 
         /// <summary>
         /// token pan expiry month
         /// </summary>
         /// <value>token pan expiry month</value>
         [DataMember(Name = "card_expiry_mm", EmitDefaultValue = false)]
-        public string card_expiry_mm { get; set; }
+        public string? card_expiry_mm { get; set; }
 
         /// <summary>
         /// token pan expiry year
         /// </summary>
         /// <value>token pan expiry year</value>
         [DataMember(Name = "card_expiry_yy", EmitDefaultValue = false)]
-        public string card_expiry_yy { get; set; }
+        public string? card_expiry_yy { get; set; }
 
         /// <summary>
         /// cryptogram
         /// </summary>
         /// <value>cryptogram</value>
         [DataMember(Name = "cryptogram", EmitDefaultValue = false)]
-        public string cryptogram { get; set; }
+        public string? cryptogram { get; set; }
 
         /// <summary>
         /// last 4 digits of original card number
         /// </summary>
         /// <value>last 4 digits of original card number</value>
         [DataMember(Name = "card_display", EmitDefaultValue = false)]
-        public string card_display { get; set; }
+        public string? card_display { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -148,7 +148,7 @@ namespace cashfree_pg.Model
         /// <param name="cardAlias">Card alias as returned by Cashfree Vault API.</param>
         /// <param name="cardBankName">Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\&quot;hdfc, \&quot;kotak\&quot;, \&quot;icici\&quot;, \&quot;rbl\&quot;, \&quot;bob\&quot;, \&quot;standard chartered\&quot;, \&quot;axis\&quot;, \&quot;au\&quot;, \&quot;yes\&quot;, \&quot;sbi\&quot;, \&quot;fed\&quot;, \&quot;hsbc\&quot;, \&quot;citi\&quot;, \&quot;amex\&quot;] (required).</param>
         /// <param name="emiTenure">EMI tenure selected by the user (required).</param>
-        public CardEMI(string channel = default(string), string cardNumber = default(string), string cardHolderName = default(string), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cardCvv = default(string), string cardAlias = default(string), CardBankNameEnum cardBankName = default(CardBankNameEnum), int emiTenure = default(int))
+        public CardEMI(string channel = default(string), string cardNumber = default(string), string? cardHolderName = default(string?), string cardExpiryMm = default(string), string cardExpiryYy = default(string), string cardCvv = default(string), string? cardAlias = default(string?), CardBankNameEnum cardBankName = default(CardBankNameEnum), int emiTenure = default(int))
         {
             // to ensure "channel" is required (not null)
             if (channel == null)
@@ -205,7 +205,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Customer name mentioned on the card.</value>
         [DataMember(Name = "card_holder_name", EmitDefaultValue = false)]
-        public string card_holder_name { get; set; }
+        public string? card_holder_name { get; set; }
 
         /// <summary>
         /// Card expiry month.
@@ -233,7 +233,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Card alias as returned by Cashfree Vault API</value>
         [DataMember(Name = "card_alias", EmitDefaultValue = false)]
-        public string card_alias { get; set; }
+        public string? card_alias { get; set; }
 
         /// <summary>
         /// EMI tenure selected by the user

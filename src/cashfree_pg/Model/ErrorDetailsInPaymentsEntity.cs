@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// <param name="errorCodeRaw">errorCodeRaw.</param>
         /// <param name="errorDescriptionRaw">errorDescriptionRaw.</param>
         /// <param name="errorSubcodeRaw">errorSubcodeRaw.</param>
-        public ErrorDetailsInPaymentsEntity(string errorCode = default(string), string errorDescription = default(string), string errorReason = default(string), string errorSource = default(string), string errorCodeRaw = default(string), string errorDescriptionRaw = default(string), string errorSubcodeRaw = default(string))
+        public ErrorDetailsInPaymentsEntity(string? errorCode = default(string?), string? errorDescription = default(string?), string? errorReason = default(string?), string? errorSource = default(string?), string? errorCodeRaw = default(string?), string? errorDescriptionRaw = default(string?), string? errorSubcodeRaw = default(string?))
         {
             this.error_code = errorCode;
             this.error_description = errorDescription;
@@ -57,43 +57,43 @@ namespace cashfree_pg.Model
         /// Gets or Sets error_code
         /// </summary>
         [DataMember(Name = "error_code", EmitDefaultValue = false)]
-        public string error_code { get; set; }
+        public string? error_code { get; set; }
 
         /// <summary>
         /// Gets or Sets error_description
         /// </summary>
         [DataMember(Name = "error_description", EmitDefaultValue = false)]
-        public string error_description { get; set; }
+        public string? error_description { get; set; }
 
         /// <summary>
         /// Gets or Sets error_reason
         /// </summary>
         [DataMember(Name = "error_reason", EmitDefaultValue = false)]
-        public string error_reason { get; set; }
+        public string? error_reason { get; set; }
 
         /// <summary>
         /// Gets or Sets error_source
         /// </summary>
         [DataMember(Name = "error_source", EmitDefaultValue = false)]
-        public string error_source { get; set; }
+        public string? error_source { get; set; }
 
         /// <summary>
         /// Gets or Sets error_code_raw
         /// </summary>
         [DataMember(Name = "error_code_raw", EmitDefaultValue = false)]
-        public string error_code_raw { get; set; }
+        public string? error_code_raw { get; set; }
 
         /// <summary>
         /// Gets or Sets error_description_raw
         /// </summary>
         [DataMember(Name = "error_description_raw", EmitDefaultValue = false)]
-        public string error_description_raw { get; set; }
+        public string? error_description_raw { get; set; }
 
         /// <summary>
         /// Gets or Sets error_subcode_raw
         /// </summary>
         [DataMember(Name = "error_subcode_raw", EmitDefaultValue = false)]
-        public string error_subcode_raw { get; set; }
+        public string? error_subcode_raw { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

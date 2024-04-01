@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="EligibilityPaymentMethodsEntityEntityDetails" /> class.
         /// </summary>
         /// <param name="paymentMethodDetails">paymentMethodDetails.</param>
-        public EligibilityPaymentMethodsEntityEntityDetails(List<PaymentModeDetails> paymentMethodDetails = default(List<PaymentModeDetails>))
+        public EligibilityPaymentMethodsEntityEntityDetails(List<PaymentModeDetails>? paymentMethodDetails = default(List<PaymentModeDetails>?))
         {
             this.payment_method_details = paymentMethodDetails;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets payment_method_details
         /// </summary>
         [DataMember(Name = "payment_method_details", EmitDefaultValue = false)]
-        public List<PaymentModeDetails> payment_method_details { get; set; }
+        public List<PaymentModeDetails>? payment_method_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

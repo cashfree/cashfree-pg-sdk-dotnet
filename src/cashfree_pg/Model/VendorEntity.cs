@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <param name="accountType">accountType.</param>
         /// <param name="businessType">businessType.</param>
         /// <param name="relatedDocs">relatedDocs.</param>
-        public VendorEntity(string email = default(string), string status = default(string), string phone = default(string), string name = default(string), string vendorId = default(string), string addedOn = default(string), string updatedOn = default(string), List<BankDetails> bank = default(List<BankDetails>), string upi = default(string), List<ScheduleOption> scheduleOption = default(List<ScheduleOption>), string vendorType = default(string), string accountType = default(string), string businessType = default(string), List<VendorEntityRelatedDocsInner> relatedDocs = default(List<VendorEntityRelatedDocsInner>))
+        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), List<VendorEntityRelatedDocsInner>? relatedDocs = default(List<VendorEntityRelatedDocsInner>?))
         {
             this.email = email;
             this.status = status;
@@ -71,85 +71,85 @@ namespace cashfree_pg.Model
         /// Gets or Sets email
         /// </summary>
         [DataMember(Name = "email", EmitDefaultValue = false)]
-        public string email { get; set; }
+        public string? email { get; set; }
 
         /// <summary>
         /// Gets or Sets status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Gets or Sets phone
         /// </summary>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public string phone { get; set; }
+        public string? phone { get; set; }
 
         /// <summary>
         /// Gets or Sets name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string name { get; set; }
+        public string? name { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_id
         /// </summary>
         [DataMember(Name = "vendor_id", EmitDefaultValue = false)]
-        public string vendor_id { get; set; }
+        public string? vendor_id { get; set; }
 
         /// <summary>
         /// Gets or Sets added_on
         /// </summary>
         [DataMember(Name = "added_on", EmitDefaultValue = false)]
-        public string added_on { get; set; }
+        public string? added_on { get; set; }
 
         /// <summary>
         /// Gets or Sets updated_on
         /// </summary>
         [DataMember(Name = "updated_on", EmitDefaultValue = false)]
-        public string updated_on { get; set; }
+        public string? updated_on { get; set; }
 
         /// <summary>
         /// Gets or Sets bank
         /// </summary>
         [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public List<BankDetails> bank { get; set; }
+        public List<BankDetails>? bank { get; set; }
 
         /// <summary>
         /// Gets or Sets upi
         /// </summary>
         [DataMember(Name = "upi", EmitDefaultValue = false)]
-        public string upi { get; set; }
+        public string? upi { get; set; }
 
         /// <summary>
         /// Gets or Sets schedule_option
         /// </summary>
         [DataMember(Name = "schedule_option", EmitDefaultValue = false)]
-        public List<ScheduleOption> schedule_option { get; set; }
+        public List<ScheduleOption>? schedule_option { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_type
         /// </summary>
         [DataMember(Name = "vendor_type", EmitDefaultValue = false)]
-        public string vendor_type { get; set; }
+        public string? vendor_type { get; set; }
 
         /// <summary>
         /// Gets or Sets account_type
         /// </summary>
         [DataMember(Name = "account_type", EmitDefaultValue = false)]
-        public string account_type { get; set; }
+        public string? account_type { get; set; }
 
         /// <summary>
         /// Gets or Sets business_type
         /// </summary>
         [DataMember(Name = "business_type", EmitDefaultValue = false)]
-        public string business_type { get; set; }
+        public string? business_type { get; set; }
 
         /// <summary>
         /// Gets or Sets related_docs
         /// </summary>
         [DataMember(Name = "related_docs", EmitDefaultValue = false)]
-        public List<VendorEntityRelatedDocsInner> related_docs { get; set; }
+        public List<VendorEntityRelatedDocsInner>? related_docs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

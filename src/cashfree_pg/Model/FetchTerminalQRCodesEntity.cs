@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="qrCode">Base-64 Encoded QR Code URL.</param>
         /// <param name="qrCodeUrl">URL of the qr Code..</param>
         /// <param name="status">Status of the static QR..</param>
-        public FetchTerminalQRCodesEntity(string bank = default(string), string qrCode = default(string), string qrCodeUrl = default(string), string status = default(string))
+        public FetchTerminalQRCodesEntity(string? bank = default(string?), string? qrCode = default(string?), string? qrCodeUrl = default(string?), string? status = default(string?))
         {
             this.bank = bank;
             this.qrCode = qrCode;
@@ -52,28 +52,28 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Name of the bank that is linked to the Static QR.</value>
         [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public string bank { get; set; }
+        public string? bank { get; set; }
 
         /// <summary>
         /// Base-64 Encoded QR Code URL
         /// </summary>
         /// <value>Base-64 Encoded QR Code URL</value>
         [DataMember(Name = "qrCode", EmitDefaultValue = false)]
-        public string qrCode { get; set; }
+        public string? qrCode { get; set; }
 
         /// <summary>
         /// URL of the qr Code.
         /// </summary>
         /// <value>URL of the qr Code.</value>
         [DataMember(Name = "qrCodeUrl", EmitDefaultValue = false)]
-        public string qrCodeUrl { get; set; }
+        public string? qrCodeUrl { get; set; }
 
         /// <summary>
         /// Status of the static QR.
         /// </summary>
         /// <value>Status of the static QR.</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string status { get; set; }
+        public string? status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

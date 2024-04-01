@@ -54,7 +54,7 @@ namespace cashfree_pg.Model
         /// <param name="linkNotify">linkNotify.</param>
         /// <param name="linkQrcode">Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment..</param>
         /// <param name="orderSplits">orderSplits.</param>
-        public LinkEntity(string cfLinkId = default(string), string linkId = default(string), string linkStatus = default(string), string linkCurrency = default(string), decimal linkAmount = default(decimal), decimal linkAmountPaid = default(decimal), bool linkPartialPayments = default(bool), decimal linkMinimumPartialAmount = default(decimal), string linkPurpose = default(string), string linkCreatedAt = default(string), LinkCustomerDetailsEntity customerDetails = default(LinkCustomerDetailsEntity), LinkMetaResponseEntity linkMeta = default(LinkMetaResponseEntity), string linkUrl = default(string), string linkExpiryTime = default(string), Dictionary<string, string> linkNotes = default(Dictionary<string, string>), bool linkAutoReminders = default(bool), LinkNotifyEntity linkNotify = default(LinkNotifyEntity), string linkQrcode = default(string), List<VendorSplit> orderSplits = default(List<VendorSplit>))
+        public LinkEntity(string? cfLinkId = default(string?), string? linkId = default(string?), string? linkStatus = default(string?), string? linkCurrency = default(string?), decimal? linkAmount = default(decimal?), decimal? linkAmountPaid = default(decimal?), bool? linkPartialPayments = default(bool?), decimal? linkMinimumPartialAmount = default(decimal?), string? linkPurpose = default(string?), string? linkCreatedAt = default(string?), LinkCustomerDetailsEntity? customerDetails = default(LinkCustomerDetailsEntity?), LinkMetaResponseEntity? linkMeta = default(LinkMetaResponseEntity?), string? linkUrl = default(string?), string? linkExpiryTime = default(string?), Dictionary<string, string>? linkNotes = default(Dictionary<string, string>?), bool? linkAutoReminders = default(bool?), LinkNotifyEntity? linkNotify = default(LinkNotifyEntity?), string? linkQrcode = default(string?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?))
         {
             this.cf_link_id = cfLinkId;
             this.link_id = linkId;
@@ -81,85 +81,85 @@ namespace cashfree_pg.Model
         /// Gets or Sets cf_link_id
         /// </summary>
         [DataMember(Name = "cf_link_id", EmitDefaultValue = false)]
-        public string cf_link_id { get; set; }
+        public string? cf_link_id { get; set; }
 
         /// <summary>
         /// Gets or Sets link_id
         /// </summary>
         [DataMember(Name = "link_id", EmitDefaultValue = false)]
-        public string link_id { get; set; }
+        public string? link_id { get; set; }
 
         /// <summary>
         /// Gets or Sets link_status
         /// </summary>
         [DataMember(Name = "link_status", EmitDefaultValue = false)]
-        public string link_status { get; set; }
+        public string? link_status { get; set; }
 
         /// <summary>
         /// Gets or Sets link_currency
         /// </summary>
         [DataMember(Name = "link_currency", EmitDefaultValue = false)]
-        public string link_currency { get; set; }
+        public string? link_currency { get; set; }
 
         /// <summary>
         /// Gets or Sets link_amount
         /// </summary>
         [DataMember(Name = "link_amount", EmitDefaultValue = false)]
-        public decimal link_amount { get; set; }
+        public decimal? link_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets link_amount_paid
         /// </summary>
         [DataMember(Name = "link_amount_paid", EmitDefaultValue = false)]
-        public decimal link_amount_paid { get; set; }
+        public decimal? link_amount_paid { get; set; }
 
         /// <summary>
         /// Gets or Sets link_partial_payments
         /// </summary>
         [DataMember(Name = "link_partial_payments", EmitDefaultValue = true)]
-        public bool link_partial_payments { get; set; }
+        public bool? link_partial_payments { get; set; }
 
         /// <summary>
         /// Gets or Sets link_minimum_partial_amount
         /// </summary>
         [DataMember(Name = "link_minimum_partial_amount", EmitDefaultValue = false)]
-        public decimal link_minimum_partial_amount { get; set; }
+        public decimal? link_minimum_partial_amount { get; set; }
 
         /// <summary>
         /// Gets or Sets link_purpose
         /// </summary>
         [DataMember(Name = "link_purpose", EmitDefaultValue = false)]
-        public string link_purpose { get; set; }
+        public string? link_purpose { get; set; }
 
         /// <summary>
         /// Gets or Sets link_created_at
         /// </summary>
         [DataMember(Name = "link_created_at", EmitDefaultValue = false)]
-        public string link_created_at { get; set; }
+        public string? link_created_at { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_details
         /// </summary>
         [DataMember(Name = "customer_details", EmitDefaultValue = false)]
-        public LinkCustomerDetailsEntity customer_details { get; set; }
+        public LinkCustomerDetailsEntity? customer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets link_meta
         /// </summary>
         [DataMember(Name = "link_meta", EmitDefaultValue = false)]
-        public LinkMetaResponseEntity link_meta { get; set; }
+        public LinkMetaResponseEntity? link_meta { get; set; }
 
         /// <summary>
         /// Gets or Sets link_url
         /// </summary>
         [DataMember(Name = "link_url", EmitDefaultValue = false)]
-        public string link_url { get; set; }
+        public string? link_url { get; set; }
 
         /// <summary>
         /// Gets or Sets link_expiry_time
         /// </summary>
         [DataMember(Name = "link_expiry_time", EmitDefaultValue = false)]
-        public string link_expiry_time { get; set; }
+        public string? link_expiry_time { get; set; }
 
         /// <summary>
         /// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
@@ -167,32 +167,32 @@ namespace cashfree_pg.Model
         /// <value>Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs</value>
         /// <example>{&quot;key_1&quot;:&quot;value_1&quot;,&quot;key_2&quot;:&quot;value_2&quot;}</example>
         [DataMember(Name = "link_notes", EmitDefaultValue = false)]
-        public Dictionary<string, string> link_notes { get; set; }
+        public Dictionary<string, string>? link_notes { get; set; }
 
         /// <summary>
         /// Gets or Sets link_auto_reminders
         /// </summary>
         [DataMember(Name = "link_auto_reminders", EmitDefaultValue = true)]
-        public bool link_auto_reminders { get; set; }
+        public bool? link_auto_reminders { get; set; }
 
         /// <summary>
         /// Gets or Sets link_notify
         /// </summary>
         [DataMember(Name = "link_notify", EmitDefaultValue = false)]
-        public LinkNotifyEntity link_notify { get; set; }
+        public LinkNotifyEntity? link_notify { get; set; }
 
         /// <summary>
         /// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
         /// </summary>
         /// <value>Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.</value>
         [DataMember(Name = "link_qrcode", EmitDefaultValue = false)]
-        public string link_qrcode { get; set; }
+        public string? link_qrcode { get; set; }
 
         /// <summary>
         /// Gets or Sets order_splits
         /// </summary>
         [DataMember(Name = "order_splits", EmitDefaultValue = false)]
-        public List<VendorSplit> order_splits { get; set; }
+        public List<VendorSplit>? order_splits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

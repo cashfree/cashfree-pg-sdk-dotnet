@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="CreateTerminalRequestTerminalMeta" /> class.
         /// </summary>
         /// <param name="terminalOperator">name of the STOREFRONT operator..</param>
-        public CreateTerminalRequestTerminalMeta(string terminalOperator = default(string))
+        public CreateTerminalRequestTerminalMeta(string? terminalOperator = default(string?))
         {
             this.terminal_operator = terminalOperator;
         }
@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>name of the STOREFRONT operator.</value>
         [DataMember(Name = "terminal_operator", EmitDefaultValue = false)]
-        public string terminal_operator { get; set; }
+        public string? terminal_operator { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="split">Specify the vendors order split details. (required).</param>
         /// <param name="disableSplit">Specify if you want to end the split or continue creating further splits in future..</param>
-        public SplitAfterPaymentRequest(List<SplitAfterPaymentRequestSplitInner> split = default(List<SplitAfterPaymentRequestSplitInner>), bool disableSplit = default(bool))
+        public SplitAfterPaymentRequest(List<SplitAfterPaymentRequestSplitInner> split = default(List<SplitAfterPaymentRequestSplitInner>), bool? disableSplit = default(bool?))
         {
             // to ensure "split" is required (not null)
             if (split == null)
@@ -65,7 +65,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Specify if you want to end the split or continue creating further splits in future.</value>
         [DataMember(Name = "disable_split", EmitDefaultValue = true)]
-        public bool disable_split { get; set; }
+        public bool? disable_split { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

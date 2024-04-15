@@ -37,7 +37,7 @@ namespace Example
 
 
             var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
-            createOfferRequest = new CreateOfferRequest
+            var createOfferRequest = new CreateOfferRequest
             {
              offer_meta = new OfferMeta
             {

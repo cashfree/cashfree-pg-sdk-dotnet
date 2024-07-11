@@ -48,8 +48,9 @@ namespace cashfree_pg.Model
         /// <param name="vendorType">vendorType.</param>
         /// <param name="accountType">accountType.</param>
         /// <param name="businessType">businessType.</param>
+        /// <param name="remarks">remarks.</param>
         /// <param name="relatedDocs">relatedDocs.</param>
-        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), List<VendorEntityRelatedDocsInner>? relatedDocs = default(List<VendorEntityRelatedDocsInner>?))
+        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), string? remarks = default(string?), List<UpdateVendorResponseRelatedDocsInner>? relatedDocs = default(List<UpdateVendorResponseRelatedDocsInner>?))
         {
             this.email = email;
             this.status = status;
@@ -64,6 +65,7 @@ namespace cashfree_pg.Model
             this.vendor_type = vendorType;
             this.account_type = accountType;
             this.business_type = businessType;
+            this.remarks = remarks;
             this.related_docs = relatedDocs;
         }
 
@@ -146,10 +148,16 @@ namespace cashfree_pg.Model
         public string? business_type { get; set; }
 
         /// <summary>
+        /// Gets or Sets remarks
+        /// </summary>
+        [DataMember(Name = "remarks", EmitDefaultValue = false)]
+        public string? remarks { get; set; }
+
+        /// <summary>
         /// Gets or Sets related_docs
         /// </summary>
         [DataMember(Name = "related_docs", EmitDefaultValue = false)]
-        public List<VendorEntityRelatedDocsInner>? related_docs { get; set; }
+        public List<UpdateVendorResponseRelatedDocsInner>? related_docs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -172,6 +180,7 @@ namespace cashfree_pg.Model
             sb.Append("  vendor_type: ").Append(vendor_type).Append("\n");
             sb.Append("  account_type: ").Append(account_type).Append("\n");
             sb.Append("  business_type: ").Append(business_type).Append("\n");
+            sb.Append("  remarks: ").Append(remarks).Append("\n");
             sb.Append("  related_docs: ").Append(related_docs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -276,6 +285,11 @@ namespace cashfree_pg.Model
                     this.business_type.Equals(input.business_type))
                 ) && 
                 (
+                    this.remarks == input.remarks ||
+                    (this.remarks != null &&
+                    this.remarks.Equals(input.remarks))
+                ) && 
+                (
                     this.related_docs == input.related_docs ||
                     this.related_docs != null &&
                     input.related_docs != null &&
@@ -351,6 +365,10 @@ namespace cashfree_pg.Model
                 if (this.business_type != null)
                 {
                     hashCode = (hashCode * 59) + this.business_type.GetHashCode();
+                }
+                if (this.remarks != null)
+                {
+                    hashCode = (hashCode * 59) + this.remarks.GetHashCode();
                 }
                 if (this.related_docs != null)
                 {

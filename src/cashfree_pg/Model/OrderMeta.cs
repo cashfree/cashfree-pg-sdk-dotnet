@@ -35,7 +35,7 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderMeta" /> class.
         /// </summary>
-        /// <param name="returnUrl">The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://example.com/return?order_id&#x3D;myOrderId.</param>
+        /// <param name="returnUrl">The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou.</param>
         /// <param name="notifyUrl">Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250..</param>
         /// <param name="paymentMethods">Allowed payment modes for this order. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;,\&quot;nb\&quot;,\&quot;upi\&quot;,\&quot;paypal\&quot;,\&quot;app\&quot;,\&quot;paylater\&quot;,\&quot;cardlessemi\&quot;,\&quot;dcemi\&quot;,\&quot;ccemi\&quot;,\&quot;banktransfer\&quot;. Leave it blank to show all available payment methods.</param>
         public OrderMeta(string? returnUrl = default(string?), string? notifyUrl = default(string?), Object? paymentMethods = default(Object?))
@@ -46,10 +46,10 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://example.com/return?order_id&#x3D;myOrderId
+        /// The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou
         /// </summary>
-        /// <value>The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://example.com/return?order_id&#x3D;myOrderId</value>
-        /// <example>https://example.com/return?order_id&#x3D;myOrderId</example>
+        /// <value>The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou</value>
+        /// <example>https://www.cashfree.com/devstudio/thankyou</example>
         [DataMember(Name = "return_url", EmitDefaultValue = false)]
         public string? return_url { get; set; }
 

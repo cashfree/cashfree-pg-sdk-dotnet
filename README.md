@@ -1,7 +1,7 @@
 # Cashfree PG .Net SDK
 ![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg-sdk-dotnet) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg-sdk-dotnet/master) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg-sdk-dotnet?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg-sdk-go)
 
-The Cashfree PG .Net SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side .Net  applications.
+The Cashfree PG .Net SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side .Net  applications. 
 
 
 
@@ -32,7 +32,6 @@ var cashfree = new Cashfree();
 var xApiVersion = "2022-09-01";
 ```
 
-
 Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
 
 ### Basic Usage
@@ -52,6 +51,7 @@ try {
     Console.WriteLine(e.StackTrace);
 }
 ```
+
 Get Order
 ```csharp
 try {
@@ -65,26 +65,6 @@ try {
     Console.WriteLine(e.StackTrace);
 }
 ```
-
-## Supported Resources
-
-- [Order](docs/Orders.md)
-
-- [Payment](docs/Payments.md)
-
-- [Refund](docs/Refunds.md)
-
-- [Token Vault](docs/TokenVault.md)
-
-- [Eligiblity](docs/Eligibility.md)
-
-- [PaymentLink](docs/PaymentLink.md)
-
-- [Settlements](docs/Settlements.md)
-
-- [Offers](docs/Offers.md)
-
-- [Reconciliation](docs/Reconciliation.md)
 
 ## Licence
 

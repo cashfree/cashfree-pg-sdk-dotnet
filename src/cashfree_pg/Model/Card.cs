@@ -152,7 +152,7 @@ namespace cashfree_pg.Model
         /// <param name="instrumentId">instrument id of saved card. Required only to make payment using saved instrument..</param>
         /// <param name="cryptogram">cryptogram received from card network. Required only for tokenized card transactions..</param>
         /// <param name="tokenRequestorId">TRID issued by card networks. Required only for tokenized card transactions..</param>
-        /// <param name="tokenReferenceId">Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. .</param>
+        /// <param name="tokenReferenceId">Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards..</param>
         /// <param name="tokenType">tokenType.</param>
         /// <param name="cardDisplay">last 4 digits of original card number. Required only for tokenized card transactions..</param>
         /// <param name="cardAlias">Card alias as returned by Cashfree Vault API..</param>
@@ -234,9 +234,9 @@ namespace cashfree_pg.Model
         public string? token_requestor_id { get; set; }
 
         /// <summary>
-        /// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. 
+        /// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.
         /// </summary>
-        /// <value>Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. </value>
+        /// <value>Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.</value>
         [DataMember(Name = "token_reference_id", EmitDefaultValue = false)]
         public string? token_reference_id { get; set; }
 

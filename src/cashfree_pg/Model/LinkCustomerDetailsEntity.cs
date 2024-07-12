@@ -33,6 +33,215 @@ namespace cashfree_pg.Model
     public class LinkCustomerDetailsEntity : IEquatable<LinkCustomerDetailsEntity>, IValidatableObject
     {
         /// <summary>
+        /// Customer Bank Code
+        /// </summary>
+        /// <value>Customer Bank Code</value>
+        public enum CustomerBankCodeEnum
+        {
+            /// <summary>
+            /// Enum NUMBER_3003 for value: 3003
+            /// </summary>
+            NUMBER_3003 = 3003,
+
+            /// <summary>
+            /// Enum NUMBER_3005 for value: 3005
+            /// </summary>
+            NUMBER_3005 = 3005,
+
+            /// <summary>
+            /// Enum NUMBER_3006 for value: 3006
+            /// </summary>
+            NUMBER_3006 = 3006,
+
+            /// <summary>
+            /// Enum NUMBER_3010 for value: 3010
+            /// </summary>
+            NUMBER_3010 = 3010,
+
+            /// <summary>
+            /// Enum NUMBER_3012 for value: 3012
+            /// </summary>
+            NUMBER_3012 = 3012,
+
+            /// <summary>
+            /// Enum NUMBER_3016 for value: 3016
+            /// </summary>
+            NUMBER_3016 = 3016,
+
+            /// <summary>
+            /// Enum NUMBER_3019 for value: 3019
+            /// </summary>
+            NUMBER_3019 = 3019,
+
+            /// <summary>
+            /// Enum NUMBER_3020 for value: 3020
+            /// </summary>
+            NUMBER_3020 = 3020,
+
+            /// <summary>
+            /// Enum NUMBER_3021 for value: 3021
+            /// </summary>
+            NUMBER_3021 = 3021,
+
+            /// <summary>
+            /// Enum NUMBER_3022 for value: 3022
+            /// </summary>
+            NUMBER_3022 = 3022,
+
+            /// <summary>
+            /// Enum NUMBER_3023 for value: 3023
+            /// </summary>
+            NUMBER_3023 = 3023,
+
+            /// <summary>
+            /// Enum NUMBER_3024 for value: 3024
+            /// </summary>
+            NUMBER_3024 = 3024,
+
+            /// <summary>
+            /// Enum NUMBER_3026 for value: 3026
+            /// </summary>
+            NUMBER_3026 = 3026,
+
+            /// <summary>
+            /// Enum NUMBER_3027 for value: 3027
+            /// </summary>
+            NUMBER_3027 = 3027,
+
+            /// <summary>
+            /// Enum NUMBER_3028 for value: 3028
+            /// </summary>
+            NUMBER_3028 = 3028,
+
+            /// <summary>
+            /// Enum NUMBER_3029 for value: 3029
+            /// </summary>
+            NUMBER_3029 = 3029,
+
+            /// <summary>
+            /// Enum NUMBER_3030 for value: 3030
+            /// </summary>
+            NUMBER_3030 = 3030,
+
+            /// <summary>
+            /// Enum NUMBER_3031 for value: 3031
+            /// </summary>
+            NUMBER_3031 = 3031,
+
+            /// <summary>
+            /// Enum NUMBER_3032 for value: 3032
+            /// </summary>
+            NUMBER_3032 = 3032,
+
+            /// <summary>
+            /// Enum NUMBER_3033 for value: 3033
+            /// </summary>
+            NUMBER_3033 = 3033,
+
+            /// <summary>
+            /// Enum NUMBER_3038 for value: 3038
+            /// </summary>
+            NUMBER_3038 = 3038,
+
+            /// <summary>
+            /// Enum NUMBER_3039 for value: 3039
+            /// </summary>
+            NUMBER_3039 = 3039,
+
+            /// <summary>
+            /// Enum NUMBER_3040 for value: 3040
+            /// </summary>
+            NUMBER_3040 = 3040,
+
+            /// <summary>
+            /// Enum NUMBER_3042 for value: 3042
+            /// </summary>
+            NUMBER_3042 = 3042,
+
+            /// <summary>
+            /// Enum NUMBER_3044 for value: 3044
+            /// </summary>
+            NUMBER_3044 = 3044,
+
+            /// <summary>
+            /// Enum NUMBER_3054 for value: 3054
+            /// </summary>
+            NUMBER_3054 = 3054,
+
+            /// <summary>
+            /// Enum NUMBER_3055 for value: 3055
+            /// </summary>
+            NUMBER_3055 = 3055,
+
+            /// <summary>
+            /// Enum NUMBER_3058 for value: 3058
+            /// </summary>
+            NUMBER_3058 = 3058,
+
+            /// <summary>
+            /// Enum NUMBER_3086 for value: 3086
+            /// </summary>
+            NUMBER_3086 = 3086,
+
+            /// <summary>
+            /// Enum NUMBER_3087 for value: 3087
+            /// </summary>
+            NUMBER_3087 = 3087,
+
+            /// <summary>
+            /// Enum NUMBER_3088 for value: 3088
+            /// </summary>
+            NUMBER_3088 = 3088,
+
+            /// <summary>
+            /// Enum NUMBER_3089 for value: 3089
+            /// </summary>
+            NUMBER_3089 = 3089,
+
+            /// <summary>
+            /// Enum NUMBER_3090 for value: 3090
+            /// </summary>
+            NUMBER_3090 = 3090,
+
+            /// <summary>
+            /// Enum NUMBER_3091 for value: 3091
+            /// </summary>
+            NUMBER_3091 = 3091,
+
+            /// <summary>
+            /// Enum NUMBER_3092 for value: 3092
+            /// </summary>
+            NUMBER_3092 = 3092,
+
+            /// <summary>
+            /// Enum NUMBER_3098 for value: 3098
+            /// </summary>
+            NUMBER_3098 = 3098,
+
+            /// <summary>
+            /// Enum NUMBER_3115 for value: 3115
+            /// </summary>
+            NUMBER_3115 = 3115,
+
+            /// <summary>
+            /// Enum NUMBER_3117 for value: 3117
+            /// </summary>
+            NUMBER_3117 = 3117,
+
+            /// <summary>
+            /// Enum NUMBER_7001 for value: 7001
+            /// </summary>
+            NUMBER_7001 = 7001
+        }
+
+
+        /// <summary>
+        /// Customer Bank Code
+        /// </summary>
+        /// <value>Customer Bank Code</value>
+        [DataMember(Name = "customer_bank_code", EmitDefaultValue = false)]
+        public CustomerBankCodeEnum? customer_bank_code { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="LinkCustomerDetailsEntity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -43,7 +252,10 @@ namespace cashfree_pg.Model
         /// <param name="customerPhone">Customer phone number (required).</param>
         /// <param name="customerEmail">Customer email address.</param>
         /// <param name="customerName">Customer name.</param>
-        public LinkCustomerDetailsEntity(string customerPhone = default(string), string? customerEmail = default(string?), string? customerName = default(string?))
+        /// <param name="customerBankAccountNumber">Customer Bank Account Number.</param>
+        /// <param name="customerBankIfsc">Customer Bank Ifsc.</param>
+        /// <param name="customerBankCode">Customer Bank Code.</param>
+        public LinkCustomerDetailsEntity(string customerPhone = default(string), string? customerEmail = default(string?), string? customerName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), CustomerBankCodeEnum? customerBankCode = default(CustomerBankCodeEnum?))
         {
             // to ensure "customerPhone" is required (not null)
             if (customerPhone == null)
@@ -53,6 +265,9 @@ namespace cashfree_pg.Model
             this.customer_phone = customerPhone;
             this.customer_email = customerEmail;
             this.customer_name = customerName;
+            this.customer_bank_account_number = customerBankAccountNumber;
+            this.customer_bank_ifsc = customerBankIfsc;
+            this.customer_bank_code = customerBankCode;
         }
 
         /// <summary>
@@ -77,6 +292,20 @@ namespace cashfree_pg.Model
         public string? customer_name { get; set; }
 
         /// <summary>
+        /// Customer Bank Account Number
+        /// </summary>
+        /// <value>Customer Bank Account Number</value>
+        [DataMember(Name = "customer_bank_account_number", EmitDefaultValue = false)]
+        public string? customer_bank_account_number { get; set; }
+
+        /// <summary>
+        /// Customer Bank Ifsc
+        /// </summary>
+        /// <value>Customer Bank Ifsc</value>
+        [DataMember(Name = "customer_bank_ifsc", EmitDefaultValue = false)]
+        public string? customer_bank_ifsc { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +316,9 @@ namespace cashfree_pg.Model
             sb.Append("  customer_phone: ").Append(customer_phone).Append("\n");
             sb.Append("  customer_email: ").Append(customer_email).Append("\n");
             sb.Append("  customer_name: ").Append(customer_name).Append("\n");
+            sb.Append("  customer_bank_account_number: ").Append(customer_bank_account_number).Append("\n");
+            sb.Append("  customer_bank_ifsc: ").Append(customer_bank_ifsc).Append("\n");
+            sb.Append("  customer_bank_code: ").Append(customer_bank_code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +368,20 @@ namespace cashfree_pg.Model
                     this.customer_name == input.customer_name ||
                     (this.customer_name != null &&
                     this.customer_name.Equals(input.customer_name))
+                ) && 
+                (
+                    this.customer_bank_account_number == input.customer_bank_account_number ||
+                    (this.customer_bank_account_number != null &&
+                    this.customer_bank_account_number.Equals(input.customer_bank_account_number))
+                ) && 
+                (
+                    this.customer_bank_ifsc == input.customer_bank_ifsc ||
+                    (this.customer_bank_ifsc != null &&
+                    this.customer_bank_ifsc.Equals(input.customer_bank_ifsc))
+                ) && 
+                (
+                    this.customer_bank_code == input.customer_bank_code ||
+                    this.customer_bank_code.Equals(input.customer_bank_code)
                 );
         }
 
@@ -168,6 +414,15 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.customer_name.GetHashCode();
                 }
+                if (this.customer_bank_account_number != null)
+                {
+                    hashCode = (hashCode * 59) + this.customer_bank_account_number.GetHashCode();
+                }
+                if (this.customer_bank_ifsc != null)
+                {
+                    hashCode = (hashCode * 59) + this.customer_bank_ifsc.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.customer_bank_code.GetHashCode();
                 return hashCode;
             }
         }

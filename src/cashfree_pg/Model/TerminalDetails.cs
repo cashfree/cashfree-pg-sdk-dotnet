@@ -44,20 +44,14 @@ namespace cashfree_pg.Model
         /// <param name="cfTerminalId">cashfree terminal id.</param>
         /// <param name="lastUpdatedOn">last instant when this terminal was updated.</param>
         /// <param name="terminalAddress">location of terminal.</param>
-        /// <param name="terminalId">terminal id for merchant reference (required).</param>
+        /// <param name="terminalId">terminal id for merchant reference.</param>
         /// <param name="terminalName">name of terminal/agent/storefront.</param>
         /// <param name="terminalNote">note given by merchant while creating the terminal.</param>
         /// <param name="terminalPhoneNo">mobile num of the terminal/agent/storefront (required).</param>
         /// <param name="terminalStatus">status of terminal active/inactive.</param>
         /// <param name="terminalType">To identify the type of terminal product in use, in this case it is SPOS. (required).</param>
-        public TerminalDetails(string? addedOn = default(string?), string? cfTerminalId = default(string?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string terminalId = default(string), string? terminalName = default(string?), string? terminalNote = default(string?), string terminalPhoneNo = default(string), string? terminalStatus = default(string?), string terminalType = default(string))
+        public TerminalDetails(string? addedOn = default(string?), string? cfTerminalId = default(string?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string? terminalId = default(string?), string? terminalName = default(string?), string? terminalNote = default(string?), string terminalPhoneNo = default(string), string? terminalStatus = default(string?), string terminalType = default(string))
         {
-            // to ensure "terminalId" is required (not null)
-            if (terminalId == null)
-            {
-                throw new ArgumentNullException("terminalId is a required property for TerminalDetails and cannot be null");
-            }
-            this.terminal_id = terminalId;
             // to ensure "terminalPhoneNo" is required (not null)
             if (terminalPhoneNo == null)
             {
@@ -74,6 +68,7 @@ namespace cashfree_pg.Model
             this.cf_terminal_id = cfTerminalId;
             this.last_updated_on = lastUpdatedOn;
             this.terminal_address = terminalAddress;
+            this.terminal_id = terminalId;
             this.terminal_name = terminalName;
             this.terminal_note = terminalNote;
             this.terminal_status = terminalStatus;
@@ -111,8 +106,8 @@ namespace cashfree_pg.Model
         /// terminal id for merchant reference
         /// </summary>
         /// <value>terminal id for merchant reference</value>
-        [DataMember(Name = "terminal_id", IsRequired = true, EmitDefaultValue = true)]
-        public string terminal_id { get; set; }
+        [DataMember(Name = "terminal_id", EmitDefaultValue = false)]
+        public string? terminal_id { get; set; }
 
         /// <summary>
         /// name of terminal/agent/storefront

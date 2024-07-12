@@ -44,7 +44,8 @@ namespace cashfree_pg.Model
         /// <param name="cfTerminalId">cashfree terminal id. this is a required parameter when you do not provide the terminal phone number..</param>
         /// <param name="paymentMethod">mention the payment method used for the transaction. possible values - QR_CODE, LINK. (required).</param>
         /// <param name="terminalPhoneNo">agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id..</param>
-        public CreateTerminalTransactionRequest(string cfOrderId = default(string), string? cfTerminalId = default(string?), string paymentMethod = default(string), string? terminalPhoneNo = default(string?))
+        /// <param name="addInvoice">make it true to have request be sent to create a Dynamic GST QR Code..</param>
+        public CreateTerminalTransactionRequest(string cfOrderId = default(string), string? cfTerminalId = default(string?), string paymentMethod = default(string), string? terminalPhoneNo = default(string?), bool? addInvoice = default(bool?))
         {
             // to ensure "cfOrderId" is required (not null)
             if (cfOrderId == null)
@@ -60,6 +61,7 @@ namespace cashfree_pg.Model
             this.payment_method = paymentMethod;
             this.cf_terminal_id = cfTerminalId;
             this.terminal_phone_no = terminalPhoneNo;
+            this.add_invoice = addInvoice;
         }
 
         /// <summary>
@@ -91,6 +93,13 @@ namespace cashfree_pg.Model
         public string? terminal_phone_no { get; set; }
 
         /// <summary>
+        /// make it true to have request be sent to create a Dynamic GST QR Code.
+        /// </summary>
+        /// <value>make it true to have request be sent to create a Dynamic GST QR Code.</value>
+        [DataMember(Name = "add_invoice", EmitDefaultValue = true)]
+        public bool? add_invoice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +111,7 @@ namespace cashfree_pg.Model
             sb.Append("  cf_terminal_id: ").Append(cf_terminal_id).Append("\n");
             sb.Append("  payment_method: ").Append(payment_method).Append("\n");
             sb.Append("  terminal_phone_no: ").Append(terminal_phone_no).Append("\n");
+            sb.Append("  add_invoice: ").Append(add_invoice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -156,6 +166,10 @@ namespace cashfree_pg.Model
                     this.terminal_phone_no == input.terminal_phone_no ||
                     (this.terminal_phone_no != null &&
                     this.terminal_phone_no.Equals(input.terminal_phone_no))
+                ) && 
+                (
+                    this.add_invoice == input.add_invoice ||
+                    this.add_invoice.Equals(input.add_invoice)
                 );
         }
 
@@ -192,6 +206,7 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.terminal_phone_no.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.add_invoice.GetHashCode();
                 return hashCode;
             }
         }

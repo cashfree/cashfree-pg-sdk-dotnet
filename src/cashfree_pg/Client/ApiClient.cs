@@ -157,7 +157,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -246,7 +246,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CustomerEntity>("/customers", localVarRequestOptions, config);
@@ -295,7 +295,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -385,7 +385,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AdjustVendorBalanceResponse>("/easy-split/vendors/{vendor_id}/transfer", localVarRequestOptions, config);
@@ -433,7 +433,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -518,7 +518,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateVendorResponse>("/easy-split/vendors", localVarRequestOptions, config);
@@ -567,7 +567,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -660,7 +660,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentDownloadResponse>("/easy-split/vendor-docs/{vendor_id}/download/{doc_type}", localVarRequestOptions, config);
@@ -708,7 +708,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -796,7 +796,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorEntity>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -844,7 +844,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -932,7 +932,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalance>("/easy-split/vendors/{vendor_id}/balances", localVarRequestOptions, config);
@@ -981,7 +981,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1070,7 +1070,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalanceTransferCharges>("/easy-split/amount/{amount}/charges", localVarRequestOptions, config);
@@ -1118,7 +1118,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1206,7 +1206,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1254,7 +1254,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1339,7 +1339,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ESOrderReconResponse>("/split/order/vendor/recon", localVarRequestOptions, config);
@@ -1388,7 +1388,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1478,7 +1478,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<UpdateVendorResponse>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -1529,7 +1529,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1630,7 +1630,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadVendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1679,7 +1679,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1769,7 +1769,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SplitAfterPaymentResponse>("/easy-split/orders/{order_id}/split", localVarRequestOptions, config);
@@ -1817,7 +1817,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1902,7 +1902,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<StaticSplitResponse>("/easy-split/static-split", localVarRequestOptions, config);
@@ -1950,7 +1950,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2039,7 +2039,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -2087,7 +2087,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2176,7 +2176,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -2224,7 +2224,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2313,7 +2313,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -2361,7 +2361,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2450,7 +2450,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -2498,7 +2498,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2587,7 +2587,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -2635,7 +2635,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2723,7 +2723,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -2771,7 +2771,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2860,7 +2860,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -2908,7 +2908,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2996,7 +2996,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3045,7 +3045,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3139,7 +3139,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3189,7 +3189,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3286,7 +3286,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -3334,7 +3334,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3422,7 +3422,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -3470,7 +3470,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3559,7 +3559,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -3607,7 +3607,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3695,7 +3695,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -3743,7 +3743,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3831,7 +3831,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentLinkOrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -3880,7 +3880,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3974,7 +3974,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -4023,7 +4023,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4102,7 +4102,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -4151,7 +4151,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4244,7 +4244,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -4292,7 +4292,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4380,7 +4380,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -4428,7 +4428,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4502,7 +4502,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -4551,7 +4551,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4645,7 +4645,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -4694,7 +4694,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4787,7 +4787,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -4835,7 +4835,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4923,7 +4923,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -4973,7 +4973,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5070,7 +5070,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -5120,7 +5120,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5217,7 +5217,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -5225,6 +5225,139 @@ namespace cashfree_pg.Client
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PGSettlementFetchRecon", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Mark Order For Settlement Use this API to pass the CBRICS ID to Cashfree and mark an order for settlement.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <param name="createOrderSettlementRequestBody">Create Order Settlement Request Body. (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public cashfree_pg.Client.ApiResponse<Object> MarkForSettlement(string xApiVersion, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), CreateOrderSettlementRequestBody? createOrderSettlementRequestBody = default(CreateOrderSettlementRequestBody?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SettlementsApi->MarkForSettlement");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = createOrderSettlementRequestBody;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/orders/settlements", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MarkForSettlement", localVarResponse);
                 if (_exception != null) {
                     if(Cashfree.XEnableErrorAnalytics) {
                         var sentryEvent = new SentryEvent(_exception);
@@ -5265,7 +5398,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5353,7 +5486,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -5361,6 +5494,279 @@ namespace cashfree_pg.Client
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PGOrderFetchSettlement", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch Simulation Use this API to fetch simulated payment details.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="simulationId">Provide the SimulationId for which the details have to be fetched.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SimulationResponse</returns>
+        public cashfree_pg.Client.ApiResponse<SimulationResponse> PGFetchSimulation(string xApiVersion, string simulationId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SimulationApi->PGFetchSimulation");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationApi->PGFetchSimulation");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("simulation_id", cashfree_pg.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SimulationResponse>("/simulate/{simulation_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGFetchSimulation", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Simulate Payment Use this API to simulate payment. To use this API you should first create an order using the Create Order API. Also, you need to create a payment with the same order.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="simulateRequest">Request Body to Make Simulation</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SimulationResponse</returns>
+        public cashfree_pg.Client.ApiResponse<SimulationResponse> PGSimulatePayment(string xApiVersion, SimulateRequest simulateRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SimulationApi->PGSimulatePayment");
+
+            // verify the required parameter 'simulateRequest' is set
+            if (simulateRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'simulateRequest' when calling SimulationApi->PGSimulatePayment");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = simulateRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SimulationResponse>("/simulate", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PGSimulatePayment", localVarResponse);
                 if (_exception != null) {
                     if(Cashfree.XEnableErrorAnalytics) {
                         var sentryEvent = new SentryEvent(_exception);
@@ -5401,7 +5807,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5490,7 +5896,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -5538,7 +5944,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5627,7 +6033,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -5675,7 +6081,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5763,7 +6169,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -5812,7 +6218,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5905,7 +6311,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -5954,7 +6360,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6047,7 +6453,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalPaymentEntity>("/terminal/{cf_terminal_id}/payments", localVarRequestOptions, config);
@@ -6096,7 +6502,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6190,7 +6596,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}", localVarRequestOptions, config);
@@ -6239,7 +6645,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6333,7 +6739,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}/status", localVarRequestOptions, config);
@@ -6382,7 +6788,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6476,7 +6882,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<UploadTerminalDocsEntity>>("/terminal/{cf_terminal_id}/docs", localVarRequestOptions, config);
@@ -6484,6 +6890,1836 @@ namespace cashfree_pg.Client
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SposUploadTerminalDocs", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Raise a charge or create an auth. Use this API to create an auth or to raise a charge .
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="createSubscriptionPaymentRequest">Request body to create a subscription payment.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubsCreatePayment200Response</returns>
+        public cashfree_pg.Client.ApiResponse<SubsCreatePayment200Response> SubsCreatePayment(string xApiVersion, CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsCreatePayment");
+
+            // verify the required parameter 'createSubscriptionPaymentRequest' is set
+            if (createSubscriptionPaymentRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'createSubscriptionPaymentRequest' when calling SubscriptionApi->SubsCreatePayment");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = createSubscriptionPaymentRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubsCreatePayment200Response>("/subscriptions/pay", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsCreatePayment", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create a plan. A plan allows your customer to identify the features you offer along with your pricing. You can create plans as per the pricing you support for your services. For each plan, you can set a pre-decided frequency and amount with which they’ll be charged. Example: Netflix Plans - Premium, Basic, Standard, Mobile. Each plan differs and caters for a particular set of audiences.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="createPlanRequest">Request body to create a plan.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of PlanEntity</returns>
+        public cashfree_pg.Client.ApiResponse<PlanEntity> SubsCreatePlan(string xApiVersion, CreatePlanRequest createPlanRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsCreatePlan");
+
+            // verify the required parameter 'createPlanRequest' is set
+            if (createPlanRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'createPlanRequest' when calling SubscriptionApi->SubsCreatePlan");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = createPlanRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PlanEntity>("/plans", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsCreatePlan", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create a refund. This API allows you to create refund on a successful payment. Refund amount can be partial or the full amount of the payment.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="createSubscriptionRefundRequest">Request body to create a subscription refund.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionPaymentRefundEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionPaymentRefundEntity> SubsCreateRefund(string xApiVersion, string subscriptionId, CreateSubscriptionRefundRequest createSubscriptionRefundRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsCreateRefund");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsCreateRefund");
+
+            // verify the required parameter 'createSubscriptionRefundRequest' is set
+            if (createSubscriptionRefundRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'createSubscriptionRefundRequest' when calling SubscriptionApi->SubsCreateRefund");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = createSubscriptionRefundRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsCreateRefund", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Create Subscription Use this API to create a new subscription.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="createSubscriptionRequest">Request body to create a subscription.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsCreateSubscription(string xApiVersion, CreateSubscriptionRequest createSubscriptionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsCreateSubscription");
+
+            // verify the required parameter 'createSubscriptionRequest' is set
+            if (createSubscriptionRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'createSubscriptionRequest' when calling SubscriptionApi->SubsCreateSubscription");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = createSubscriptionRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsCreateSubscription", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch Plan Use this API to fetch plan details.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="planId">Provide the PlanId for which the details have to be fetched.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of PlanEntity</returns>
+        public cashfree_pg.Client.ApiResponse<PlanEntity> SubsFetchPlan(string xApiVersion, string planId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsFetchPlan");
+
+            // verify the required parameter 'planId' is set
+            if (planId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'planId' when calling SubscriptionApi->SubsFetchPlan");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("plan_id", cashfree_pg.Client.ClientUtils.ParameterToString(planId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PlanEntity>("/pg/plans/{plan_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsFetchPlan", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch Subscription Use this API to fetch subscription details.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsFetchSubscription(string xApiVersion, string subscriptionId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsFetchSubscription");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsFetchSubscription");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SubscriptionEntity>("/subscriptions/{subscription_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsFetchSubscription", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch details of a single payment. Use this API to fetch details of a single payment of a subscription.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="paymentId">Provide the PaymentId using which the payment was created.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionPaymentEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionPaymentEntity> SubsFetchSubscriptionPayment(string xApiVersion, string subscriptionId, string paymentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsFetchSubscriptionPayment");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsFetchSubscriptionPayment");
+
+            // verify the required parameter 'paymentId' is set
+            if (paymentId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'paymentId' when calling SubscriptionApi->SubsFetchSubscriptionPayment");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("payment_id", cashfree_pg.Client.ClientUtils.ParameterToString(paymentId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsFetchSubscriptionPayment", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch details of all payments of a subscription. Use this API to fetch all payments of a subscription.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubscriptionPaymentEntity&gt;</returns>
+        public cashfree_pg.Client.ApiResponse<List<SubscriptionPaymentEntity>> SubsFetchSubscriptionPayments(string xApiVersion, string subscriptionId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsFetchSubscriptionPayments");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsFetchSubscriptionPayments");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubscriptionPaymentEntity>>("/subscriptions/{subscription_id}/payments", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsFetchSubscriptionPayments", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Fetch details of a refund. Use this API to fetch details of a refund of a subscription payment.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="refundId">Provide the PaymentId for which the details have to be fetched.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionPaymentRefundEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionPaymentRefundEntity> SubsFetchSubscriptionRefund(string xApiVersion, string subscriptionId, string refundId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsFetchSubscriptionRefund");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsFetchSubscriptionRefund");
+
+            // verify the required parameter 'refundId' is set
+            if (refundId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'refundId' when calling SubscriptionApi->SubsFetchSubscriptionRefund");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("refund_id", cashfree_pg.Client.ClientUtils.ParameterToString(refundId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds/{refund_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsFetchSubscriptionRefund", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Manage a subscription. Use this API to manage a subscription. You can cancel, pause, activate or change the plan of a subscription.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="manageSubscriptionRequest">Request body to manage a subscription.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsManageSubscription(string xApiVersion, string subscriptionId, ManageSubscriptionRequest manageSubscriptionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsManageSubscription");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsManageSubscription");
+
+            // verify the required parameter 'manageSubscriptionRequest' is set
+            if (manageSubscriptionRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'manageSubscriptionRequest' when calling SubscriptionApi->SubsManageSubscription");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = manageSubscriptionRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions/{subscription_id}/manage", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsManageSubscription", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Manage a single payment. Use this API to manage a payment of a subscription. A payment can be cancelled or retried with this API.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionId">Provide the SubscriptionId using which the subscription was created.</param>
+        /// <param name="paymentId">Provide the PaymentId using which the payment was created.</param>
+        /// <param name="manageSubscriptionPaymentRequest">Request body to manage a subscription payment.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionPaymentEntity</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionPaymentEntity> SubsManageSubscriptionPayment(string xApiVersion, string subscriptionId, string paymentId, ManageSubscriptionPaymentRequest manageSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubsManageSubscriptionPayment");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionApi->SubsManageSubscriptionPayment");
+
+            // verify the required parameter 'paymentId' is set
+            if (paymentId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'paymentId' when calling SubscriptionApi->SubsManageSubscriptionPayment");
+
+            // verify the required parameter 'manageSubscriptionPaymentRequest' is set
+            if (manageSubscriptionPaymentRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'manageSubscriptionPaymentRequest' when calling SubscriptionApi->SubsManageSubscriptionPayment");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("subscription_id", cashfree_pg.Client.ClientUtils.ParameterToString(subscriptionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("payment_id", cashfree_pg.Client.ClientUtils.ParameterToString(paymentId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = manageSubscriptionPaymentRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}/manage", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubsManageSubscriptionPayment", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Upload Physical Nach for Physical Nach Authorization. Use this API to upload Physical Nach for Physical Nach Authorization.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="paymentId">Provide the PaymentId using which the payment was created.</param>
+        /// <param name="file">Select the .jpg file that should be uploaded or provide the path of that file. You cannot upload a file that is more than 1MB in size.</param>
+        /// <param name="paymentId2">Authorization Payment Id for physical nach authorization</param>
+        /// <param name="action">Action to be performed on the file. Can be SUBMIT_DOCUMENT</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of UploadPnachImageResponse</returns>
+        public cashfree_pg.Client.ApiResponse<UploadPnachImageResponse> SubscriptionDocumentUpload(string xApiVersion, string paymentId, System.IO.Stream file, string paymentId2, string action, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubscriptionDocumentUpload");
+
+            // verify the required parameter 'paymentId' is set
+            if (paymentId == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'paymentId' when calling SubscriptionApi->SubscriptionDocumentUpload");
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'file' when calling SubscriptionApi->SubscriptionDocumentUpload");
+
+            // verify the required parameter 'paymentId2' is set
+            if (paymentId2 == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'paymentId2' when calling SubscriptionApi->SubscriptionDocumentUpload");
+
+            // verify the required parameter 'action' is set
+            if (action == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'action' when calling SubscriptionApi->SubscriptionDocumentUpload");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("payment_id", cashfree_pg.Client.ClientUtils.ParameterToString(paymentId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.FileParameters.Add("file", file);
+            localVarRequestOptions.FormParameters.Add("payment_id", cashfree_pg.Client.ClientUtils.ParameterToString(paymentId2)); // form parameter
+            localVarRequestOptions.FormParameters.Add("action", cashfree_pg.Client.ClientUtils.ParameterToString(action)); // form parameter
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UploadPnachImageResponse>("/subscriptions/pay/documents/{payment_id}", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubscriptionDocumentUpload", localVarResponse);
+                if (_exception != null) {
+                    if(Cashfree.XEnableErrorAnalytics) {
+                        var sentryEvent = new SentryEvent(_exception);
+                        SentrySdk.CaptureEvent(sentryEvent);
+                    }
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+        /// <summary>
+        /// Get Eligible payment methods available for a subscription Use this API to check if a payment method is enabled for your account.
+        /// </summary>
+        /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
+        /// <param name="subscriptionEligibilityRequest">Request body to fetch subscription eligibile payment method details.</param>
+        /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
+        /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <returns>ApiResponse of SubscriptionEligibilityResponse</returns>
+        public cashfree_pg.Client.ApiResponse<SubscriptionEligibilityResponse> SubscriptionEligibility(string xApiVersion, SubscriptionEligibilityRequest subscriptionEligibilityRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        {
+            var env = "sandbox";
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                env = "production";
+            }
+            if(Cashfree.XEnableErrorAnalytics) {
+                using (SentrySdk.Init(o =>
+                {
+                    o.Dsn = "https://7674ee5291124b76894cb90a9ac6a33b@o330525.ingest.sentry.io/4505164135464960";
+                    // When configuring for the first time, to see what the SDK is doing:
+                    o.Debug = true;
+                    // Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+                    // We recommend adjusting this value in production.
+                    o.TracesSampleRate = 1.0;
+                    // Enable Global Mode if running in a client app
+                    o.IsGlobalModeEnabled = false;
+                    o.EnableTracing = true;
+                    o.AttachStacktrace = true;
+                    o.Environment = env;
+                    o.Release = "4.2.0";
+                    o.AddEventProcessor(new CashfreeEventProcessor());
+                }));
+            }
+                var config = new Configuration();
+            if(configuration != null) {
+                config = configuration;
+            }
+            this.Client = new cashfree_pg.Client.ApiClient("https://sandbox.cashfree.com/pg");
+            if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
+                this.Client = new cashfree_pg.Client.ApiClient("https://api.cashfree.com/pg");
+            }
+            // verify the required parameter 'xApiVersion' is set
+            if (xApiVersion == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'xApiVersion' when calling SubscriptionApi->SubscriptionEligibility");
+
+            // verify the required parameter 'subscriptionEligibilityRequest' is set
+            if (subscriptionEligibilityRequest == null)
+                throw new cashfree_pg.Client.ApiException(400, "Missing required parameter 'subscriptionEligibilityRequest' when calling SubscriptionApi->SubscriptionEligibility");
+
+            cashfree_pg.Client.RequestOptions localVarRequestOptions = new cashfree_pg.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = cashfree_pg.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = cashfree_pg.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
+            if (xRequestId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-request-id", cashfree_pg.Client.ClientUtils.ParameterToString(xRequestId)); // header parameter
+            }
+            if (xIdempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-idempotency-key", cashfree_pg.Client.ClientUtils.ParameterToString(xIdempotencyKey)); // header parameter
+            }
+            localVarRequestOptions.Data = subscriptionEligibilityRequest;
+
+            // authentication (XPartnerAPIKey) required
+            
+            
+            // authentication (XClientSecret) required
+            
+            
+            // authentication (XPartnerMerchantID) required
+            
+            
+            // authentication (XClientID) required
+            
+            
+            // authentication (XClientSignatureHeader) required
+            
+            
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-id", Cashfree.XClientId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSecret))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-secret", Cashfree.XClientSecret);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerApiKey))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-apikey", Cashfree.XPartnerApiKey);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XPartnerMerchantId))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-partner-merchantid", Cashfree.XPartnerMerchantId);
+            }
+
+            if (!string.IsNullOrEmpty(Cashfree.XClientSignature))
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SubscriptionEligibilityResponse>("/subscriptions/eligibility/payment_methods", localVarRequestOptions, config);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubscriptionEligibility", localVarResponse);
                 if (_exception != null) {
                     if(Cashfree.XEnableErrorAnalytics) {
                         var sentryEvent = new SentryEvent(_exception);
@@ -6525,7 +8761,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6618,7 +8854,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -6667,7 +8903,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6760,7 +8996,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -6809,7 +9045,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6902,7 +9138,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -6951,7 +9187,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.1.2";
+                    o.Release = "4.2.0";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7044,7 +9280,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.1.2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);

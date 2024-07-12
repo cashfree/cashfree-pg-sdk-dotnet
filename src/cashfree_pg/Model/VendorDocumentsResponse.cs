@@ -36,7 +36,7 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="VendorDocumentsResponse" /> class.
         /// </summary>
         /// <param name="documents">documents.</param>
-        public VendorDocumentsResponse(List<VendorEntityRelatedDocsInner>? documents = default(List<VendorEntityRelatedDocsInner>?))
+        public VendorDocumentsResponse(List<UpdateVendorResponseRelatedDocsInner>? documents = default(List<UpdateVendorResponseRelatedDocsInner>?))
         {
             this.documents = documents;
         }
@@ -45,7 +45,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets documents
         /// </summary>
         [DataMember(Name = "documents", EmitDefaultValue = false)]
-        public List<VendorEntityRelatedDocsInner>? documents { get; set; }
+        public List<UpdateVendorResponseRelatedDocsInner>? documents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

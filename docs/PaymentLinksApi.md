@@ -279,7 +279,7 @@ namespace Example
 
 <a id="pglinkfetchorders"></a>
 # **PGLinkFetchOrders**
-> List&lt;PaymentLinkOrderEntity&gt; PGLinkFetchOrders (string xApiVersion, string linkId, string? xRequestId = null, Guid? xIdempotencyKey = null)
+> List&lt;PaymentLinkOrderEntity&gt; PGLinkFetchOrders (string xApiVersion, string linkId, string? xRequestId = null, Guid? xIdempotencyKey = null, string? status = null)
 
 Get Orders for a Payment Link
 
@@ -311,11 +311,12 @@ namespace Example
             var linkId = your-link-id;  // string | The payment link ID for which you want to view the details.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+            var status = ALL;  // string? | Mention What is status of orders you want to fetch, default is PAID. Possible value: ALL, PAID (optional) 
 
             try
             {
                 // Get Orders for a Payment Link
-                List<PaymentLinkOrderEntity> result = cashfree.PGLinkFetchOrders(xApiVersion, linkId, xRequestId, xIdempotencyKey);
+                List<PaymentLinkOrderEntity> result = cashfree.PGLinkFetchOrders(xApiVersion, linkId, xRequestId, xIdempotencyKey, status);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -337,6 +338,7 @@ namespace Example
 | **linkId** | **string** | The payment link ID for which you want to view the details. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+| **status** | **string?** | Mention What is status of orders you want to fetch, default is PAID. Possible value: ALL, PAID | [optional]  |
 
 ### Return type
 

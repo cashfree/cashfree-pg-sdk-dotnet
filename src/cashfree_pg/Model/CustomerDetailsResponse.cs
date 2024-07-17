@@ -42,7 +42,7 @@ namespace cashfree_pg.Model
         /// <param name="customerBankAccountNumber">Customer bank account. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankIfsc">Customer bank IFSC. Required if you want to do a bank account check (TPV).</param>
         /// <param name="customerBankCode">Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV).</param>
-        /// <param name="customerUid">Customer identifier at Cashfree. You will get this when you create/get customer        .</param>
+        /// <param name="customerUid">Customer identifier at Cashfree. You will get this when you create/get customer.</param>
         public CustomerDetailsResponse(string? customerId = default(string?), string? customerEmail = default(string?), string? customerPhone = default(string?), string? customerName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), decimal? customerBankCode = default(decimal?), string? customerUid = default(string?))
         {
             this.customer_id = customerId;
@@ -105,9 +105,9 @@ namespace cashfree_pg.Model
         public decimal? customer_bank_code { get; set; }
 
         /// <summary>
-        /// Customer identifier at Cashfree. You will get this when you create/get customer        
+        /// Customer identifier at Cashfree. You will get this when you create/get customer
         /// </summary>
-        /// <value>Customer identifier at Cashfree. You will get this when you create/get customer        </value>
+        /// <value>Customer identifier at Cashfree. You will get this when you create/get customer</value>
         [DataMember(Name = "customer_uid", EmitDefaultValue = false)]
         public string? customer_uid { get; set; }
 

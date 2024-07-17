@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// <param name="businessType">businessType.</param>
         /// <param name="remarks">remarks.</param>
         /// <param name="relatedDocs">relatedDocs.</param>
-        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), string? remarks = default(string?), List<UpdateVendorResponseRelatedDocsInner>? relatedDocs = default(List<UpdateVendorResponseRelatedDocsInner>?))
+        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), string? remarks = default(string?), List<VendorEntityRelatedDocsInner>? relatedDocs = default(List<VendorEntityRelatedDocsInner>?))
         {
             this.email = email;
             this.status = status;
@@ -157,7 +157,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets related_docs
         /// </summary>
         [DataMember(Name = "related_docs", EmitDefaultValue = false)]
-        public List<UpdateVendorResponseRelatedDocsInner>? related_docs { get; set; }
+        public List<VendorEntityRelatedDocsInner>? related_docs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

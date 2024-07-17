@@ -1,11 +1,14 @@
-# cashfree_pg.Model.VendorDocumentsResponse
-Get Vendor Documents
+# cashfree_pg.Model.VendorEntityRelatedDocsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documents** | [**List&lt;VendorEntityRelatedDocsInner&gt;**](VendorEntityRelatedDocsInner.md) |  | [optional] 
+**vendor_id** | **string** |  | [optional] 
+**doc_type** | **string** |  | [optional] 
+**doc_value** | **string** |  | [optional] 
+**status** | **string** |  | [optional] 
+**remarks** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

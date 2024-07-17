@@ -56,7 +56,6 @@ docs/CreateVendorResponse.md
 docs/CryptogramEntity.md
 docs/CustomerDetails.md
 docs/CustomerDetailsCardlessEMI.md
-docs/CustomerDetailsResponse.md
 docs/CustomerEntity.md
 docs/CustomersApi.md
 docs/DiscountDetails.md
@@ -312,7 +311,6 @@ src/cashfree_pg.Test/Model/CreateVendorRequestTests.cs
 src/cashfree_pg.Test/Model/CreateVendorResponseTests.cs
 src/cashfree_pg.Test/Model/CryptogramEntityTests.cs
 src/cashfree_pg.Test/Model/CustomerDetailsCardlessEMITests.cs
-src/cashfree_pg.Test/Model/CustomerDetailsResponseTests.cs
 src/cashfree_pg.Test/Model/CustomerDetailsTests.cs
 src/cashfree_pg.Test/Model/CustomerEntityTests.cs
 src/cashfree_pg.Test/Model/DiscountDetailsTests.cs
@@ -572,7 +570,6 @@ src/cashfree_pg/Model/CreateVendorResponse.cs
 src/cashfree_pg/Model/CryptogramEntity.cs
 src/cashfree_pg/Model/CustomerDetails.cs
 src/cashfree_pg/Model/CustomerDetailsCardlessEMI.cs
-src/cashfree_pg/Model/CustomerDetailsResponse.cs
 src/cashfree_pg/Model/CustomerEntity.cs
 src/cashfree_pg/Model/DiscountDetails.cs
 src/cashfree_pg/Model/EMIOffer.cs

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **order_note** | **string** | Additional note for order | [optional] 
 **created_at** | **DateTime** | When the order was created at cashfree&#39;s server | [optional] 
 **order_splits** | [**List&lt;VendorSplit&gt;**](VendorSplit.md) |  | [optional] 
-**customer_details** | [**CustomerDetailsResponse**](CustomerDetailsResponse.md) |  | [optional] 
+**customer_details** | [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
 **order_meta** | [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **order_tags** | **Dictionary&lt;string, string&gt;** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
 

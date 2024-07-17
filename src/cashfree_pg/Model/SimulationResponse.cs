@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="entity">entity.</param>
         /// <param name="entityId">entityId.</param>
         /// <param name="entitySimulation">entitySimulation.</param>
-        public SimulationResponse(string? simulationId = default(string?), string? entity = default(string?), string? entityId = default(string?), EntitySimulationResponse? entitySimulation = default(EntitySimulationResponse?))
+        public SimulationResponse(string? simulationId = default(string?), string? entity = default(string?), long? entityId = default(long?), EntitySimulationResponse? entitySimulation = default(EntitySimulationResponse?))
         {
             this.simulation_id = simulationId;
             this.entity = entity;
@@ -63,7 +63,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets entity_id
         /// </summary>
         [DataMember(Name = "entity_id", EmitDefaultValue = false)]
-        public string? entity_id { get; set; }
+        public long? entity_id { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_simulation
@@ -130,8 +130,7 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.entity_id == input.entity_id ||
-                    (this.entity_id != null &&
-                    this.entity_id.Equals(input.entity_id))
+                    this.entity_id.Equals(input.entity_id)
                 ) && 
                 (
                     this.entity_simulation == input.entity_simulation ||
@@ -165,10 +164,7 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.entity.GetHashCode();
                 }
-                if (this.entity_id != null)
-                {
-                    hashCode = (hashCode * 59) + this.entity_id.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.entity_id.GetHashCode();
                 if (this.entity_simulation != null)
                 {
                     hashCode = (hashCode * 59) + this.entity_simulation.GetHashCode();

@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <param name="customerDetails">customerDetails.</param>
         /// <param name="orderMeta">orderMeta.</param>
         /// <param name="orderTags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
-        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), DateTime? orderExpiryTime = default(DateTime?), string? orderNote = default(string?), DateTime? createdAt = default(DateTime?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetailsResponse? customerDetails = default(CustomerDetailsResponse?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?))
+        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), DateTime? orderExpiryTime = default(DateTime?), string? orderNote = default(string?), DateTime? createdAt = default(DateTime?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetails? customerDetails = default(CustomerDetails?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?))
         {
             this.cf_order_id = cfOrderId;
             this.order_id = orderId;
@@ -145,7 +145,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets customer_details
         /// </summary>
         [DataMember(Name = "customer_details", EmitDefaultValue = false)]
-        public CustomerDetailsResponse? customer_details { get; set; }
+        public CustomerDetails? customer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets order_meta

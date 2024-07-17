@@ -27,7 +27,7 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// The customer details that are necessary.
+    /// The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
     /// </summary>
     [DataContract(Name = "CustomerDetails")]
     public class CustomerDetails : IEquatable<CustomerDetails>, IValidatableObject

@@ -36,10 +36,10 @@ namespace cashfree_pg.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionPaymentRequestPaymentMethod" /> class
-        /// with the <see cref="UPI" /> class
+        /// with the <see cref="CreateSubscriptonPaymentRequestUpi" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UPI.</param>
-        public CreateSubscriptionPaymentRequestPaymentMethod(UPI actualInstance)
+        /// <param name="actualInstance">An instance of CreateSubscriptonPaymentRequestUpi.</param>
+        public CreateSubscriptionPaymentRequestPaymentMethod(CreateSubscriptonPaymentRequestUpi actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -48,10 +48,10 @@ namespace cashfree_pg.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionPaymentRequestPaymentMethod" /> class
-        /// with the <see cref="ENACH" /> class
+        /// with the <see cref="CreateSubscriptionPaymentRequestEnack" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of ENACH.</param>
-        public CreateSubscriptionPaymentRequestPaymentMethod(ENACH actualInstance)
+        /// <param name="actualInstance">An instance of CreateSubscriptionPaymentRequestEnack.</param>
+        public CreateSubscriptionPaymentRequestPaymentMethod(CreateSubscriptionPaymentRequestEnack actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -60,10 +60,10 @@ namespace cashfree_pg.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionPaymentRequestPaymentMethod" /> class
-        /// with the <see cref="PNACH" /> class
+        /// with the <see cref="CreateSubscriptionPaymentRequestPnach" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of PNACH.</param>
-        public CreateSubscriptionPaymentRequestPaymentMethod(PNACH actualInstance)
+        /// <param name="actualInstance">An instance of CreateSubscriptionPaymentRequestPnach.</param>
+        public CreateSubscriptionPaymentRequestPaymentMethod(CreateSubscriptionPaymentRequestPnach actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -72,10 +72,10 @@ namespace cashfree_pg.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionPaymentRequestPaymentMethod" /> class
-        /// with the <see cref="CARD" /> class
+        /// with the <see cref="CreateSubscriptionPaymentRequestCard" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of CARD.</param>
-        public CreateSubscriptionPaymentRequestPaymentMethod(CARD actualInstance)
+        /// <param name="actualInstance">An instance of CreateSubscriptionPaymentRequestCard.</param>
+        public CreateSubscriptionPaymentRequestPaymentMethod(CreateSubscriptionPaymentRequestCard actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -96,67 +96,67 @@ namespace cashfree_pg.Model
             }
             set
             {
-                if (value.GetType() == typeof(CARD))
+                if (value.GetType() == typeof(CreateSubscriptionPaymentRequestCard))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(ENACH))
+                else if (value.GetType() == typeof(CreateSubscriptionPaymentRequestEnack))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(PNACH))
+                else if (value.GetType() == typeof(CreateSubscriptionPaymentRequestPnach))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UPI))
+                else if (value.GetType() == typeof(CreateSubscriptonPaymentRequestUpi))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: CARD, ENACH, PNACH, UPI");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: CreateSubscriptionPaymentRequestCard, CreateSubscriptionPaymentRequestEnack, CreateSubscriptionPaymentRequestPnach, CreateSubscriptonPaymentRequestUpi");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `UPI`. If the actual instance is not `UPI`,
+        /// Get the actual instance of `CreateSubscriptonPaymentRequestUpi`. If the actual instance is not `CreateSubscriptonPaymentRequestUpi`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UPI</returns>
-        public UPI GetUPI()
+        /// <returns>An instance of CreateSubscriptonPaymentRequestUpi</returns>
+        public CreateSubscriptonPaymentRequestUpi GetCreateSubscriptonPaymentRequestUpi()
         {
-            return (UPI)this.ActualInstance;
+            return (CreateSubscriptonPaymentRequestUpi)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `ENACH`. If the actual instance is not `ENACH`,
+        /// Get the actual instance of `CreateSubscriptionPaymentRequestEnack`. If the actual instance is not `CreateSubscriptionPaymentRequestEnack`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of ENACH</returns>
-        public ENACH GetENACH()
+        /// <returns>An instance of CreateSubscriptionPaymentRequestEnack</returns>
+        public CreateSubscriptionPaymentRequestEnack GetCreateSubscriptionPaymentRequestEnack()
         {
-            return (ENACH)this.ActualInstance;
+            return (CreateSubscriptionPaymentRequestEnack)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `PNACH`. If the actual instance is not `PNACH`,
+        /// Get the actual instance of `CreateSubscriptionPaymentRequestPnach`. If the actual instance is not `CreateSubscriptionPaymentRequestPnach`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of PNACH</returns>
-        public PNACH GetPNACH()
+        /// <returns>An instance of CreateSubscriptionPaymentRequestPnach</returns>
+        public CreateSubscriptionPaymentRequestPnach GetCreateSubscriptionPaymentRequestPnach()
         {
-            return (PNACH)this.ActualInstance;
+            return (CreateSubscriptionPaymentRequestPnach)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `CARD`. If the actual instance is not `CARD`,
+        /// Get the actual instance of `CreateSubscriptionPaymentRequestCard`. If the actual instance is not `CreateSubscriptionPaymentRequestCard`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of CARD</returns>
-        public CARD GetCARD()
+        /// <returns>An instance of CreateSubscriptionPaymentRequestCard</returns>
+        public CreateSubscriptionPaymentRequestCard GetCreateSubscriptionPaymentRequestCard()
         {
-            return (CARD)this.ActualInstance;
+            return (CreateSubscriptionPaymentRequestCard)this.ActualInstance;
         }
 
         /// <summary>
@@ -199,110 +199,110 @@ namespace cashfree_pg.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(CARD).GetProperty("AdditionalProperties") == null)
+                if (typeof(CreateSubscriptionPaymentRequestCard).GetProperty("AdditionalProperties") == null)
                 {
-                    if(CARD.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<CARD>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestCard.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestCard>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
                 else
                 {
-                    if(CARD.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<CARD>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestCard.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestCard>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
-                matchedTypes.Add("CARD");
+                matchedTypes.Add("CreateSubscriptionPaymentRequestCard");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CARD: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateSubscriptionPaymentRequestCard: {1}", jsonString, exception.ToString()));
             }
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(ENACH).GetProperty("AdditionalProperties") == null)
+                if (typeof(CreateSubscriptionPaymentRequestEnack).GetProperty("AdditionalProperties") == null)
                 {
-                    if(ENACH.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<ENACH>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestEnack.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestEnack>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
                 else
                 {
-                    if(ENACH.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<ENACH>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestEnack.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestEnack>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
-                matchedTypes.Add("ENACH");
+                matchedTypes.Add("CreateSubscriptionPaymentRequestEnack");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ENACH: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateSubscriptionPaymentRequestEnack: {1}", jsonString, exception.ToString()));
             }
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(PNACH).GetProperty("AdditionalProperties") == null)
+                if (typeof(CreateSubscriptionPaymentRequestPnach).GetProperty("AdditionalProperties") == null)
                 {
-                    if(PNACH.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PNACH>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestPnach.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestPnach>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
                 else
                 {
-                    if(PNACH.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PNACH>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptionPaymentRequestPnach.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptionPaymentRequestPnach>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
-                matchedTypes.Add("PNACH");
+                matchedTypes.Add("CreateSubscriptionPaymentRequestPnach");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PNACH: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateSubscriptionPaymentRequestPnach: {1}", jsonString, exception.ToString()));
             }
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(UPI).GetProperty("AdditionalProperties") == null)
+                if (typeof(CreateSubscriptonPaymentRequestUpi).GetProperty("AdditionalProperties") == null)
                 {
-                    if(UPI.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<UPI>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptonPaymentRequestUpi.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptonPaymentRequestUpi>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
                 else
                 {
-                    if(UPI.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<UPI>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
+                    if(CreateSubscriptonPaymentRequestUpi.checkPresenceOfKey(jsonString)) {
+                        dynamic data = JsonConvert.DeserializeObject<CreateSubscriptonPaymentRequestUpi>(jsonString, CreateSubscriptionPaymentRequestPaymentMethod.AdditionalPropertiesSerializerSettings);
                         newCreateSubscriptionPaymentRequestPaymentMethod = new CreateSubscriptionPaymentRequestPaymentMethod(data);
                         return newCreateSubscriptionPaymentRequestPaymentMethod;
                     }
                 }
-                matchedTypes.Add("UPI");
+                matchedTypes.Add("CreateSubscriptonPaymentRequestUpi");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UPI: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateSubscriptonPaymentRequestUpi: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

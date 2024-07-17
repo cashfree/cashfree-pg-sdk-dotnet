@@ -4,19 +4,19 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SubsCreatePayment**](SubscriptionApi.md#subscreatepayment) | **POST** /subscriptions/pay | Raise a charge or create an auth. |
-| [**SubsCreatePlan**](SubscriptionApi.md#subscreateplan) | **POST** /plans | Create a plan. |
-| [**SubsCreateRefund**](SubscriptionApi.md#subscreaterefund) | **POST** /subscriptions/{subscription_id}/refunds | Create a refund. |
-| [**SubsCreateSubscription**](SubscriptionApi.md#subscreatesubscription) | **POST** /subscriptions | Create Subscription |
+| [**SubsCreatePayment**](SubscriptionApi.md#subscreatepayment) | **POST** /pg/subscriptions/pay | Raise a charge or create an auth. |
+| [**SubsCreatePlan**](SubscriptionApi.md#subscreateplan) | **POST** /pg/plans | Create a plan. |
+| [**SubsCreateRefund**](SubscriptionApi.md#subscreaterefund) | **POST** /pg/subscriptions/{subscription_id}/refunds | Create a refund. |
+| [**SubsCreateSubscription**](SubscriptionApi.md#subscreatesubscription) | **POST** /pg/subscriptions | Create Subscription |
 | [**SubsFetchPlan**](SubscriptionApi.md#subsfetchplan) | **GET** /pg/plans/{plan_id} | Fetch Plan |
-| [**SubsFetchSubscription**](SubscriptionApi.md#subsfetchsubscription) | **GET** /subscriptions/{subscription_id} | Fetch Subscription |
-| [**SubsFetchSubscriptionPayment**](SubscriptionApi.md#subsfetchsubscriptionpayment) | **GET** /subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment. |
-| [**SubsFetchSubscriptionPayments**](SubscriptionApi.md#subsfetchsubscriptionpayments) | **GET** /subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription. |
-| [**SubsFetchSubscriptionRefund**](SubscriptionApi.md#subsfetchsubscriptionrefund) | **GET** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund. |
-| [**SubsManageSubscription**](SubscriptionApi.md#subsmanagesubscription) | **POST** /subscriptions/{subscription_id}/manage | Manage a subscription. |
-| [**SubsManageSubscriptionPayment**](SubscriptionApi.md#subsmanagesubscriptionpayment) | **POST** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment. |
-| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization. |
-| [**SubscriptionEligibility**](SubscriptionApi.md#subscriptioneligibility) | **POST** /subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription |
+| [**SubsFetchSubscription**](SubscriptionApi.md#subsfetchsubscription) | **GET** /pg/subscriptions/{subscription_id} | Fetch Subscription |
+| [**SubsFetchSubscriptionPayment**](SubscriptionApi.md#subsfetchsubscriptionpayment) | **GET** /pg/subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment. |
+| [**SubsFetchSubscriptionPayments**](SubscriptionApi.md#subsfetchsubscriptionpayments) | **GET** /pg/subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription. |
+| [**SubsFetchSubscriptionRefund**](SubscriptionApi.md#subsfetchsubscriptionrefund) | **GET** /pg/subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund. |
+| [**SubsManageSubscription**](SubscriptionApi.md#subsmanagesubscription) | **POST** /pg/subscriptions/{subscription_id}/manage | Manage a subscription. |
+| [**SubsManageSubscriptionPayment**](SubscriptionApi.md#subsmanagesubscriptionpayment) | **POST** /pg/subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment. |
+| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /pg/subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization. |
+| [**SubscriptionEligibility**](SubscriptionApi.md#subscriptioneligibility) | **POST** /pg/subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription |
 
 <a id="subscreatepayment"></a>
 # **SubsCreatePayment**

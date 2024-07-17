@@ -43,12 +43,12 @@ namespace cashfree_pg.Model
         /// <param name="customerName">Name of the customer..</param>
         /// <param name="customerEmail">Email of the customer. (required).</param>
         /// <param name="customerPhone">Phone number of the customer. (required).</param>
-        /// <param name="customerBankAccountHolderName">Bank holder name of the customer..</param>
+        /// <param name="customerBankHolderName">Bank holder name of the customer..</param>
         /// <param name="customerBankAccountNumber">Bank account number of the customer..</param>
         /// <param name="customerBankIfsc">IFSC code of the customer..</param>
         /// <param name="customerBankCode">Bank code of the customer..</param>
         /// <param name="customerBankAccountType">Bank account type of the customer..</param>
-        public SubscriptionCustomerDetails(string? customerName = default(string?), string customerEmail = default(string), string customerPhone = default(string), string? customerBankAccountHolderName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), string? customerBankCode = default(string?), string? customerBankAccountType = default(string?))
+        public SubscriptionCustomerDetails(string? customerName = default(string?), string customerEmail = default(string), string customerPhone = default(string), string? customerBankHolderName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), string? customerBankCode = default(string?), string? customerBankAccountType = default(string?))
         {
             // to ensure "customerEmail" is required (not null)
             if (customerEmail == null)
@@ -63,7 +63,7 @@ namespace cashfree_pg.Model
             }
             this.customer_phone = customerPhone;
             this.customer_name = customerName;
-            this.customer_bank_account_holder_name = customerBankAccountHolderName;
+            this.customer_bank_holder_name = customerBankHolderName;
             this.customer_bank_account_number = customerBankAccountNumber;
             this.customer_bank_ifsc = customerBankIfsc;
             this.customer_bank_code = customerBankCode;
@@ -95,8 +95,8 @@ namespace cashfree_pg.Model
         /// Bank holder name of the customer.
         /// </summary>
         /// <value>Bank holder name of the customer.</value>
-        [DataMember(Name = "customer_bank_account_holder_name", EmitDefaultValue = false)]
-        public string? customer_bank_account_holder_name { get; set; }
+        [DataMember(Name = "customer_bank_holder_name", EmitDefaultValue = false)]
+        public string? customer_bank_holder_name { get; set; }
 
         /// <summary>
         /// Bank account number of the customer.
@@ -137,7 +137,7 @@ namespace cashfree_pg.Model
             sb.Append("  customer_name: ").Append(customer_name).Append("\n");
             sb.Append("  customer_email: ").Append(customer_email).Append("\n");
             sb.Append("  customer_phone: ").Append(customer_phone).Append("\n");
-            sb.Append("  customer_bank_account_holder_name: ").Append(customer_bank_account_holder_name).Append("\n");
+            sb.Append("  customer_bank_holder_name: ").Append(customer_bank_holder_name).Append("\n");
             sb.Append("  customer_bank_account_number: ").Append(customer_bank_account_number).Append("\n");
             sb.Append("  customer_bank_ifsc: ").Append(customer_bank_ifsc).Append("\n");
             sb.Append("  customer_bank_code: ").Append(customer_bank_code).Append("\n");
@@ -193,9 +193,9 @@ namespace cashfree_pg.Model
                     this.customer_phone.Equals(input.customer_phone))
                 ) && 
                 (
-                    this.customer_bank_account_holder_name == input.customer_bank_account_holder_name ||
-                    (this.customer_bank_account_holder_name != null &&
-                    this.customer_bank_account_holder_name.Equals(input.customer_bank_account_holder_name))
+                    this.customer_bank_holder_name == input.customer_bank_holder_name ||
+                    (this.customer_bank_holder_name != null &&
+                    this.customer_bank_holder_name.Equals(input.customer_bank_holder_name))
                 ) && 
                 (
                     this.customer_bank_account_number == input.customer_bank_account_number ||
@@ -248,9 +248,9 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.customer_phone.GetHashCode();
                 }
-                if (this.customer_bank_account_holder_name != null)
+                if (this.customer_bank_holder_name != null)
                 {
-                    hashCode = (hashCode * 59) + this.customer_bank_account_holder_name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.customer_bank_holder_name.GetHashCode();
                 }
                 if (this.customer_bank_account_number != null)
                 {

@@ -43,12 +43,12 @@ namespace cashfree_pg.Model
         /// <param name="subscriptionId">A unique ID passed by merchant for identifying the subscription. (required).</param>
         /// <param name="subscriptionSessionId">Session ID for the subscription. Required only for Auth..</param>
         /// <param name="paymentId">A unique ID passed by merchant for identifying the subscription payment. (required).</param>
-        /// <param name="paymentAmount">The charge amount of the payment. Required in case of charge..</param>
+        /// <param name="paymentAmount">The charge amount of the payment. Requried in case of charge..</param>
         /// <param name="paymentScheduleDate">The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes..</param>
         /// <param name="paymentRemarks">Payment remarks..</param>
         /// <param name="paymentType">Payment type. Can be AUTH or CHARGE. (required).</param>
-        /// <param name="paymentMethod">Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;].</param>
-        public CreateSubscriptionPaymentRequest(string subscriptionId = default(string), string? subscriptionSessionId = default(string?), string paymentId = default(string), decimal? paymentAmount = default(decimal?), string? paymentScheduleDate = default(string?), string? paymentRemarks = default(string?), string paymentType = default(string), Object? paymentMethod = default(Object?))
+        /// <param name="paymentMethod">Payment method. Can be upi or card or enach or pnach..</param>
+        public CreateSubscriptionPaymentRequest(string subscriptionId = default(string), string? subscriptionSessionId = default(string?), string paymentId = default(string), decimal? paymentAmount = default(decimal?), string? paymentScheduleDate = default(string?), string? paymentRemarks = default(string?), string paymentType = default(string), string? paymentMethod = default(string?))
         {
             // to ensure "subscriptionId" is required (not null)
             if (subscriptionId == null)
@@ -97,9 +97,9 @@ namespace cashfree_pg.Model
         public string payment_id { get; set; }
 
         /// <summary>
-        /// The charge amount of the payment. Required in case of charge.
+        /// The charge amount of the payment. Requried in case of charge.
         /// </summary>
-        /// <value>The charge amount of the payment. Required in case of charge.</value>
+        /// <value>The charge amount of the payment. Requried in case of charge.</value>
         [DataMember(Name = "payment_amount", EmitDefaultValue = false)]
         public decimal? payment_amount { get; set; }
 
@@ -125,11 +125,11 @@ namespace cashfree_pg.Model
         public string payment_type { get; set; }
 
         /// <summary>
-        /// Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;]
+        /// Payment method. Can be upi or card or enach or pnach.
         /// </summary>
-        /// <value>Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;]</value>
+        /// <value>Payment method. Can be upi or card or enach or pnach.</value>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public Object? payment_method { get; set; }
+        public string? payment_method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

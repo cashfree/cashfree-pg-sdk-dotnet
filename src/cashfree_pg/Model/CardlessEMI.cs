@@ -33,9 +33,9 @@ namespace cashfree_pg.Model
     public class CardlessEMI : IEquatable<CardlessEMI>, IValidatableObject
     {
         /// <summary>
-        /// One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;, &#x60;snapmint&#x60;, &#x60;bharatx&#x60;]
+        /// One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]
         /// </summary>
-        /// <value>One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;, &#x60;snapmint&#x60;, &#x60;bharatx&#x60;]</value>
+        /// <value>One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ProviderEnum
         {
@@ -79,33 +79,21 @@ namespace cashfree_pg.Model
             /// Enum Kotak for value: kotak
             /// </summary>
             [EnumMember(Value = "kotak")]
-            Kotak = 7,
-
-            /// <summary>
-            /// Enum Snapmint for value: snapmint
-            /// </summary>
-            [EnumMember(Value = "snapmint")]
-            Snapmint = 8,
-
-            /// <summary>
-            /// Enum Bharatx for value: bharatx
-            /// </summary>
-            [EnumMember(Value = "bharatx")]
-            Bharatx = 9
+            Kotak = 7
         }
 
 
         /// <summary>
-        /// One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;, &#x60;snapmint&#x60;, &#x60;bharatx&#x60;]
+        /// One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]
         /// </summary>
-        /// <value>One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;, &#x60;snapmint&#x60;, &#x60;bharatx&#x60;]</value>
+        /// <value>One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;]</value>
         [DataMember(Name = "provider", EmitDefaultValue = false)]
         public ProviderEnum? provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CardlessEMI" /> class.
         /// </summary>
         /// <param name="channel">The channel for cardless EMI is always &#x60;link&#x60;.</param>
-        /// <param name="provider">One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;, &#x60;snapmint&#x60;, &#x60;bharatx&#x60;].</param>
+        /// <param name="provider">One of [&#x60;flexmoney&#x60;, &#x60;zestmoney&#x60;, &#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;].</param>
         /// <param name="phone">Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as &#39;invalid_request_error&#39; and code as &#39;invalid_request_error&#39;.</param>
         /// <param name="emiTenure">EMI tenure for the selected provider. This is mandatory when provider is one of [&#x60;hdfc&#x60;, &#x60;icici&#x60;, &#x60;cashe&#x60;, &#x60;idfc&#x60;, &#x60;kotak&#x60;].</param>
         public CardlessEMI(string? channel = default(string?), ProviderEnum? provider = default(ProviderEnum?), string? phone = default(string?), int? emiTenure = default(int?))

@@ -64,14 +64,9 @@ namespace cashfree_pg.Model
         /// <param name="entity">Entity type should be PAYMENTS only. (required).</param>
         /// <param name="entityId">In case of Entity type is PAYMENTS, entity_id will be transactionId (required).</param>
         /// <param name="entitySimulation">entitySimulation (required).</param>
-        public SimulateRequest(EntityEnum entity = default(EntityEnum), string entityId = default(string), EntitySimulationRequest entitySimulation = default(EntitySimulationRequest))
+        public SimulateRequest(EntityEnum entity = default(EntityEnum), long entityId = default(long), EntitySimulationRequest entitySimulation = default(EntitySimulationRequest))
         {
             this.entity = entity;
-            // to ensure "entityId" is required (not null)
-            if (entityId == null)
-            {
-                throw new ArgumentNullException("entityId is a required property for SimulateRequest and cannot be null");
-            }
             this.entity_id = entityId;
             // to ensure "entitySimulation" is required (not null)
             if (entitySimulation == null)
@@ -86,7 +81,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>In case of Entity type is PAYMENTS, entity_id will be transactionId</value>
         [DataMember(Name = "entity_id", IsRequired = true, EmitDefaultValue = true)]
-        public string entity_id { get; set; }
+        public long entity_id { get; set; }
 
         /// <summary>
         /// Gets or Sets entity_simulation
@@ -146,8 +141,7 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.entity_id == input.entity_id ||
-                    (this.entity_id != null &&
-                    this.entity_id.Equals(input.entity_id))
+                    this.entity_id.Equals(input.entity_id)
                 ) && 
                 (
                     this.entity_simulation == input.entity_simulation ||
@@ -167,10 +161,7 @@ namespace cashfree_pg.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.entity.GetHashCode();
-                if (this.entity_id != null)
-                {
-                    hashCode = (hashCode * 59) + this.entity_id.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.entity_id.GetHashCode();
                 if (this.entity_simulation != null)
                 {
                     hashCode = (hashCode * 59) + this.entity_simulation.GetHashCode();

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **payment_schedule_date** | **string** | The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes. | [optional] 
 **payment_remarks** | **string** | Payment remarks. | [optional] 
 **payment_type** | **string** | Payment type. Can be AUTH or CHARGE. | 
-**payment_method** | **Object** | Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;] | [optional] 
+**payment_method** | [**CreateSubscriptionPaymentRequestPaymentMethod**](CreateSubscriptionPaymentRequestPaymentMethod.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

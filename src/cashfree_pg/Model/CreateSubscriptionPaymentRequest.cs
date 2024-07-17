@@ -47,8 +47,8 @@ namespace cashfree_pg.Model
         /// <param name="paymentScheduleDate">The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes..</param>
         /// <param name="paymentRemarks">Payment remarks..</param>
         /// <param name="paymentType">Payment type. Can be AUTH or CHARGE. (required).</param>
-        /// <param name="paymentMethod">Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;].</param>
-        public CreateSubscriptionPaymentRequest(string subscriptionId = default(string), string? subscriptionSessionId = default(string?), string paymentId = default(string), decimal? paymentAmount = default(decimal?), string? paymentScheduleDate = default(string?), string? paymentRemarks = default(string?), string paymentType = default(string), Object? paymentMethod = default(Object?))
+        /// <param name="paymentMethod">paymentMethod.</param>
+        public CreateSubscriptionPaymentRequest(string subscriptionId = default(string), string? subscriptionSessionId = default(string?), string paymentId = default(string), decimal? paymentAmount = default(decimal?), string? paymentScheduleDate = default(string?), string? paymentRemarks = default(string?), string paymentType = default(string), CreateSubscriptionPaymentRequestPaymentMethod? paymentMethod = default(CreateSubscriptionPaymentRequestPaymentMethod?))
         {
             // to ensure "subscriptionId" is required (not null)
             if (subscriptionId == null)
@@ -125,11 +125,10 @@ namespace cashfree_pg.Model
         public string payment_type { get; set; }
 
         /// <summary>
-        /// Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;]
+        /// Gets or Sets payment_method
         /// </summary>
-        /// <value>Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;]</value>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public Object? payment_method { get; set; }
+        public CreateSubscriptionPaymentRequestPaymentMethod? payment_method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

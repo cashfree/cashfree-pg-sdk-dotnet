@@ -8,19 +8,19 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 | [**SubsCreatePlan**](SubscriptionApi.md#subscreateplan) | **POST** /plans | Create a plan. |
 | [**SubsCreateRefund**](SubscriptionApi.md#subscreaterefund) | **POST** /subscriptions/{subscription_id}/refunds | Create a refund. |
 | [**SubsCreateSubscription**](SubscriptionApi.md#subscreatesubscription) | **POST** /subscriptions | Create Subscription |
-| [**SubsFetchPlan**](SubscriptionApi.md#subsfetchplan) | **GET** /pg/plans/{plan_id} | Fetch Plan |
+| [**SubsFetchPlan**](SubscriptionApi.md#subsfetchplan) | **GET** /plans/{plan_id} | Fetch Plan |
 | [**SubsFetchSubscription**](SubscriptionApi.md#subsfetchsubscription) | **GET** /subscriptions/{subscription_id} | Fetch Subscription |
 | [**SubsFetchSubscriptionPayment**](SubscriptionApi.md#subsfetchsubscriptionpayment) | **GET** /subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment. |
 | [**SubsFetchSubscriptionPayments**](SubscriptionApi.md#subsfetchsubscriptionpayments) | **GET** /subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription. |
 | [**SubsFetchSubscriptionRefund**](SubscriptionApi.md#subsfetchsubscriptionrefund) | **GET** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund. |
 | [**SubsManageSubscription**](SubscriptionApi.md#subsmanagesubscription) | **POST** /subscriptions/{subscription_id}/manage | Manage a subscription. |
 | [**SubsManageSubscriptionPayment**](SubscriptionApi.md#subsmanagesubscriptionpayment) | **POST** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment. |
-| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization. |
-| [**SubscriptionEligibility**](SubscriptionApi.md#subscriptioneligibility) | **POST** /subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription |
+| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /subscriptions/pay/documents/{payment_id} | API to upload Physical Nach for Physical Nach Authorization. |
+| [**SubscriptionEligibility**](SubscriptionApi.md#subscriptioneligibility) | **POST** /subscriptions/eligibility/payment_methods | API to get all the payment method details available for subscription payments. |
 
 <a id="subscreatepayment"></a>
 # **SubsCreatePayment**
-> SubsCreatePayment200Response SubsCreatePayment (string xApiVersion, CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
+> CreateSubscriptionPaymentResponse SubsCreatePayment (string xApiVersion, CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
 Raise a charge or create an auth.
 
@@ -56,7 +56,7 @@ namespace Example
             try
             {
                 // Raise a charge or create an auth.
-                SubsCreatePayment200Response result = cashfree.SubsCreatePayment(xApiVersion, createSubscriptionPaymentRequest, xRequestId, xIdempotencyKey);
+                CreateSubscriptionPaymentResponse result = cashfree.SubsCreatePayment(xApiVersion, createSubscriptionPaymentRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -81,7 +81,7 @@ namespace Example
 
 ### Return type
 
-[**SubsCreatePayment200Response**](SubsCreatePayment200Response.md)
+[**CreateSubscriptionPaymentResponse**](CreateSubscriptionPaymentResponse.md)
 
 ### Authorization
 
@@ -997,7 +997,7 @@ namespace Example
 # **SubscriptionDocumentUpload**
 > UploadPnachImageResponse SubscriptionDocumentUpload (string xApiVersion, string paymentId, System.IO.Stream file, string paymentId2, string action, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Upload Physical Nach for Physical Nach Authorization.
+API to upload Physical Nach for Physical Nach Authorization.
 
 Use this API to upload Physical Nach for Physical Nach Authorization.
 
@@ -1033,7 +1033,7 @@ namespace Example
 
             try
             {
-                // Upload Physical Nach for Physical Nach Authorization.
+                // API to upload Physical Nach for Physical Nach Authorization.
                 UploadPnachImageResponse result = cashfree.SubscriptionDocumentUpload(xApiVersion, paymentId, file, paymentId2, action, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
@@ -1091,7 +1091,7 @@ namespace Example
 # **SubscriptionEligibility**
 > SubscriptionEligibilityResponse SubscriptionEligibility (string xApiVersion, SubscriptionEligibilityRequest subscriptionEligibilityRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-Get Eligible payment methods available for a subscription
+API to get all the payment method details available for subscription payments.
 
 Use this API to check if a payment method is enabled for your account.
 
@@ -1124,7 +1124,7 @@ namespace Example
 
             try
             {
-                // Get Eligible payment methods available for a subscription
+                // API to get all the payment method details available for subscription payments.
                 SubscriptionEligibilityResponse result = cashfree.SubscriptionEligibility(xApiVersion, subscriptionEligibilityRequest, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }

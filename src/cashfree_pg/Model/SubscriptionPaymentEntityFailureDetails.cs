@@ -27,25 +27,26 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// Get Vendor Documents
+    /// SubscriptionPaymentEntityFailureDetails
     /// </summary>
-    [DataContract(Name = "VendorDocumentsResponse")]
-    public class VendorDocumentsResponse : IEquatable<VendorDocumentsResponse>, IValidatableObject
+    [DataContract(Name = "SubscriptionPaymentEntity_failure_details")]
+    public class SubscriptionPaymentEntityFailureDetails : IEquatable<SubscriptionPaymentEntityFailureDetails>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VendorDocumentsResponse" /> class.
+        /// Initializes a new instance of the <see cref="SubscriptionPaymentEntityFailureDetails" /> class.
         /// </summary>
-        /// <param name="documents">documents.</param>
-        public VendorDocumentsResponse(List<VendorEntityRelatedDocsInner>? documents = default(List<VendorEntityRelatedDocsInner>?))
+        /// <param name="failureReason">Failure reason of the payment if the payment_status is failed..</param>
+        public SubscriptionPaymentEntityFailureDetails(string? failureReason = default(string?))
         {
-            this.documents = documents;
+            this.failure_reason = failureReason;
         }
 
         /// <summary>
-        /// Gets or Sets documents
+        /// Failure reason of the payment if the payment_status is failed.
         /// </summary>
-        [DataMember(Name = "documents", EmitDefaultValue = false)]
-        public List<VendorEntityRelatedDocsInner>? documents { get; set; }
+        /// <value>Failure reason of the payment if the payment_status is failed.</value>
+        [DataMember(Name = "failure_reason", EmitDefaultValue = false)]
+        public string? failure_reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +55,8 @@ namespace cashfree_pg.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class VendorDocumentsResponse {\n");
-            sb.Append("  documents: ").Append(documents).Append("\n");
+            sb.Append("class SubscriptionPaymentEntityFailureDetails {\n");
+            sb.Append("  failure_reason: ").Append(failure_reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +77,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VendorDocumentsResponse);
+            return this.Equals(input as SubscriptionPaymentEntityFailureDetails);
         }
 
         /// <summary>
-        /// Returns true if VendorDocumentsResponse instances are equal
+        /// Returns true if SubscriptionPaymentEntityFailureDetails instances are equal
         /// </summary>
-        /// <param name="input">Instance of VendorDocumentsResponse to be compared</param>
+        /// <param name="input">Instance of SubscriptionPaymentEntityFailureDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VendorDocumentsResponse input)
+        public bool Equals(SubscriptionPaymentEntityFailureDetails input)
         {
             if (input == null)
             {
@@ -92,16 +93,15 @@ namespace cashfree_pg.Model
             }
             return 
                 (
-                    this.documents == input.documents ||
-                    this.documents != null &&
-                    input.documents != null &&
-                    this.documents.SequenceEqual(input.documents)
+                    this.failure_reason == input.failure_reason ||
+                    (this.failure_reason != null &&
+                    this.failure_reason.Equals(input.failure_reason))
                 );
         }
 
-        public static Boolean checkPresenceOfKey(string jsonStringdocuments) {
-            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringdocuments);
-            if (deserializedJsonString.ContainsKey("documents")) {
+        public static Boolean checkPresenceOfKey(string jsonStringfailure_reason) {
+            dynamic deserializedJsonString = JsonConvert.DeserializeObject<dynamic>(jsonStringfailure_reason);
+            if (deserializedJsonString.ContainsKey("failure_reason")) {
                 return true;
             }
             return false;
@@ -116,9 +116,9 @@ namespace cashfree_pg.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.documents != null)
+                if (this.failure_reason != null)
                 {
-                    hashCode = (hashCode * 59) + this.documents.GetHashCode();
+                    hashCode = (hashCode * 59) + this.failure_reason.GetHashCode();
                 }
                 return hashCode;
             }

@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// <param name="phone">Specify the beneficiaries phone number to be updated. Phone number registered in India (only digits, 8 - 12 characters after excluding +91). (required).</param>
         /// <param name="verifyAccount">Specify if the vendor bank account details should be verified. Possible values: true or false.</param>
         /// <param name="dashboardAccess">Update if the vendor will have dashboard access or not. Possible values are: true or false.</param>
-        /// <param name="scheduleOption">Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table.  If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements. (required).</param>
+        /// <param name="scheduleOption">Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements. (required).</param>
         /// <param name="bank">Specify the vendor bank account details to be updated..</param>
         /// <param name="upi">Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign..</param>
         /// <param name="kycDetails">Specify the kyc details that should be updated. (required).</param>
@@ -132,9 +132,9 @@ namespace cashfree_pg.Model
         public bool? dashboard_access { get; set; }
 
         /// <summary>
-        /// Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table.  If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements.
+        /// Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements.
         /// </summary>
-        /// <value>Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table.  If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements.</value>
+        /// <value>Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements.</value>
         [DataMember(Name = "schedule_option", IsRequired = true, EmitDefaultValue = true)]
         public decimal schedule_option { get; set; }
 

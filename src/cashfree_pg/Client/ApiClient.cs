@@ -157,7 +157,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -246,7 +246,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CustomerEntity>("/customers", localVarRequestOptions, config);
@@ -295,7 +295,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -385,7 +385,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AdjustVendorBalanceResponse>("/easy-split/vendors/{vendor_id}/transfer", localVarRequestOptions, config);
@@ -433,7 +433,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -518,7 +518,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateVendorResponse>("/easy-split/vendors", localVarRequestOptions, config);
@@ -567,7 +567,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -660,7 +660,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentDownloadResponse>("/easy-split/vendor-docs/{vendor_id}/download/{doc_type}", localVarRequestOptions, config);
@@ -708,7 +708,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -796,7 +796,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorEntity>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -844,7 +844,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -932,7 +932,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalance>("/easy-split/vendors/{vendor_id}/balances", localVarRequestOptions, config);
@@ -981,7 +981,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1070,7 +1070,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalanceTransferCharges>("/easy-split/amount/{amount}/charges", localVarRequestOptions, config);
@@ -1118,7 +1118,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1206,7 +1206,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1254,7 +1254,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1339,7 +1339,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ESOrderReconResponse>("/split/order/vendor/recon", localVarRequestOptions, config);
@@ -1388,7 +1388,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1478,7 +1478,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<UpdateVendorResponse>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -1529,7 +1529,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1630,7 +1630,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadVendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1679,7 +1679,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1769,7 +1769,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SplitAfterPaymentResponse>("/easy-split/orders/{order_id}/split", localVarRequestOptions, config);
@@ -1817,7 +1817,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -1902,7 +1902,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<StaticSplitResponse>("/easy-split/static-split", localVarRequestOptions, config);
@@ -1950,7 +1950,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2039,7 +2039,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -2087,7 +2087,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2176,7 +2176,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -2224,7 +2224,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2313,7 +2313,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -2361,7 +2361,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2450,7 +2450,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -2498,7 +2498,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2587,7 +2587,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -2635,7 +2635,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2723,7 +2723,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -2771,7 +2771,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2860,7 +2860,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -2908,7 +2908,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -2996,7 +2996,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3045,7 +3045,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3139,7 +3139,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3189,7 +3189,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3286,7 +3286,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -3334,7 +3334,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3422,7 +3422,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -3470,7 +3470,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3559,7 +3559,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -3607,7 +3607,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3695,7 +3695,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -3722,8 +3722,9 @@ namespace cashfree_pg.Client
         /// <param name="linkId">The payment link ID for which you want to view the details.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
         /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
+        /// <param name="status">Mention What is status of orders you want to fetch, default is PAID. Possible value: ALL, PAID (optional)</param>
         /// <returns>ApiResponse of List&lt;PaymentLinkOrderEntity&gt;</returns>
-        public cashfree_pg.Client.ApiResponse<List<PaymentLinkOrderEntity>> PGLinkFetchOrders(string xApiVersion, string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        public cashfree_pg.Client.ApiResponse<List<PaymentLinkOrderEntity>> PGLinkFetchOrders(string xApiVersion, string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? status = default(string?), Configuration? configuration = null)
         {
             var env = "sandbox";
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
@@ -3743,7 +3744,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3780,6 +3781,10 @@ namespace cashfree_pg.Client
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("link_id", cashfree_pg.Client.ClientUtils.ParameterToString(linkId)); // path parameter
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(cashfree_pg.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
             localVarRequestOptions.HeaderParameters.Add("x-api-version", cashfree_pg.Client.ClientUtils.ParameterToString(xApiVersion)); // header parameter
             if (xRequestId != null)
             {
@@ -3831,7 +3836,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentLinkOrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -3880,7 +3885,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -3974,7 +3979,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -4023,7 +4028,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4102,7 +4107,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -4151,7 +4156,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4244,7 +4249,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -4292,7 +4297,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4380,7 +4385,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -4428,7 +4433,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4502,7 +4507,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -4551,7 +4556,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4645,7 +4650,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -4694,7 +4699,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4787,7 +4792,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -4835,7 +4840,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -4923,7 +4928,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -4973,7 +4978,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5070,7 +5075,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -5120,7 +5125,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5217,7 +5222,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -5265,7 +5270,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5350,7 +5355,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/orders/settlements", localVarRequestOptions, config);
@@ -5398,7 +5403,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5486,7 +5491,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -5534,7 +5539,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5622,7 +5627,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SimulationResponse>("/simulate/{simulation_id}", localVarRequestOptions, config);
@@ -5670,7 +5675,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5759,7 +5764,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SimulationResponse>("/simulate", localVarRequestOptions, config);
@@ -5807,7 +5812,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -5896,7 +5901,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -5944,7 +5949,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6033,7 +6038,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -6081,7 +6086,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6169,7 +6174,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -6218,7 +6223,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6311,7 +6316,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -6360,7 +6365,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6453,7 +6458,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalPaymentEntity>("/terminal/{cf_terminal_id}/payments", localVarRequestOptions, config);
@@ -6502,7 +6507,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6596,7 +6601,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}", localVarRequestOptions, config);
@@ -6645,7 +6650,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6739,7 +6744,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}/status", localVarRequestOptions, config);
@@ -6788,7 +6793,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -6882,7 +6887,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<UploadTerminalDocsEntity>>("/terminal/{cf_terminal_id}/docs", localVarRequestOptions, config);
@@ -6909,8 +6914,8 @@ namespace cashfree_pg.Client
         /// <param name="createSubscriptionPaymentRequest">Request body to create a subscription payment.</param>
         /// <param name="xRequestId">Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)</param>
         /// <param name="xIdempotencyKey">An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)</param>
-        /// <returns>ApiResponse of SubsCreatePayment200Response</returns>
-        public cashfree_pg.Client.ApiResponse<SubsCreatePayment200Response> SubsCreatePayment(string xApiVersion, CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
+        /// <returns>ApiResponse of CreateSubscriptionPaymentResponse</returns>
+        public cashfree_pg.Client.ApiResponse<CreateSubscriptionPaymentResponse> SubsCreatePayment(string xApiVersion, CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
             var env = "sandbox";
             if(Cashfree.XEnvironment == CFEnvironment.PRODUCTION) {
@@ -6930,7 +6935,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7019,10 +7024,10 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SubsCreatePayment200Response>("/subscriptions/pay", localVarRequestOptions, config);
+            var localVarResponse = this.Client.Post<CreateSubscriptionPaymentResponse>("/subscriptions/pay", localVarRequestOptions, config);
 
             if (this.ExceptionFactory != null)
             {
@@ -7067,7 +7072,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7156,7 +7161,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PlanEntity>("/plans", localVarRequestOptions, config);
@@ -7205,7 +7210,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7299,7 +7304,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds", localVarRequestOptions, config);
@@ -7347,7 +7352,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7436,7 +7441,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions", localVarRequestOptions, config);
@@ -7484,7 +7489,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7572,10 +7577,10 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PlanEntity>("/pg/plans/{plan_id}", localVarRequestOptions, config);
+            var localVarResponse = this.Client.Get<PlanEntity>("/plans/{plan_id}", localVarRequestOptions, config);
 
             if (this.ExceptionFactory != null)
             {
@@ -7620,7 +7625,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7708,7 +7713,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionEntity>("/subscriptions/{subscription_id}", localVarRequestOptions, config);
@@ -7757,7 +7762,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7850,7 +7855,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}", localVarRequestOptions, config);
@@ -7898,7 +7903,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -7986,7 +7991,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SubscriptionPaymentEntity>>("/subscriptions/{subscription_id}/payments", localVarRequestOptions, config);
@@ -8035,7 +8040,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8128,7 +8133,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -8177,7 +8182,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8271,7 +8276,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions/{subscription_id}/manage", localVarRequestOptions, config);
@@ -8321,7 +8326,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8420,7 +8425,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}/manage", localVarRequestOptions, config);
@@ -8440,7 +8445,7 @@ namespace cashfree_pg.Client
             return localVarResponse;
         }
         /// <summary>
-        /// Upload Physical Nach for Physical Nach Authorization. Use this API to upload Physical Nach for Physical Nach Authorization.
+        /// API to upload Physical Nach for Physical Nach Authorization. Use this API to upload Physical Nach for Physical Nach Authorization.
         /// </summary>
         /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
@@ -8471,7 +8476,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8575,7 +8580,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadPnachImageResponse>("/subscriptions/pay/documents/{payment_id}", localVarRequestOptions, config);
@@ -8595,7 +8600,7 @@ namespace cashfree_pg.Client
             return localVarResponse;
         }
         /// <summary>
-        /// Get Eligible payment methods available for a subscription Use this API to check if a payment method is enabled for your account.
+        /// API to get all the payment method details available for subscription payments. Use this API to check if a payment method is enabled for your account.
         /// </summary>
         /// <exception cref="cashfree_pg.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xApiVersion">API version to be used. Format is in YYYY-MM-DD</param>
@@ -8623,7 +8628,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8712,7 +8717,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEligibilityResponse>("/subscriptions/eligibility/payment_methods", localVarRequestOptions, config);
@@ -8761,7 +8766,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8854,7 +8859,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -8903,7 +8908,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -8996,7 +9001,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -9045,7 +9050,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -9138,7 +9143,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -9187,7 +9192,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "4.2.0";
+                    o.Release = "4.2.2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -9280,7 +9285,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", Cashfree.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.0");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-4.2.2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);

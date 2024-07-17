@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **kyc_details** | [**List&lt;KycDetails&gt;**](KycDetails.md) |  | [optional] 
 **dashboard_access** | **bool** |  | [optional] 
 **bank_details** | **string** |  | [optional] 
-**related_docs** | [**List&lt;UpdateVendorResponseRelatedDocsInner&gt;**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
+**related_docs** | [**List&lt;VendorEntityRelatedDocsInner&gt;**](VendorEntityRelatedDocsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

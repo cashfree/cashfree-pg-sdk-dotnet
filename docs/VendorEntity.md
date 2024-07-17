@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **account_type** | **string** |  | [optional] 
 **business_type** | **string** |  | [optional] 
 **remarks** | **string** |  | [optional] 
-**related_docs** | [**List&lt;UpdateVendorResponseRelatedDocsInner&gt;**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
+**related_docs** | [**List&lt;VendorEntityRelatedDocsInner&gt;**](VendorEntityRelatedDocsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

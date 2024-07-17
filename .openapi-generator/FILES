@@ -21,7 +21,6 @@ docs/BalanceDetails.md
 docs/BankDetails.md
 docs/Banktransfer.md
 docs/BanktransferPaymentMethod.md
-docs/CARD.md
 docs/Card.md
 docs/CardEMI.md
 docs/CardEMIPaymentMethod.md
@@ -41,13 +40,17 @@ docs/CreateOrderSettlementRequestBody.md
 docs/CreateOrderSettlementRequestBodyMetaData.md
 docs/CreatePlanRequest.md
 docs/CreateSubscriptionPaymentRequest.md
+docs/CreateSubscriptionPaymentRequestCard.md
+docs/CreateSubscriptionPaymentRequestEnack.md
 docs/CreateSubscriptionPaymentRequestPaymentMethod.md
+docs/CreateSubscriptionPaymentRequestPnach.md
 docs/CreateSubscriptionPaymentResponse.md
 docs/CreateSubscriptionRefundRequest.md
 docs/CreateSubscriptionRequest.md
 docs/CreateSubscriptionRequestAuthorizationDetails.md
 docs/CreateSubscriptionRequestPlanDetails.md
 docs/CreateSubscriptionRequestSubscriptionMeta.md
+docs/CreateSubscriptonPaymentRequestUpi.md
 docs/CreateTerminalRequest.md
 docs/CreateTerminalRequestTerminalMeta.md
 docs/CreateTerminalTransactionRequest.md
@@ -62,7 +65,6 @@ docs/CustomersApi.md
 docs/DiscountDetails.md
 docs/EMIOffer.md
 docs/EMIPlansArray.md
-docs/ENACH.md
 docs/ESOrderReconRequest.md
 docs/ESOrderReconRequestFilters.md
 docs/ESOrderReconRequestPagination.md
@@ -136,7 +138,6 @@ docs/OrderMeta.md
 docs/OrderPayData.md
 docs/OrdersApi.md
 docs/PGReconciliationApi.md
-docs/PNACH.md
 docs/PayOrderEntity.md
 docs/PayOrderRequest.md
 docs/PayOrderRequestPaymentMethod.md
@@ -225,7 +226,6 @@ docs/TerminateOrderRequest.md
 docs/TokenVaultApi.md
 docs/TransferDetails.md
 docs/TransferDetailsTagsInner.md
-docs/UPI.md
 docs/UPIAuthorizeDetails.md
 docs/UPIPaymentMethod.md
 docs/UpdateTerminalEntity.md
@@ -281,7 +281,6 @@ src/cashfree_pg.Test/Model/BalanceDetailsTests.cs
 src/cashfree_pg.Test/Model/BankDetailsTests.cs
 src/cashfree_pg.Test/Model/BanktransferPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/BanktransferTests.cs
-src/cashfree_pg.Test/Model/CARDTests.cs
 src/cashfree_pg.Test/Model/CardEMIPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/CardEMITests.cs
 src/cashfree_pg.Test/Model/CardOfferTests.cs
@@ -300,7 +299,10 @@ src/cashfree_pg.Test/Model/CreateOrderRequestTests.cs
 src/cashfree_pg.Test/Model/CreateOrderSettlementRequestBodyMetaDataTests.cs
 src/cashfree_pg.Test/Model/CreateOrderSettlementRequestBodyTests.cs
 src/cashfree_pg.Test/Model/CreatePlanRequestTests.cs
+src/cashfree_pg.Test/Model/CreateSubscriptionPaymentRequestCardTests.cs
+src/cashfree_pg.Test/Model/CreateSubscriptionPaymentRequestEnackTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionPaymentRequestPaymentMethodTests.cs
+src/cashfree_pg.Test/Model/CreateSubscriptionPaymentRequestPnachTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionPaymentRequestTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionPaymentResponseTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionRefundRequestTests.cs
@@ -308,6 +310,7 @@ src/cashfree_pg.Test/Model/CreateSubscriptionRequestAuthorizationDetailsTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionRequestPlanDetailsTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionRequestSubscriptionMetaTests.cs
 src/cashfree_pg.Test/Model/CreateSubscriptionRequestTests.cs
+src/cashfree_pg.Test/Model/CreateSubscriptonPaymentRequestUpiTests.cs
 src/cashfree_pg.Test/Model/CreateTerminalRequestTerminalMetaTests.cs
 src/cashfree_pg.Test/Model/CreateTerminalRequestTests.cs
 src/cashfree_pg.Test/Model/CreateTerminalTransactionRequestTests.cs
@@ -321,7 +324,6 @@ src/cashfree_pg.Test/Model/CustomerEntityTests.cs
 src/cashfree_pg.Test/Model/DiscountDetailsTests.cs
 src/cashfree_pg.Test/Model/EMIOfferTests.cs
 src/cashfree_pg.Test/Model/EMIPlansArrayTests.cs
-src/cashfree_pg.Test/Model/ENACHTests.cs
 src/cashfree_pg.Test/Model/ESOrderReconRequestFiltersTests.cs
 src/cashfree_pg.Test/Model/ESOrderReconRequestPaginationTests.cs
 src/cashfree_pg.Test/Model/ESOrderReconRequestTests.cs
@@ -390,7 +392,6 @@ src/cashfree_pg.Test/Model/OrderCreateRefundRequestTests.cs
 src/cashfree_pg.Test/Model/OrderEntityTests.cs
 src/cashfree_pg.Test/Model/OrderMetaTests.cs
 src/cashfree_pg.Test/Model/OrderPayDataTests.cs
-src/cashfree_pg.Test/Model/PNACHTests.cs
 src/cashfree_pg.Test/Model/PayOrderEntityTests.cs
 src/cashfree_pg.Test/Model/PayOrderRequestPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/PayOrderRequestTests.cs
@@ -472,7 +473,6 @@ src/cashfree_pg.Test/Model/TransferDetailsTagsInnerTests.cs
 src/cashfree_pg.Test/Model/TransferDetailsTests.cs
 src/cashfree_pg.Test/Model/UPIAuthorizeDetailsTests.cs
 src/cashfree_pg.Test/Model/UPIPaymentMethodTests.cs
-src/cashfree_pg.Test/Model/UPITests.cs
 src/cashfree_pg.Test/Model/UpdateTerminalEntityTests.cs
 src/cashfree_pg.Test/Model/UpdateTerminalRequestTerminalMetaTests.cs
 src/cashfree_pg.Test/Model/UpdateTerminalRequestTests.cs
@@ -543,7 +543,6 @@ src/cashfree_pg/Model/BalanceDetails.cs
 src/cashfree_pg/Model/BankDetails.cs
 src/cashfree_pg/Model/Banktransfer.cs
 src/cashfree_pg/Model/BanktransferPaymentMethod.cs
-src/cashfree_pg/Model/CARD.cs
 src/cashfree_pg/Model/Card.cs
 src/cashfree_pg/Model/CardEMI.cs
 src/cashfree_pg/Model/CardEMIPaymentMethod.cs
@@ -563,13 +562,17 @@ src/cashfree_pg/Model/CreateOrderSettlementRequestBody.cs
 src/cashfree_pg/Model/CreateOrderSettlementRequestBodyMetaData.cs
 src/cashfree_pg/Model/CreatePlanRequest.cs
 src/cashfree_pg/Model/CreateSubscriptionPaymentRequest.cs
+src/cashfree_pg/Model/CreateSubscriptionPaymentRequestCard.cs
+src/cashfree_pg/Model/CreateSubscriptionPaymentRequestEnack.cs
 src/cashfree_pg/Model/CreateSubscriptionPaymentRequestPaymentMethod.cs
+src/cashfree_pg/Model/CreateSubscriptionPaymentRequestPnach.cs
 src/cashfree_pg/Model/CreateSubscriptionPaymentResponse.cs
 src/cashfree_pg/Model/CreateSubscriptionRefundRequest.cs
 src/cashfree_pg/Model/CreateSubscriptionRequest.cs
 src/cashfree_pg/Model/CreateSubscriptionRequestAuthorizationDetails.cs
 src/cashfree_pg/Model/CreateSubscriptionRequestPlanDetails.cs
 src/cashfree_pg/Model/CreateSubscriptionRequestSubscriptionMeta.cs
+src/cashfree_pg/Model/CreateSubscriptonPaymentRequestUpi.cs
 src/cashfree_pg/Model/CreateTerminalRequest.cs
 src/cashfree_pg/Model/CreateTerminalRequestTerminalMeta.cs
 src/cashfree_pg/Model/CreateTerminalTransactionRequest.cs
@@ -583,7 +586,6 @@ src/cashfree_pg/Model/CustomerEntity.cs
 src/cashfree_pg/Model/DiscountDetails.cs
 src/cashfree_pg/Model/EMIOffer.cs
 src/cashfree_pg/Model/EMIPlansArray.cs
-src/cashfree_pg/Model/ENACH.cs
 src/cashfree_pg/Model/ESOrderReconRequest.cs
 src/cashfree_pg/Model/ESOrderReconRequestFilters.cs
 src/cashfree_pg/Model/ESOrderReconRequestPagination.cs
@@ -652,7 +654,6 @@ src/cashfree_pg/Model/OrderCreateRefundRequest.cs
 src/cashfree_pg/Model/OrderEntity.cs
 src/cashfree_pg/Model/OrderMeta.cs
 src/cashfree_pg/Model/OrderPayData.cs
-src/cashfree_pg/Model/PNACH.cs
 src/cashfree_pg/Model/PayOrderEntity.cs
 src/cashfree_pg/Model/PayOrderRequest.cs
 src/cashfree_pg/Model/PayOrderRequestPaymentMethod.cs
@@ -732,7 +733,6 @@ src/cashfree_pg/Model/TerminalTransactionEntity.cs
 src/cashfree_pg/Model/TerminateOrderRequest.cs
 src/cashfree_pg/Model/TransferDetails.cs
 src/cashfree_pg/Model/TransferDetailsTagsInner.cs
-src/cashfree_pg/Model/UPI.cs
 src/cashfree_pg/Model/UPIAuthorizeDetails.cs
 src/cashfree_pg/Model/UPIPaymentMethod.cs
 src/cashfree_pg/Model/UpdateTerminalEntity.cs

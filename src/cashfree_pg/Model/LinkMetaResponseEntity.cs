@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="upiIntent">If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere.</param>
         /// <param name="returnUrl">The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250..</param>
         /// <param name="paymentMethods">Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods.</param>
-        public LinkMetaResponseEntity(string? notifyUrl = default(string?), bool? upiIntent = default(bool?), string? returnUrl = default(string?), string? paymentMethods = default(string?))
+        public LinkMetaResponseEntity(string? notifyUrl = default(string?), string? upiIntent = default(string?), string? returnUrl = default(string?), string? paymentMethods = default(string?))
         {
             this.notify_url = notifyUrl;
             this.upi_intent = upiIntent;
@@ -58,8 +58,8 @@ namespace cashfree_pg.Model
         /// If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
         /// </summary>
         /// <value>If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere</value>
-        [DataMember(Name = "upi_intent", EmitDefaultValue = true)]
-        public bool? upi_intent { get; set; }
+        [DataMember(Name = "upi_intent", EmitDefaultValue = false)]
+        public string? upi_intent { get; set; }
 
         /// <summary>
         /// The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250.
@@ -129,7 +129,8 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.upi_intent == input.upi_intent ||
-                    this.upi_intent.Equals(input.upi_intent)
+                    (this.upi_intent != null &&
+                    this.upi_intent.Equals(input.upi_intent))
                 ) && 
                 (
                     this.return_url == input.return_url ||
@@ -164,7 +165,10 @@ namespace cashfree_pg.Model
                 {
                     hashCode = (hashCode * 59) + this.notify_url.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.upi_intent.GetHashCode();
+                if (this.upi_intent != null)
+                {
+                    hashCode = (hashCode * 59) + this.upi_intent.GetHashCode();
+                }
                 if (this.return_url != null)
                 {
                     hashCode = (hashCode * 59) + this.return_url.GetHashCode();

@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalPhoneNo">terminalPhoneNo.</param>
         /// <param name="terminalStatus">terminalStatus.</param>
         /// <param name="terminalMeta">terminalMeta.</param>
-        public TerminalEntity(string? addedOn = default(string?), int? cfTerminalId = default(int?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string? terminalEmail = default(string?), string? terminalType = default(string?), string? teminalId = default(string?), string? terminalName = default(string?), string? terminalNote = default(string?), string? terminalPhoneNo = default(string?), string? terminalStatus = default(string?), string? terminalMeta = default(string?))
+        public TerminalEntity(string? addedOn = default(string?), int? cfTerminalId = default(int?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string? terminalEmail = default(string?), string? terminalType = default(string?), string? teminalId = default(string?), string? terminalName = default(string?), string? terminalNote = default(string?), string? terminalPhoneNo = default(string?), string? terminalStatus = default(string?), CreateTerminalRequestTerminalMeta? terminalMeta = default(CreateTerminalRequestTerminalMeta?))
         {
             this.added_on = addedOn;
             this.cf_terminal_id = cfTerminalId;
@@ -133,7 +133,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets terminal_meta
         /// </summary>
         [DataMember(Name = "terminal_meta", EmitDefaultValue = false)]
-        public string? terminal_meta { get; set; }
+        public CreateTerminalRequestTerminalMeta? terminal_meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

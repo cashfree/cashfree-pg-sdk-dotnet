@@ -126,33 +126,6 @@ namespace cashfree_pg.Model
         [DataMember(Name = "refund_type", EmitDefaultValue = false)]
         public RefundTypeEnum? refund_type { get; set; }
         /// <summary>
-        /// Method or speed of processing refund
-        /// </summary>
-        /// <value>Method or speed of processing refund</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum RefundModeEnum
-        {
-            /// <summary>
-            /// Enum STANDARD for value: STANDARD
-            /// </summary>
-            [EnumMember(Value = "STANDARD")]
-            STANDARD = 1,
-
-            /// <summary>
-            /// Enum INSTANT for value: INSTANT
-            /// </summary>
-            [EnumMember(Value = "INSTANT")]
-            INSTANT = 2
-        }
-
-
-        /// <summary>
-        /// Method or speed of processing refund
-        /// </summary>
-        /// <value>Method or speed of processing refund</value>
-        [DataMember(Name = "refund_mode", EmitDefaultValue = false)]
-        public RefundModeEnum? refund_mode { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RefundEntity" /> class.
         /// </summary>
         /// <param name="cfPaymentId">Cashfree Payments ID of the payment for which refund is initiated.</param>
@@ -174,7 +147,7 @@ namespace cashfree_pg.Model
         /// <param name="createdAt">Time of refund creation.</param>
         /// <param name="processedAt">Time when refund was processed successfully.</param>
         /// <param name="refundSpeed">refundSpeed.</param>
-        public RefundEntity(string? cfPaymentId = default(string?), string? cfRefundId = default(string?), string? orderId = default(string?), string? refundId = default(string?), EntityEnum? entity = default(EntityEnum?), decimal? refundAmount = default(decimal?), string? refundCurrency = default(string?), string? refundNote = default(string?), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string? refundArn = default(string?), decimal? refundCharge = default(decimal?), string? statusDescription = default(string?), Object? metadata = default(Object?), List<VendorSplit>? refundSplits = default(List<VendorSplit>?), RefundTypeEnum? refundType = default(RefundTypeEnum?), RefundModeEnum? refundMode = default(RefundModeEnum?), string? createdAt = default(string?), string? processedAt = default(string?), RefundSpeed? refundSpeed = default(RefundSpeed?))
+        public RefundEntity(string? cfPaymentId = default(string?), string? cfRefundId = default(string?), string? orderId = default(string?), string? refundId = default(string?), EntityEnum? entity = default(EntityEnum?), decimal? refundAmount = default(decimal?), string? refundCurrency = default(string?), string? refundNote = default(string?), RefundStatusEnum? refundStatus = default(RefundStatusEnum?), string? refundArn = default(string?), decimal? refundCharge = default(decimal?), string? statusDescription = default(string?), Object? metadata = default(Object?), List<VendorSplit>? refundSplits = default(List<VendorSplit>?), RefundTypeEnum? refundType = default(RefundTypeEnum?), string? refundMode = default(string?), string? createdAt = default(string?), string? processedAt = default(string?), RefundSpeed? refundSpeed = default(RefundSpeed?))
         {
             this.cf_payment_id = cfPaymentId;
             this.cf_refund_id = cfRefundId;
@@ -279,6 +252,13 @@ namespace cashfree_pg.Model
         /// </summary>
         [DataMember(Name = "refund_splits", EmitDefaultValue = false)]
         public List<VendorSplit>? refund_splits { get; set; }
+
+        /// <summary>
+        /// Method or speed of processing refund
+        /// </summary>
+        /// <value>Method or speed of processing refund</value>
+        [DataMember(Name = "refund_mode", EmitDefaultValue = false)]
+        public string? refund_mode { get; set; }
 
         /// <summary>
         /// Time of refund creation
@@ -435,7 +415,8 @@ namespace cashfree_pg.Model
                 ) && 
                 (
                     this.refund_mode == input.refund_mode ||
-                    this.refund_mode.Equals(input.refund_mode)
+                    (this.refund_mode != null &&
+                    this.refund_mode.Equals(input.refund_mode))
                 ) && 
                 (
                     this.created_at == input.created_at ||
@@ -516,7 +497,10 @@ namespace cashfree_pg.Model
                     hashCode = (hashCode * 59) + this.refund_splits.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.refund_type.GetHashCode();
-                hashCode = (hashCode * 59) + this.refund_mode.GetHashCode();
+                if (this.refund_mode != null)
+                {
+                    hashCode = (hashCode * 59) + this.refund_mode.GetHashCode();
+                }
                 if (this.created_at != null)
                 {
                     hashCode = (hashCode * 59) + this.created_at.GetHashCode();

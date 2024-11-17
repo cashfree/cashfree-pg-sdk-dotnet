@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **terminal_note** | **string** |  | [optional] 
 **terminal_phone_no** | **string** |  | [optional] 
 **terminal_status** | **string** |  | [optional] 
-**terminal_meta** | **string** |  | [optional] 
+**terminal_meta** | [**CreateTerminalRequestTerminalMeta**](CreateTerminalRequestTerminalMeta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

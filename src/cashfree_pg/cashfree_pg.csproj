@@ -12,7 +12,7 @@
     <Description>Cashfree&#39;s Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.</Description>
     <Copyright>© 2023 Cashfree Payments India Private Limited</Copyright>
     <RootNamespace>com.cashfree</RootNamespace>
-    <Version>4.3.3</Version>
+    <Version>4.3.5</Version>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\cashfree_pg.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/cashfree/cashfree-pg-sdk-dotnet.git</RepositoryUrl>

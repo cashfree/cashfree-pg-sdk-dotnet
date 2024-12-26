@@ -49,7 +49,8 @@ namespace cashfree_pg.Model
         /// <param name="customerDetails">customerDetails.</param>
         /// <param name="orderMeta">orderMeta.</param>
         /// <param name="orderTags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
-        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), DateTime? orderExpiryTime = default(DateTime?), string? orderNote = default(string?), DateTime? createdAt = default(DateTime?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetailsResponse? customerDetails = default(CustomerDetailsResponse?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?))
+        /// <param name="cartDetails">cartDetails.</param>
+        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), DateTime? orderExpiryTime = default(DateTime?), string? orderNote = default(string?), DateTime? createdAt = default(DateTime?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetailsResponse? customerDetails = default(CustomerDetailsResponse?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), CartDetailsEntity? cartDetails = default(CartDetailsEntity?))
         {
             this.cf_order_id = cfOrderId;
             this.order_id = orderId;
@@ -65,6 +66,7 @@ namespace cashfree_pg.Model
             this.customer_details = customerDetails;
             this.order_meta = orderMeta;
             this.order_tags = orderTags;
+            this.cart_details = cartDetails;
         }
 
         /// <summary>
@@ -162,6 +164,12 @@ namespace cashfree_pg.Model
         public Dictionary<string, string>? order_tags { get; set; }
 
         /// <summary>
+        /// Gets or Sets cart_details
+        /// </summary>
+        [DataMember(Name = "cart_details", EmitDefaultValue = false)]
+        public CartDetailsEntity? cart_details { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -183,6 +191,7 @@ namespace cashfree_pg.Model
             sb.Append("  customer_details: ").Append(customer_details).Append("\n");
             sb.Append("  order_meta: ").Append(order_meta).Append("\n");
             sb.Append("  order_tags: ").Append(order_tags).Append("\n");
+            sb.Append("  cart_details: ").Append(cart_details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -288,6 +297,11 @@ namespace cashfree_pg.Model
                     this.order_tags != null &&
                     input.order_tags != null &&
                     this.order_tags.SequenceEqual(input.order_tags)
+                ) && 
+                (
+                    this.cart_details == input.cart_details ||
+                    (this.cart_details != null &&
+                    this.cart_details.Equals(input.cart_details))
                 );
         }
 
@@ -360,6 +374,10 @@ namespace cashfree_pg.Model
                 if (this.order_tags != null)
                 {
                     hashCode = (hashCode * 59) + this.order_tags.GetHashCode();
+                }
+                if (this.cart_details != null)
+                {
+                    hashCode = (hashCode * 59) + this.cart_details.GetHashCode();
                 }
                 return hashCode;
             }

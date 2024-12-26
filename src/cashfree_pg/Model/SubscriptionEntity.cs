@@ -44,10 +44,11 @@ namespace cashfree_pg.Model
         /// <param name="subscriptionId">A unique ID passed by merchant for identifying the subscription..</param>
         /// <param name="subscriptionMeta">subscriptionMeta.</param>
         /// <param name="subscriptionNote">Note for the subscription..</param>
+        /// <param name="subscriptionSessionId">Subscription Session Id..</param>
         /// <param name="subscriptionPaymentSplits">Payment splits for the subscription..</param>
         /// <param name="subscriptionStatus">Status of the subscription..</param>
         /// <param name="subscriptionTags">Tags for the subscription..</param>
-        public SubscriptionEntity(AuthorizationDetails? authorisationDetails = default(AuthorizationDetails?), string? cfSubscriptionId = default(string?), SubscriptionCustomerDetails? customerDetails = default(SubscriptionCustomerDetails?), PlanEntity? planDetails = default(PlanEntity?), string? subscriptionExpiryTime = default(string?), string? subscriptionFirstChargeTime = default(string?), string? subscriptionId = default(string?), SubscriptionEntitySubscriptionMeta? subscriptionMeta = default(SubscriptionEntitySubscriptionMeta?), string? subscriptionNote = default(string?), List<SubscriptionPaymentSplitItem>? subscriptionPaymentSplits = default(List<SubscriptionPaymentSplitItem>?), string? subscriptionStatus = default(string?), Object? subscriptionTags = default(Object?))
+        public SubscriptionEntity(AuthorizationDetails? authorisationDetails = default(AuthorizationDetails?), string? cfSubscriptionId = default(string?), SubscriptionCustomerDetails? customerDetails = default(SubscriptionCustomerDetails?), PlanEntity? planDetails = default(PlanEntity?), string? subscriptionExpiryTime = default(string?), string? subscriptionFirstChargeTime = default(string?), string? subscriptionId = default(string?), SubscriptionEntitySubscriptionMeta? subscriptionMeta = default(SubscriptionEntitySubscriptionMeta?), string? subscriptionNote = default(string?), string? subscriptionSessionId = default(string?), List<SubscriptionPaymentSplitItem>? subscriptionPaymentSplits = default(List<SubscriptionPaymentSplitItem>?), string? subscriptionStatus = default(string?), Object? subscriptionTags = default(Object?))
         {
             this.authorisation_details = authorisationDetails;
             this.cf_subscription_id = cfSubscriptionId;
@@ -58,6 +59,7 @@ namespace cashfree_pg.Model
             this.subscription_id = subscriptionId;
             this.subscription_meta = subscriptionMeta;
             this.subscription_note = subscriptionNote;
+            this.subscription_session_id = subscriptionSessionId;
             this.subscription_payment_splits = subscriptionPaymentSplits;
             this.subscription_status = subscriptionStatus;
             this.subscription_tags = subscriptionTags;
@@ -123,6 +125,13 @@ namespace cashfree_pg.Model
         public string? subscription_note { get; set; }
 
         /// <summary>
+        /// Subscription Session Id.
+        /// </summary>
+        /// <value>Subscription Session Id.</value>
+        [DataMember(Name = "subscription_session_id", EmitDefaultValue = false)]
+        public string? subscription_session_id { get; set; }
+
+        /// <summary>
         /// Payment splits for the subscription.
         /// </summary>
         /// <value>Payment splits for the subscription.</value>
@@ -160,6 +169,7 @@ namespace cashfree_pg.Model
             sb.Append("  subscription_id: ").Append(subscription_id).Append("\n");
             sb.Append("  subscription_meta: ").Append(subscription_meta).Append("\n");
             sb.Append("  subscription_note: ").Append(subscription_note).Append("\n");
+            sb.Append("  subscription_session_id: ").Append(subscription_session_id).Append("\n");
             sb.Append("  subscription_payment_splits: ").Append(subscription_payment_splits).Append("\n");
             sb.Append("  subscription_status: ").Append(subscription_status).Append("\n");
             sb.Append("  subscription_tags: ").Append(subscription_tags).Append("\n");
@@ -244,6 +254,11 @@ namespace cashfree_pg.Model
                     this.subscription_note.Equals(input.subscription_note))
                 ) && 
                 (
+                    this.subscription_session_id == input.subscription_session_id ||
+                    (this.subscription_session_id != null &&
+                    this.subscription_session_id.Equals(input.subscription_session_id))
+                ) && 
+                (
                     this.subscription_payment_splits == input.subscription_payment_splits ||
                     this.subscription_payment_splits != null &&
                     input.subscription_payment_splits != null &&
@@ -313,6 +328,10 @@ namespace cashfree_pg.Model
                 if (this.subscription_note != null)
                 {
                     hashCode = (hashCode * 59) + this.subscription_note.GetHashCode();
+                }
+                if (this.subscription_session_id != null)
+                {
+                    hashCode = (hashCode * 59) + this.subscription_session_id.GetHashCode();
                 }
                 if (this.subscription_payment_splits != null)
                 {

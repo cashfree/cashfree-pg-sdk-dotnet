@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         /// <param name="terminalId">terminal id for merchant reference.</param>
         /// <param name="terminalName">name of terminal/agent/storefront.</param>
         /// <param name="terminalNote">note given by merchant while creating the terminal.</param>
-        /// <param name="terminalPhoneNo">mobile num of the terminal/agent/storefront (required).</param>
+        /// <param name="terminalPhoneNo">mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id. (required).</param>
         /// <param name="terminalStatus">status of terminal active/inactive.</param>
         /// <param name="terminalType">To identify the type of terminal product in use, in this case it is SPOS. (required).</param>
         public TerminalDetails(string? addedOn = default(string?), string? cfTerminalId = default(string?), string? lastUpdatedOn = default(string?), string? terminalAddress = default(string?), string? terminalId = default(string?), string? terminalName = default(string?), string? terminalNote = default(string?), string terminalPhoneNo = default(string), string? terminalStatus = default(string?), string terminalType = default(string))
@@ -124,9 +124,9 @@ namespace cashfree_pg.Model
         public string? terminal_note { get; set; }
 
         /// <summary>
-        /// mobile num of the terminal/agent/storefront
+        /// mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.
         /// </summary>
-        /// <value>mobile num of the terminal/agent/storefront</value>
+        /// <value>mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.</value>
         [DataMember(Name = "terminal_phone_no", IsRequired = true, EmitDefaultValue = true)]
         public string terminal_phone_no { get; set; }
 

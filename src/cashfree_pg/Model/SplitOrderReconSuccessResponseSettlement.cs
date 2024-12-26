@@ -156,7 +156,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Time of transfer if available, otherwise null.</value>
         [DataMember(Name = "transfer_time", EmitDefaultValue = true)]
-        public DateTime?? transfer_time { get; set; }
+        public DateTime? transfer_time { get; set; }
 
         /// <summary>
         /// Timestamp when payment was made.

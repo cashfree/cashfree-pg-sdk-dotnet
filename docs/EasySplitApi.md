@@ -4,6 +4,7 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**PGESCreateAdjustment**](EasySplitApi.md#pgescreateadjustment) | **POST** /easy-split/vendors/{vendor_id}/adjustment | Create Adjustment |
 | [**PGESCreateOnDemandTransfer**](EasySplitApi.md#pgescreateondemandtransfer) | **POST** /easy-split/vendors/{vendor_id}/transfer | Create On Demand Transfer |
 | [**PGESCreateVendors**](EasySplitApi.md#pgescreatevendors) | **POST** /easy-split/vendors | Create vendor |
 | [**PGESDownloadVendorsDocs**](EasySplitApi.md#pgesdownloadvendorsdocs) | **GET** /easy-split/vendor-docs/{vendor_id}/download/{doc_type} | Download Vendor Documents |
@@ -16,6 +17,92 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 | [**PGESUploadVendorsDocs**](EasySplitApi.md#pgesuploadvendorsdocs) | **POST** /easy-split/vendor-docs/{vendor_id} | Upload Vendor Docs |
 | [**PGOrderSplitAfterPayment**](EasySplitApi.md#pgordersplitafterpayment) | **POST** /easy-split/orders/{order_id}/split | Split After Payment |
 | [**PGOrderStaticSplit**](EasySplitApi.md#pgorderstaticsplit) | **POST** /easy-split/static-split | Create Static Split Configuration |
+| [**PGSplitOrderRecon**](EasySplitApi.md#pgsplitorderrecon) | **GET** /easy-split/orders/{order_id} | Get Split and Settlement Details by OrderID |
+
+<a id="pgescreateadjustment"></a>
+# **PGESCreateAdjustment**
+> VendorAdjustmentSuccessResponse PGESCreateAdjustment (string xApiVersion, string vendorId, string? xRequestId = null, Guid? xIdempotencyKey = null, VendorAdjustmentRequest? vendorAdjustmentRequest = null)
+
+Create Adjustment
+
+The Create Adjustment API will create a adjustment request either from vendor to the merchant or from merchant to the vendor.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class PGESCreateAdjustmentExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var vendorId = your-vendor-id;  // string | The id which uniquely identifies your vendor.
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+            var vendorAdjustmentRequest = new VendorAdjustmentRequest?(); // VendorAdjustmentRequest? | Vendor Adjustment Request Body. (optional) 
+
+            try
+            {
+                // Create Adjustment
+                VendorAdjustmentSuccessResponse result = cashfree.PGESCreateAdjustment(xApiVersion, vendorId, xRequestId, xIdempotencyKey, vendorAdjustmentRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EasySplitApi.PGESCreateAdjustment: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **vendorId** | **string** | The id which uniquely identifies your vendor. |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+| **vendorAdjustmentRequest** | [**VendorAdjustmentRequest?**](VendorAdjustmentRequest?.md) | Vendor Adjustment Request Body. | [optional]  |
+
+### Return type
+
+[**VendorAdjustmentSuccessResponse**](VendorAdjustmentSuccessResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Vendor Adjustment Success Response. |  -  |
+| **400** | Adjust Vendor Balance Failure Response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="pgescreateondemandtransfer"></a>
 # **PGESCreateOnDemandTransfer**
@@ -1029,6 +1116,89 @@ namespace Example
 |-------------|-------------|------------------|
 | **200** | Static Split Success Response. |  -  |
 | **400** | Static Split Failure Response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="pgsplitorderrecon"></a>
+# **PGSplitOrderRecon**
+> SplitOrderReconSuccessResponse PGSplitOrderRecon (string xApiVersion, string orderId, string? xRequestId = null, Guid? xIdempotencyKey = null)
+
+Get Split and Settlement Details by OrderID
+
+Use this API to get all the split details, settled and unsettled transactions details of each vendor who were part of a particular order by providing order Id or start date and end date.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class PGSplitOrderReconExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var orderId = your-order-id;  // string | The id which uniquely identifies your order
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+
+            try
+            {
+                // Get Split and Settlement Details by OrderID
+                SplitOrderReconSuccessResponse result = cashfree.PGSplitOrderRecon(xApiVersion, orderId, xRequestId, xIdempotencyKey);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EasySplitApi.PGSplitOrderRecon: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **orderId** | **string** | The id which uniquely identifies your order |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+
+### Return type
+
+[**SplitOrderReconSuccessResponse**](SplitOrderReconSuccessResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Get Split and Settlement Details by OrderID |  -  |
+| **404** | Split Order Recon Failure Response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

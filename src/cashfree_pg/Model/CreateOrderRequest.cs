@@ -43,6 +43,7 @@ namespace cashfree_pg.Model
         /// <param name="orderId">Order identifier present in your system. Alphanumeric, &#39;_&#39; and &#39;-&#39; only.</param>
         /// <param name="orderAmount">Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa (required).</param>
         /// <param name="orderCurrency">Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies. (required).</param>
+        /// <param name="cartDetails">cartDetails.</param>
         /// <param name="customerDetails">customerDetails (required).</param>
         /// <param name="terminal">terminal.</param>
         /// <param name="orderMeta">orderMeta.</param>
@@ -50,7 +51,7 @@ namespace cashfree_pg.Model
         /// <param name="orderNote">Order note for reference..</param>
         /// <param name="orderTags">Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added.</param>
         /// <param name="orderSplits">If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount..</param>
-        public CreateOrderRequest(string? orderId = default(string?), double orderAmount = default(double), string orderCurrency = default(string), CustomerDetails customerDetails = default(CustomerDetails), TerminalDetails? terminal = default(TerminalDetails?), OrderMeta? orderMeta = default(OrderMeta?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?))
+        public CreateOrderRequest(string? orderId = default(string?), double orderAmount = default(double), string orderCurrency = default(string), CartDetails? cartDetails = default(CartDetails?), CustomerDetails customerDetails = default(CustomerDetails), TerminalDetails? terminal = default(TerminalDetails?), OrderMeta? orderMeta = default(OrderMeta?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?))
         {
             this.order_amount = orderAmount;
             // to ensure "orderCurrency" is required (not null)
@@ -66,6 +67,7 @@ namespace cashfree_pg.Model
             }
             this.customer_details = customerDetails;
             this.order_id = orderId;
+            this.cart_details = cartDetails;
             this.terminal = terminal;
             this.order_meta = orderMeta;
             this.order_expiry_time = orderExpiryTime;
@@ -97,6 +99,12 @@ namespace cashfree_pg.Model
         /// <example>INR</example>
         [DataMember(Name = "order_currency", IsRequired = true, EmitDefaultValue = true)]
         public string order_currency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets cart_details
+        /// </summary>
+        [DataMember(Name = "cart_details", EmitDefaultValue = false)]
+        public CartDetails? cart_details { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_details
@@ -159,6 +167,7 @@ namespace cashfree_pg.Model
             sb.Append("  order_id: ").Append(order_id).Append("\n");
             sb.Append("  order_amount: ").Append(order_amount).Append("\n");
             sb.Append("  order_currency: ").Append(order_currency).Append("\n");
+            sb.Append("  cart_details: ").Append(cart_details).Append("\n");
             sb.Append("  customer_details: ").Append(customer_details).Append("\n");
             sb.Append("  terminal: ").Append(terminal).Append("\n");
             sb.Append("  order_meta: ").Append(order_meta).Append("\n");
@@ -214,6 +223,11 @@ namespace cashfree_pg.Model
                     this.order_currency == input.order_currency ||
                     (this.order_currency != null &&
                     this.order_currency.Equals(input.order_currency))
+                ) && 
+                (
+                    this.cart_details == input.cart_details ||
+                    (this.cart_details != null &&
+                    this.cart_details.Equals(input.cart_details))
                 ) && 
                 (
                     this.customer_details == input.customer_details ||
@@ -279,6 +293,10 @@ namespace cashfree_pg.Model
                 if (this.order_currency != null)
                 {
                     hashCode = (hashCode * 59) + this.order_currency.GetHashCode();
+                }
+                if (this.cart_details != null)
+                {
+                    hashCode = (hashCode * 59) + this.cart_details.GetHashCode();
                 }
                 if (this.customer_details != null)
                 {

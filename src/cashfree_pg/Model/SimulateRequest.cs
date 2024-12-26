@@ -33,9 +33,9 @@ namespace cashfree_pg.Model
     public class SimulateRequest : IEquatable<SimulateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Entity type should be PAYMENTS only.
+        /// Entity type should be PAYMENTS or SUBS_PAYMENTS only.
         /// </summary>
-        /// <value>Entity type should be PAYMENTS only.</value>
+        /// <value>Entity type should be PAYMENTS or SUBS_PAYMENTS only.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EntityEnum
         {
@@ -43,14 +43,20 @@ namespace cashfree_pg.Model
             /// Enum PAYMENTS for value: PAYMENTS
             /// </summary>
             [EnumMember(Value = "PAYMENTS")]
-            PAYMENTS = 1
+            PAYMENTS = 1,
+
+            /// <summary>
+            /// Enum SUBSPAYMENTS for value: SUBS_PAYMENTS
+            /// </summary>
+            [EnumMember(Value = "SUBS_PAYMENTS")]
+            SUBSPAYMENTS = 2
         }
 
 
         /// <summary>
-        /// Entity type should be PAYMENTS only.
+        /// Entity type should be PAYMENTS or SUBS_PAYMENTS only.
         /// </summary>
-        /// <value>Entity type should be PAYMENTS only.</value>
+        /// <value>Entity type should be PAYMENTS or SUBS_PAYMENTS only.</value>
         [DataMember(Name = "entity", IsRequired = true, EmitDefaultValue = true)]
         public EntityEnum entity { get; set; }
         /// <summary>
@@ -61,8 +67,8 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulateRequest" /> class.
         /// </summary>
-        /// <param name="entity">Entity type should be PAYMENTS only. (required).</param>
-        /// <param name="entityId">In case of Entity type is PAYMENTS, entity_id will be transactionId (required).</param>
+        /// <param name="entity">Entity type should be PAYMENTS or SUBS_PAYMENTS only. (required).</param>
+        /// <param name="entityId">If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId (required).</param>
         /// <param name="entitySimulation">entitySimulation (required).</param>
         public SimulateRequest(EntityEnum entity = default(EntityEnum), string entityId = default(string), EntitySimulationRequest entitySimulation = default(EntitySimulationRequest))
         {
@@ -82,9 +88,9 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// In case of Entity type is PAYMENTS, entity_id will be transactionId
+        /// If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId
         /// </summary>
-        /// <value>In case of Entity type is PAYMENTS, entity_id will be transactionId</value>
+        /// <value>If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId</value>
         [DataMember(Name = "entity_id", IsRequired = true, EmitDefaultValue = true)]
         public string entity_id { get; set; }
 

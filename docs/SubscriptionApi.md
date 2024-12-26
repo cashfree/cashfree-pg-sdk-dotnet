@@ -15,7 +15,7 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 | [**SubsFetchSubscriptionRefund**](SubscriptionApi.md#subsfetchsubscriptionrefund) | **GET** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund. |
 | [**SubsManageSubscription**](SubscriptionApi.md#subsmanagesubscription) | **POST** /subscriptions/{subscription_id}/manage | Manage a subscription. |
 | [**SubsManageSubscriptionPayment**](SubscriptionApi.md#subsmanagesubscriptionpayment) | **POST** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment. |
-| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /subscriptions/pay/documents/{payment_id} | API to upload Physical Nach for Physical Nach Authorization. |
+| [**SubscriptionDocumentUpload**](SubscriptionApi.md#subscriptiondocumentupload) | **POST** /subscriptions/pay/documents/{payment_id} | API to upload file for Physical Nach Authorization. |
 | [**SubscriptionEligibility**](SubscriptionApi.md#subscriptioneligibility) | **POST** /subscriptions/eligibility/payment_methods | API to get all the payment method details available for subscription payments. |
 
 <a id="subscreatepayment"></a>
@@ -24,7 +24,7 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 Raise a charge or create an auth.
 
-Use this API to create an auth or to raise a charge .
+Use this API to create an auth or to raise a charge.
 
 ### Example
 ```csharp
@@ -997,9 +997,9 @@ namespace Example
 # **SubscriptionDocumentUpload**
 > UploadPnachImageResponse SubscriptionDocumentUpload (string xApiVersion, string paymentId, System.IO.Stream file, string paymentId2, string action, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
-API to upload Physical Nach for Physical Nach Authorization.
+API to upload file for Physical Nach Authorization.
 
-Use this API to upload Physical Nach for Physical Nach Authorization.
+Use this API to upload file for Physical Nach Authorization.
 
 ### Example
 ```csharp
@@ -1033,7 +1033,7 @@ namespace Example
 
             try
             {
-                // API to upload Physical Nach for Physical Nach Authorization.
+                // API to upload file for Physical Nach Authorization.
                 UploadPnachImageResponse result = cashfree.SubscriptionDocumentUpload(xApiVersion, paymentId, file, paymentId2, action, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }

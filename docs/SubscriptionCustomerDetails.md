@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **customer_bank_account_holder_name** | **string** | Bank holder name of the customer. | [optional] 
 **customer_bank_account_number** | **string** | Bank account number of the customer. | [optional] 
 **customer_bank_ifsc** | **string** | IFSC code of the customer. | [optional] 
-**customer_bank_code** | **string** | Bank code of the customer. | [optional] 
+**customer_bank_code** | **string** | Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf | [optional] 
 **customer_bank_account_type** | **string** | Bank account type of the customer. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

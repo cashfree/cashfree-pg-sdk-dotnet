@@ -6,9 +6,13 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 |--------|--------------|-------------|
 | [**SposCreateTerminal**](SoftPOSApi.md#sposcreateterminal) | **POST** /terminal | Create Terminal |
 | [**SposCreateTerminalTransaction**](SoftPOSApi.md#sposcreateterminaltransaction) | **POST** /terminal/transactions | Create Terminal Transaction |
+| [**SposDemapSoundboxVpa**](SoftPOSApi.md#sposdemapsoundboxvpa) | **POST** /terminal/demap/soundbox | Demap Soundbox Vpa |
 | [**SposFetchTerminal**](SoftPOSApi.md#sposfetchterminal) | **GET** /terminal/{terminal_phone_no} | Get Terminal Status using Phone Number |
 | [**SposFetchTerminalQRCodes**](SoftPOSApi.md#sposfetchterminalqrcodes) | **GET** /terminal/qrcodes | Fetch Terminal QR Codes |
+| [**SposFetchTerminalSoundboxVpa**](SoftPOSApi.md#sposfetchterminalsoundboxvpa) | **GET** /terminal/soundbox/qrcodes | Fetch Terminal Soundbox vpa |
 | [**SposFetchTerminalTransaction**](SoftPOSApi.md#sposfetchterminaltransaction) | **GET** /terminal/{cf_terminal_id}/payments | Get Terminal Transaction |
+| [**SposOnboardSoundboxVpa**](SoftPOSApi.md#sposonboardsoundboxvpa) | **POST** /terminal/soundbox | Onboard Soundbox Vpa |
+| [**SposUpdateSoundboxVpa**](SoftPOSApi.md#sposupdatesoundboxvpa) | **PATCH** /terminal/{cf_terminal_id}/soundbox | Update Soundbox Vpa |
 | [**SposUpdateTerminal**](SoftPOSApi.md#sposupdateterminal) | **PATCH** /terminal/{cf_terminal_id} | Update Terminal |
 | [**SposUpdateTerminalStatus**](SoftPOSApi.md#sposupdateterminalstatus) | **PATCH** /terminal/{cf_terminal_id}/status | Update Terminal Status |
 | [**SposUploadTerminalDocs**](SoftPOSApi.md#sposuploadterminaldocs) | **POST** /terminal/{cf_terminal_id}/docs | Upload Terminal Docs |
@@ -181,6 +185,95 @@ namespace Example
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Terminal Transaction created |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **409** | Resource already present |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **422** | Idempotency error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **429** | Rate Limit Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **500** | API related Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="sposdemapsoundboxvpa"></a>
+# **SposDemapSoundboxVpa**
+> List&lt;SoundboxVpaEntity&gt; SposDemapSoundboxVpa (string xApiVersion, DemapSoundboxVpaRequest demapSoundboxVpaRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
+
+Demap Soundbox Vpa
+
+Use this API to demap a device from soundbox.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class SposDemapSoundboxVpaExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var demapSoundboxVpaRequest = new DemapSoundboxVpaRequest(); // DemapSoundboxVpaRequest | Request body to demap soundbox vpa
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+
+            try
+            {
+                // Demap Soundbox Vpa
+                List<SoundboxVpaEntity> result = cashfree.SposDemapSoundboxVpa(xApiVersion, demapSoundboxVpaRequest, xRequestId, xIdempotencyKey);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SoftPOSApi.SposDemapSoundboxVpa: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **demapSoundboxVpaRequest** | [**DemapSoundboxVpaRequest**](DemapSoundboxVpaRequest.md) | Request body to demap soundbox vpa |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+
+### Return type
+
+[**List&lt;SoundboxVpaEntity&gt;**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Soundbox vpa demapped Successfully |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
@@ -371,6 +464,97 @@ namespace Example
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="sposfetchterminalsoundboxvpa"></a>
+# **SposFetchTerminalSoundboxVpa**
+> List&lt;SoundboxVpaEntity&gt; SposFetchTerminalSoundboxVpa (string xApiVersion, string deviceSerialNo, string cfTerminalId, string? xRequestId = null, Guid? xIdempotencyKey = null)
+
+Fetch Terminal Soundbox vpa
+
+You can fetch all the active and mapped SoundboxVpa corresponding to given terminal id or deviceSerialNo. Provide either the device_serial_no or cf_terminal_id in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class SposFetchTerminalSoundboxVpaExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var deviceSerialNo = 9876543214;  // string | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request.
+            var cfTerminalId = 123344;  // string | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request.
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+
+            try
+            {
+                // Fetch Terminal Soundbox vpa
+                List<SoundboxVpaEntity> result = cashfree.SposFetchTerminalSoundboxVpa(xApiVersion, deviceSerialNo, cfTerminalId, xRequestId, xIdempotencyKey);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SoftPOSApi.SposFetchTerminalSoundboxVpa: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **deviceSerialNo** | **string** | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request. |  |
+| **cfTerminalId** | **string** | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request. |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+
+### Return type
+
+[**List&lt;SoundboxVpaEntity&gt;**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Fetched Terminal Soundbox Vpa |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  |
+| **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **409** | Resource already present |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **422** | Idempotency error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **429** | Rate Limit Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **500** | API related Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="sposfetchterminaltransaction"></a>
 # **SposFetchTerminalTransaction**
 > TerminalPaymentEntity SposFetchTerminalTransaction (string xApiVersion, string utr, string cfTerminalId, string? xRequestId = null, Guid? xIdempotencyKey = null)
@@ -452,6 +636,186 @@ namespace Example
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Fetch Terminal Transaction |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **409** | Resource already present |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **422** | Idempotency error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **429** | Rate Limit Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **500** | API related Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="sposonboardsoundboxvpa"></a>
+# **SposOnboardSoundboxVpa**
+> SoundboxVpaEntity SposOnboardSoundboxVpa (string xApiVersion, OnboardSoundboxVpaRequest onboardSoundboxVpaRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
+
+Onboard Soundbox Vpa
+
+Use this API to onboard a terminal Vpa to soundbox.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class SposOnboardSoundboxVpaExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var onboardSoundboxVpaRequest = new OnboardSoundboxVpaRequest(); // OnboardSoundboxVpaRequest | Request body to onboard soundbox vpa
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+
+            try
+            {
+                // Onboard Soundbox Vpa
+                SoundboxVpaEntity result = cashfree.SposOnboardSoundboxVpa(xApiVersion, onboardSoundboxVpaRequest, xRequestId, xIdempotencyKey);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SoftPOSApi.SposOnboardSoundboxVpa: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **onboardSoundboxVpaRequest** | [**OnboardSoundboxVpaRequest**](OnboardSoundboxVpaRequest.md) | Request body to onboard soundbox vpa |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+
+### Return type
+
+[**SoundboxVpaEntity**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Soundbox vpa onboarded Successfully |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **409** | Resource already present |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **422** | Idempotency error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **429** | Rate Limit Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **500** | API related Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="sposupdatesoundboxvpa"></a>
+# **SposUpdateSoundboxVpa**
+> SoundboxVpaEntity SposUpdateSoundboxVpa (string xApiVersion, string cfTerminalId, UpdateSoundboxVpaRequest updateSoundboxVpaRequest, string? xRequestId = null, Guid? xIdempotencyKey = null)
+
+Update Soundbox Vpa
+
+Use this API to update a terminal Vpa to soundbox.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using cashfree_pg.Client;
+using cashfree_pg.Model;
+
+namespace Example
+{
+    public class SposUpdateSoundboxVpaExample
+    {
+        public static void Main()
+        {
+            // Configuration
+            Cashfree.XClientId = "<x-client-id>";
+            Cashfree.XClientSecret = "<x-client-secret>";
+            Cashfree.XEnvironment = Cashfree.SANDBOX;
+            
+            // Instance of Cashfree
+            var cashfree = new Cashfree();
+
+
+            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
+            var updateSoundboxVpaRequest = new UpdateSoundboxVpaRequest(); // UpdateSoundboxVpaRequest | Request body to update soundbox vpa
+            var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
+            var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
+
+            try
+            {
+                // Update Soundbox Vpa
+                SoundboxVpaEntity result = cashfree.SposUpdateSoundboxVpa(xApiVersion, cfTerminalId, updateSoundboxVpaRequest, xRequestId, xIdempotencyKey);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SoftPOSApi.SposUpdateSoundboxVpa: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
+| **updateSoundboxVpaRequest** | [**UpdateSoundboxVpaRequest**](UpdateSoundboxVpaRequest.md) | Request body to update soundbox vpa |  |
+| **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
+| **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
+
+### Return type
+
+[**SoundboxVpaEntity**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Soundbox vpa updated Successfully |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **400** | Bad request error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **401** | Authentication Error |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **404** | Resource Not found |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |

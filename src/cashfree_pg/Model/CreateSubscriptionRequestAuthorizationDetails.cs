@@ -37,10 +37,12 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="authorizationAmount">Authorization amount for the auth payment..</param>
         /// <param name="authorizationAmountRefund">Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription..</param>
-        public CreateSubscriptionRequestAuthorizationDetails(decimal? authorizationAmount = default(decimal?), bool? authorizationAmountRefund = default(bool?))
+        /// <param name="paymentMethods">Payment methods for the subscription. enach, pnach, upi, card are possible values..</param>
+        public CreateSubscriptionRequestAuthorizationDetails(decimal? authorizationAmount = default(decimal?), bool? authorizationAmountRefund = default(bool?), List<string>? paymentMethods = default(List<string>?))
         {
             this.authorization_amount = authorizationAmount;
             this.authorization_amount_refund = authorizationAmountRefund;
+            this.payment_methods = paymentMethods;
         }
 
         /// <summary>
@@ -58,6 +60,13 @@ namespace cashfree_pg.Model
         public bool? authorization_amount_refund { get; set; }
 
         /// <summary>
+        /// Payment methods for the subscription. enach, pnach, upi, card are possible values.
+        /// </summary>
+        /// <value>Payment methods for the subscription. enach, pnach, upi, card are possible values.</value>
+        [DataMember(Name = "payment_methods", EmitDefaultValue = false)]
+        public List<string>? payment_methods { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,6 +76,7 @@ namespace cashfree_pg.Model
             sb.Append("class CreateSubscriptionRequestAuthorizationDetails {\n");
             sb.Append("  authorization_amount: ").Append(authorization_amount).Append("\n");
             sb.Append("  authorization_amount_refund: ").Append(authorization_amount_refund).Append("\n");
+            sb.Append("  payment_methods: ").Append(payment_methods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,12 @@ namespace cashfree_pg.Model
                 (
                     this.authorization_amount_refund == input.authorization_amount_refund ||
                     this.authorization_amount_refund.Equals(input.authorization_amount_refund)
+                ) && 
+                (
+                    this.payment_methods == input.payment_methods ||
+                    this.payment_methods != null &&
+                    input.payment_methods != null &&
+                    this.payment_methods.SequenceEqual(input.payment_methods)
                 );
         }
 
@@ -131,6 +147,10 @@ namespace cashfree_pg.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.authorization_amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.authorization_amount_refund.GetHashCode();
+                if (this.payment_methods != null)
+                {
+                    hashCode = (hashCode * 59) + this.payment_methods.GetHashCode();
+                }
                 return hashCode;
             }
         }

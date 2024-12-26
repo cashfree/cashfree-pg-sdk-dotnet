@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// <param name="customerBankAccountHolderName">Bank holder name of the customer..</param>
         /// <param name="customerBankAccountNumber">Bank account number of the customer..</param>
         /// <param name="customerBankIfsc">IFSC code of the customer..</param>
-        /// <param name="customerBankCode">Bank code of the customer..</param>
+        /// <param name="customerBankCode">Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf.</param>
         /// <param name="customerBankAccountType">Bank account type of the customer..</param>
         public SubscriptionCustomerDetails(string? customerName = default(string?), string customerEmail = default(string), string customerPhone = default(string), string? customerBankAccountHolderName = default(string?), string? customerBankAccountNumber = default(string?), string? customerBankIfsc = default(string?), string? customerBankCode = default(string?), string? customerBankAccountType = default(string?))
         {
@@ -113,9 +113,9 @@ namespace cashfree_pg.Model
         public string? customer_bank_ifsc { get; set; }
 
         /// <summary>
-        /// Bank code of the customer.
+        /// Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf
         /// </summary>
-        /// <value>Bank code of the customer.</value>
+        /// <value>Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf</value>
         [DataMember(Name = "customer_bank_code", EmitDefaultValue = false)]
         public string? customer_bank_code { get; set; }
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **subscription_id** | **string** | A unique ID passed by merchant for identifying the subscription. | [optional] 
 **subscription_meta** | [**SubscriptionEntitySubscriptionMeta**](SubscriptionEntitySubscriptionMeta.md) |  | [optional] 
 **subscription_note** | **string** | Note for the subscription. | [optional] 
+**subscription_session_id** | **string** | Subscription Session Id. | [optional] 
 **subscription_payment_splits** | [**List&lt;SubscriptionPaymentSplitItem&gt;**](SubscriptionPaymentSplitItem.md) | Payment splits for the subscription. | [optional] 
 **subscription_status** | **string** | Status of the subscription. | [optional] 
 **subscription_tags** | **Object** | Tags for the subscription. | [optional] 

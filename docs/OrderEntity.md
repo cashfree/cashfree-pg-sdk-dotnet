@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **customer_details** | [**CustomerDetailsResponse**](CustomerDetailsResponse.md) |  | [optional] 
 **order_meta** | [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **order_tags** | **Dictionary&lt;string, string&gt;** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**cart_details** | [**CartDetailsEntity**](CartDetailsEntity.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

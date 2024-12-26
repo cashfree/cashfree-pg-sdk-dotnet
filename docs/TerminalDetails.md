@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **terminal_id** | **string** | terminal id for merchant reference | [optional] 
 **terminal_name** | **string** | name of terminal/agent/storefront | [optional] 
 **terminal_note** | **string** | note given by merchant while creating the terminal | [optional] 
-**terminal_phone_no** | **string** | mobile num of the terminal/agent/storefront | 
+**terminal_phone_no** | **string** | mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id. | 
 **terminal_status** | **string** | status of terminal active/inactive | [optional] 
 **terminal_type** | **string** | To identify the type of terminal product in use, in this case it is SPOS. | 
 

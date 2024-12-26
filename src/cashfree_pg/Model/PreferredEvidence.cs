@@ -27,16 +27,16 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// DisputeEvidence
+    /// PreferredEvidence
     /// </summary>
-    [DataContract(Name = "DisputeEvidence")]
-    public class DisputeEvidence : List<Evidence>, IEquatable<DisputeEvidence>, IValidatableObject
+    [DataContract(Name = "PreferredEvidence")]
+    public class PreferredEvidence : List<EvidencesToContestDispute>, IEquatable<PreferredEvidence>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DisputeEvidence" /> class.
+        /// Initializes a new instance of the <see cref="PreferredEvidence" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public DisputeEvidence() : base()
+        public PreferredEvidence() : base()
         {
         }
 
@@ -47,7 +47,7 @@ namespace cashfree_pg.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DisputeEvidence {\n");
+            sb.Append("class PreferredEvidence {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -69,15 +69,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DisputeEvidence);
+            return this.Equals(input as PreferredEvidence);
         }
 
         /// <summary>
-        /// Returns true if DisputeEvidence instances are equal
+        /// Returns true if PreferredEvidence instances are equal
         /// </summary>
-        /// <param name="input">Instance of DisputeEvidence to be compared</param>
+        /// <param name="input">Instance of PreferredEvidence to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DisputeEvidence input)
+        public bool Equals(PreferredEvidence input)
         {
             if (input == null)
             {

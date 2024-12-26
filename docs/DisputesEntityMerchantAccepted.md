@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **resolved_at** | **string** | This is the time when the dispute case was closed. | [optional] 
 **dispute_status** | **string** |  | [optional] 
 **cf_dispute_remarks** | **string** |  | [optional] 
-**preferred_evidence** | **Object** |  | [optional] 
+**preferred_evidence** | [**List&lt;EvidencesToContestDispute&gt;**](EvidencesToContestDispute.md) |  | [optional] 
 **dispute_evidence** | [**List&lt;Evidence&gt;**](Evidence.md) |  | [optional] 
 **order_details** | [**OrderDetailsInDisputesEntity**](OrderDetailsInDisputesEntity.md) |  | [optional] 
 **customer_details** | [**CustomerDetailsInDisputesEntity**](CustomerDetailsInDisputesEntity.md) |  | [optional] 

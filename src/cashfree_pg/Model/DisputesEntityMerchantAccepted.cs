@@ -316,7 +316,7 @@ namespace cashfree_pg.Model
         /// <param name="disputeEvidence">disputeEvidence.</param>
         /// <param name="orderDetails">orderDetails.</param>
         /// <param name="customerDetails">customerDetails.</param>
-        public DisputesEntityMerchantAccepted(int? disputeId = default(int?), DisputeTypeEnum? disputeType = default(DisputeTypeEnum?), string? reasonCode = default(string?), string? reasonDescription = default(string?), decimal? disputeAmount = default(decimal?), string? createdAt = default(string?), string? respondBy = default(string?), string? updatedAt = default(string?), string? resolvedAt = default(string?), DisputeStatusEnum? disputeStatus = default(DisputeStatusEnum?), string? cfDisputeRemarks = default(string?), List<EvidencesToContestDispute>? preferredEvidence = default(List<EvidencesToContestDispute>?), List<Evidence>? disputeEvidence = default(List<Evidence>?), OrderDetailsInDisputesEntity? orderDetails = default(OrderDetailsInDisputesEntity?), CustomerDetailsInDisputesEntity? customerDetails = default(CustomerDetailsInDisputesEntity?))
+        public DisputesEntityMerchantAccepted(int? disputeId = default(int?), DisputeTypeEnum? disputeType = default(DisputeTypeEnum?), string? reasonCode = default(string?), string? reasonDescription = default(string?), decimal? disputeAmount = default(decimal?), string? createdAt = default(string?), string? respondBy = default(string?), string? updatedAt = default(string?), string? resolvedAt = default(string?), DisputeStatusEnum? disputeStatus = default(DisputeStatusEnum?), string? cfDisputeRemarks = default(string?), List<List<EvidencesToContestDispute>>? preferredEvidence = default(List<List<EvidencesToContestDispute>>?), List<List<Evidence>>? disputeEvidence = default(List<List<Evidence>>?), OrderDetailsInDisputesEntity? orderDetails = default(OrderDetailsInDisputesEntity?), CustomerDetailsInDisputesEntity? customerDetails = default(CustomerDetailsInDisputesEntity?))
         {
             this.dispute_id = disputeId;
             this.dispute_type = disputeType;
@@ -397,16 +397,14 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets preferred_evidence
         /// </summary>
-        /// <example>{&quot;prefferred_evidence&quot;:[{&quot;document_type&quot;:&quot;Delivery/Service Proof&quot;,&quot;document_description&quot;:&quot;Proof that the cardholder/customer received the goods or services.&quot;},{&quot;document_type&quot;:&quot;Statement of Service&quot;,&quot;document_description&quot;:&quot;Account Statement of wallet where funds were loaded by customer.&quot;}]}</example>
         [DataMember(Name = "preferred_evidence", EmitDefaultValue = false)]
-        public List<EvidencesToContestDispute>? preferred_evidence { get; set; }
+        public List<List<EvidencesToContestDispute>>? preferred_evidence { get; set; }
 
         /// <summary>
         /// Gets or Sets dispute_evidence
         /// </summary>
-        /// <example>[{&quot;document_id&quot;:18150,&quot;document_name&quot;:&quot;disputeSampleFile.pdf&quot;,&quot;document_type&quot;:&quot;DeliveryProof&quot;}]</example>
         [DataMember(Name = "dispute_evidence", EmitDefaultValue = false)]
-        public List<Evidence>? dispute_evidence { get; set; }
+        public List<List<Evidence>>? dispute_evidence { get; set; }
 
         /// <summary>
         /// Gets or Sets order_details

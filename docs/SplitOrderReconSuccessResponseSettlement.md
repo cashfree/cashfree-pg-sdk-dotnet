@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **settlement_amount** | **decimal** | Amount to be settled after charges and tax. | [optional] 
 **settlement_currency** | **string** | Currency of the settlement. Example: \&quot;INR\&quot;. | [optional] 
 **transfer_utr** | **string** | UTR (Unique Transaction Reference) for the transfer if available, otherwise null. | [optional] 
-**transfer_time** | **DateTime?** | Time of transfer if available, otherwise null. | [optional] 
-**payment_time** | **DateTime** | Timestamp when payment was made. | [optional] 
+**transfer_time** | **string** | Time of transfer if available, otherwise null. | [optional] 
+**payment_time** | **string** | Timestamp when payment was made. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

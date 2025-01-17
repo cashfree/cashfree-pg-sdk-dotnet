@@ -28,18 +28,18 @@ using System.Reflection;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// PaymentEntityPaymentMethod
+    /// TerminalPaymentEntityPaymentMethod
     /// </summary>
-    [JsonConverter(typeof(PaymentEntityPaymentMethodJsonConverter))]
-    [DataContract(Name = "PaymentEntity_payment_method")]
-    public class PaymentEntityPaymentMethod : AbstractOpenAPISchema, IEquatable<PaymentEntityPaymentMethod>, IValidatableObject
+    [JsonConverter(typeof(TerminalPaymentEntityPaymentMethodJsonConverter))]
+    [DataContract(Name = "TerminalPaymentEntity_payment_method")]
+    public class TerminalPaymentEntityPaymentMethod : AbstractOpenAPISchema, IEquatable<TerminalPaymentEntityPaymentMethod>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodCardInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodCardInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodCardInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodCardInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -47,11 +47,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodNetBankingInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodNetBankingInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodNetBankingInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodNetBankingInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -59,11 +59,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodUPIInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodUPIInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodUPIInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodUPIInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -71,11 +71,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodAppInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodAppInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodAppInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodAppInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -83,11 +83,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodCardlessEMIInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodCardlessEMIInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodCardlessEMIInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodCardlessEMIInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -95,11 +95,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodPaylaterInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodPaylaterInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodPaylaterInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodPaylaterInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -107,11 +107,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodCardEMIInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodCardEMIInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodCardEMIInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodCardEMIInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -119,23 +119,11 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
+        /// Initializes a new instance of the <see cref="TerminalPaymentEntityPaymentMethod" /> class
         /// with the <see cref="PaymentMethodBankTransferInPaymentsEntity" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PaymentMethodBankTransferInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodBankTransferInPaymentsEntity actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentEntityPaymentMethod" /> class
-        /// with the <see cref="PaymentMethodOthersInPaymentsEntity" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of PaymentMethodOthersInPaymentsEntity.</param>
-        public PaymentEntityPaymentMethod(PaymentMethodOthersInPaymentsEntity actualInstance)
+        public TerminalPaymentEntityPaymentMethod(PaymentMethodBankTransferInPaymentsEntity actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -180,10 +168,6 @@ namespace cashfree_pg.Model
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(PaymentMethodOthersInPaymentsEntity))
-                {
-                    this._actualInstance = value;
-                }
                 else if (value.GetType() == typeof(PaymentMethodPaylaterInPaymentsEntity))
                 {
                     this._actualInstance = value;
@@ -194,7 +178,7 @@ namespace cashfree_pg.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: PaymentMethodAppInPaymentsEntity, PaymentMethodBankTransferInPaymentsEntity, PaymentMethodCardEMIInPaymentsEntity, PaymentMethodCardInPaymentsEntity, PaymentMethodCardlessEMIInPaymentsEntity, PaymentMethodNetBankingInPaymentsEntity, PaymentMethodOthersInPaymentsEntity, PaymentMethodPaylaterInPaymentsEntity, PaymentMethodUPIInPaymentsEntity");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: PaymentMethodAppInPaymentsEntity, PaymentMethodBankTransferInPaymentsEntity, PaymentMethodCardEMIInPaymentsEntity, PaymentMethodCardInPaymentsEntity, PaymentMethodCardlessEMIInPaymentsEntity, PaymentMethodNetBankingInPaymentsEntity, PaymentMethodPaylaterInPaymentsEntity, PaymentMethodUPIInPaymentsEntity");
                 }
             }
         }
@@ -280,23 +264,13 @@ namespace cashfree_pg.Model
         }
 
         /// <summary>
-        /// Get the actual instance of `PaymentMethodOthersInPaymentsEntity`. If the actual instance is not `PaymentMethodOthersInPaymentsEntity`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of PaymentMethodOthersInPaymentsEntity</returns>
-        public PaymentMethodOthersInPaymentsEntity GetPaymentMethodOthersInPaymentsEntity()
-        {
-            return (PaymentMethodOthersInPaymentsEntity)this.ActualInstance;
-        }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentEntityPaymentMethod {\n");
+            sb.Append("class TerminalPaymentEntityPaymentMethod {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -308,21 +282,21 @@ namespace cashfree_pg.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, PaymentEntityPaymentMethod.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, TerminalPaymentEntityPaymentMethod.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of PaymentEntityPaymentMethod
+        /// Converts the JSON string into an instance of TerminalPaymentEntityPaymentMethod
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of PaymentEntityPaymentMethod</returns>
-        public static PaymentEntityPaymentMethod FromJson(string jsonString)
+        /// <returns>An instance of TerminalPaymentEntityPaymentMethod</returns>
+        public static TerminalPaymentEntityPaymentMethod FromJson(string jsonString)
         {
-            PaymentEntityPaymentMethod newPaymentEntityPaymentMethod = null;
+            TerminalPaymentEntityPaymentMethod newTerminalPaymentEntityPaymentMethod = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newPaymentEntityPaymentMethod;
+                return newTerminalPaymentEntityPaymentMethod;
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
@@ -332,17 +306,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodAppInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodAppInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodAppInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodAppInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodAppInPaymentsEntity");
@@ -359,17 +333,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodBankTransferInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodBankTransferInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodBankTransferInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodBankTransferInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodBankTransferInPaymentsEntity");
@@ -386,17 +360,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodCardEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodCardEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodCardEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardEMIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodCardEMIInPaymentsEntity");
@@ -413,17 +387,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodCardInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodCardInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodCardInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodCardInPaymentsEntity");
@@ -440,17 +414,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodCardlessEMIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodCardlessEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodCardlessEMIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodCardlessEMIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodCardlessEMIInPaymentsEntity");
@@ -467,17 +441,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodNetBankingInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodNetBankingInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodNetBankingInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodNetBankingInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodNetBankingInPaymentsEntity");
@@ -491,47 +465,20 @@ namespace cashfree_pg.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(PaymentMethodOthersInPaymentsEntity).GetProperty("AdditionalProperties") == null)
-                {
-                    if(PaymentMethodOthersInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodOthersInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
-                    }
-                }
-                else
-                {
-                    if(PaymentMethodOthersInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodOthersInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
-                    }
-                }
-                matchedTypes.Add("PaymentMethodOthersInPaymentsEntity");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PaymentMethodOthersInPaymentsEntity: {1}", jsonString, exception.ToString()));
-            }
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(PaymentMethodPaylaterInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodPaylaterInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodPaylaterInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodPaylaterInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodPaylaterInPaymentsEntity");
@@ -548,17 +495,17 @@ namespace cashfree_pg.Model
                 if (typeof(PaymentMethodUPIInPaymentsEntity).GetProperty("AdditionalProperties") == null)
                 {
                     if(PaymentMethodUPIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 else
                 {
                     if(PaymentMethodUPIInPaymentsEntity.checkPresenceOfKey(jsonString)) {
-                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, PaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
-                        newPaymentEntityPaymentMethod = new PaymentEntityPaymentMethod(data);
-                        return newPaymentEntityPaymentMethod;
+                        dynamic data = JsonConvert.DeserializeObject<PaymentMethodUPIInPaymentsEntity>(jsonString, TerminalPaymentEntityPaymentMethod.AdditionalPropertiesSerializerSettings);
+                        newTerminalPaymentEntityPaymentMethod = new TerminalPaymentEntityPaymentMethod(data);
+                        return newTerminalPaymentEntityPaymentMethod;
                     }
                 }
                 matchedTypes.Add("PaymentMethodUPIInPaymentsEntity");
@@ -580,7 +527,7 @@ namespace cashfree_pg.Model
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
-            return newPaymentEntityPaymentMethod;
+            return newTerminalPaymentEntityPaymentMethod;
         }
 
         /// <summary>
@@ -590,15 +537,15 @@ namespace cashfree_pg.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymentEntityPaymentMethod);
+            return this.Equals(input as TerminalPaymentEntityPaymentMethod);
         }
 
         /// <summary>
-        /// Returns true if PaymentEntityPaymentMethod instances are equal
+        /// Returns true if TerminalPaymentEntityPaymentMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymentEntityPaymentMethod to be compared</param>
+        /// <param name="input">Instance of TerminalPaymentEntityPaymentMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentEntityPaymentMethod input)
+        public bool Equals(TerminalPaymentEntityPaymentMethod input)
         {
             if (input == null)
                 return false;
@@ -633,9 +580,9 @@ namespace cashfree_pg.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for PaymentEntityPaymentMethod
+    /// Custom JSON converter for TerminalPaymentEntityPaymentMethod
     /// </summary>
-    public class PaymentEntityPaymentMethodJsonConverter : JsonConverter
+    public class TerminalPaymentEntityPaymentMethodJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -645,7 +592,7 @@ namespace cashfree_pg.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(PaymentEntityPaymentMethod).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(TerminalPaymentEntityPaymentMethod).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -660,7 +607,7 @@ namespace cashfree_pg.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return PaymentEntityPaymentMethod.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return TerminalPaymentEntityPaymentMethod.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

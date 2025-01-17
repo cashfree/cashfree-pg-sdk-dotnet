@@ -168,7 +168,6 @@ docs/PaylaterEntity.md
 docs/PaylaterOffer.md
 docs/PaylaterPaymentMethod.md
 docs/PaymentEntity.md
-docs/PaymentEntityPaymentMethod.md
 docs/PaymentLinkCustomerDetails.md
 docs/PaymentLinkOrderEntity.md
 docs/PaymentLinksApi.md
@@ -456,7 +455,6 @@ src/cashfree_pg.Test/Model/PaylaterEntityTests.cs
 src/cashfree_pg.Test/Model/PaylaterOfferTests.cs
 src/cashfree_pg.Test/Model/PaylaterPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/PaylaterTests.cs
-src/cashfree_pg.Test/Model/PaymentEntityPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/PaymentEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentLinkCustomerDetailsTests.cs
 src/cashfree_pg.Test/Model/PaymentLinkOrderEntityTests.cs
@@ -754,7 +752,6 @@ src/cashfree_pg/Model/PaylaterEntity.cs
 src/cashfree_pg/Model/PaylaterOffer.cs
 src/cashfree_pg/Model/PaylaterPaymentMethod.cs
 src/cashfree_pg/Model/PaymentEntity.cs
-src/cashfree_pg/Model/PaymentEntityPaymentMethod.cs
 src/cashfree_pg/Model/PaymentLinkCustomerDetails.cs
 src/cashfree_pg/Model/PaymentLinkOrderEntity.cs
 src/cashfree_pg/Model/PaymentMethodAppInPaymentsEntity.cs

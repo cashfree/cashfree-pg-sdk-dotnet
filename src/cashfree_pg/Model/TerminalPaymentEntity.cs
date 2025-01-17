@@ -110,7 +110,7 @@ namespace cashfree_pg.Model
         /// <param name="authorization">authorization.</param>
         /// <param name="customerDetails">customerDetails.</param>
         /// <param name="paymentMethod">paymentMethod.</param>
-        public TerminalPaymentEntity(string? cfPaymentId = default(string?), string? orderId = default(string?), string? entity = default(string?), ErrorDetailsInPaymentsEntity? errorDetails = default(ErrorDetailsInPaymentsEntity?), bool? isCaptured = default(bool?), decimal? orderAmount = default(decimal?), string? paymentGroup = default(string?), string? paymentCurrency = default(string?), decimal? paymentAmount = default(decimal?), string? paymentTime = default(string?), string? paymentCompletionTime = default(string?), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), string? paymentMessage = default(string?), string? bankReference = default(string?), string? authId = default(string?), AuthorizationInPaymentsEntity? authorization = default(AuthorizationInPaymentsEntity?), CustomerDetails? customerDetails = default(CustomerDetails?), PaymentEntityPaymentMethod? paymentMethod = default(PaymentEntityPaymentMethod?))
+        public TerminalPaymentEntity(string? cfPaymentId = default(string?), string? orderId = default(string?), string? entity = default(string?), ErrorDetailsInPaymentsEntity? errorDetails = default(ErrorDetailsInPaymentsEntity?), bool? isCaptured = default(bool?), decimal? orderAmount = default(decimal?), string? paymentGroup = default(string?), string? paymentCurrency = default(string?), decimal? paymentAmount = default(decimal?), string? paymentTime = default(string?), string? paymentCompletionTime = default(string?), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), string? paymentMessage = default(string?), string? bankReference = default(string?), string? authId = default(string?), AuthorizationInPaymentsEntity? authorization = default(AuthorizationInPaymentsEntity?), CustomerDetails? customerDetails = default(CustomerDetails?), TerminalPaymentEntityPaymentMethod? paymentMethod = default(TerminalPaymentEntityPaymentMethod?))
         {
             this.cf_payment_id = cfPaymentId;
             this.order_id = orderId;
@@ -236,7 +236,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets payment_method
         /// </summary>
         [DataMember(Name = "payment_method", EmitDefaultValue = false)]
-        public PaymentEntityPaymentMethod? payment_method { get; set; }
+        public TerminalPaymentEntityPaymentMethod? payment_method { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

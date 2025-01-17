@@ -184,6 +184,7 @@ docs/PaymentMethodCardInPaymentsEntityCard.md
 docs/PaymentMethodCardlessEMIInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
+docs/PaymentMethodOthersInPaymentsEntity.md
 docs/PaymentMethodPaylaterInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntityUpi.md
@@ -249,6 +250,7 @@ docs/SubscriptionPaymentSplitItem.md
 docs/TerminalDetails.md
 docs/TerminalEntity.md
 docs/TerminalPaymentEntity.md
+docs/TerminalPaymentEntityPaymentMethod.md
 docs/TerminalTransactionEntity.md
 docs/TerminateOrderRequest.md
 docs/TokenVaultApi.md
@@ -470,6 +472,7 @@ src/cashfree_pg.Test/Model/PaymentMethodCardInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodCardlessEMIInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityTests.cs
+src/cashfree_pg.Test/Model/PaymentMethodOthersInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodPaylaterInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodUPIInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodUPIInPaymentsEntityUpiTests.cs
@@ -527,6 +530,7 @@ src/cashfree_pg.Test/Model/SubscriptionPaymentRefundEntityTests.cs
 src/cashfree_pg.Test/Model/SubscriptionPaymentSplitItemTests.cs
 src/cashfree_pg.Test/Model/TerminalDetailsTests.cs
 src/cashfree_pg.Test/Model/TerminalEntityTests.cs
+src/cashfree_pg.Test/Model/TerminalPaymentEntityPaymentMethodTests.cs
 src/cashfree_pg.Test/Model/TerminalPaymentEntityTests.cs
 src/cashfree_pg.Test/Model/TerminalTransactionEntityTests.cs
 src/cashfree_pg.Test/Model/TerminateOrderRequestTests.cs
@@ -765,6 +769,7 @@ src/cashfree_pg/Model/PaymentMethodCardInPaymentsEntityCard.cs
 src/cashfree_pg/Model/PaymentMethodCardlessEMIInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.cs
+src/cashfree_pg/Model/PaymentMethodOthersInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodPaylaterInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodUPIInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodUPIInPaymentsEntityUpi.cs
@@ -823,6 +828,7 @@ src/cashfree_pg/Model/SubscriptionPaymentSplitItem.cs
 src/cashfree_pg/Model/TerminalDetails.cs
 src/cashfree_pg/Model/TerminalEntity.cs
 src/cashfree_pg/Model/TerminalPaymentEntity.cs
+src/cashfree_pg/Model/TerminalPaymentEntityPaymentMethod.cs
 src/cashfree_pg/Model/TerminalTransactionEntity.cs
 src/cashfree_pg/Model/TerminateOrderRequest.cs
 src/cashfree_pg/Model/TransferDetails.cs

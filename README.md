@@ -29,7 +29,7 @@ Cashfree.XClientId = "<x-client-id>";
 Cashfree.XClientSecret = "<x-client-secret>";
 Cashfree.XEnvironment = Cashfree.SANDBOX;
 var cashfree = new Cashfree();
-var xApiVersion = "2022-09-01";
+var xApiVersion = "2023-08-01";
 ```
 
 Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)

@@ -127,7 +127,7 @@ namespace cashfree_pg.Client
                     o.IsGlobalModeEnabled = false;
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
-                    o.Environment = env;
+                    o.Environment = XEnvironment == CFEnvironment.SANDBOX ? "sandbox" : "production";
                     o.Release = "5.0.3-beta-2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));

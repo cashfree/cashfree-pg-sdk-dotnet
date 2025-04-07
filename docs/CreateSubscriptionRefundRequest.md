@@ -5,9 +5,9 @@ Request body to create a subscription refund.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**cf_payment_id** | **decimal** | Cashfree subscription payment reference number. | [optional] 
 **subscription_id** | **string** | A unique ID passed by merchant for identifying the subscription. | 
 **payment_id** | **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
-**cf_payment_id** | **string** | Cashfree subscription payment reference number. | [optional] 
 **refund_id** | **string** | A unique ID passed by merchant for identifying the refund. | 
 **refund_amount** | **decimal** | The amount to be refunded. Can be partial or full amount of the payment. | 
 **refund_note** | **string** | Refund note. | [optional] 

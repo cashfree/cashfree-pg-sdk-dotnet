@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **reason_code** | **string** |  | [optional] 
 **reason_description** | **string** |  | [optional] 
 **dispute_amount** | **decimal** | Dispute amount may differ from transaction amount for partial cases. | [optional] 
+**dispute_amount_currency** | **string** | Dispute amount currency for a dispute | [optional] 
 **created_at** | **string** | This is the time when the dispute was created. | [optional] 
 **respond_by** | **string** | This is the time by which evidence should be submitted to contest the dispute. | [optional] 
 **updated_at** | **string** | This is the time when the dispute case was updated. | [optional] 

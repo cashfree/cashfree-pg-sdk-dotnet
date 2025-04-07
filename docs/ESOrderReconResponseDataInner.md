@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **decimal** |  | [optional] 
 **settlement_eligibility_time** | **string** |  | [optional] 
+**status** | **string** |  | [optional] 
 **merchant_order_id** | **string** |  | [optional] 
 **tx_time** | **string** |  | [optional] 
 **settled** | **string** |  | [optional] 

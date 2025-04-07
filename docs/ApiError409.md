@@ -6,6 +6,7 @@ duplicate request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **string** |  | [optional] 
+**help** | **string** |  | [optional] 
 **code** | **string** |  | [optional] 
 **type** | **string** | invalid_request_error | [optional] 
 

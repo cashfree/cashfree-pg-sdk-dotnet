@@ -128,7 +128,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = env;
-                    o.Release = "5.0.3-beta-1";
+                    o.Release = "5.0.3-beta-2";
                     o.AddEventProcessor(new CashfreeEventProcessor());
                 }));
             }
@@ -177,7 +177,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of CustomerEntity</returns>
         public cashfree_pg.Client.ApiResponse<CustomerEntity> PGCreateCustomer(CreateCustomerRequest createCustomerRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -267,7 +267,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CustomerEntity>("/customers", localVarRequestOptions, config);
@@ -297,7 +297,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of DisputesEntityMerchantAccepted</returns>
         public cashfree_pg.Client.ApiResponse<DisputesEntityMerchantAccepted> PGAcceptDisputeByID(int disputeId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -382,7 +382,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<DisputesEntityMerchantAccepted>("/disputes/{dispute_id}/accept", localVarRequestOptions, config);
@@ -412,7 +412,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of DisputesEntity</returns>
         public cashfree_pg.Client.ApiResponse<DisputesEntity> PGFetchDisputeByID(int disputeId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -497,7 +497,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<DisputesEntity>("/disputes/{dispute_id}", localVarRequestOptions, config);
@@ -527,7 +527,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;DisputesEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<DisputesEntity>> PGFetchOrderDisputes(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -616,7 +616,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<DisputesEntity>>("/orders/{order_id}/disputes", localVarRequestOptions, config);
@@ -646,7 +646,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;DisputesEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<DisputesEntity>> PGFetchPaymentDisputes(int cfPaymentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -731,7 +731,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<DisputesEntity>>("/payments/{cf_payment_id}/disputes", localVarRequestOptions, config);
@@ -764,7 +764,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;DisputesEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<DisputesEntity>> PGUploadDisputesDocuments(int disputeId, string file, string docType, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? note = default(string?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -864,7 +864,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<DisputesEntity>>("/disputes/{dispute_id}/documents", localVarRequestOptions, config);
@@ -895,7 +895,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorAdjustmentSuccessResponse</returns>
         public cashfree_pg.Client.ApiResponse<VendorAdjustmentSuccessResponse> PGESCreateAdjustment(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), VendorAdjustmentRequest? vendorAdjustmentRequest = default(VendorAdjustmentRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -986,7 +986,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<VendorAdjustmentSuccessResponse>("/easy-split/vendors/{vendor_id}/adjustment", localVarRequestOptions, config);
@@ -1017,7 +1017,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of AdjustVendorBalanceResponse</returns>
         public cashfree_pg.Client.ApiResponse<AdjustVendorBalanceResponse> PGESCreateOnDemandTransfer(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), AdjustVendorBalanceRequest? adjustVendorBalanceRequest = default(AdjustVendorBalanceRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1108,7 +1108,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AdjustVendorBalanceResponse>("/easy-split/vendors/{vendor_id}/transfer", localVarRequestOptions, config);
@@ -1138,7 +1138,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of CreateVendorResponse</returns>
         public cashfree_pg.Client.ApiResponse<CreateVendorResponse> PGESCreateVendors(string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), CreateVendorRequest? createVendorRequest = default(CreateVendorRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1224,7 +1224,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateVendorResponse>("/easy-split/vendors", localVarRequestOptions, config);
@@ -1255,7 +1255,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorDocumentDownloadResponse</returns>
         public cashfree_pg.Client.ApiResponse<VendorDocumentDownloadResponse> PGESDownloadVendorsDocs(string docType, string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1349,7 +1349,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentDownloadResponse>("/easy-split/vendor-docs/{vendor_id}/download/{doc_type}", localVarRequestOptions, config);
@@ -1379,7 +1379,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorEntity</returns>
         public cashfree_pg.Client.ApiResponse<VendorEntity> PGESFetchVendors(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1468,7 +1468,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorEntity>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -1498,7 +1498,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorBalance</returns>
         public cashfree_pg.Client.ApiResponse<VendorBalance> PGESGetVendorBalance(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1587,7 +1587,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalance>("/easy-split/vendors/{vendor_id}/balances", localVarRequestOptions, config);
@@ -1618,7 +1618,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorBalanceTransferCharges</returns>
         public cashfree_pg.Client.ApiResponse<VendorBalanceTransferCharges> PGESGetVendorBalanceTransferCharges(decimal amount, string rateType, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1708,7 +1708,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalanceTransferCharges>("/easy-split/amount/{amount}/charges", localVarRequestOptions, config);
@@ -1738,7 +1738,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of VendorDocumentsResponse</returns>
         public cashfree_pg.Client.ApiResponse<VendorDocumentsResponse> PGESGetVendorsDocs(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1827,7 +1827,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1857,7 +1857,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of ESOrderReconResponse</returns>
         public cashfree_pg.Client.ApiResponse<ESOrderReconResponse> PGESOrderRecon(string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), ESOrderReconRequest? eSOrderReconRequest = default(ESOrderReconRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -1943,7 +1943,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ESOrderReconResponse>("/split/order/vendor/recon", localVarRequestOptions, config);
@@ -1974,7 +1974,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of UpdateVendorResponse</returns>
         public cashfree_pg.Client.ApiResponse<UpdateVendorResponse> PGESUpdateVendors(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), UpdateVendorRequest? updateVendorRequest = default(UpdateVendorRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2065,7 +2065,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<UpdateVendorResponse>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -2098,7 +2098,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of UploadVendorDocumentsResponse</returns>
         public cashfree_pg.Client.ApiResponse<UploadVendorDocumentsResponse> PGESUploadVendorsDocs(string vendorId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? docType = default(string?), string? docValue = default(string?), System.IO.Stream? file = default(System.IO.Stream?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2200,7 +2200,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadVendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -2231,7 +2231,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SplitAfterPaymentResponse</returns>
         public cashfree_pg.Client.ApiResponse<SplitAfterPaymentResponse> PGOrderSplitAfterPayment(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), SplitAfterPaymentRequest? splitAfterPaymentRequest = default(SplitAfterPaymentRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2322,7 +2322,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SplitAfterPaymentResponse>("/easy-split/orders/{order_id}/split", localVarRequestOptions, config);
@@ -2352,7 +2352,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of StaticSplitResponse</returns>
         public cashfree_pg.Client.ApiResponse<StaticSplitResponse> PGOrderStaticSplit(string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), StaticSplitRequest? staticSplitRequest = default(StaticSplitRequest?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2438,7 +2438,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<StaticSplitResponse>("/easy-split/static-split", localVarRequestOptions, config);
@@ -2468,7 +2468,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SplitOrderReconSuccessResponse</returns>
         public cashfree_pg.Client.ApiResponse<SplitOrderReconSuccessResponse> PGSplitOrderRecon(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2557,7 +2557,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SplitOrderReconSuccessResponse>("/easy-split/orders/{order_id}", localVarRequestOptions, config);
@@ -2587,7 +2587,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;EligibilityCardlessEMIEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityCardlessEMIEntity>> PGEligibilityFetchCardlessEMI(EligibilityFetchCardlessEMIRequest eligibilityFetchCardlessEMIRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2677,7 +2677,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -2707,7 +2707,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;EligibilityOfferEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityOfferEntity>> PGEligibilityFetchOffers(EligibilityFetchOffersRequest eligibilityFetchOffersRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2797,7 +2797,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -2827,7 +2827,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;EligibilityPaylaterEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityPaylaterEntity>> PGEligibilityFetchPaylater(EligibilityFetchPaylaterRequest eligibilityFetchPaylaterRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -2917,7 +2917,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -2947,7 +2947,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;EligibilityPaymentMethodsEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<EligibilityPaymentMethodsEntity>> PGEligibilityFetchPaymentMethods(EligibilityFetchPaymentMethodsRequest eligibilityFetchPaymentMethodsRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3037,7 +3037,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -3067,7 +3067,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OfferEntity</returns>
         public cashfree_pg.Client.ApiResponse<OfferEntity> PGCreateOffer(CreateOfferRequest createOfferRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3157,7 +3157,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -3187,7 +3187,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OfferEntity</returns>
         public cashfree_pg.Client.ApiResponse<OfferEntity> PGFetchOffer(string offerId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3276,7 +3276,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -3306,7 +3306,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderEntity> PGCreateOrder(CreateOrderRequest createOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3396,7 +3396,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -3426,7 +3426,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderEntity> PGFetchOrder(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3515,7 +3515,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3545,7 +3545,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OrderExtendedDataEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderExtendedDataEntity> PGFetchOrderExtendedData(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3634,7 +3634,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderExtendedDataEntity>("/orders/{order_id}/extended", localVarRequestOptions, config);
@@ -3665,7 +3665,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderEntity> PGTerminateOrder(string orderId, TerminateOrderRequest terminateOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3760,7 +3760,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3791,7 +3791,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of UpdateOrderExtendedDataEntity</returns>
         public cashfree_pg.Client.ApiResponse<UpdateOrderExtendedDataEntity> PGUpdateOrderExtendedData(string orderId, UpdateOrderExtendedRequest updateOrderExtendedRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -3886,7 +3886,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<UpdateOrderExtendedDataEntity>("/orders/{order_id}/extended", localVarRequestOptions, config);
@@ -3918,7 +3918,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of ReconEntity</returns>
         public cashfree_pg.Client.ApiResponse<ReconEntity> PGFetchRecon(FetchReconRequest fetchReconRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4016,7 +4016,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -4046,7 +4046,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGCancelLink(string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4135,7 +4135,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -4165,7 +4165,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGCreateLink(CreateLinkRequest createLinkRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4255,7 +4255,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -4285,7 +4285,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of LinkEntity</returns>
         public cashfree_pg.Client.ApiResponse<LinkEntity> PGFetchLink(string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4374,7 +4374,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -4405,7 +4405,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;PaymentLinkOrderEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<PaymentLinkOrderEntity>> PGLinkFetchOrders(string linkId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? status = default(string?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4498,7 +4498,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentLinkOrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -4529,7 +4529,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<PaymentEntity> PGAuthorizeOrder(string orderId, AuthorizeOrderRequest authorizeOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4624,7 +4624,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -4655,7 +4655,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of OrderAuthenticateEntity</returns>
         public cashfree_pg.Client.ApiResponse<OrderAuthenticateEntity> PGOrderAuthenticatePayment(string cfPaymentId, OrderAuthenticatePaymentRequest orderAuthenticatePaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4735,7 +4735,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -4766,7 +4766,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<PaymentEntity> PGOrderFetchPayment(string orderId, string cfPaymentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4860,7 +4860,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -4890,7 +4890,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;PaymentEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<PaymentEntity>> PGOrderFetchPayments(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -4979,7 +4979,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -5009,7 +5009,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PayOrderEntity</returns>
         public cashfree_pg.Client.ApiResponse<PayOrderEntity> PGPayOrder(PayOrderRequest payOrderRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5084,7 +5084,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -5115,7 +5115,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of RefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<RefundEntity> PGOrderCreateRefund(string orderId, OrderCreateRefundRequest orderCreateRefundRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5210,7 +5210,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -5241,7 +5241,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of RefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<RefundEntity> PGOrderFetchRefund(string orderId, string refundId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5335,7 +5335,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -5365,7 +5365,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;RefundEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<RefundEntity>> PGOrderFetchRefunds(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5454,7 +5454,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -5486,7 +5486,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SettlementEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementEntity> PGFetchSettlements(FetchSettlementsRequest fetchSettlementsRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5584,7 +5584,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -5616,7 +5616,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SettlementReconEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementReconEntity> PGSettlementFetchRecon(SettlementFetchReconRequest settlementFetchReconRequest, string? contentType = default(string?), string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), string? accept = default(string?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5714,7 +5714,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -5744,7 +5744,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of Object</returns>
         public cashfree_pg.Client.ApiResponse<Object> MarkForSettlement(string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), CreateOrderSettlementRequestBody? createOrderSettlementRequestBody = default(CreateOrderSettlementRequestBody?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5830,7 +5830,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/orders/settlements", localVarRequestOptions, config);
@@ -5860,7 +5860,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SettlementEntity</returns>
         public cashfree_pg.Client.ApiResponse<SettlementEntity> PGOrderFetchSettlement(string orderId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -5949,7 +5949,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -5979,7 +5979,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SimulationResponse</returns>
         public cashfree_pg.Client.ApiResponse<SimulationResponse> PGFetchSimulation(string simulationId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6068,7 +6068,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SimulationResponse>("/simulate/{simulation_id}", localVarRequestOptions, config);
@@ -6098,7 +6098,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SimulationResponse</returns>
         public cashfree_pg.Client.ApiResponse<SimulationResponse> PGSimulatePayment(SimulateRequest simulateRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6188,7 +6188,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SimulationResponse>("/simulate", localVarRequestOptions, config);
@@ -6218,7 +6218,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of TerminalEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalEntity> SposCreateTerminal(CreateTerminalRequest createTerminalRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6308,7 +6308,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -6338,7 +6338,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of TerminalTransactionEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalTransactionEntity> SposCreateTerminalTransaction(CreateTerminalTransactionRequest createTerminalTransactionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6428,7 +6428,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -6458,7 +6458,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;SoundboxVpaEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<SoundboxVpaEntity>> SposDemapSoundboxVpa(DemapSoundboxVpaRequest demapSoundboxVpaRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6548,7 +6548,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<SoundboxVpaEntity>>("/terminal/demap/soundbox", localVarRequestOptions, config);
@@ -6578,7 +6578,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of TerminalEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalEntity> SposFetchTerminal(string terminalPhoneNo, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6667,7 +6667,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -6698,7 +6698,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;FetchTerminalQRCodesEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<FetchTerminalQRCodesEntity>> SposFetchTerminalQRCodes(string terminalPhoneNo, string cfTerminalId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6792,7 +6792,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -6823,7 +6823,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;SoundboxVpaEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<SoundboxVpaEntity>> SposFetchTerminalSoundboxVpa(string deviceSerialNo, string cfTerminalId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -6917,7 +6917,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SoundboxVpaEntity>>("/terminal/soundbox/qrcodes", localVarRequestOptions, config);
@@ -6948,7 +6948,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of TerminalPaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<TerminalPaymentEntity> SposFetchTerminalTransaction(string utr, string cfTerminalId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7042,7 +7042,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalPaymentEntity>("/terminal/{cf_terminal_id}/payments", localVarRequestOptions, config);
@@ -7072,7 +7072,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SoundboxVpaEntity</returns>
         public cashfree_pg.Client.ApiResponse<SoundboxVpaEntity> SposOnboardSoundboxVpa(OnboardSoundboxVpaRequest onboardSoundboxVpaRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7162,7 +7162,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SoundboxVpaEntity>("/terminal/soundbox", localVarRequestOptions, config);
@@ -7193,7 +7193,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SoundboxVpaEntity</returns>
         public cashfree_pg.Client.ApiResponse<SoundboxVpaEntity> SposUpdateSoundboxVpa(string cfTerminalId, UpdateSoundboxVpaRequest updateSoundboxVpaRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7288,7 +7288,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<SoundboxVpaEntity>("/terminal/{cf_terminal_id}/soundbox", localVarRequestOptions, config);
@@ -7319,7 +7319,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;UpdateTerminalEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<UpdateTerminalEntity>> SposUpdateTerminal(string cfTerminalId, UpdateTerminalRequest updateTerminalRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7414,7 +7414,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}", localVarRequestOptions, config);
@@ -7445,7 +7445,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;UpdateTerminalEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<UpdateTerminalEntity>> SposUpdateTerminalStatus(string cfTerminalId, UpdateTerminalStatusRequest updateTerminalStatusRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7540,7 +7540,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}/status", localVarRequestOptions, config);
@@ -7571,7 +7571,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;UploadTerminalDocsEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<UploadTerminalDocsEntity>> SposUploadTerminalDocs(string cfTerminalId, UploadTerminalDocs uploadTerminalDocs, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7666,7 +7666,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<UploadTerminalDocsEntity>>("/terminal/{cf_terminal_id}/docs", localVarRequestOptions, config);
@@ -7696,7 +7696,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of CreateSubscriptionPaymentResponse</returns>
         public cashfree_pg.Client.ApiResponse<CreateSubscriptionPaymentResponse> SubsCreatePayment(CreateSubscriptionPaymentRequest createSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7786,7 +7786,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateSubscriptionPaymentResponse>("/subscriptions/pay", localVarRequestOptions, config);
@@ -7816,7 +7816,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PlanEntity</returns>
         public cashfree_pg.Client.ApiResponse<PlanEntity> SubsCreatePlan(CreatePlanRequest createPlanRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -7906,7 +7906,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PlanEntity>("/plans", localVarRequestOptions, config);
@@ -7937,7 +7937,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionPaymentRefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionPaymentRefundEntity> SubsCreateRefund(string subscriptionId, CreateSubscriptionRefundRequest createSubscriptionRefundRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8032,7 +8032,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds", localVarRequestOptions, config);
@@ -8062,7 +8062,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsCreateSubscription(CreateSubscriptionRequest createSubscriptionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8152,7 +8152,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions", localVarRequestOptions, config);
@@ -8182,7 +8182,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PlanEntity</returns>
         public cashfree_pg.Client.ApiResponse<PlanEntity> SubsFetchPlan(string planId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8271,7 +8271,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PlanEntity>("/plans/{plan_id}", localVarRequestOptions, config);
@@ -8301,7 +8301,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsFetchSubscription(string subscriptionId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8390,7 +8390,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionEntity>("/subscriptions/{subscription_id}", localVarRequestOptions, config);
@@ -8421,7 +8421,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionPaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionPaymentEntity> SubsFetchSubscriptionPayment(string subscriptionId, string paymentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8515,7 +8515,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}", localVarRequestOptions, config);
@@ -8545,7 +8545,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;SubscriptionPaymentEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<SubscriptionPaymentEntity>> SubsFetchSubscriptionPayments(string subscriptionId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8634,7 +8634,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SubscriptionPaymentEntity>>("/subscriptions/{subscription_id}/payments", localVarRequestOptions, config);
@@ -8665,7 +8665,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionPaymentRefundEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionPaymentRefundEntity> SubsFetchSubscriptionRefund(string subscriptionId, string refundId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8759,7 +8759,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -8790,7 +8790,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionEntity> SubsManageSubscription(string subscriptionId, ManageSubscriptionRequest manageSubscriptionRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -8885,7 +8885,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions/{subscription_id}/manage", localVarRequestOptions, config);
@@ -8917,7 +8917,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionPaymentEntity</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionPaymentEntity> SubsManageSubscriptionPayment(string subscriptionId, string paymentId, ManageSubscriptionPaymentRequest manageSubscriptionPaymentRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9017,7 +9017,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}/manage", localVarRequestOptions, config);
@@ -9050,7 +9050,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of UploadPnachImageResponse</returns>
         public cashfree_pg.Client.ApiResponse<UploadPnachImageResponse> SubscriptionDocumentUpload(string paymentId, System.IO.Stream file, string paymentId2, string action, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9155,7 +9155,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadPnachImageResponse>("/subscriptions/pay/documents/{payment_id}", localVarRequestOptions, config);
@@ -9185,7 +9185,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of SubscriptionEligibilityResponse</returns>
         public cashfree_pg.Client.ApiResponse<SubscriptionEligibilityResponse> SubscriptionEligibility(SubscriptionEligibilityRequest subscriptionEligibilityRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9275,7 +9275,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEligibilityResponse>("/subscriptions/eligibility/payment_methods", localVarRequestOptions, config);
@@ -9306,7 +9306,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of InstrumentEntity</returns>
         public cashfree_pg.Client.ApiResponse<InstrumentEntity> PGCustomerDeleteInstrument(string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9400,7 +9400,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -9431,7 +9431,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of InstrumentEntity</returns>
         public cashfree_pg.Client.ApiResponse<InstrumentEntity> PGCustomerFetchInstrument(string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9525,7 +9525,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -9556,7 +9556,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of List&lt;InstrumentEntity&gt;</returns>
         public cashfree_pg.Client.ApiResponse<List<InstrumentEntity>> PGCustomerFetchInstruments(string customerId, string instrumentType, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9650,7 +9650,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -9681,7 +9681,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of CryptogramEntity</returns>
         public cashfree_pg.Client.ApiResponse<CryptogramEntity> PGCustomerInstrumentsFetchCryptogram(string customerId, string instrumentId, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9775,7 +9775,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);
@@ -9805,7 +9805,7 @@ namespace cashfree_pg.Client
         /// <returns>ApiResponse of PGCreatePAR200Response</returns>
         public cashfree_pg.Client.ApiResponse<PGCreatePAR200Response> PGCreatePAR(PARRequest pARRequest, string? xRequestId = default(string?), Guid? xIdempotencyKey = default(Guid?), Configuration? configuration = null)
         {
-            string xApiVersion = this.XApiVersion
+            string xApiVersion = this.XApiVersion;
             var env = "sandbox";
             if(this.XEnvironment == CFEnvironment.PRODUCTION) {
                 env = "production";
@@ -9895,7 +9895,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-1");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PGCreatePAR200Response>("/pg/utilities/pars", localVarRequestOptions, config);

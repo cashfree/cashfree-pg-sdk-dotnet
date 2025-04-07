@@ -51,6 +51,9 @@ Name | Type | Description | Notes
 **settlement_charge** | **decimal** | Settlement charges applicable on the settlement. | [optional] 
 **settlement_tax** | **decimal** | Settlement tax applicable on the settlement. | [optional] 
 **remarks** | **string** | Remarks on the settlement. | [optional] 
+**forex_conversion_handling_charge** | **decimal** | Cashfree forex conversion charges for processing transaction | [optional] 
+**forex_conversion_handling_tax** | **decimal** | Cashfree forex conversion tax for processing transaction | [optional] 
+**charges_currency** | **string** | Cashfree charges currency for a event type | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

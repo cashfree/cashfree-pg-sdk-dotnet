@@ -48,7 +48,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var createSubscriptionPaymentRequest = new CreateSubscriptionPaymentRequest(); // CreateSubscriptionPaymentRequest | Request body to create a subscription payment.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -74,7 +74,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **createSubscriptionPaymentRequest** | [**CreateSubscriptionPaymentRequest**](CreateSubscriptionPaymentRequest.md) | Request body to create a subscription payment. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -136,7 +136,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var createPlanRequest = new CreatePlanRequest(); // CreatePlanRequest | Request body to create a plan.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -162,7 +162,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **createPlanRequest** | [**CreatePlanRequest**](CreatePlanRequest.md) | Request body to create a plan. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -224,7 +224,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var createSubscriptionRefundRequest = new CreateSubscriptionRefundRequest(); // CreateSubscriptionRefundRequest | Request body to create a subscription refund.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -251,7 +251,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **createSubscriptionRefundRequest** | [**CreateSubscriptionRefundRequest**](CreateSubscriptionRefundRequest.md) | Request body to create a subscription refund. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -314,7 +314,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var createSubscriptionRequest = new CreateSubscriptionRequest(); // CreateSubscriptionRequest | Request body to create a subscription.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -340,7 +340,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **createSubscriptionRequest** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md) | Request body to create a subscription. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -402,7 +402,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var planId = plan-id-123;  // string | Provide the PlanId for which the details have to be fetched.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -428,7 +428,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **planId** | **string** | Provide the PlanId for which the details have to be fetched. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -489,7 +489,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -515,7 +515,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -576,7 +576,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var paymentId = payment-id-123;  // string | Provide the PaymentId using which the payment was created.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -603,7 +603,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **paymentId** | **string** | Provide the PaymentId using which the payment was created. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -665,7 +665,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -691,7 +691,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -753,7 +753,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var refundId = refund-id-123;  // string | Provide the PaymentId for which the details have to be fetched.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -780,7 +780,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **refundId** | **string** | Provide the PaymentId for which the details have to be fetched. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -842,7 +842,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var manageSubscriptionRequest = new ManageSubscriptionRequest(); // ManageSubscriptionRequest | Request body to manage a subscription.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -869,7 +869,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **manageSubscriptionRequest** | [**ManageSubscriptionRequest**](ManageSubscriptionRequest.md) | Request body to manage a subscription. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -932,7 +932,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionId = subscription-id-123;  // string | Provide the SubscriptionId using which the subscription was created.
             var paymentId = payment-id-123;  // string | Provide the PaymentId using which the payment was created.
             var manageSubscriptionPaymentRequest = new ManageSubscriptionPaymentRequest(); // ManageSubscriptionPaymentRequest | Request body to manage a subscription payment.
@@ -960,7 +960,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionId** | **string** | Provide the SubscriptionId using which the subscription was created. |  |
 | **paymentId** | **string** | Provide the PaymentId using which the payment was created. |  |
 | **manageSubscriptionPaymentRequest** | [**ManageSubscriptionPaymentRequest**](ManageSubscriptionPaymentRequest.md) | Request body to manage a subscription payment. |  |
@@ -1023,7 +1023,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var paymentId = payment-id-123;  // string | Provide the PaymentId using which the payment was created.
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | Select the .jpg file that should be uploaded or provide the path of that file. You cannot upload a file that is more than 1MB in size.
             var paymentId2 = "paymentId_example";  // string | Authorization Payment Id for physical nach authorization
@@ -1052,7 +1052,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **paymentId** | **string** | Provide the PaymentId using which the payment was created. |  |
 | **file** | **System.IO.Stream****System.IO.Stream** | Select the .jpg file that should be uploaded or provide the path of that file. You cannot upload a file that is more than 1MB in size. |  |
 | **paymentId2** | **string** | Authorization Payment Id for physical nach authorization |  |
@@ -1117,7 +1117,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var subscriptionEligibilityRequest = new SubscriptionEligibilityRequest(); // SubscriptionEligibilityRequest | Request body to fetch subscription eligibile payment method details.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -1143,7 +1143,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **subscriptionEligibilityRequest** | [**SubscriptionEligibilityRequest**](SubscriptionEligibilityRequest.md) | Request body to fetch subscription eligibile payment method details. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |

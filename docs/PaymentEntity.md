@@ -20,8 +20,12 @@ Name | Type | Description | Notes
 **payment_message** | **string** |  | [optional] 
 **bank_reference** | **string** |  | [optional] 
 **auth_id** | **string** |  | [optional] 
+**order_currency** | **string** |  | [optional] 
 **authorization** | [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
-**payment_method** | **Object** |  | [optional] 
+**payment_method** | [**PaymentEntityPaymentMethod**](PaymentEntityPaymentMethod.md) |  | [optional] 
+**international_payment** | [**InternationalPaymentEntity**](InternationalPaymentEntity.md) |  | [optional] 
+**payment_gateway_details** | [**PaymentGatewayDetails**](PaymentGatewayDetails.md) |  | [optional] 
+**payment_surcharge** | [**PaymentEntityPaymentSurcharge**](PaymentEntityPaymentSurcharge.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

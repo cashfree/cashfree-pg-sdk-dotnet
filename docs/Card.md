@@ -19,6 +19,14 @@ Name | Type | Description | Notes
 **card_display** | **string** | last 4 digits of original card number. Required only for tokenized card transactions. | [optional] 
 **card_alias** | **string** | Card alias as returned by Cashfree Vault API. | [optional] 
 **card_bank_name** | **string** | One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI | [optional] 
+**address_line_one** | **string** | First line of the address. | [optional] 
+**address_line_two** | **string** | Second line of the address. | [optional] 
+**city** | **string** | City Name. | [optional] 
+**zip_code** | **string** | Pin Code/Zip Code. | [optional] 
+**country** | **string** | Country Name. | [optional] 
+**country_code** | **string** | Country Code. Should be in ISO 2 format (ie. US for United States) | [optional] 
+**state** | **string** | State Name. | [optional] 
+**state_code** | **string** | State Code. Should be in ISO 2 format (ie. FL for Florida) | [optional] 
 **emi_tenure** | **int** | EMI tenure selected by the user | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

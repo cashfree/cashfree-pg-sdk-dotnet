@@ -6,6 +6,7 @@ Error when idempotency fails. Different request body with the same idempotent ke
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **string** |  | [optional] 
+**help** | **string** |  | [optional] 
 **code** | **string** |  | [optional] 
 **type** | **string** | idempotency_error | [optional] 
 

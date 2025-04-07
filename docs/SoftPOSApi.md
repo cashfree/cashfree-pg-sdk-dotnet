@@ -47,7 +47,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var createTerminalRequest = new CreateTerminalRequest(); // CreateTerminalRequest | Request Body to Create Terminal for SPOS
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -73,7 +73,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **createTerminalRequest** | [**CreateTerminalRequest**](CreateTerminalRequest.md) | Request Body to Create Terminal for SPOS |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -136,7 +136,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var createTerminalTransactionRequest = new CreateTerminalTransactionRequest(); // CreateTerminalTransactionRequest | Request body to create a terminal transaction
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -162,7 +162,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **createTerminalTransactionRequest** | [**CreateTerminalTransactionRequest**](CreateTerminalTransactionRequest.md) | Request body to create a terminal transaction |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -225,7 +225,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var demapSoundboxVpaRequest = new DemapSoundboxVpaRequest(); // DemapSoundboxVpaRequest | Request body to demap soundbox vpa
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -251,7 +251,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **demapSoundboxVpaRequest** | [**DemapSoundboxVpaRequest**](DemapSoundboxVpaRequest.md) | Request body to demap soundbox vpa |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -314,7 +314,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var terminalPhoneNo = 6309291183;  // string | The terminal for which you want to view the order details.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -340,7 +340,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **terminalPhoneNo** | **string** | The terminal for which you want to view the order details. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -403,7 +403,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var terminalPhoneNo = 9876543214;  // string | Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request.
             var cfTerminalId = 123344;  // string | Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -430,7 +430,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **terminalPhoneNo** | **string** | Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request. |  |
 | **cfTerminalId** | **string** | Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -494,7 +494,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var deviceSerialNo = 9876543214;  // string | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request.
             var cfTerminalId = 123344;  // string | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -521,7 +521,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **deviceSerialNo** | **string** | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request. |  |
 | **cfTerminalId** | **string** | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -585,7 +585,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var utr = testUTR001;  // string | Utr of the transaction.
             var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -612,7 +612,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **utr** | **string** | Utr of the transaction. |  |
 | **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -676,7 +676,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var onboardSoundboxVpaRequest = new OnboardSoundboxVpaRequest(); // OnboardSoundboxVpaRequest | Request body to onboard soundbox vpa
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
             var xIdempotencyKey = 47bf8872-46fe-11ee-be56-0242ac120002;  // Guid? | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional) 
@@ -702,7 +702,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **onboardSoundboxVpaRequest** | [**OnboardSoundboxVpaRequest**](OnboardSoundboxVpaRequest.md) | Request body to onboard soundbox vpa |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
 | **xIdempotencyKey** | **Guid?** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | [optional]  |
@@ -765,7 +765,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
             var updateSoundboxVpaRequest = new UpdateSoundboxVpaRequest(); // UpdateSoundboxVpaRequest | Request body to update soundbox vpa
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -792,7 +792,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
 | **updateSoundboxVpaRequest** | [**UpdateSoundboxVpaRequest**](UpdateSoundboxVpaRequest.md) | Request body to update soundbox vpa |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -856,7 +856,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
             var updateTerminalRequest = new UpdateTerminalRequest(); // UpdateTerminalRequest | Request Body to update terminal for SPOS.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -883,7 +883,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
 | **updateTerminalRequest** | [**UpdateTerminalRequest**](UpdateTerminalRequest.md) | Request Body to update terminal for SPOS. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -947,7 +947,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
             var updateTerminalStatusRequest = new UpdateTerminalStatusRequest(); // UpdateTerminalStatusRequest | Request Body to update terminal status for SPOS.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -974,7 +974,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
 | **updateTerminalStatusRequest** | [**UpdateTerminalStatusRequest**](UpdateTerminalStatusRequest.md) | Request Body to update terminal status for SPOS. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |
@@ -1038,7 +1038,7 @@ namespace Example
             var cashfree = new Cashfree();
 
 
-            var xApiVersion = 2023-08-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2023-08-01")
+            var xApiVersion = 2025-01-01;  // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
             var cfTerminalId = 123344;  // string | Provide the Cashfree terminal ID for which the details have to be updated.
             var uploadTerminalDocs = new UploadTerminalDocs(); // UploadTerminalDocs | Request Body to update terminal documents for SPOS.
             var xRequestId = 4dfb9780-46fe-11ee-be56-0242ac120002;  // string? | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional) 
@@ -1065,7 +1065,7 @@ namespace Example
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;] |
+| **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;] |
 | **cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. |  |
 | **uploadTerminalDocs** | [**UploadTerminalDocs**](UploadTerminalDocs.md) | Request Body to update terminal documents for SPOS. |  |
 | **xRequestId** | **string?** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional]  |

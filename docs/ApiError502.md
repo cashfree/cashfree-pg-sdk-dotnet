@@ -6,6 +6,7 @@ Error when there is error at partner bank
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **string** |  | [optional] 
+**help** | **string** |  | [optional] 
 **code** | **string** | &#x60;bank_processing_failure&#x60; will be returned here to denote failure at bank.  | [optional] 
 **type** | **string** | api_error | [optional] 
 

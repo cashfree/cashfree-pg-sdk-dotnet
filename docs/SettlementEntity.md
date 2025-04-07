@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **transfer_id** | **int** |  | [optional] 
 **transfer_time** | **string** |  | [optional] 
 **transfer_utr** | **string** |  | [optional] 
+**forex_conversion_handling_charge** | **decimal** | Cashfree forex conversion charges for refund processing | [optional] 
+**forex_conversion_handling_tax** | **decimal** | Cashfree forex conversion tax for refund processing | [optional] 
+**forex_conversion_rate** | **decimal** | Cashfree forex conversion rate for refund processing | [optional] 
+**charges_currency** | **string** | Cashfree refund charges currency for a refund | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

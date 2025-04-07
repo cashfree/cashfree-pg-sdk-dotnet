@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **created_at** | **string** | Time of refund creation | [optional] 
 **processed_at** | **string** | Time when refund was processed successfully | [optional] 
 **refund_speed** | [**RefundSpeed**](RefundSpeed.md) |  | [optional] 
+**forex_conversion_handling_charge** | **decimal** | Cashfree forex conversion charges for refund processing | [optional] 
+**forex_conversion_handling_tax** | **decimal** | Cashfree forex conversion tax for refund processing | [optional] 
+**forex_conversion_rate** | **decimal** | Cashfree forex conversion rate for refund processing | [optional] 
+**charges_currency** | **string** | Cashfree refund charges currency for a refund | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

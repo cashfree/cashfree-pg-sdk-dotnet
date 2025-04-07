@@ -22,7 +22,8 @@ Name | Type | Description | Notes
 **auth_id** | **string** |  | [optional] 
 **authorization** | [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
 **customer_details** | [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
-**payment_method** | [**TerminalPaymentEntityPaymentMethod**](TerminalPaymentEntityPaymentMethod.md) |  | [optional] 
+**payment_method** | [**PaymentEntityPaymentMethod**](PaymentEntityPaymentMethod.md) |  | [optional] 
+**payment_gateway_details** | [**PaymentGatewayDetails**](PaymentGatewayDetails.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

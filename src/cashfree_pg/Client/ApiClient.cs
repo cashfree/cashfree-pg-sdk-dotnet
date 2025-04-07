@@ -65,6 +65,10 @@ namespace cashfree_pg.Client
 
     class CashfreeEventProcessor : ISentryEventProcessor
     {
+         public bool XEnableErrorAnalytics = true;
+         public CashfreeEventProcessor(bool XEnableErrorAnalytics) {
+             this.XEnableErrorAnalytics = XEnableErrorAnalytics;
+         }
         public SentryEvent? Process(SentryEvent @event)
         {
             // Add anything to the event here
@@ -129,7 +133,7 @@ namespace cashfree_pg.Client
                     o.AttachStacktrace = true;
                     o.Environment = XEnvironment == CFEnvironment.SANDBOX ? "sandbox" : "production";
                     o.Release = "5.0.3-beta-2";
-                    o.AddEventProcessor(new CashfreeEventProcessor());
+                    o.AddEventProcessor(new CashfreeEventProcessor(this.XEnableErrorAnalytics));
                 }));
             }
         }

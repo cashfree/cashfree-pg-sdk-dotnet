@@ -65,10 +65,11 @@ namespace cashfree_pg.Client
 
     class CashfreeEventProcessor : ISentryEventProcessor
     {
-         public bool XEnableErrorAnalytics = true;
+        public bool XEnableErrorAnalytics = true;
          public CashfreeEventProcessor(bool XEnableErrorAnalytics) {
              this.XEnableErrorAnalytics = XEnableErrorAnalytics;
          }
+
         public SentryEvent? Process(SentryEvent @event)
         {
             // Add anything to the event here
@@ -132,7 +133,7 @@ namespace cashfree_pg.Client
                     o.EnableTracing = true;
                     o.AttachStacktrace = true;
                     o.Environment = XEnvironment == CFEnvironment.SANDBOX ? "sandbox" : "production";
-                    o.Release = "5.0.3-beta-2";
+                    o.Release = "5.0.6";
                     o.AddEventProcessor(new CashfreeEventProcessor(this.XEnableErrorAnalytics));
                 }));
             }
@@ -271,7 +272,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CustomerEntity>("/customers", localVarRequestOptions, config);
@@ -386,7 +387,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<DisputesEntityMerchantAccepted>("/disputes/{dispute_id}/accept", localVarRequestOptions, config);
@@ -501,7 +502,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<DisputesEntity>("/disputes/{dispute_id}", localVarRequestOptions, config);
@@ -620,7 +621,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<DisputesEntity>>("/orders/{order_id}/disputes", localVarRequestOptions, config);
@@ -735,7 +736,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<DisputesEntity>>("/payments/{cf_payment_id}/disputes", localVarRequestOptions, config);
@@ -868,7 +869,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<DisputesEntity>>("/disputes/{dispute_id}/documents", localVarRequestOptions, config);
@@ -990,7 +991,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<VendorAdjustmentSuccessResponse>("/easy-split/vendors/{vendor_id}/adjustment", localVarRequestOptions, config);
@@ -1112,7 +1113,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AdjustVendorBalanceResponse>("/easy-split/vendors/{vendor_id}/transfer", localVarRequestOptions, config);
@@ -1228,7 +1229,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateVendorResponse>("/easy-split/vendors", localVarRequestOptions, config);
@@ -1353,7 +1354,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentDownloadResponse>("/easy-split/vendor-docs/{vendor_id}/download/{doc_type}", localVarRequestOptions, config);
@@ -1472,7 +1473,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorEntity>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -1591,7 +1592,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalance>("/easy-split/vendors/{vendor_id}/balances", localVarRequestOptions, config);
@@ -1712,7 +1713,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorBalanceTransferCharges>("/easy-split/amount/{amount}/charges", localVarRequestOptions, config);
@@ -1831,7 +1832,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -1947,7 +1948,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ESOrderReconResponse>("/split/order/vendor/recon", localVarRequestOptions, config);
@@ -2069,7 +2070,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<UpdateVendorResponse>("/easy-split/vendors/{vendor_id}", localVarRequestOptions, config);
@@ -2204,7 +2205,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadVendorDocumentsResponse>("/easy-split/vendor-docs/{vendor_id}", localVarRequestOptions, config);
@@ -2326,7 +2327,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SplitAfterPaymentResponse>("/easy-split/orders/{order_id}/split", localVarRequestOptions, config);
@@ -2442,7 +2443,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<StaticSplitResponse>("/easy-split/static-split", localVarRequestOptions, config);
@@ -2561,7 +2562,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SplitOrderReconSuccessResponse>("/easy-split/orders/{order_id}", localVarRequestOptions, config);
@@ -2681,7 +2682,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityCardlessEMIEntity>>("/eligibility/cardlessemi", localVarRequestOptions, config);
@@ -2801,7 +2802,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityOfferEntity>>("/eligibility/offers", localVarRequestOptions, config);
@@ -2921,7 +2922,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaylaterEntity>>("/eligibility/paylater", localVarRequestOptions, config);
@@ -3041,7 +3042,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<EligibilityPaymentMethodsEntity>>("/eligibility/payment_methods", localVarRequestOptions, config);
@@ -3161,7 +3162,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OfferEntity>("/offers", localVarRequestOptions, config);
@@ -3280,7 +3281,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OfferEntity>("/offers/{offer_id}", localVarRequestOptions, config);
@@ -3400,7 +3401,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderEntity>("/orders", localVarRequestOptions, config);
@@ -3519,7 +3520,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3638,7 +3639,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<OrderExtendedDataEntity>("/orders/{order_id}/extended", localVarRequestOptions, config);
@@ -3764,7 +3765,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<OrderEntity>("/orders/{order_id}", localVarRequestOptions, config);
@@ -3890,7 +3891,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<UpdateOrderExtendedDataEntity>("/orders/{order_id}/extended", localVarRequestOptions, config);
@@ -4020,7 +4021,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<ReconEntity>("/recon", localVarRequestOptions, config);
@@ -4139,7 +4140,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links/{link_id}/cancel", localVarRequestOptions, config);
@@ -4259,7 +4260,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LinkEntity>("/links", localVarRequestOptions, config);
@@ -4378,7 +4379,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LinkEntity>("/links/{link_id}", localVarRequestOptions, config);
@@ -4502,7 +4503,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentLinkOrderEntity>>("/links/{link_id}/orders", localVarRequestOptions, config);
@@ -4628,7 +4629,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PaymentEntity>("/orders/{order_id}/authorization", localVarRequestOptions, config);
@@ -4739,7 +4740,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<OrderAuthenticateEntity>("/orders/pay/authenticate/{cf_payment_id}", localVarRequestOptions, config);
@@ -4864,7 +4865,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaymentEntity>("/orders/{order_id}/payments/{cf_payment_id}", localVarRequestOptions, config);
@@ -4983,7 +4984,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PaymentEntity>>("/orders/{order_id}/payments", localVarRequestOptions, config);
@@ -5088,7 +5089,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PayOrderEntity>("/orders/sessions", localVarRequestOptions, config);
@@ -5214,7 +5215,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<RefundEntity>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -5339,7 +5340,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<RefundEntity>("/orders/{order_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -5458,7 +5459,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<RefundEntity>>("/orders/{order_id}/refunds", localVarRequestOptions, config);
@@ -5588,7 +5589,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementEntity>("/settlements", localVarRequestOptions, config);
@@ -5718,7 +5719,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SettlementReconEntity>("/settlement/recon", localVarRequestOptions, config);
@@ -5834,7 +5835,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/orders/settlements", localVarRequestOptions, config);
@@ -5953,7 +5954,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SettlementEntity>("/orders/{order_id}/settlements", localVarRequestOptions, config);
@@ -6072,7 +6073,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SimulationResponse>("/simulate/{simulation_id}", localVarRequestOptions, config);
@@ -6192,7 +6193,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SimulationResponse>("/simulate", localVarRequestOptions, config);
@@ -6312,7 +6313,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalEntity>("/terminal", localVarRequestOptions, config);
@@ -6432,7 +6433,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TerminalTransactionEntity>("/terminal/transactions", localVarRequestOptions, config);
@@ -6552,7 +6553,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<SoundboxVpaEntity>>("/terminal/demap/soundbox", localVarRequestOptions, config);
@@ -6671,7 +6672,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalEntity>("/terminal/{terminal_phone_no}", localVarRequestOptions, config);
@@ -6796,7 +6797,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FetchTerminalQRCodesEntity>>("/terminal/qrcodes", localVarRequestOptions, config);
@@ -6921,7 +6922,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SoundboxVpaEntity>>("/terminal/soundbox/qrcodes", localVarRequestOptions, config);
@@ -7046,7 +7047,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TerminalPaymentEntity>("/terminal/{cf_terminal_id}/payments", localVarRequestOptions, config);
@@ -7166,7 +7167,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SoundboxVpaEntity>("/terminal/soundbox", localVarRequestOptions, config);
@@ -7292,7 +7293,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<SoundboxVpaEntity>("/terminal/{cf_terminal_id}/soundbox", localVarRequestOptions, config);
@@ -7418,7 +7419,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}", localVarRequestOptions, config);
@@ -7544,7 +7545,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Patch<List<UpdateTerminalEntity>>("/terminal/{cf_terminal_id}/status", localVarRequestOptions, config);
@@ -7670,7 +7671,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<List<UploadTerminalDocsEntity>>("/terminal/{cf_terminal_id}/docs", localVarRequestOptions, config);
@@ -7790,7 +7791,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CreateSubscriptionPaymentResponse>("/subscriptions/pay", localVarRequestOptions, config);
@@ -7910,7 +7911,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PlanEntity>("/plans", localVarRequestOptions, config);
@@ -8036,7 +8037,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds", localVarRequestOptions, config);
@@ -8156,7 +8157,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions", localVarRequestOptions, config);
@@ -8275,7 +8276,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PlanEntity>("/plans/{plan_id}", localVarRequestOptions, config);
@@ -8394,7 +8395,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionEntity>("/subscriptions/{subscription_id}", localVarRequestOptions, config);
@@ -8519,7 +8520,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}", localVarRequestOptions, config);
@@ -8638,7 +8639,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SubscriptionPaymentEntity>>("/subscriptions/{subscription_id}/payments", localVarRequestOptions, config);
@@ -8763,7 +8764,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<SubscriptionPaymentRefundEntity>("/subscriptions/{subscription_id}/refunds/{refund_id}", localVarRequestOptions, config);
@@ -8889,7 +8890,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEntity>("/subscriptions/{subscription_id}/manage", localVarRequestOptions, config);
@@ -9021,7 +9022,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionPaymentEntity>("/subscriptions/{subscription_id}/payments/{payment_id}/manage", localVarRequestOptions, config);
@@ -9159,7 +9160,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UploadPnachImageResponse>("/subscriptions/pay/documents/{payment_id}", localVarRequestOptions, config);
@@ -9279,7 +9280,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SubscriptionEligibilityResponse>("/subscriptions/eligibility/payment_methods", localVarRequestOptions, config);
@@ -9404,7 +9405,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -9529,7 +9530,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentEntity>("/customers/{customer_id}/instruments/{instrument_id}", localVarRequestOptions, config);
@@ -9654,7 +9655,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InstrumentEntity>>("/customers/{customer_id}/instruments", localVarRequestOptions, config);
@@ -9779,7 +9780,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CryptogramEntity>("/customers/{customer_id}/instruments/{instrument_id}/cryptogram", localVarRequestOptions, config);
@@ -9899,7 +9900,7 @@ namespace cashfree_pg.Client
                 localVarRequestOptions.HeaderParameters.Add("x-client-signature", this.XClientSignature);
             }
 
-            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.3-beta-2");
+            localVarRequestOptions.HeaderParameters.Add("x-sdk-platform", "dotnetsdk-5.0.6");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PGCreatePAR200Response>("/pg/utilities/pars", localVarRequestOptions, config);

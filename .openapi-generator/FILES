@@ -71,6 +71,7 @@ docs/CustomerEntity.md
 docs/CustomersApi.md
 docs/DemapSoundboxVpaRequest.md
 docs/DiscountDetails.md
+docs/DisputeEvidenceInner.md
 docs/DisputesApi.md
 docs/DisputesEntity.md
 docs/DisputesEntityMerchantAccepted.md
@@ -213,6 +214,7 @@ docs/PaymentWebhookGatewayDetailsEntity.md
 docs/PaymentWebhookOrderEntity.md
 docs/PaymentsApi.md
 docs/PlanEntity.md
+docs/PreferredEvidenceInner.md
 docs/ProductConditions.md
 docs/ProductConditionsEntity.md
 docs/ProductDetails.md
@@ -394,6 +396,7 @@ src/cashfree_pg.Test/Model/CustomerDetailsTests.cs
 src/cashfree_pg.Test/Model/CustomerEntityTests.cs
 src/cashfree_pg.Test/Model/DemapSoundboxVpaRequestTests.cs
 src/cashfree_pg.Test/Model/DiscountDetailsTests.cs
+src/cashfree_pg.Test/Model/DisputeEvidenceInnerTests.cs
 src/cashfree_pg.Test/Model/DisputesEntityMerchantAcceptedTests.cs
 src/cashfree_pg.Test/Model/DisputesEntityTests.cs
 src/cashfree_pg.Test/Model/EMIOfferTests.cs
@@ -528,6 +531,7 @@ src/cashfree_pg.Test/Model/PaymentWebhookGatewayDetailsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentWebhookOrderEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentWebhookTests.cs
 src/cashfree_pg.Test/Model/PlanEntityTests.cs
+src/cashfree_pg.Test/Model/PreferredEvidenceInnerTests.cs
 src/cashfree_pg.Test/Model/ProductConditionsEntityTests.cs
 src/cashfree_pg.Test/Model/ProductConditionsTests.cs
 src/cashfree_pg.Test/Model/ProductDetailsEntityTests.cs
@@ -718,6 +722,7 @@ src/cashfree_pg/Model/CustomerDetailsResponse.cs
 src/cashfree_pg/Model/CustomerEntity.cs
 src/cashfree_pg/Model/DemapSoundboxVpaRequest.cs
 src/cashfree_pg/Model/DiscountDetails.cs
+src/cashfree_pg/Model/DisputeEvidenceInner.cs
 src/cashfree_pg/Model/DisputesEntity.cs
 src/cashfree_pg/Model/DisputesEntityMerchantAccepted.cs
 src/cashfree_pg/Model/EMIOffer.cs
@@ -852,6 +857,7 @@ src/cashfree_pg/Model/PaymentWebhookErrorEntity.cs
 src/cashfree_pg/Model/PaymentWebhookGatewayDetailsEntity.cs
 src/cashfree_pg/Model/PaymentWebhookOrderEntity.cs
 src/cashfree_pg/Model/PlanEntity.cs
+src/cashfree_pg/Model/PreferredEvidenceInner.cs
 src/cashfree_pg/Model/ProductConditions.cs
 src/cashfree_pg/Model/ProductConditionsEntity.cs
 src/cashfree_pg/Model/ProductDetails.cs

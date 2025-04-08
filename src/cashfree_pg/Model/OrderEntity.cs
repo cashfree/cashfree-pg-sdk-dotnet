@@ -52,7 +52,7 @@ namespace cashfree_pg.Model
         /// <param name="cartDetails">cartDetails.</param>
         /// <param name="terminalData">terminalData.</param>
         /// <param name="products">products.</param>
-        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), DateTime? orderExpiryTime = default(DateTime?), string? orderNote = default(string?), DateTime? createdAt = default(DateTime?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetailsResponse? customerDetails = default(CustomerDetailsResponse?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), CartDetailsEntity? cartDetails = default(CartDetailsEntity?), TerminalData? terminalData = default(TerminalData?), OrderEntityProducts? products = default(OrderEntityProducts?))
+        public OrderEntity(string? cfOrderId = default(string?), string? orderId = default(string?), string? entity = default(string?), string? orderCurrency = default(string?), decimal? orderAmount = default(decimal?), string? orderStatus = default(string?), string? paymentSessionId = default(string?), string? orderExpiryTime = default(string?), string? orderNote = default(string?), string? createdAt = default(string?), List<VendorSplit>? orderSplits = default(List<VendorSplit>?), CustomerDetailsResponse? customerDetails = default(CustomerDetailsResponse?), OrderMeta? orderMeta = default(OrderMeta?), Dictionary<string, string>? orderTags = default(Dictionary<string, string>?), CartDetailsEntity? cartDetails = default(CartDetailsEntity?), TerminalData? terminalData = default(TerminalData?), OrderEntityProducts? products = default(OrderEntityProducts?))
         {
             this.cf_order_id = cfOrderId;
             this.order_id = orderId;
@@ -124,7 +124,7 @@ namespace cashfree_pg.Model
         /// Gets or Sets order_expiry_time
         /// </summary>
         [DataMember(Name = "order_expiry_time", EmitDefaultValue = false)]
-        public DateTime? order_expiry_time { get; set; }
+        public string? order_expiry_time { get; set; }
 
         /// <summary>
         /// Additional note for order
@@ -139,7 +139,7 @@ namespace cashfree_pg.Model
         /// <value>When the order was created at cashfree&#39;s server</value>
         /// <example>2022-08-16T14:45:38+05:30</example>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public DateTime? created_at { get; set; }
+        public string? created_at { get; set; }
 
         /// <summary>
         /// Gets or Sets order_splits

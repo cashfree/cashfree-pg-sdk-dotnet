@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// <param name="billingAddress">billingAddress.</param>
         /// <param name="cart">cart.</param>
         /// <param name="offer">offer.</param>
-        public OrderExtendedDataEntity(string? cfOrderId = default(string?), string? orderId = default(string?), decimal? orderAmount = default(decimal?), string? orderCurrency = default(string?), DateTime? createdAt = default(DateTime?), ChargesEntity? charges = default(ChargesEntity?), ExtendedCustomerDetails? customerDetails = default(ExtendedCustomerDetails?), AddressDetails? shippingAddress = default(AddressDetails?), AddressDetails? billingAddress = default(AddressDetails?), ExtendedCartDetails? cart = default(ExtendedCartDetails?), OfferExtendedDetails? offer = default(OfferExtendedDetails?))
+        public OrderExtendedDataEntity(string? cfOrderId = default(string?), string? orderId = default(string?), decimal? orderAmount = default(decimal?), string? orderCurrency = default(string?), string? createdAt = default(string?), ChargesEntity? charges = default(ChargesEntity?), ExtendedCustomerDetails? customerDetails = default(ExtendedCustomerDetails?), AddressDetails? shippingAddress = default(AddressDetails?), AddressDetails? billingAddress = default(AddressDetails?), ExtendedCartDetails? cart = default(ExtendedCartDetails?), OfferExtendedDetails? offer = default(OfferExtendedDetails?))
         {
             this.cf_order_id = cfOrderId;
             this.order_id = orderId;
@@ -94,7 +94,7 @@ namespace cashfree_pg.Model
         /// <value>When the order was created at cashfree&#39;s server</value>
         /// <example>2022-08-16T14:45:38+05:30</example>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public DateTime? created_at { get; set; }
+        public string? created_at { get; set; }
 
         /// <summary>
         /// Gets or Sets charges

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **order_id** | **string** | order_id sent during the api request | [optional] 
 **order_amount** | **decimal** |  | [optional] 
 **order_currency** | **string** | Currency of the order. Example INR | [optional] 
-**created_at** | **DateTime** | When the order was created at cashfree&#39;s server | [optional] 
+**created_at** | **string** | When the order was created at cashfree&#39;s server | [optional] 
 **charges** | [**ChargesEntity**](ChargesEntity.md) |  | [optional] 
 **customer_details** | [**ExtendedCustomerDetails**](ExtendedCustomerDetails.md) |  | [optional] 
 **shipping_address** | [**AddressDetails**](AddressDetails.md) |  | [optional] 

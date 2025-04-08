@@ -49,7 +49,7 @@ namespace cashfree_pg.Model
         /// <param name="transferUtr">UTR (Unique Transaction Reference) for the transfer if available, otherwise null..</param>
         /// <param name="transferTime">Time of transfer if available, otherwise null..</param>
         /// <param name="paymentTime">Timestamp when payment was made..</param>
-        public SplitOrderReconSuccessResponseSettlement(string? entity = default(string?), long? cfSettlementId = default(long?), long? cfPaymentId = default(long?), string? orderId = default(string?), string? orderCurrency = default(string?), string? transferId = default(string?), decimal? orderAmount = default(decimal?), decimal? serviceCharge = default(decimal?), decimal? serviceTax = default(decimal?), decimal? settlementAmount = default(decimal?), string? settlementCurrency = default(string?), string? transferUtr = default(string?), DateTime? transferTime = default(DateTime?), DateTime? paymentTime = default(DateTime?))
+        public SplitOrderReconSuccessResponseSettlement(string? entity = default(string?), long? cfSettlementId = default(long?), long? cfPaymentId = default(long?), string? orderId = default(string?), string? orderCurrency = default(string?), string? transferId = default(string?), decimal? orderAmount = default(decimal?), decimal? serviceCharge = default(decimal?), decimal? serviceTax = default(decimal?), decimal? settlementAmount = default(decimal?), string? settlementCurrency = default(string?), string? transferUtr = default(string?), string? transferTime = default(string?), string? paymentTime = default(string?))
         {
             this.entity = entity;
             this.cf_settlement_id = cfSettlementId;
@@ -156,14 +156,14 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Time of transfer if available, otherwise null.</value>
         [DataMember(Name = "transfer_time", EmitDefaultValue = true)]
-        public DateTime? transfer_time { get; set; }
+        public string? transfer_time { get; set; }
 
         /// <summary>
         /// Timestamp when payment was made.
         /// </summary>
         /// <value>Timestamp when payment was made.</value>
         [DataMember(Name = "payment_time", EmitDefaultValue = false)]
-        public DateTime? payment_time { get; set; }
+        public string? payment_time { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

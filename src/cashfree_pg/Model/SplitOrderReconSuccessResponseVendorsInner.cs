@@ -39,7 +39,7 @@ namespace cashfree_pg.Model
         /// <param name="settlementId">Settlement ID associated with the vendor..</param>
         /// <param name="settlementAmount">Settlement amount allocated to the vendor..</param>
         /// <param name="settlementEligibilityDate">Date and time when the vendor is eligible for the settlement..</param>
-        public SplitOrderReconSuccessResponseVendorsInner(string? vendorId = default(string?), long? settlementId = default(long?), decimal? settlementAmount = default(decimal?), DateTime? settlementEligibilityDate = default(DateTime?))
+        public SplitOrderReconSuccessResponseVendorsInner(string? vendorId = default(string?), long? settlementId = default(long?), decimal? settlementAmount = default(decimal?), string? settlementEligibilityDate = default(string?))
         {
             this.vendor_id = vendorId;
             this.settlement_id = settlementId;
@@ -73,7 +73,7 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Date and time when the vendor is eligible for the settlement.</value>
         [DataMember(Name = "settlement_eligibility_date", EmitDefaultValue = false)]
-        public DateTime? settlement_eligibility_date { get; set; }
+        public string? settlement_eligibility_date { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

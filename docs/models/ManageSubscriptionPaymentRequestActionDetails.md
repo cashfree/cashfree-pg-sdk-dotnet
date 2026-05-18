@@ -1,0 +1,11 @@
+# cashfree-dotnet-pg-sdk.Model.ManageSubscriptionPaymentRequestActionDetails
+Details of the action to be performed. Needed for retry action.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**NextScheduledTime** | **string** | Next scheduled time for the retry of the FAILED payment. Required for retry action.    Please note that only the date component is considered. Any time value provided will be ignored. | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+

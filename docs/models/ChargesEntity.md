@@ -1,0 +1,12 @@
+# cashfree-dotnet-pg-sdk.Model.ChargesEntity
+Charges accociated with the order.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ShippingCharges** | **decimal** | Shipping charge of the order. | [optional] 
+**CodHandlingCharges** | **decimal** | COD handling fee for order. | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+

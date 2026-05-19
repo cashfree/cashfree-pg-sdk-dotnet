@@ -1,5 +1,5 @@
-# cashfree_pg.Model.VendorDocumentsResponse
-Get Vendor Documents
+# cashfree-dotnet-pg-sdk.Model.VendorDocumentsResponse
+Get Vendor Documents.
 
 ## Properties
 

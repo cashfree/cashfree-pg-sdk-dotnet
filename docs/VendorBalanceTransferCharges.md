@@ -1,5 +1,5 @@
-# cashfree_pg.Model.VendorBalanceTransferCharges
-Vendor Balance Transfer Charges entity object
+# cashfree-dotnet-pg-sdk.Model.VendorBalanceTransferCharges
+Vendor Balance Transfer Charges entity object.
 
 ## Properties
 

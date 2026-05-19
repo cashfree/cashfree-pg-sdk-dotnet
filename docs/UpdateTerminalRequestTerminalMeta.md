@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UpdateTerminalRequestTerminalMeta
+# cashfree-dotnet-pg-sdk.Model.UpdateTerminalRequestTerminalMeta
 Terminal metadata.
 
 ## Properties

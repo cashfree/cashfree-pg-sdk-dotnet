@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ChargesDetails
+# cashfree-dotnet-pg-sdk.Model.ChargesDetails
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.InternationalPaymentEntity
-International payment details
+# cashfree-dotnet-pg-sdk.Model.InternationalPaymentEntity
+International payment details.
 
 ## Properties
 

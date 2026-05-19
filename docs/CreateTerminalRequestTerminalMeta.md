@@ -1,4 +1,4 @@
-# cashfree_pg.Model.CreateTerminalRequestTerminalMeta
+# cashfree-dotnet-pg-sdk.Model.CreateTerminalRequestTerminalMeta
 terminal metadata. required field for storefront.
 
 ## Properties

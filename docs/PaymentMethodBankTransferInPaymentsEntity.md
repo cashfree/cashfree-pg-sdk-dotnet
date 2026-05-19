@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodBankTransferInPaymentsEntity
-payment method bank transfer object in payment entity
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodBankTransferInPaymentsEntity
+payment method bank transfer object in payment entity.
 
 ## Properties
 

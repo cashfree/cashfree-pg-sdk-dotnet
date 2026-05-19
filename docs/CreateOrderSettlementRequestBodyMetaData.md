@@ -1,4 +1,4 @@
-# cashfree_pg.Model.CreateOrderSettlementRequestBodyMetaData
+# cashfree-dotnet-pg-sdk.Model.CreateOrderSettlementRequestBodyMetaData
 
 ## Properties
 

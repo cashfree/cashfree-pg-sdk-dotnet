@@ -1,5 +1,5 @@
-# cashfree_pg.Model.RefundWebhookDataEntity
-data entity in webhook
+# cashfree-dotnet-pg-sdk.Model.RefundWebhookDataEntity
+data entity in webhook.
 
 ## Properties
 

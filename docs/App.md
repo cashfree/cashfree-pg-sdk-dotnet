@@ -1,5 +1,5 @@
-# cashfree_pg.Model.App
-App payment method
+# cashfree-dotnet-pg-sdk.Model.App
+App payment method.
 
 ## Properties
 

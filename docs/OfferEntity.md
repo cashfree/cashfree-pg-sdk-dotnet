@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferEntity
-Offer entity object
+# cashfree-dotnet-pg-sdk.Model.OfferEntity
+Offer entity object.
 
 ## Properties
 
@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **offer_tnc** | [**OfferTncResponse**](OfferTncResponse.md) |  | [optional] 
 **offer_details** | [**OfferDetailsResponse**](OfferDetailsResponse.md) |  | [optional] 
 **offer_validations** | [**OfferValidationsResponse**](OfferValidationsResponse.md) |  | [optional] 
+**redemption_amount** | **decimal** |  | [optional] 
+**platform** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

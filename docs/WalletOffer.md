@@ -1,4 +1,4 @@
-# cashfree_pg.Model.WalletOffer
+# cashfree-dotnet-pg-sdk.Model.WalletOffer
 
 ## Properties
 

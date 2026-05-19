@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodCardlessEMIInPaymentsEntity
-payment method carless object in payment entity
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodCardlessEMIInPaymentsEntity
+payment method carless object in payment entity.
 
 ## Properties
 

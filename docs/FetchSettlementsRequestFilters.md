@@ -1,4 +1,4 @@
-# cashfree_pg.Model.FetchSettlementsRequestFilters
+# cashfree-dotnet-pg-sdk.Model.FetchSettlementsRequestFilters
 Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
 
 ## Properties

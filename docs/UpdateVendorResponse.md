@@ -1,5 +1,5 @@
-# cashfree_pg.Model.UpdateVendorResponse
-Update Vendor Response
+# cashfree-dotnet-pg-sdk.Model.UpdateVendorResponse
+Update Vendor Response.
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.TerminalData
-Terminal Data in the create order response
+# cashfree-dotnet-pg-sdk.Model.TerminalData
+Terminal Data in the create order response.
 
 ## Properties
 

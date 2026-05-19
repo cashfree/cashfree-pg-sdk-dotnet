@@ -1,5 +1,5 @@
-# cashfree_pg.Model.InstrumentWebhook
-Instrument webhook object
+# cashfree-dotnet-pg-sdk.Model.InstrumentWebhook
+Instrument webhook object.
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.RefundWebhook
-refund webhook object
+# cashfree-dotnet-pg-sdk.Model.RefundWebhook
+refund webhook object.
 
 ## Properties
 

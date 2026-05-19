@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityOfferEntity
-Eligible offer object
+# cashfree-dotnet-pg-sdk.Model.EligibilityOfferEntity
+Eligible offer object.
 
 ## Properties
 

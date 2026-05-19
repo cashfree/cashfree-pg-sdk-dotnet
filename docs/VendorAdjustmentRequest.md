@@ -1,11 +1,11 @@
-# cashfree_pg.Model.VendorAdjustmentRequest
-Vendor Adjustment Request Body
+# cashfree-dotnet-pg-sdk.Model.VendorAdjustmentRequest
+Vendor Adjustment Request Body.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vendor_id** | **string** | The unique identifier of the vendor to whom the adjustment is applied | 
+**vendor_id** | **string** | The unique identifier of the vendor to whom the adjustment is applied. | 
 **adjustment_id** | **long** | The unique identifier for the adjustment transaction. | 
 **amount** | **decimal** | The adjustment amount to be applied. | 
 **type** | **string** | The type of adjustment. Possible values: CREDIT, DEBIT. | 

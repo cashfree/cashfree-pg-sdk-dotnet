@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityFetchCardlessEMIRequest
-eligibilty request for cardless
+# cashfree-dotnet-pg-sdk.Model.EligibilityFetchCardlessEMIRequest
+eligibilty request for cardless.
 
 ## Properties
 

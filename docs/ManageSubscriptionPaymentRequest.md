@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ManageSubscriptionPaymentRequest
+# cashfree-dotnet-pg-sdk.Model.ManageSubscriptionPaymentRequest
 Request body to manage a subscription payment.
 
 ## Properties

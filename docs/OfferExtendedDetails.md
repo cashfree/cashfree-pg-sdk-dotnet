@@ -1,4 +1,4 @@
-# cashfree_pg.Model.OfferExtendedDetails
+# cashfree-dotnet-pg-sdk.Model.OfferExtendedDetails
 Details of the offer which got applied to the paid order.
 
 ## Properties

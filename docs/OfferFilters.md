@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferFilters
-Filter for offers
+# cashfree-dotnet-pg-sdk.Model.OfferFilters
+Filter for offers.
 
 ## Properties
 

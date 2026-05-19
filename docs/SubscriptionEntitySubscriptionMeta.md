@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SubscriptionEntitySubscriptionMeta
+# cashfree-dotnet-pg-sdk.Model.SubscriptionEntitySubscriptionMeta
 Subscription metadata.
 
 ## Properties

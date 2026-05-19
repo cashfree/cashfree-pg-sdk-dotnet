@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SimulationResponse
-Simulation response object
+# cashfree-dotnet-pg-sdk.Model.SimulationResponse
+Payment simulation response.
 
 ## Properties
 

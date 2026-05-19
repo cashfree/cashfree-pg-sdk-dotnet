@@ -1,5 +1,5 @@
-# cashfree_pg.Model.NetBankingPaymentMethod
-Payment method for netbanking object
+# cashfree-dotnet-pg-sdk.Model.NetBankingPaymentMethod
+Payment method for netbanking object.
 
 ## Properties
 

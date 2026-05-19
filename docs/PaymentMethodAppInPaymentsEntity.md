@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodAppInPaymentsEntity
-payment method app object in payment entity
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodAppInPaymentsEntity
+payment method app object in payment entity.
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentWebhookErrorEntity
-error details present in the webhook
+# cashfree-dotnet-pg-sdk.Model.PaymentWebhookErrorEntity
+error details present in the webhook.
 
 ## Properties
 

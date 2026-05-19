@@ -1,5 +1,5 @@
-# cashfree_pg.Model.ErrorDetailsInPaymentsEntity
-The error details are present only for failed payments
+# cashfree-dotnet-pg-sdk.Model.ErrorDetailsInPaymentsEntity
+The error details are present only for failed payments.
 
 ## Properties
 

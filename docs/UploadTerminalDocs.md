@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UploadTerminalDocs
+# cashfree-dotnet-pg-sdk.Model.UploadTerminalDocs
 Request body to upload terminal documents.
 
 ## Properties

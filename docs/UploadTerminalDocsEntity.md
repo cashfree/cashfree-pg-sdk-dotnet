@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UploadTerminalDocsEntity
+# cashfree-dotnet-pg-sdk.Model.UploadTerminalDocsEntity
 Upload the terminal documents.
 
 ## Properties

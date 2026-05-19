@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SplitAfterPaymentResponse
-Split After Payment Response
+# cashfree-dotnet-pg-sdk.Model.SplitAfterPaymentResponse
+Split After Payment Response.
 
 ## Properties
 

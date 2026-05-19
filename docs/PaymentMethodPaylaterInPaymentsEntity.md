@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodPaylaterInPaymentsEntity
-paylater payment method object for pay api
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodPaylaterInPaymentsEntity
+Paylater payment method object for pay API.
 
 ## Properties
 

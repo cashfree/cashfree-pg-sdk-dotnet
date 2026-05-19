@@ -1,4 +1,4 @@
-# cashfree_pg.Model.CustomerDetailsInDisputesEntity
+# cashfree-dotnet-pg-sdk.Model.CustomerDetailsInDisputesEntity
 
 ## Properties
 

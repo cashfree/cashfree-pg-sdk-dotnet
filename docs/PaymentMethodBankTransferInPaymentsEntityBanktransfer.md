@@ -1,4 +1,4 @@
-# cashfree_pg.Model.PaymentMethodBankTransferInPaymentsEntityBanktransfer
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodBankTransferInPaymentsEntityBanktransfer
 
 ## Properties
 

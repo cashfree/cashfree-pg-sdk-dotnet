@@ -1,4 +1,4 @@
-# cashfree_pg.Model.TransferDetailsTagsInner
+# cashfree-dotnet-pg-sdk.Model.TransferDetailsTagsInner
 
 ## Properties
 

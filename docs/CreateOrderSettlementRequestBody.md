@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CreateOrderSettlementRequestBody
-Create Order Settlement Object
+# cashfree-dotnet-pg-sdk.Model.CreateOrderSettlementRequestBody
+Create Order Settlement Object.
 
 ## Properties
 

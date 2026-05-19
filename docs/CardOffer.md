@@ -1,4 +1,4 @@
-# cashfree_pg.Model.CardOffer
+# cashfree-dotnet-pg-sdk.Model.CardOffer
 
 ## Properties
 

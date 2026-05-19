@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodUPIInPaymentsEntity
-UPI payment method for pay api
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodUPIInPaymentsEntity
+UPI payment method for pay api.
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.BanktransferPaymentMethod
-banktransfer payment method
+# cashfree-dotnet-pg-sdk.Model.BanktransferPaymentMethod
+banktransfer payment method.
 
 ## Properties
 

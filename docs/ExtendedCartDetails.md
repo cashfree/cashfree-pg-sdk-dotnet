@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ExtendedCartDetails
+# cashfree-dotnet-pg-sdk.Model.ExtendedCartDetails
 The cart details that are necessary like shipping address, billing address and more.
 
 ## Properties

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.TransferDetails
+# cashfree-dotnet-pg-sdk.Model.TransferDetails
 
 ## Properties
 

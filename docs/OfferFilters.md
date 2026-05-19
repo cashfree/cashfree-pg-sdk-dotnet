@@ -1,5 +1,5 @@
 # cashfree_pg.Model.OfferFilters
-Filter for offers
+Filter for offers.
 
 ## Properties
 

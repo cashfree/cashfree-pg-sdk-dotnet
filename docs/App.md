@@ -1,5 +1,5 @@
 # cashfree_pg.Model.App
-App payment method
+App payment method.
 
 ## Properties
 

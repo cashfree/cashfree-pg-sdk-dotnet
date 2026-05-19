@@ -1,5 +1,5 @@
 # cashfree_pg.Model.CardlessEMIEntity
-cardless EMI object
+cardless EMI object.
 
 ## Properties
 

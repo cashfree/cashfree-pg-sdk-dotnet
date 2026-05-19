@@ -1,12 +1,12 @@
 # cashfree_pg.Model.FetchSettlementsRequest
-Request to fetch settlement
+Request to fetch settlement.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**FetchSettlementsRequestPagination**](FetchSettlementsRequestPagination.md) |  | 
-**filters** | [**FetchSettlementsRequestFilters**](FetchSettlementsRequestFilters.md) |  | 
+**filters** | [**FetchSettlementsRequestFilters**](FetchSettlementsRequestFilters.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

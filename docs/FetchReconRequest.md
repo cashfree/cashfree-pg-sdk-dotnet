@@ -1,12 +1,12 @@
 # cashfree_pg.Model.FetchReconRequest
-Recon object
+Recon object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**FetchReconRequestPagination**](FetchReconRequestPagination.md) |  | 
-**filters** | [**FetchReconRequestFilters**](FetchReconRequestFilters.md) |  | 
+**filters** | [**FetchReconRequestFilters**](FetchReconRequestFilters.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 # cashfree_pg.Model.CardlessEMIPaymentMethod
-cardless EMI payment method object
+cardless EMI payment method object.
 
 ## Properties
 

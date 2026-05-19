@@ -1,12 +1,12 @@
 # cashfree_pg.Model.EntitySimulationRequest
-Entity Simulation it contains payment_status and payment_error_code
+Entity simulation contains payment_status and payment_error_code.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_status** | **string** | Payment Status | 
-**payment_error_code** | **string** | Payment Error Code | [optional] 
+**payment_status** | **string** | Payment status. | 
+**payment_error_code** | **string** | Payment error code. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

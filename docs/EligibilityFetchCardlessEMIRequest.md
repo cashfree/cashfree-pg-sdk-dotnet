@@ -1,5 +1,5 @@
 # cashfree_pg.Model.EligibilityFetchCardlessEMIRequest
-eligibilty request for cardless
+eligibilty request for cardless.
 
 ## Properties
 

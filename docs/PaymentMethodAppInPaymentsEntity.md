@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentMethodAppInPaymentsEntity
-payment method app object in payment entity
+payment method app object in payment entity.
 
 ## Properties
 

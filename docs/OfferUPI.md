@@ -1,5 +1,5 @@
 # cashfree_pg.Model.OfferUPI
-Offer object for UPI
+Offer object for UPI.
 
 ## Properties
 

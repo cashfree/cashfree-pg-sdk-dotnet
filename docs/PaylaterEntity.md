@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaylaterEntity
-Paylater Entity
+Paylater Entity.
 
 ## Properties
 

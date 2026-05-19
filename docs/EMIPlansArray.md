@@ -1,5 +1,5 @@
 # cashfree_pg.Model.EMIPlansArray
-Single EMI object
+Single EMI object.
 
 ## Properties
 

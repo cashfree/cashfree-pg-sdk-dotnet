@@ -1,5 +1,5 @@
 # cashfree_pg.Model.EligibilityFetchPaylaterRequest
-Request to get eligible paylater payment methods
+Request to get eligible paylater payment methods.
 
 ## Properties
 

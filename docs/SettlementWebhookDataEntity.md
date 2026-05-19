@@ -1,5 +1,5 @@
 # cashfree_pg.Model.SettlementWebhookDataEntity
-data entity in webhook
+data entity in webhook.
 
 ## Properties
 

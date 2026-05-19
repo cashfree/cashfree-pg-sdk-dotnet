@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentMethodUPIInPaymentsEntity
-UPI payment method for pay api
+UPI payment method for pay api.
 
 ## Properties
 

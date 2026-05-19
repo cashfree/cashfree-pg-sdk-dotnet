@@ -1,5 +1,5 @@
 # cashfree_pg.Model.VendorBalance
-Vendor Balance entity object
+Vendor Balance entity object.
 
 ## Properties
 

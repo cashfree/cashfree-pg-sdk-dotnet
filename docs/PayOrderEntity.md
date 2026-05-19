@@ -1,15 +1,15 @@
 # cashfree_pg.Model.PayOrderEntity
-Order Pay response once you create a transaction for that order
+Order pay response once you create a transaction for that order.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_amount** | **decimal** | total amount payable | [optional] 
-**cf_payment_id** | **string** | Payment identifier created by Cashfree | [optional] 
-**payment_method** | **string** | One of [\&quot;upi\&quot;, \&quot;netbanking\&quot;, \&quot;card\&quot;, \&quot;app\&quot;, \&quot;cardless_emi\&quot;, \&quot;paylater\&quot;, \&quot;banktransfer\&quot;]  | [optional] 
-**channel** | **string** | One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39; | [optional] 
-**action** | **string** | One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;] | [optional] 
+**payment_amount** | **decimal** | Total amount payable. | [optional] 
+**cf_payment_id** | **string** | Payment identifier created by Cashfree. | [optional] 
+**payment_method** | **string** | The payment method used for this transaction. - netbanking: Net banking payment. - card: Credit or debit card payment. - upi: UPI payment via collect, intent, or QR code. - app: Wallet-based payment. - cardless_emi: Cardless EMI payment. - paylater: Pay later payment. - banktransfer: Direct bank transfer payment. - applepay: Apple Pay payment.  | [optional] 
+**channel** | **string** | The channel used for the payment method. - link: Redirect-based flow where the customer is taken to an external page. - post: Native OTP flow where the merchant renders a custom UI to collect OTP. - collect: UPI collect request sent to the customer&#39;s VPA. - qrcode: UPI QR code for the customer to scan. - podQrCode: Pay on delivery QR code.  | [optional] 
+**action** | **string** | The action to complete the payment. - link: Redirect the customer to &#x60;data.url&#x60; using a browser or in-app webview. - post: Render a native UI, collect required input, and POST it to &#x60;data.url&#x60;. - form: Render the form from &#x60;data.payload&#x60; and auto-submit it to &#x60;data.url&#x60;. - custom: Follow integration-specific instructions or SDK handling.  | [optional] 
 **data** | [**OrderPayData**](OrderPayData.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

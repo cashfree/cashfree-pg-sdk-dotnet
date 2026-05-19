@@ -1,5 +1,5 @@
 # cashfree_pg.Model.TerminalEntity
-Create terminal response object
+Create terminal response object.
 
 ## Properties
 
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **terminal_phone_no** | **string** |  | [optional] 
 **terminal_status** | **string** |  | [optional] 
 **terminal_meta** | [**TerminalEntityTerminalMeta**](TerminalEntityTerminalMeta.md) |  | [optional] 
+**terminal_vpas** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

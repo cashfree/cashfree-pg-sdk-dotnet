@@ -1,5 +1,5 @@
 # cashfree_pg.Model.BanktransferPaymentMethod
-banktransfer payment method
+banktransfer payment method.
 
 ## Properties
 

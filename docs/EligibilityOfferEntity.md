@@ -1,5 +1,5 @@
 # cashfree_pg.Model.EligibilityOfferEntity
-Eligible offer object
+Eligible offer object.
 
 ## Properties
 

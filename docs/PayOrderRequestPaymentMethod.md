@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**card** | [**Card**](Card.md) |  | 
+**card** | [**Card**](Card.md) |  | [optional] 
 **upi** | [**Upi**](Upi.md) |  | 
 **netbanking** | [**Netbanking**](Netbanking.md) |  | 
 **app** | [**App**](App.md) |  | 

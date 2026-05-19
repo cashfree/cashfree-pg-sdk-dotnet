@@ -1,5 +1,5 @@
 # cashfree_pg.Model.InternationalPaymentEntity
-International payment details
+International payment details.
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # cashfree_pg.Model.OfferDetailsResponse
-Offer details response and type
+Offer details response and type.
 
 ## Properties
 

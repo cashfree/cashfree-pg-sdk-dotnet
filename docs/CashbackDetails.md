@@ -1,11 +1,11 @@
 # cashfree_pg.Model.CashbackDetails
-Cashback detail boject
+Cashback detail boject.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cashback_type** | **string** | Type of discount | 
+**cashback_type** | **string** | Type of discount. | 
 **cashback_value** | **decimal** | Value of Discount. | 
 **max_cashback_amount** | **decimal** | Maximum Value of Cashback allowed. | 
 

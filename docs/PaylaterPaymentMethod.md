@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaylaterPaymentMethod
-paylater payment method
+Paylater payment method.
 
 ## Properties
 

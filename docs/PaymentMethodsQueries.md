@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentMethodsQueries
-Payment Method Query Object
+Payment Method Query Object.
 
 ## Properties
 

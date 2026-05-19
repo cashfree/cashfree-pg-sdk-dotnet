@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentWebhookCustomerEntity
-customer details object in webhook
+customer details object in webhook.
 
 ## Properties
 

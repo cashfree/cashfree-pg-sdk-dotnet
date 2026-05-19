@@ -1,5 +1,5 @@
 # cashfree_pg.Model.UpdateTerminalEntity
-Update terminal response
+Update terminal response.
 
 ## Properties
 

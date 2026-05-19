@@ -1,5 +1,5 @@
 # cashfree_pg.Model.Products
-Use this to set configurations for the products like One Click Checkout, Verify and Pay, if they are enabled for your account
+Use this to set configurations for the products like One Click Checkout, Verify and Pay, if they are enabled for your account.
 
 ## Properties
 

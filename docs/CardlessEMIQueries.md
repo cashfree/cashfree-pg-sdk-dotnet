@@ -1,5 +1,5 @@
 # cashfree_pg.Model.CardlessEMIQueries
-cardless EMI query object
+cardless EMI query object.
 
 ## Properties
 

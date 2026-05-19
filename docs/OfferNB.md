@@ -1,5 +1,5 @@
 # cashfree_pg.Model.OfferNB
-Offer object ofr NetBanking
+Offer object ofr NetBanking.
 
 ## Properties
 

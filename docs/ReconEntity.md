@@ -1,5 +1,5 @@
 # cashfree_pg.Model.ReconEntity
-Settlement detailed recon response
+Settlement detailed recon response.
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # cashfree_pg.Model.PaymentWebhookGatewayDetailsEntity
-payment gateway details present in the webhook response
+payment gateway details present in the webhook response.
 
 ## Properties
 

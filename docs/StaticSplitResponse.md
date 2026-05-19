@@ -1,5 +1,5 @@
-# cashfree_pg.Model.StaticSplitResponse
-Static Split Response
+# cashfree-dotnet-pg-sdk.Model.StaticSplitResponse
+Static Split Response.
 
 ## Properties
 

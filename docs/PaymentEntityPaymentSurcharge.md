@@ -1,4 +1,4 @@
-# cashfree_pg.Model.PaymentEntityPaymentSurcharge
+# cashfree-dotnet-pg-sdk.Model.PaymentEntityPaymentSurcharge
 
 ## Properties
 

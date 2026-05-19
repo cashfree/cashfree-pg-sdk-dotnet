@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SettlementReconEntityDataInnerPaymentDetails
+# cashfree-dotnet-pg-sdk.Model.SettlementReconEntityDataInnerPaymentDetails
 
 ## Properties
 

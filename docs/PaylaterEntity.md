@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaylaterEntity
-Paylater Entity
+# cashfree-dotnet-pg-sdk.Model.PaylaterEntity
+Paylater Entity.
 
 ## Properties
 

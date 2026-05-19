@@ -1,5 +1,5 @@
-# cashfree_pg.Model.UpdateTerminalEntity
-Update terminal response
+# cashfree-dotnet-pg-sdk.Model.UpdateTerminalEntity
+Update terminal response.
 
 ## Properties
 

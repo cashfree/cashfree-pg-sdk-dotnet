@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityPaymentMethodsEntity
-Eligible payment methods details
+# cashfree-dotnet-pg-sdk.Model.EligibilityPaymentMethodsEntity
+Eligible payment methods details.
 
 ## Properties
 

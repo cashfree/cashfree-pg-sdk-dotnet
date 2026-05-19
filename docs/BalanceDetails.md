@@ -1,4 +1,4 @@
-# cashfree_pg.Model.BalanceDetails
+# cashfree-dotnet-pg-sdk.Model.BalanceDetails
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.TerminalEntityTerminalMeta
+# cashfree-dotnet-pg-sdk.Model.TerminalEntityTerminalMeta
 Terminal metadata, required field for storefront.
 
 ## Properties

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SubscriptionEligibilityResponse
-Subscrition eligibility API response
+# cashfree-dotnet-pg-sdk.Model.SubscriptionEligibilityResponse
+Subscrition eligibility API response.
 
 ## Properties
 

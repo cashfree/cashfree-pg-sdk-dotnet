@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodCardEMIInPaymentsEntity
-payment method card emi object in payment entity
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodCardEMIInPaymentsEntity
+payment method card emi object in payment entity.
 
 ## Properties
 

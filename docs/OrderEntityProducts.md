@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OrderEntityProducts
-Configurations for the products like One Click Checkout, Verify and Pay, if they are enabled for your account
+# cashfree-dotnet-pg-sdk.Model.OrderEntityProducts
+Configurations for the products like One Click Checkout, Verify and Pay, if they are enabled for your account.
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner
+# cashfree-dotnet-pg-sdk.Model.ESOrderReconResponseDataInnerOrderSplitsInnerSplitInner
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.BadRequestError
-Invalid request received from client
+# cashfree-dotnet-pg-sdk.Model.BadRequestError
+Invalid request received from client.
 
 ## Properties
 

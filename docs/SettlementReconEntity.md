@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SettlementReconEntity
-Recon object for settlement
+# cashfree-dotnet-pg-sdk.Model.SettlementReconEntity
+Recon object for settlement.
 
 ## Properties
 

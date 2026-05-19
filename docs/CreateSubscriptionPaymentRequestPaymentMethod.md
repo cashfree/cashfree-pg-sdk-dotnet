@@ -1,27 +1,14 @@
-# cashfree_pg.Model.CreateSubscriptionPaymentRequestPaymentMethod
-Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
+# cashfree-dotnet-pg-sdk.Model.CreateSubscriptionPaymentRequestPaymentMethod
+Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]. This field is not required when raising a charge. It is only mandatory when raising an authorisation. In the case of a charge, this field is ignored, and the charge will be created using the same payment method that was used for the original authorisation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | **string** | Channel. can be link | [optional] 
-**upi_id** | **string** |  | [optional] 
-**account_bank_code** | **string** | Account bank code | [optional] 
-**account_holder_name** | **string** | Account holder name | [optional] 
-**account_ifsc** | **string** | Account IFSC | [optional] 
-**account_number** | **string** | Account number | [optional] 
-**account_type** | **string** | Account type | [optional] 
-**auth_mode** | **string** | Authentication mode. can be debit_card, aadhaar, or net_banking | [optional] 
-**mandate_creation_date** | **string** | Mandate creation date | [optional] 
-**mandate_start_date** | **string** | Mandate start date | [optional] 
-**card_cvv** | **string** | Card CVV | [optional] 
-**card_expiry_mm** | **string** | Card expiry month | [optional] 
-**card_expiry_yy** | **string** | Card expiry year | [optional] 
-**card_holder_name** | **string** | Card holder name | [optional] 
-**card_network** | **string** | Card network | [optional] 
-**card_number** | **string** | Card number | [optional] 
-**card_type** | **string** | Card type | [optional] 
+**upi** | [**CreateSubscriptionPaymentRequestUpiUpi**](CreateSubscriptionPaymentRequestUpiUpi.md) |  | [optional] 
+**enach** | [**CreateSubscriptionPaymentRequestEnachEnach**](CreateSubscriptionPaymentRequestEnachEnach.md) |  | [optional] 
+**pnach** | [**CreateSubscriptionPaymentRequestPnachPnach**](CreateSubscriptionPaymentRequestPnachPnach.md) |  | [optional] 
+**card** | [**CreateSubscriptionPaymentRequestCardCard**](CreateSubscriptionPaymentRequestCardCard.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

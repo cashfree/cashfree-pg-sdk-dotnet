@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SubscriptionEligibilityRequest
+# cashfree-dotnet-pg-sdk.Model.SubscriptionEligibilityRequest
 Request body to fetch subscription eligibile payment method details.
 
 ## Properties

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.EvidencesToContestDispute
+# cashfree-dotnet-pg-sdk.Model.EvidencesToContestDispute
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.BankDetails
+# cashfree-dotnet-pg-sdk.Model.BankDetails
 
 ## Properties
 

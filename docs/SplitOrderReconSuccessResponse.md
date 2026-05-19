@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SplitOrderReconSuccessResponse
-Split Order Reconciliation Request Body
+# cashfree-dotnet-pg-sdk.Model.SplitOrderReconSuccessResponse
+Split Order Reconciliation Request Body.
 
 ## Properties
 

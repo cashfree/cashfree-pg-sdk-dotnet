@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SubscriptionPaymentEntityFailureDetails
+# cashfree-dotnet-pg-sdk.Model.SubscriptionPaymentEntityFailureDetails
 
 ## Properties
 

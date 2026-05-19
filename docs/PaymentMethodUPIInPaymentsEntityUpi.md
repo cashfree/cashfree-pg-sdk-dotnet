@@ -1,4 +1,4 @@
-# cashfree_pg.Model.PaymentMethodUPIInPaymentsEntityUpi
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodUPIInPaymentsEntityUpi
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UpdateTerminalStatusRequest
+# cashfree-dotnet-pg-sdk.Model.UpdateTerminalStatusRequest
 Request body to update terminal status.
 
 ## Properties

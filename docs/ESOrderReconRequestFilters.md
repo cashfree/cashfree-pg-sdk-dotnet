@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ESOrderReconRequestFilters
+# cashfree-dotnet-pg-sdk.Model.ESOrderReconRequestFilters
 Provide the filter object details.
 
 ## Properties

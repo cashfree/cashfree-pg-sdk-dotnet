@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityCardlessEMIEntity
-Carless EMI eligible entity
+# cashfree-dotnet-pg-sdk.Model.EligibilityCardlessEMIEntity
+Carless EMI eligible entity.
 
 ## Properties
 

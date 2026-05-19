@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CreateOfferRequest
-create offer backend request object
+# cashfree-dotnet-pg-sdk.Model.CreateOfferRequest
+create offer backend request object.
 
 ## Properties
 

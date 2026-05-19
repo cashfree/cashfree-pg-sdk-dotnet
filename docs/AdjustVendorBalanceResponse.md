@@ -1,5 +1,5 @@
-# cashfree_pg.Model.AdjustVendorBalanceResponse
-Adjust Vendor Balance Response
+# cashfree-dotnet-pg-sdk.Model.AdjustVendorBalanceResponse
+Adjust Vendor Balance Response.
 
 ## Properties
 

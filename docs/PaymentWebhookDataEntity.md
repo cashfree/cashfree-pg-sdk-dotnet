@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentWebhookDataEntity
-data entity in webhook
+# cashfree-dotnet-pg-sdk.Model.PaymentWebhookDataEntity
+data entity in webhook.
 
 ## Properties
 

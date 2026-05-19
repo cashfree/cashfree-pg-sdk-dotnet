@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferCard
-Offers related to cards
+# cashfree-dotnet-pg-sdk.Model.OfferCard
+Offers related to cards.
 
 ## Properties
 

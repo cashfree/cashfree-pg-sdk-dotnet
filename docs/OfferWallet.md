@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferWallet
-Offer object for wallet payment method
+# cashfree-dotnet-pg-sdk.Model.OfferWallet
+Offer object for wallet payment method.
 
 ## Properties
 

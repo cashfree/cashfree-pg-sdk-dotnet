@@ -1,4 +1,4 @@
-# cashfree_pg.Model.AddressDetails
+# cashfree-dotnet-pg-sdk.Model.AddressDetails
 Address associated with the customer.
 
 ## Properties

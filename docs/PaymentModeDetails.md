@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentModeDetails
-payment mode eligiblity object
+# cashfree-dotnet-pg-sdk.Model.PaymentModeDetails
+payment mode eligiblity object.
 
 ## Properties
 

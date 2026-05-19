@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferQueries
-Offer Query Object
+# cashfree-dotnet-pg-sdk.Model.OfferQueries
+Offer Query Object.
 
 ## Properties
 

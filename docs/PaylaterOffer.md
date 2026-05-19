@@ -1,4 +1,4 @@
-# cashfree_pg.Model.PaylaterOffer
+# cashfree-dotnet-pg-sdk.Model.PaylaterOffer
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.ReconEntity
-Settlement detailed recon response
+# cashfree-dotnet-pg-sdk.Model.ReconEntity
+Settlement detailed recon response.
 
 ## Properties
 

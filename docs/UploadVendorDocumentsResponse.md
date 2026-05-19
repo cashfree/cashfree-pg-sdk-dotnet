@@ -1,5 +1,5 @@
-# cashfree_pg.Model.UploadVendorDocumentsResponse
-Upload Vendor Document
+# cashfree-dotnet-pg-sdk.Model.UploadVendorDocumentsResponse
+Upload Vendor Document.
 
 ## Properties
 

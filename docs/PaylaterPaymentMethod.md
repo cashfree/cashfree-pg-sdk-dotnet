@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaylaterPaymentMethod
-paylater payment method
+# cashfree-dotnet-pg-sdk.Model.PaylaterPaymentMethod
+Paylater payment method.
 
 ## Properties
 

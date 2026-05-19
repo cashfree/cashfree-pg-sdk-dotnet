@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentMethodCardInPaymentsEntity
-payment method card object in payment entity
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodCardInPaymentsEntity
+The following code samples show the payment method object payload for different payment methods.
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SplitOrderReconSuccessResponseVendorsInner
+# cashfree-dotnet-pg-sdk.Model.SplitOrderReconSuccessResponseVendorsInner
 
 ## Properties
 

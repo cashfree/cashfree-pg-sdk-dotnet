@@ -1,4 +1,4 @@
-# cashfree_pg.Model.VendorEntityRelatedDocsInner
+# cashfree-dotnet-pg-sdk.Model.VendorEntityRelatedDocsInner
 
 ## Properties
 

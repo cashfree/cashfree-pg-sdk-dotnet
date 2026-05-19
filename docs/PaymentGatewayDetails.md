@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentGatewayDetails
-payment gateway details present in the webhook response
+# cashfree-dotnet-pg-sdk.Model.PaymentGatewayDetails
+payment gateway details present in the webhook response.
 
 ## Properties
 

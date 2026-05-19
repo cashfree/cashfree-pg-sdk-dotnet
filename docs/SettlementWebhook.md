@@ -1,5 +1,5 @@
-# cashfree_pg.Model.SettlementWebhook
-Settlement webhook object
+# cashfree-dotnet-pg-sdk.Model.SettlementWebhook
+Settlement webhook object.
 
 ## Properties
 

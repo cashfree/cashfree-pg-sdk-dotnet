@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CardlessEMIQueries
-cardless EMI query object
+# cashfree-dotnet-pg-sdk.Model.CardlessEMIQueries
+cardless EMI query object.
 
 ## Properties
 

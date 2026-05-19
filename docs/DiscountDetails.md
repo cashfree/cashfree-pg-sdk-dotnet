@@ -1,11 +1,11 @@
-# cashfree_pg.Model.DiscountDetails
-detils of the discount object of offer
+# cashfree-dotnet-pg-sdk.Model.DiscountDetails
+detils of the discount object of offer.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**discount_type** | **string** | Type of discount | 
+**discount_type** | **string** | Type of discount. | 
 **discount_value** | **decimal** | Value of Discount. | 
 **max_discount_amount** | **decimal** | Maximum Value of Discount allowed. | 
 

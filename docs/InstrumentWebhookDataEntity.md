@@ -1,5 +1,5 @@
-# cashfree_pg.Model.InstrumentWebhookDataEntity
-data entity in webhook
+# cashfree-dotnet-pg-sdk.Model.InstrumentWebhookDataEntity
+data entity in webhook.
 
 ## Properties
 

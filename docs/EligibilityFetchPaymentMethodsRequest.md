@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityFetchPaymentMethodsRequest
-eligibilty request to find eligible payment method
+# cashfree-dotnet-pg-sdk.Model.EligibilityFetchPaymentMethodsRequest
+eligibilty request to find eligible payment method.
 
 ## Properties
 

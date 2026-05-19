@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CardlessEMIPaymentMethod
-cardless EMI payment method object
+# cashfree-dotnet-pg-sdk.Model.CardlessEMIPaymentMethod
+cardless EMI payment method object.
 
 ## Properties
 

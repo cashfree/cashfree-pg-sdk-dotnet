@@ -1,5 +1,5 @@
-# cashfree_pg.Model.UPIPaymentMethod
-Complete payment method for UPI collect
+# cashfree-dotnet-pg-sdk.Model.UPIPaymentMethod
+Complete payment method for UPI collect.
 
 ## Properties
 

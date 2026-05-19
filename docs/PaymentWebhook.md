@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentWebhook
-payment webhook object
+# cashfree-dotnet-pg-sdk.Model.PaymentWebhook
+payment webhook object.
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# cashfree_pg.Model.VendorAdjustmentSuccessResponse
-Vendor Adjustment Success Response
+# cashfree-dotnet-pg-sdk.Model.VendorAdjustmentSuccessResponse
+Vendor Adjustment Success Response.
 
 ## Properties
 

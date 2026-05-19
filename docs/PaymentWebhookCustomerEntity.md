@@ -1,5 +1,5 @@
-# cashfree_pg.Model.PaymentWebhookCustomerEntity
-customer details object in webhook
+# cashfree-dotnet-pg-sdk.Model.PaymentWebhookCustomerEntity
+customer details object in webhook.
 
 ## Properties
 

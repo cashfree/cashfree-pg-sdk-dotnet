@@ -1,4 +1,4 @@
-# cashfree_pg.Model.PaymentMethodCardEMIInPaymentsEntityEmi
+# cashfree-dotnet-pg-sdk.Model.PaymentMethodCardEMIInPaymentsEntityEmi
 
 ## Properties
 

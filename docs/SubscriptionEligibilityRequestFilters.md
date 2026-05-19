@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SubscriptionEligibilityRequestFilters
+# cashfree-dotnet-pg-sdk.Model.SubscriptionEligibilityRequestFilters
 Filters to refine eligible payment method selection.
 
 ## Properties

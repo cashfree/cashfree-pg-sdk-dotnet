@@ -1,5 +1,4 @@
-# cashfree_pg.Model.PlanEntity
-The response returned for Get, Create and Manage Plan APIs
+# cashfree-dotnet-pg-sdk.Model.PlanEntity
 
 ## Properties
 

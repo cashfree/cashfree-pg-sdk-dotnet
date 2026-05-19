@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CardEMIPaymentMethod
-Complete card emi payment method
+# cashfree-dotnet-pg-sdk.Model.CardEMIPaymentMethod
+Complete card emi payment method.
 
 ## Properties
 

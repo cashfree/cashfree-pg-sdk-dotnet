@@ -1,4 +1,4 @@
-# cashfree_pg.Model.SplitOrderReconSuccessResponseSettlement
+# cashfree-dotnet-pg-sdk.Model.SplitOrderReconSuccessResponseSettlement
 Details of the settlement information.
 
 ## Properties

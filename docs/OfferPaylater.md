@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferPaylater
-Offer object for paylater
+# cashfree-dotnet-pg-sdk.Model.OfferPaylater
+Offer object for paylater.
 
 ## Properties
 

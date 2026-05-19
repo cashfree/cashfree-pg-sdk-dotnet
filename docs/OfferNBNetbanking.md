@@ -1,4 +1,4 @@
-# cashfree_pg.Model.OfferNBNetbanking
+# cashfree-dotnet-pg-sdk.Model.OfferNBNetbanking
 
 ## Properties
 

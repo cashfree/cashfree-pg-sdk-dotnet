@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UploadPnachImageResponse
+# cashfree-dotnet-pg-sdk.Model.UploadPnachImageResponse
 Response of pnach image upload API.
 
 ## Properties

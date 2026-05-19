@@ -1,4 +1,4 @@
-# cashfree_pg.Model.FetchSettlementsRequestPagination
+# cashfree-dotnet-pg-sdk.Model.FetchSettlementsRequestPagination
 To fetch the next set of settlements, pass the cursor received in the response to the next API call.   To receive the data for the first time, pass the cursor as null.   Limit would be number of settlements that you want to receive.
 
 ## Properties

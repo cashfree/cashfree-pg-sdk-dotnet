@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityPaylaterEntity
-Eligible paylater payment method
+# cashfree-dotnet-pg-sdk.Model.EligibilityPaylaterEntity
+Eligible paylater payment method.
 
 ## Properties
 

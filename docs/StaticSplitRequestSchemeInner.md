@@ -1,4 +1,4 @@
-# cashfree_pg.Model.StaticSplitRequestSchemeInner
+# cashfree-dotnet-pg-sdk.Model.StaticSplitRequestSchemeInner
 
 ## Properties
 

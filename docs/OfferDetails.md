@@ -1,5 +1,5 @@
-# cashfree_pg.Model.OfferDetails
-Offer details and type
+# cashfree-dotnet-pg-sdk.Model.OfferDetails
+Offer details and type.
 
 ## Properties
 

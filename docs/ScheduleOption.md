@@ -1,4 +1,4 @@
-# cashfree_pg.Model.ScheduleOption
+# cashfree-dotnet-pg-sdk.Model.ScheduleOption
 
 ## Properties
 

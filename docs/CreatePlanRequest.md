@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CreatePlanRequest
-Request body to create a plan.
+# cashfree-dotnet-pg-sdk.Model.CreatePlanRequest
+Request parameters to create a new plan.
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **plan_id** | **string** | Unique ID to identify the plan. Only alpha-numerics, dot, hyphen and underscore allowed. | 
 **plan_name** | **string** | Name of the plan. | 
 **plan_type** | **string** | Type of the plan. Possible values - PERIODIC, ON_DEMAND. | 
-**plan_currency** | **string** | Currency of the plan. | [optional] 
+**plan_currency** | **string** | Currency of the plan. For plans in non-INR currency, please refer to [supported currencies](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list). | [optional] 
 **plan_recurring_amount** | **decimal** | Recurring amount for the plan. Required for PERIODIC plan_type. | [optional] 
 **plan_max_amount** | **decimal** | Maximum amount for the plan. | 
 **plan_max_cycles** | **int** | Maximum number of payment cycles for the plan. | [optional] 

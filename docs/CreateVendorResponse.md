@@ -1,5 +1,5 @@
-# cashfree_pg.Model.CreateVendorResponse
-Create Vendor Response
+# cashfree-dotnet-pg-sdk.Model.CreateVendorResponse
+Create Vendor Response.
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# cashfree_pg.Model.UpiDetails
+# cashfree-dotnet-pg-sdk.Model.UpiDetails
 
 ## Properties
 

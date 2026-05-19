@@ -1,5 +1,5 @@
-# cashfree_pg.Model.VendorEntity
-Vendor entity object
+# cashfree-dotnet-pg-sdk.Model.VendorEntity
+Vendor entity object.
 
 ## Properties
 

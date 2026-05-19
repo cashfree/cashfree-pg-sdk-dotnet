@@ -1,4 +1,4 @@
-# cashfree_pg.Model.KycDetails
+# cashfree-dotnet-pg-sdk.Model.KycDetails
 
 ## Properties
 

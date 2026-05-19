@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EligibilityFetchOffersRequest
-Eligiblty API request
+# cashfree-dotnet-pg-sdk.Model.EligibilityFetchOffersRequest
+Eligiblty API request.
 
 ## Properties
 

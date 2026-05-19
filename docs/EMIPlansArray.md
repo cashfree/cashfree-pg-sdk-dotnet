@@ -1,5 +1,5 @@
-# cashfree_pg.Model.EMIPlansArray
-Single EMI object
+# cashfree-dotnet-pg-sdk.Model.EMIPlansArray
+Single EMI object.
 
 ## Properties
 

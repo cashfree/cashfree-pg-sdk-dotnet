@@ -1,5 +1,5 @@
 # cashfree_pg.Model.OfferType
-Offer Type Object
+Offer Type Object.
 
 ## Properties
 

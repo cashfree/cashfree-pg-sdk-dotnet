@@ -1,7 +1,7 @@
 # Cashfree PG .Net SDK
 ![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg-sdk-dotnet) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg-sdk-dotnet/master) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg-sdk-dotnet?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg-sdk-go)
 
-The Cashfree PG .Net SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side .Net  applications. 
+The Cashfree PG .Net SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side .Net applications. 
 
 
 

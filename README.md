@@ -17,7 +17,7 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ### Installation
 ```bash
-dotnet add package cashfree_pg
+dotnet add package cashfree-dotnet-pg
 ```
 ### Configuration
 

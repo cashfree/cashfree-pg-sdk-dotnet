@@ -27,7 +27,7 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+    /// Specify either the Settlement ID, Settlement UTR, or date range filters to fetch the settlement details.
     /// </summary>
     [DataContract(Name = "SettlementFetchReconRequest_filters")]
     public class SettlementFetchReconRequestFilters : IValidatableObject
@@ -37,12 +37,20 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <param name="cfSettlementIds">List of settlement IDs for which you want the settlement reconciliation details..</param>
         /// <param name="settlementUtrs">List of settlement UTRs for which you want the settlement reconciliation details..</param>
-        /// <param name="startDate">Specify the start date from when you want the settlement reconciliation details..</param>
-        /// <param name="endDate">Specify the end date till when you want the settlement reconciliation details..</param>
-        public SettlementFetchReconRequestFilters(List<int>? cfSettlementIds = default(List<int>?), List<string>? settlementUtrs = default(List<string>?), string? startDate = default(string?), string? endDate = default(string?))
+        /// <param name="startDateInitiatedOn">Filter events by settlement initiation start date. Use ISO8601 format..</param>
+        /// <param name="endDateInitiatedOn">Filter events by settlement initiation end date. Use ISO8601 format..</param>
+        /// <param name="startDateProcessedOn">Filter events by settlement processed start date. Use ISO8601 format..</param>
+        /// <param name="endDateProcessedOn">Filter events by settlement processed end date. Use ISO8601 format..</param>
+        /// <param name="startDate">Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details..</param>
+        /// <param name="endDate">Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details..</param>
+        public SettlementFetchReconRequestFilters(List<int>? cfSettlementIds = default(List<int>?), List<string>? settlementUtrs = default(List<string>?), string? startDateInitiatedOn = default(string?), string? endDateInitiatedOn = default(string?), string? startDateProcessedOn = default(string?), string? endDateProcessedOn = default(string?), string? startDate = default(string?), string? endDate = default(string?))
         {
             this.cf_settlement_ids = cfSettlementIds;
             this.settlement_utrs = settlementUtrs;
+            this.start_date_initiated_on = startDateInitiatedOn;
+            this.end_date_initiated_on = endDateInitiatedOn;
+            this.start_date_processed_on = startDateProcessedOn;
+            this.end_date_processed_on = endDateProcessedOn;
             this.start_date = startDate;
             this.end_date = endDate;
         }
@@ -62,17 +70,47 @@ namespace cashfree_pg.Model
         public List<string>? settlement_utrs { get; set; }
 
         /// <summary>
-        /// Specify the start date from when you want the settlement reconciliation details.
+        /// Filter events by settlement initiation start date. Use ISO8601 format.
         /// </summary>
-        /// <value>Specify the start date from when you want the settlement reconciliation details.</value>
+        /// <value>Filter events by settlement initiation start date. Use ISO8601 format.</value>
+        [DataMember(Name = "start_date_initiated_on", EmitDefaultValue = false)]
+        public string? start_date_initiated_on { get; set; }
+
+        /// <summary>
+        /// Filter events by settlement initiation end date. Use ISO8601 format.
+        /// </summary>
+        /// <value>Filter events by settlement initiation end date. Use ISO8601 format.</value>
+        [DataMember(Name = "end_date_initiated_on", EmitDefaultValue = false)]
+        public string? end_date_initiated_on { get; set; }
+
+        /// <summary>
+        /// Filter events by settlement processed start date. Use ISO8601 format.
+        /// </summary>
+        /// <value>Filter events by settlement processed start date. Use ISO8601 format.</value>
+        [DataMember(Name = "start_date_processed_on", EmitDefaultValue = false)]
+        public string? start_date_processed_on { get; set; }
+
+        /// <summary>
+        /// Filter events by settlement processed end date. Use ISO8601 format.
+        /// </summary>
+        /// <value>Filter events by settlement processed end date. Use ISO8601 format.</value>
+        [DataMember(Name = "end_date_processed_on", EmitDefaultValue = false)]
+        public string? end_date_processed_on { get; set; }
+
+        /// <summary>
+        /// Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details.
+        /// </summary>
+        /// <value>Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details.</value>
         [DataMember(Name = "start_date", EmitDefaultValue = false)]
+        [Obsolete]
         public string? start_date { get; set; }
 
         /// <summary>
-        /// Specify the end date till when you want the settlement reconciliation details.
+        /// Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details.
         /// </summary>
-        /// <value>Specify the end date till when you want the settlement reconciliation details.</value>
+        /// <value>Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details.</value>
         [DataMember(Name = "end_date", EmitDefaultValue = false)]
+        [Obsolete]
         public string? end_date { get; set; }
 
         /// <summary>
@@ -85,6 +123,10 @@ namespace cashfree_pg.Model
             sb.Append("class SettlementFetchReconRequestFilters {\n");
             sb.Append("  cf_settlement_ids: ").Append(cf_settlement_ids).Append("\n");
             sb.Append("  settlement_utrs: ").Append(settlement_utrs).Append("\n");
+            sb.Append("  start_date_initiated_on: ").Append(start_date_initiated_on).Append("\n");
+            sb.Append("  end_date_initiated_on: ").Append(end_date_initiated_on).Append("\n");
+            sb.Append("  start_date_processed_on: ").Append(start_date_processed_on).Append("\n");
+            sb.Append("  end_date_processed_on: ").Append(end_date_processed_on).Append("\n");
             sb.Append("  start_date: ").Append(start_date).Append("\n");
             sb.Append("  end_date: ").Append(end_date).Append("\n");
             sb.Append("}\n");

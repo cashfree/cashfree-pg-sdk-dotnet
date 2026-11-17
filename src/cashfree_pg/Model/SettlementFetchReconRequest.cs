@@ -41,8 +41,8 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="SettlementFetchReconRequest" /> class.
         /// </summary>
         /// <param name="pagination">pagination (required).</param>
-        /// <param name="filters">filters.</param>
-        public SettlementFetchReconRequest(FetchSettlementsRequestPagination pagination = default(FetchSettlementsRequestPagination), SettlementFetchReconRequestFilters? filters = default(SettlementFetchReconRequestFilters?))
+        /// <param name="filters">filters (required).</param>
+        public SettlementFetchReconRequest(FetchSettlementsRequestPagination pagination = default(FetchSettlementsRequestPagination), SettlementFetchReconRequestFilters filters = default(SettlementFetchReconRequestFilters))
         {
             // to ensure "pagination" is required (not null)
             if (pagination == null)
@@ -50,6 +50,11 @@ namespace cashfree_pg.Model
                 throw new ArgumentNullException("pagination is a required property for SettlementFetchReconRequest and cannot be null");
             }
             this.pagination = pagination;
+            // to ensure "filters" is required (not null)
+            if (filters == null)
+            {
+                throw new ArgumentNullException("filters is a required property for SettlementFetchReconRequest and cannot be null");
+            }
             this.filters = filters;
         }
 
@@ -62,8 +67,8 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets filters
         /// </summary>
-        [DataMember(Name = "filters", EmitDefaultValue = false)]
-        public SettlementFetchReconRequestFilters? filters { get; set; }
+        [DataMember(Name = "filters", IsRequired = true, EmitDefaultValue = true)]
+        public SettlementFetchReconRequestFilters filters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

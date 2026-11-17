@@ -128,6 +128,8 @@ docs/FetchSettlementsRequest.md
 docs/FetchSettlementsRequestFilters.md
 docs/FetchSettlementsRequestPagination.md
 docs/FetchTerminalQRCodesEntity.md
+docs/GetAllSettlementsResponse.md
+docs/GetAllSettlementsResponseDataInner.md
 docs/GetAllTerminalPaymentEntity.md
 docs/GetAllTerminalTransactionRequest.md
 docs/GetCardBinRequest.md
@@ -154,6 +156,8 @@ docs/ManageSubscriptionPaymentRequest.md
 docs/ManageSubscriptionPaymentRequestActionDetails.md
 docs/ManageSubscriptionRequest.md
 docs/ManageSubscriptionRequestActionDetails.md
+docs/MarkOrderSettlementResponse.md
+docs/MarkOrderSettlementResponseMetaData.md
 docs/NetBankingDowntime.md
 docs/NetBankingDowntimeNetBanking.md
 docs/NetBankingPaymentMethod.md
@@ -197,6 +201,11 @@ docs/OrderMetaPaymentMethodsFilters.md
 docs/OrderMetaPaymentMethodsFiltersMethods.md
 docs/OrderPayData.md
 docs/OrderPaymentMethodFilters.md
+docs/OrderSettlementEntity.md
+docs/OrderSettlementEntityCustomerDetails.md
+docs/OrderSettlementEntityOrderDetails.md
+docs/OrderSettlementEntityPaymentDetails.md
+docs/OrderSettlementEntitySettlementDetails.md
 docs/OrderUpdateRefundRequest.md
 docs/OrdersApi.md
 docs/PARRequest.md
@@ -230,6 +239,7 @@ docs/PaymentMethodCardInPaymentsEntityCard.md
 docs/PaymentMethodCardlessEMIInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
+docs/PaymentMethodOthersInPaymentsEntity.md
 docs/PaymentMethodPaylaterInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntityUpi.md
@@ -273,7 +283,12 @@ docs/SettlementFetchReconRequest.md
 docs/SettlementFetchReconRequestFilters.md
 docs/SettlementReconEntity.md
 docs/SettlementReconEntityDataInner.md
+docs/SettlementReconEntityDataInnerCustomerDetails.md
+docs/SettlementReconEntityDataInnerDisputeDetailsInner.md
+docs/SettlementReconEntityDataInnerEventDetails.md
+docs/SettlementReconEntityDataInnerOrderDetails.md
 docs/SettlementReconEntityDataInnerPaymentDetails.md
+docs/SettlementReconEntityDataInnerSettlementDetails.md
 docs/SettlementReconciliationApi.md
 docs/SettlementSimulationResponse.md
 docs/SettlementWebhook.md
@@ -502,6 +517,8 @@ src/cashfree_pg.Test/Model/FetchSettlementsRequestFiltersTests.cs
 src/cashfree_pg.Test/Model/FetchSettlementsRequestPaginationTests.cs
 src/cashfree_pg.Test/Model/FetchSettlementsRequestTests.cs
 src/cashfree_pg.Test/Model/FetchTerminalQRCodesEntityTests.cs
+src/cashfree_pg.Test/Model/GetAllSettlementsResponseDataInnerTests.cs
+src/cashfree_pg.Test/Model/GetAllSettlementsResponseTests.cs
 src/cashfree_pg.Test/Model/GetAllTerminalPaymentEntityTests.cs
 src/cashfree_pg.Test/Model/GetAllTerminalTransactionRequestTests.cs
 src/cashfree_pg.Test/Model/GetCardBinRequestTests.cs
@@ -527,6 +544,8 @@ src/cashfree_pg.Test/Model/ManageSubscriptionPaymentRequestActionDetailsTests.cs
 src/cashfree_pg.Test/Model/ManageSubscriptionPaymentRequestTests.cs
 src/cashfree_pg.Test/Model/ManageSubscriptionRequestActionDetailsTests.cs
 src/cashfree_pg.Test/Model/ManageSubscriptionRequestTests.cs
+src/cashfree_pg.Test/Model/MarkOrderSettlementResponseMetaDataTests.cs
+src/cashfree_pg.Test/Model/MarkOrderSettlementResponseTests.cs
 src/cashfree_pg.Test/Model/NetBankingDowntimeNetBankingTests.cs
 src/cashfree_pg.Test/Model/NetBankingDowntimeTests.cs
 src/cashfree_pg.Test/Model/NetBankingPaymentMethodTests.cs
@@ -569,6 +588,11 @@ src/cashfree_pg.Test/Model/OrderMetaPaymentMethodsFiltersTests.cs
 src/cashfree_pg.Test/Model/OrderMetaTests.cs
 src/cashfree_pg.Test/Model/OrderPayDataTests.cs
 src/cashfree_pg.Test/Model/OrderPaymentMethodFiltersTests.cs
+src/cashfree_pg.Test/Model/OrderSettlementEntityCustomerDetailsTests.cs
+src/cashfree_pg.Test/Model/OrderSettlementEntityOrderDetailsTests.cs
+src/cashfree_pg.Test/Model/OrderSettlementEntityPaymentDetailsTests.cs
+src/cashfree_pg.Test/Model/OrderSettlementEntitySettlementDetailsTests.cs
+src/cashfree_pg.Test/Model/OrderSettlementEntityTests.cs
 src/cashfree_pg.Test/Model/OrderUpdateRefundRequestTests.cs
 src/cashfree_pg.Test/Model/PARRequestTests.cs
 src/cashfree_pg.Test/Model/PGCreatePAR200ResponseTests.cs
@@ -599,6 +623,7 @@ src/cashfree_pg.Test/Model/PaymentMethodCardInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodCardlessEMIInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodNetBankingInPaymentsEntityTests.cs
+src/cashfree_pg.Test/Model/PaymentMethodOthersInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodPaylaterInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodUPIInPaymentsEntityTests.cs
 src/cashfree_pg.Test/Model/PaymentMethodUPIInPaymentsEntityUpiTests.cs
@@ -637,7 +662,12 @@ src/cashfree_pg.Test/Model/ScheduleOptionTests.cs
 src/cashfree_pg.Test/Model/SettlementEntityTests.cs
 src/cashfree_pg.Test/Model/SettlementFetchReconRequestFiltersTests.cs
 src/cashfree_pg.Test/Model/SettlementFetchReconRequestTests.cs
+src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerCustomerDetailsTests.cs
+src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerDisputeDetailsInnerTests.cs
+src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerEventDetailsTests.cs
+src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerOrderDetailsTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerPaymentDetailsTests.cs
+src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerSettlementDetailsTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityDataInnerTests.cs
 src/cashfree_pg.Test/Model/SettlementReconEntityTests.cs
 src/cashfree_pg.Test/Model/SettlementSimulationResponseTests.cs
@@ -878,6 +908,8 @@ src/cashfree_pg/Model/FetchSettlementsRequest.cs
 src/cashfree_pg/Model/FetchSettlementsRequestFilters.cs
 src/cashfree_pg/Model/FetchSettlementsRequestPagination.cs
 src/cashfree_pg/Model/FetchTerminalQRCodesEntity.cs
+src/cashfree_pg/Model/GetAllSettlementsResponse.cs
+src/cashfree_pg/Model/GetAllSettlementsResponseDataInner.cs
 src/cashfree_pg/Model/GetAllTerminalPaymentEntity.cs
 src/cashfree_pg/Model/GetAllTerminalTransactionRequest.cs
 src/cashfree_pg/Model/GetCardBinRequest.cs
@@ -903,6 +935,8 @@ src/cashfree_pg/Model/ManageSubscriptionPaymentRequest.cs
 src/cashfree_pg/Model/ManageSubscriptionPaymentRequestActionDetails.cs
 src/cashfree_pg/Model/ManageSubscriptionRequest.cs
 src/cashfree_pg/Model/ManageSubscriptionRequestActionDetails.cs
+src/cashfree_pg/Model/MarkOrderSettlementResponse.cs
+src/cashfree_pg/Model/MarkOrderSettlementResponseMetaData.cs
 src/cashfree_pg/Model/NetBankingDowntime.cs
 src/cashfree_pg/Model/NetBankingDowntimeNetBanking.cs
 src/cashfree_pg/Model/NetBankingPaymentMethod.cs
@@ -945,6 +979,11 @@ src/cashfree_pg/Model/OrderMetaPaymentMethodsFilters.cs
 src/cashfree_pg/Model/OrderMetaPaymentMethodsFiltersMethods.cs
 src/cashfree_pg/Model/OrderPayData.cs
 src/cashfree_pg/Model/OrderPaymentMethodFilters.cs
+src/cashfree_pg/Model/OrderSettlementEntity.cs
+src/cashfree_pg/Model/OrderSettlementEntityCustomerDetails.cs
+src/cashfree_pg/Model/OrderSettlementEntityOrderDetails.cs
+src/cashfree_pg/Model/OrderSettlementEntityPaymentDetails.cs
+src/cashfree_pg/Model/OrderSettlementEntitySettlementDetails.cs
 src/cashfree_pg/Model/OrderUpdateRefundRequest.cs
 src/cashfree_pg/Model/PARRequest.cs
 src/cashfree_pg/Model/PGCreatePAR200Response.cs
@@ -975,6 +1014,7 @@ src/cashfree_pg/Model/PaymentMethodCardInPaymentsEntityCard.cs
 src/cashfree_pg/Model/PaymentMethodCardlessEMIInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.cs
+src/cashfree_pg/Model/PaymentMethodOthersInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodPaylaterInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodUPIInPaymentsEntity.cs
 src/cashfree_pg/Model/PaymentMethodUPIInPaymentsEntityUpi.cs
@@ -1015,7 +1055,12 @@ src/cashfree_pg/Model/SettlementFetchReconRequest.cs
 src/cashfree_pg/Model/SettlementFetchReconRequestFilters.cs
 src/cashfree_pg/Model/SettlementReconEntity.cs
 src/cashfree_pg/Model/SettlementReconEntityDataInner.cs
+src/cashfree_pg/Model/SettlementReconEntityDataInnerCustomerDetails.cs
+src/cashfree_pg/Model/SettlementReconEntityDataInnerDisputeDetailsInner.cs
+src/cashfree_pg/Model/SettlementReconEntityDataInnerEventDetails.cs
+src/cashfree_pg/Model/SettlementReconEntityDataInnerOrderDetails.cs
 src/cashfree_pg/Model/SettlementReconEntityDataInnerPaymentDetails.cs
+src/cashfree_pg/Model/SettlementReconEntityDataInnerSettlementDetails.cs
 src/cashfree_pg/Model/SettlementSimulationResponse.cs
 src/cashfree_pg/Model/SettlementWebhook.cs
 src/cashfree_pg/Model/SettlementWebhookDataEntity.cs

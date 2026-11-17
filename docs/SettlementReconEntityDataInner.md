@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_details** | [**ReconEntityDataInnerEventDetails**](ReconEntityDataInnerEventDetails.md) |  | [optional] 
-**order_details** | [**ReconEntityDataInnerOrderDetails**](ReconEntityDataInnerOrderDetails.md) |  | [optional] 
-**customer_details** | [**ReconEntityDataInnerCustomerDetails**](ReconEntityDataInnerCustomerDetails.md) |  | [optional] 
+**event_details** | [**SettlementReconEntityDataInnerEventDetails**](SettlementReconEntityDataInnerEventDetails.md) |  | [optional] 
+**order_details** | [**SettlementReconEntityDataInnerOrderDetails**](SettlementReconEntityDataInnerOrderDetails.md) |  | [optional] 
+**customer_details** | [**SettlementReconEntityDataInnerCustomerDetails**](SettlementReconEntityDataInnerCustomerDetails.md) |  | [optional] 
 **payment_details** | [**SettlementReconEntityDataInnerPaymentDetails**](SettlementReconEntityDataInnerPaymentDetails.md) |  | [optional] 
-**settlement_details** | [**ReconEntityDataInnerSettlementDetails**](ReconEntityDataInnerSettlementDetails.md) |  | [optional] 
-**dispute_details** | [**ReconEntityDataInnerDisputeDetails**](ReconEntityDataInnerDisputeDetails.md) |  | [optional] 
-**refund_details** | [**ReconEntityDataInnerRefundDetails**](ReconEntityDataInnerRefundDetails.md) |  | [optional] 
+**settlement_details** | [**SettlementReconEntityDataInnerSettlementDetails**](SettlementReconEntityDataInnerSettlementDetails.md) |  | [optional] 
+**dispute_details** | [**List&lt;SettlementReconEntityDataInnerDisputeDetailsInner&gt;**](SettlementReconEntityDataInnerDisputeDetailsInner.md) | List of disputes linked to this event. | [optional] 
+**refund_details** | [**List&lt;ReconEntityDataInnerRefundDetails&gt;**](ReconEntityDataInnerRefundDetails.md) | List of refunds linked to this event. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,11 +9,11 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 <a id="pgfetchsettlements"></a>
 # **PGFetchSettlements**
-> SettlementEntity PGFetchSettlements (string xApiVersion, FetchSettlementsRequest fetchSettlementsRequest, string? contentType = null, string? xRequestId = null, Guid? xIdempotencyKey = null, string? accept = null)
+> GetAllSettlementsResponse PGFetchSettlements (string xApiVersion, FetchSettlementsRequest fetchSettlementsRequest, string? contentType = null, string? xRequestId = null, Guid? xIdempotencyKey = null, string? accept = null)
 
 Get All Settlements
 
-Use this API to get all settlement details by specifying the settlement ID, settlement UTR or date range.
+Use this API to get all settlement details by specifying the settlement ID, settlement UTR, settlement status or date range. Returns settlements of all statuses including SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK and FAILED.
 
 ### Example
 ```csharp
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Get All Settlements
-                SettlementEntity result = cashfree.PGFetchSettlements(xApiVersion, fetchSettlementsRequest, contentType, xRequestId, xIdempotencyKey, accept);
+                GetAllSettlementsResponse result = cashfree.PGFetchSettlements(xApiVersion, fetchSettlementsRequest, contentType, xRequestId, xIdempotencyKey, accept);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -74,7 +74,7 @@ namespace Example
 
 ### Return type
 
-[**SettlementEntity**](SettlementEntity.md)
+[**GetAllSettlementsResponse**](GetAllSettlementsResponse.md)
 
 ### Authorization
 

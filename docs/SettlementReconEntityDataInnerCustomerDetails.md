@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **customer_id** | **string** | Customer&#39;s id. | [optional] 
 **customer_bank_account_number** | **string** | Customer bank account number. | [optional] 
 **customer_bank_code** | **string** | Customer bank code. | [optional] 
-**customer_bank_ifsc** | **string** | Customer bank ifsc\&quot; | [optional] 
+**customer_bank_ifsc** | **string** | Customer bank IFSC. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

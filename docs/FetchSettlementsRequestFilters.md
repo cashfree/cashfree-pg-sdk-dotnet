@@ -1,5 +1,5 @@
 # cashfree_pg.Model.FetchSettlementsRequestFilters
-Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+Specify either the Settlement ID, Settlement UTR, settlement status, or start date and end date to fetch the settlement details.
 
 ## Properties
 
@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cf_settlement_ids** | **List&lt;string&gt;** | List of settlement IDs for which you want the settlement reconciliation details. | [optional] 
 **settlement_utrs** | **List&lt;string&gt;** | List of settlement UTRs for which you want the settlement reconciliation details. | [optional] 
+**settlement_status** | **List&lt;FetchSettlementsRequestFilters.SettlementStatusEnum&gt;** | List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED. | [optional] 
 **start_date** | **string** | Specify the start date from when you want the settlement reconciliation details. | [optional] 
 **end_date** | **string** | Specify the end date till when you want the settlement reconciliation details. | [optional] 
 

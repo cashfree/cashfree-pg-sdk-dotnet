@@ -40,9 +40,9 @@ namespace cashfree_pg.Model
         /// <param name="customerDetails">customerDetails.</param>
         /// <param name="paymentDetails">paymentDetails.</param>
         /// <param name="settlementDetails">settlementDetails.</param>
-        /// <param name="disputeDetails">disputeDetails.</param>
-        /// <param name="refundDetails">refundDetails.</param>
-        public SettlementReconEntityDataInner(ReconEntityDataInnerEventDetails? eventDetails = default(ReconEntityDataInnerEventDetails?), ReconEntityDataInnerOrderDetails? orderDetails = default(ReconEntityDataInnerOrderDetails?), ReconEntityDataInnerCustomerDetails? customerDetails = default(ReconEntityDataInnerCustomerDetails?), SettlementReconEntityDataInnerPaymentDetails? paymentDetails = default(SettlementReconEntityDataInnerPaymentDetails?), ReconEntityDataInnerSettlementDetails? settlementDetails = default(ReconEntityDataInnerSettlementDetails?), ReconEntityDataInnerDisputeDetails? disputeDetails = default(ReconEntityDataInnerDisputeDetails?), ReconEntityDataInnerRefundDetails? refundDetails = default(ReconEntityDataInnerRefundDetails?))
+        /// <param name="disputeDetails">List of disputes linked to this event..</param>
+        /// <param name="refundDetails">List of refunds linked to this event..</param>
+        public SettlementReconEntityDataInner(SettlementReconEntityDataInnerEventDetails? eventDetails = default(SettlementReconEntityDataInnerEventDetails?), SettlementReconEntityDataInnerOrderDetails? orderDetails = default(SettlementReconEntityDataInnerOrderDetails?), SettlementReconEntityDataInnerCustomerDetails? customerDetails = default(SettlementReconEntityDataInnerCustomerDetails?), SettlementReconEntityDataInnerPaymentDetails? paymentDetails = default(SettlementReconEntityDataInnerPaymentDetails?), SettlementReconEntityDataInnerSettlementDetails? settlementDetails = default(SettlementReconEntityDataInnerSettlementDetails?), List<SettlementReconEntityDataInnerDisputeDetailsInner>? disputeDetails = default(List<SettlementReconEntityDataInnerDisputeDetailsInner>?), List<ReconEntityDataInnerRefundDetails>? refundDetails = default(List<ReconEntityDataInnerRefundDetails>?))
         {
             this.event_details = eventDetails;
             this.order_details = orderDetails;
@@ -57,19 +57,19 @@ namespace cashfree_pg.Model
         /// Gets or Sets event_details
         /// </summary>
         [DataMember(Name = "event_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerEventDetails? event_details { get; set; }
+        public SettlementReconEntityDataInnerEventDetails? event_details { get; set; }
 
         /// <summary>
         /// Gets or Sets order_details
         /// </summary>
         [DataMember(Name = "order_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerOrderDetails? order_details { get; set; }
+        public SettlementReconEntityDataInnerOrderDetails? order_details { get; set; }
 
         /// <summary>
         /// Gets or Sets customer_details
         /// </summary>
         [DataMember(Name = "customer_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerCustomerDetails? customer_details { get; set; }
+        public SettlementReconEntityDataInnerCustomerDetails? customer_details { get; set; }
 
         /// <summary>
         /// Gets or Sets payment_details
@@ -81,19 +81,21 @@ namespace cashfree_pg.Model
         /// Gets or Sets settlement_details
         /// </summary>
         [DataMember(Name = "settlement_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerSettlementDetails? settlement_details { get; set; }
+        public SettlementReconEntityDataInnerSettlementDetails? settlement_details { get; set; }
 
         /// <summary>
-        /// Gets or Sets dispute_details
+        /// List of disputes linked to this event.
         /// </summary>
+        /// <value>List of disputes linked to this event.</value>
         [DataMember(Name = "dispute_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerDisputeDetails? dispute_details { get; set; }
+        public List<SettlementReconEntityDataInnerDisputeDetailsInner>? dispute_details { get; set; }
 
         /// <summary>
-        /// Gets or Sets refund_details
+        /// List of refunds linked to this event.
         /// </summary>
+        /// <value>List of refunds linked to this event.</value>
         [DataMember(Name = "refund_details", EmitDefaultValue = false)]
-        public ReconEntityDataInnerRefundDetails? refund_details { get; set; }
+        public List<ReconEntityDataInnerRefundDetails>? refund_details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

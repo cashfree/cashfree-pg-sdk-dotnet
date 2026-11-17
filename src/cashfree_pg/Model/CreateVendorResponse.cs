@@ -46,7 +46,7 @@ namespace cashfree_pg.Model
         /// <param name="kycDetails">kycDetails.</param>
         /// <param name="dashboardAccess">dashboardAccess.</param>
         /// <param name="bankDetails">bankDetails.</param>
-        public CreateVendorResponse(string? email = default(string?), string? status = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), decimal? phone = default(decimal?), string? name = default(string?), string? vendorId = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), List<KycDetails>? kycDetails = default(List<KycDetails>?), bool? dashboardAccess = default(bool?), string? bankDetails = default(string?))
+        public CreateVendorResponse(string? email = default(string?), string? status = default(string?), BankDetails? bank = default(BankDetails?), string? upi = default(string?), decimal? phone = default(decimal?), string? name = default(string?), string? vendorId = default(string?), ScheduleOption? scheduleOption = default(ScheduleOption?), KycDetails? kycDetails = default(KycDetails?), bool? dashboardAccess = default(bool?), string? bankDetails = default(string?))
         {
             this.email = email;
             this.status = status;
@@ -76,8 +76,8 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets bank
         /// </summary>
-        [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public List<BankDetails>? bank { get; set; }
+        [DataMember(Name = "bank", EmitDefaultValue = true)]
+        public BankDetails? bank { get; set; }
 
         /// <summary>
         /// Gets or Sets upi
@@ -106,14 +106,14 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets schedule_option
         /// </summary>
-        [DataMember(Name = "schedule_option", EmitDefaultValue = false)]
-        public List<ScheduleOption>? schedule_option { get; set; }
+        [DataMember(Name = "schedule_option", EmitDefaultValue = true)]
+        public ScheduleOption? schedule_option { get; set; }
 
         /// <summary>
         /// Gets or Sets kyc_details
         /// </summary>
-        [DataMember(Name = "kyc_details", EmitDefaultValue = false)]
-        public List<KycDetails>? kyc_details { get; set; }
+        [DataMember(Name = "kyc_details", EmitDefaultValue = true)]
+        public KycDetails? kyc_details { get; set; }
 
         /// <summary>
         /// Gets or Sets dashboard_access

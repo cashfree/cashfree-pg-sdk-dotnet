@@ -50,7 +50,7 @@ namespace cashfree_pg.Model
         /// <param name="businessType">businessType.</param>
         /// <param name="remarks">remarks.</param>
         /// <param name="relatedDocs">relatedDocs.</param>
-        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), List<BankDetails>? bank = default(List<BankDetails>?), string? upi = default(string?), List<ScheduleOption>? scheduleOption = default(List<ScheduleOption>?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), string? remarks = default(string?), List<VendorEntityRelatedDocsInner>? relatedDocs = default(List<VendorEntityRelatedDocsInner>?))
+        public VendorEntity(string? email = default(string?), string? status = default(string?), string? phone = default(string?), string? name = default(string?), string? vendorId = default(string?), string? addedOn = default(string?), string? updatedOn = default(string?), BankDetails? bank = default(BankDetails?), string? upi = default(string?), ScheduleOption? scheduleOption = default(ScheduleOption?), string? vendorType = default(string?), string? accountType = default(string?), string? businessType = default(string?), string? remarks = default(string?), List<VendorEntityRelatedDocsInner>? relatedDocs = default(List<VendorEntityRelatedDocsInner>?))
         {
             this.email = email;
             this.status = status;
@@ -114,8 +114,8 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets bank
         /// </summary>
-        [DataMember(Name = "bank", EmitDefaultValue = false)]
-        public List<BankDetails>? bank { get; set; }
+        [DataMember(Name = "bank", EmitDefaultValue = true)]
+        public BankDetails? bank { get; set; }
 
         /// <summary>
         /// Gets or Sets upi
@@ -126,8 +126,8 @@ namespace cashfree_pg.Model
         /// <summary>
         /// Gets or Sets schedule_option
         /// </summary>
-        [DataMember(Name = "schedule_option", EmitDefaultValue = false)]
-        public List<ScheduleOption>? schedule_option { get; set; }
+        [DataMember(Name = "schedule_option", EmitDefaultValue = true)]
+        public ScheduleOption? schedule_option { get; set; }
 
         /// <summary>
         /// Gets or Sets vendor_type

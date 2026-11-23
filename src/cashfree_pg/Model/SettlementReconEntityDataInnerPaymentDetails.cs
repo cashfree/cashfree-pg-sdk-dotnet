@@ -36,24 +36,24 @@ namespace cashfree_pg.Model
         /// Initializes a new instance of the <see cref="SettlementReconEntityDataInnerPaymentDetails" /> class.
         /// </summary>
         /// <param name="paymentAmount">Payment amount captured..</param>
-        /// <param name="paymentCurrency">Payment Curreny type - INR..</param>
+        /// <param name="paymentCurrency">Payment Currency type - INR..</param>
         /// <param name="bankReference">Unique transaction reference number of the payment..</param>
         /// <param name="paymentTime">Date and time when the payment was initiated..</param>
-        /// <param name="paymentMode">Mode of the payment..</param>
+        /// <param name="paymentGroup">Payment group/mode of the payment. Example - UPI, CREDIT_CARD..</param>
         /// <param name="paymentServiceCharge">Service charge applicable for the payment..</param>
         /// <param name="paymentServiceTax">Service tax applicable on the payment..</param>
         /// <param name="cfPaymentId">Cashfree Payments unique ID to identify a payment..</param>
         /// <param name="status">Status of the Payment..</param>
         /// <param name="forexConversionHandlingCharge">Forex Conversion Service Charge..</param>
         /// <param name="forexConversionHandlingTax">Forex Conversion Service Tax..</param>
-        /// <param name="chargesCurrency">Forex Charges Curreny type - INR..</param>
-        public SettlementReconEntityDataInnerPaymentDetails(decimal? paymentAmount = default(decimal?), string? paymentCurrency = default(string?), string? bankReference = default(string?), string? paymentTime = default(string?), string? paymentMode = default(string?), decimal? paymentServiceCharge = default(decimal?), decimal? paymentServiceTax = default(decimal?), string? cfPaymentId = default(string?), string? status = default(string?), string? forexConversionHandlingCharge = default(string?), string? forexConversionHandlingTax = default(string?), string? chargesCurrency = default(string?))
+        /// <param name="chargesCurrency">Forex Charges Currency type - INR..</param>
+        public SettlementReconEntityDataInnerPaymentDetails(decimal? paymentAmount = default(decimal?), string? paymentCurrency = default(string?), string? bankReference = default(string?), string? paymentTime = default(string?), string? paymentGroup = default(string?), decimal? paymentServiceCharge = default(decimal?), decimal? paymentServiceTax = default(decimal?), string? cfPaymentId = default(string?), string? status = default(string?), decimal? forexConversionHandlingCharge = default(decimal?), decimal? forexConversionHandlingTax = default(decimal?), string? chargesCurrency = default(string?))
         {
             this.payment_amount = paymentAmount;
             this.payment_currency = paymentCurrency;
             this.bank_reference = bankReference;
             this.payment_time = paymentTime;
-            this.payment_mode = paymentMode;
+            this.payment_group = paymentGroup;
             this.payment_service_charge = paymentServiceCharge;
             this.payment_service_tax = paymentServiceTax;
             this.cf_payment_id = cfPaymentId;
@@ -71,9 +71,9 @@ namespace cashfree_pg.Model
         public decimal? payment_amount { get; set; }
 
         /// <summary>
-        /// Payment Curreny type - INR.
+        /// Payment Currency type - INR.
         /// </summary>
-        /// <value>Payment Curreny type - INR.</value>
+        /// <value>Payment Currency type - INR.</value>
         [DataMember(Name = "payment_currency", EmitDefaultValue = false)]
         public string? payment_currency { get; set; }
 
@@ -92,11 +92,11 @@ namespace cashfree_pg.Model
         public string? payment_time { get; set; }
 
         /// <summary>
-        /// Mode of the payment.
+        /// Payment group/mode of the payment. Example - UPI, CREDIT_CARD.
         /// </summary>
-        /// <value>Mode of the payment.</value>
-        [DataMember(Name = "payment_mode", EmitDefaultValue = false)]
-        public string? payment_mode { get; set; }
+        /// <value>Payment group/mode of the payment. Example - UPI, CREDIT_CARD.</value>
+        [DataMember(Name = "payment_group", EmitDefaultValue = false)]
+        public string? payment_group { get; set; }
 
         /// <summary>
         /// Service charge applicable for the payment.
@@ -131,19 +131,19 @@ namespace cashfree_pg.Model
         /// </summary>
         /// <value>Forex Conversion Service Charge.</value>
         [DataMember(Name = "forex_conversion_handling_charge", EmitDefaultValue = false)]
-        public string? forex_conversion_handling_charge { get; set; }
+        public decimal? forex_conversion_handling_charge { get; set; }
 
         /// <summary>
         /// Forex Conversion Service Tax.
         /// </summary>
         /// <value>Forex Conversion Service Tax.</value>
         [DataMember(Name = "forex_conversion_handling_tax", EmitDefaultValue = false)]
-        public string? forex_conversion_handling_tax { get; set; }
+        public decimal? forex_conversion_handling_tax { get; set; }
 
         /// <summary>
-        /// Forex Charges Curreny type - INR.
+        /// Forex Charges Currency type - INR.
         /// </summary>
-        /// <value>Forex Charges Curreny type - INR.</value>
+        /// <value>Forex Charges Currency type - INR.</value>
         [DataMember(Name = "charges_currency", EmitDefaultValue = false)]
         public string? charges_currency { get; set; }
 
@@ -159,7 +159,7 @@ namespace cashfree_pg.Model
             sb.Append("  payment_currency: ").Append(payment_currency).Append("\n");
             sb.Append("  bank_reference: ").Append(bank_reference).Append("\n");
             sb.Append("  payment_time: ").Append(payment_time).Append("\n");
-            sb.Append("  payment_mode: ").Append(payment_mode).Append("\n");
+            sb.Append("  payment_group: ").Append(payment_group).Append("\n");
             sb.Append("  payment_service_charge: ").Append(payment_service_charge).Append("\n");
             sb.Append("  payment_service_tax: ").Append(payment_service_tax).Append("\n");
             sb.Append("  cf_payment_id: ").Append(cf_payment_id).Append("\n");

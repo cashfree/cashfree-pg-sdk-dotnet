@@ -27,22 +27,60 @@ using OpenAPIDateConverter = cashfree_pg.Client.OpenAPIDateConverter;
 namespace cashfree_pg.Model
 {
     /// <summary>
-    /// Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+    /// Specify either the Settlement ID, Settlement UTR, settlement status, or start date and end date to fetch the settlement details.
     /// </summary>
     [DataContract(Name = "FetchSettlementsRequest_filters")]
     public class FetchSettlementsRequestFilters : IValidatableObject
     {
         /// <summary>
+        /// Defines settlement_status
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SettlementStatusEnum
+        {
+            /// <summary>
+            /// Enum SUCCESS for value: SUCCESS
+            /// </summary>
+            [EnumMember(Value = "SUCCESS")]
+            SUCCESS = 1,
+
+            /// <summary>
+            /// Enum PENDING for value: PENDING
+            /// </summary>
+            [EnumMember(Value = "PENDING")]
+            PENDING = 2,
+
+            /// <summary>
+            /// Enum PENDINGWITHCASHFREE for value: PENDING_WITH_CASHFREE
+            /// </summary>
+            [EnumMember(Value = "PENDING_WITH_CASHFREE")]
+            PENDINGWITHCASHFREE = 3,
+
+            /// <summary>
+            /// Enum PENDINGWITHBANK for value: PENDING_WITH_BANK
+            /// </summary>
+            [EnumMember(Value = "PENDING_WITH_BANK")]
+            PENDINGWITHBANK = 4,
+
+            /// <summary>
+            /// Enum FAILED for value: FAILED
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED = 5
+        }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FetchSettlementsRequestFilters" /> class.
         /// </summary>
         /// <param name="cfSettlementIds">List of settlement IDs for which you want the settlement reconciliation details..</param>
         /// <param name="settlementUtrs">List of settlement UTRs for which you want the settlement reconciliation details..</param>
+        /// <param name="settlementStatus">List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED..</param>
         /// <param name="startDate">Specify the start date from when you want the settlement reconciliation details..</param>
         /// <param name="endDate">Specify the end date till when you want the settlement reconciliation details..</param>
-        public FetchSettlementsRequestFilters(List<string>? cfSettlementIds = default(List<string>?), List<string>? settlementUtrs = default(List<string>?), string? startDate = default(string?), string? endDate = default(string?))
+        public FetchSettlementsRequestFilters(List<string>? cfSettlementIds = default(List<string>?), List<string>? settlementUtrs = default(List<string>?), List<SettlementStatusEnum> settlementStatus = default(List<SettlementStatusEnum>), string? startDate = default(string?), string? endDate = default(string?))
         {
             this.cf_settlement_ids = cfSettlementIds;
             this.settlement_utrs = settlementUtrs;
+            this.settlement_status = settlementStatus;
             this.start_date = startDate;
             this.end_date = endDate;
         }
@@ -60,6 +98,13 @@ namespace cashfree_pg.Model
         /// <value>List of settlement UTRs for which you want the settlement reconciliation details.</value>
         [DataMember(Name = "settlement_utrs", EmitDefaultValue = false)]
         public List<string>? settlement_utrs { get; set; }
+
+        /// <summary>
+        /// List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED.
+        /// </summary>
+        /// <value>List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED.</value>
+        [DataMember(Name = "settlement_status", EmitDefaultValue = false)]
+        public List<FetchSettlementsRequestFilters.SettlementStatusEnum>? settlement_status { get; set; }
 
         /// <summary>
         /// Specify the start date from when you want the settlement reconciliation details.
@@ -85,6 +130,7 @@ namespace cashfree_pg.Model
             sb.Append("class FetchSettlementsRequestFilters {\n");
             sb.Append("  cf_settlement_ids: ").Append(cf_settlement_ids).Append("\n");
             sb.Append("  settlement_utrs: ").Append(settlement_utrs).Append("\n");
+            sb.Append("  settlement_status: ").Append(settlement_status).Append("\n");
             sb.Append("  start_date: ").Append(start_date).Append("\n");
             sb.Append("  end_date: ").Append(end_date).Append("\n");
             sb.Append("}\n");

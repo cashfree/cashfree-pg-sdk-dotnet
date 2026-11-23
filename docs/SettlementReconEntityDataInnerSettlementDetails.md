@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cf_settlement_id** | **string** | Unique ID to identify the settlement. | [optional] 
 **settlement_date** | **string** | Date and time when the settlement was processed. | [optional] 
-**utr** | **string** | Unique transaction reference number of the settlement. | [optional] 
+**settlement_utr** | **string** | Unique transaction reference number of the settlement. | [optional] 
 **split_service_charge** | **decimal** | Service charge that is applicable for splitting the payment. | [optional] 
 **split_service_tax** | **decimal** | Service tax applicable for splitting the amount to vendors. | [optional] 
 **vendor_commission** | **decimal** | Vendor commission applicable for this transaction. | [optional] 

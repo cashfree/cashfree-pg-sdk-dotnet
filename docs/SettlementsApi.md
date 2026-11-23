@@ -9,11 +9,11 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 <a id="markforsettlement"></a>
 # **MarkForSettlement**
-> Object MarkForSettlement (string xApiVersion, string? xRequestId = null, Guid? xIdempotencyKey = null, CreateOrderSettlementRequestBody? createOrderSettlementRequestBody = null)
+> MarkOrderSettlementResponse MarkForSettlement (string xApiVersion, string? xRequestId = null, Guid? xIdempotencyKey = null, CreateOrderSettlementRequestBody? createOrderSettlementRequestBody = null)
 
 Mark Order For Settlement
 
-Use this API to pass the CBRICS ID to Cashfree and mark an order for settlement.
+Use this API to pass the CBRIKS ID to Cashfree and mark an order for settlement.
 
 ### Example
 ```csharp
@@ -45,7 +45,7 @@ namespace Example
             try
             {
                 // Mark Order For Settlement
-                Object result = cashfree.MarkForSettlement(xApiVersion, xRequestId, xIdempotencyKey, createOrderSettlementRequestBody);
+                MarkOrderSettlementResponse result = cashfree.MarkForSettlement(xApiVersion, xRequestId, xIdempotencyKey, createOrderSettlementRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -70,7 +70,7 @@ namespace Example
 
 ### Return type
 
-**Object**
+[**MarkOrderSettlementResponse**](MarkOrderSettlementResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ namespace Example
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | OK |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
+| **200** | OK |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **400** | Create Settlement Failure Response. |  -  |
 | **401** | Authentication Error. |  * x-api-version -  <br>  * x-ratelimit-limit -  <br>  * x-ratelimit-remaining -  <br>  * x-ratelimit-retry -  <br>  * x-ratelimit-type -  <br>  * x-request-id -  <br>  * x-idempotency-key -  <br>  * x-idempotency-replayed -  <br>  |
 | **404** | Create Settlement Failure Response. |  -  |
@@ -95,11 +95,11 @@ namespace Example
 
 <a id="pgorderfetchsettlement"></a>
 # **PGOrderFetchSettlement**
-> SettlementEntity PGOrderFetchSettlement (string xApiVersion, string orderId, string? xRequestId = null, Guid? xIdempotencyKey = null)
+> OrderSettlementEntity PGOrderFetchSettlement (string xApiVersion, string orderId, string? xRequestId = null, Guid? xIdempotencyKey = null)
 
 Get Settlements by Order ID
 
-Use this API to view all the settlements of a particular order.
+Use this API to view the latest linked settlement details for a particular order, including pending and failed settlements.
 
 ### Example
 ```csharp
@@ -131,7 +131,7 @@ namespace Example
             try
             {
                 // Get Settlements by Order ID
-                SettlementEntity result = cashfree.PGOrderFetchSettlement(xApiVersion, orderId, xRequestId, xIdempotencyKey);
+                OrderSettlementEntity result = cashfree.PGOrderFetchSettlement(xApiVersion, orderId, xRequestId, xIdempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -156,7 +156,7 @@ namespace Example
 
 ### Return type
 
-[**SettlementEntity**](SettlementEntity.md)
+[**OrderSettlementEntity**](OrderSettlementEntity.md)
 
 ### Authorization
 
